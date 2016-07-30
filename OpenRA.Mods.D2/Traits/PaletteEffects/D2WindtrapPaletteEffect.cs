@@ -22,7 +22,7 @@ namespace OpenRA.Mods.D2.Traits
 		[Desc("Palette for effect.")]
 		public string PaletteName = "player";
 
-		[Desc("Palette index of first RotationRange color.")]
+		[Desc("Palette index where Rotated color will be copied.")]
 		public readonly int RotationIndex = 223;
 
 		[Desc("Palette index of first RotationRange color.")]
