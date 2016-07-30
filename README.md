@@ -1,11 +1,13 @@
 # d2 mod for OpenRA
 
-1. Install OpenRA or build it from sources
+1. Install OpenRA or build it from sources. Note that current release-20160508 can not be used for d2 mod. At this moment you should build from bleed
 
 2. Copy or link the following files from your main OpenRA installation into OpenRA.Mods.D2/dependencies directory: 
-* OpenRA.Game.exe
-* OpenRA.Mods.Common.dll
-* Eluant.dll
+```
+OpenRA.Game.exe
+OpenRA.Mods.Common.dll
+Eluant.dll
+```
 
 3. Run ```make all``` in OpenRA.Mods.D2 directory for linux and mac. Or open OpenRA.Mods.D2.sln solution in Visual Studio and build project for windows
 
