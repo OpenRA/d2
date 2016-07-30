@@ -1,0 +1,19 @@
+rockcraters:
+	rockcrater1: ICON.ICN
+		Frames: 1,3,5
+		Length: 3
+		Offset: 0,0
+	rockcrater2: ICON.ICN
+		Frames: 2,4,6
+		Length: 3
+		Offset: 0,0
+
+sandcraters:
+	sandcrater1: ICON.ICN
+		Frames: 7,9,11
+		Length: 3
+		Offset: 0,0
+	sandcrater2: ICON.ICN
+		Frames: 8,10,12
+		Length: 3
+		Offset: 0,0

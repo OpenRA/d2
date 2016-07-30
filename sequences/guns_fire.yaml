@@ -1,0 +1,99 @@
+120mm:
+	idle: UNITS1.SHP
+		Start: 23
+		BlendMode: Additive
+		ZOffset: 1023
+
+155mm:
+	idle: UNITS1.SHP
+		Start: 24
+		BlendMode: Additive
+		ZOffset: 1023
+
+doubleblastbullet:
+	idle: UNITS1.SHP
+		Start: 25
+		BlendMode: Additive
+		ZOffset: 1023
+
+rpg:
+	idle: 
+		Combine:
+			UNITS.SHP:
+				Start: 30
+				Length: 5
+			UNITS.SHP:
+				Start: 31
+				Length: 3
+				FlipY: true
+			UNITS.SHP
+				Start: 30
+				Length: 5
+				FlipY: true
+				FlipX: true
+			UNITS.SHP
+				Start: 31
+				Length: 3
+				FlipX: true
+			UNITS.SHP:
+				Start: 35
+				Length: 5
+			UNITS.SHP:
+				Start: 36
+				Length: 3
+				FlipY: true
+			UNITS.SHP
+				Start: 35
+				Length: 5
+				FlipY: true
+				FlipX: true
+			UNITS.SHP
+				Start: 36
+				Length: 3
+				FlipX: true
+		Frames: 0, 16, 1, 17, 2, 18, 3, 19, 4, 20, 7, 23, 6, 22, 5, 21, 8, 24, 9, 25, 10, 26, 11, 27, 12, 28, 15, 31, 14, 30, 13, 29
+		Length: 2
+		Facings: -16
+		Tick: 100
+		ZOffset: 1023
+
+missile:
+	idle: 
+		Combine:
+			UNITS.SHP:
+				Start: 20
+				Length: 5
+			UNITS.SHP:
+				Start: 21
+				Length: 3
+				FlipY: true
+			UNITS.SHP
+				Start: 20
+				Length: 5
+				FlipY: true
+				FlipX: true
+			UNITS.SHP
+				Start: 21
+				Length: 3
+				FlipX: true
+			UNITS.SHP:
+				Start: 25
+				Length: 5
+			UNITS.SHP:
+				Start: 26
+				Length: 3
+				FlipY: true
+			UNITS.SHP
+				Start: 25
+				Length: 5
+				FlipY: true
+				FlipX: true
+			UNITS.SHP
+				Start: 26
+				Length: 3
+				FlipX: true
+		Frames: 0, 16, 1, 17, 2, 18, 3, 19, 4, 20, 7, 23, 6, 22, 5, 21, 8, 24, 9, 25, 10, 26, 11, 27, 12, 28, 15, 31, 14, 30, 13, 29
+		Length: 2
+		Facings: -16
+		Tick: 120
+		ZOffset: 1023

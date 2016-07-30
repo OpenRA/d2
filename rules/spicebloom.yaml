@@ -1,0 +1,51 @@
+spicebloom.spawnpoint:
+	HiddenUnderShroud:
+		Type: CenterPosition
+	BodyOrientation:
+		QuantizedFacings: 1
+	RenderSprites:
+		Image: spicebloom
+	SpiceBloom:
+		GrowthTerrainTypes: SpiceSand
+		SpawnActor: spicebloom
+		GrowthSequences: grow0
+		GrowthDelay: 250, 750
+		RespawnDelay: 1, 2
+	Explodes:
+		Weapon: BloomSpawn
+		EmptyWeapon: BloomSpawn
+	Health:
+		HP: 9999
+		Radius: 1
+	Immobile:
+		OccupiesSpace: false
+
+spicebloom:
+	HiddenUnderShroud:
+	BodyOrientation:
+		QuantizedFacings: 1
+	AutoSelectionSize:
+	RenderSprites:
+	AppearsOnRadar:
+		UseLocation: true
+	Tooltip:
+		Name: Spice Bloom
+	SpiceBloom:
+		Weapon: SpiceExplosion
+	Explodes:
+		Weapon: BloomExplosion
+		EmptyWeapon: BloomExplosion
+	Crushable:
+		CrushClasses: spicebloom
+		CrushedByFriendlies: true
+	RadarColorFromTerrain:
+		Terrain: Spice
+	Immobile:
+	Health:
+		HP: 1
+		Radius: 512
+	Targetable:
+		TargetTypes: Ground
+		RequiresForceFire: true
+	Armor:
+		Type: none

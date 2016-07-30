@@ -1,0 +1,7 @@
+fire:
+	1: UNITS1.SHP
+		Start: 17
+		Length: 6
+		Tick: 300
+		ZOffset: 1023
+

@@ -1,0 +1,39 @@
+trike:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 10
+		Prerequisites: ~light.regulartrikes
+	Valued:
+		Cost: 300
+	CustomBuildTimeValue:
+		Value: 194
+	Tooltip:
+		Name: Trike
+		Description: Fast scout\n Strong vs Infantry\n Weak vs Tanks, Aircraft
+	Selectable:
+		Class: trike
+	Health:
+		HP: 900
+	Armor:
+		Type: wood
+	Mobile:
+		TurnSpeed: 10
+		Speed: 128
+	RevealsShroud:
+		Range: 4c768
+	WithMuzzleOverlay:
+	Armament@damage:
+		Weapon: HMG
+		LocalOffset: -416,0,0
+	Armament@muzzle:
+		Weapon: HMG_muzzle
+		LocalOffset: -416,0,0
+		MuzzleSequence: muzzle
+	AttackFrontal:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	AttractsWorms:
+		Intensity: 420

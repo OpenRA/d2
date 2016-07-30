@@ -1,0 +1,31 @@
+repair_pad:
+	idle: ICON.ICN
+		Start: 345
+		Offset: -16,-8
+		ZOffset: -2047
+	idle-tileset: ICON.ICN
+		Frames: 345, 346, 347, 349, 350, 351
+		Length: 6
+		Offset: -8,0
+		ZOffset: -2047
+	idle-flag: ICON.ICN
+		Frames: 346, 348
+		Length: 2
+		Offset: 0,-8
+		ZOffset: -2047
+		Tick: 1000
+	active-1: ICON.ICN
+		Frames: 350, 352
+		Length: 2
+		Offset: 0,8
+		ZOffset: 0
+		Tick: 50
+	active-2: ICON.ICN
+		Frames: 351, 353
+		Length: 2
+		Offset: 16,8
+		ZOffset: 0
+		Tick: 50
+	icon: SHAPES.SHP
+		Start: 65
+		Offset: 0,0

@@ -1,0 +1,40 @@
+silo:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: construction_yard, refinery
+		Queue: Building
+		BuildPaletteOrder: 30
+	Selectable:
+		Bounds: 32,32
+	Valued:
+		Cost: 150
+	CustomBuildTimeValue:
+		Value: 135
+	Tooltip:
+		Name: Silo
+		Description: Stores excess harvested Spice
+	Building:
+		Adjacent: 4
+	-GivesBuildableArea:
+	Health:
+		HP: 150
+	Armor:
+		Type: wall
+	RevealsShroud:
+		Range: 2c768
+	WithTilesetBody:
+		SkipFrames: 1
+	RenderSprites:
+		Image: silo
+		PlayerPalette: player
+	StoresResources:
+		PipColor: green
+		PipCount: 5
+		Capacity: 2000
+	-EmitInfantryOnSell:
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	Power:
+		Amount: -5
+	MustBeDestroyed:
+		RequiredForShortGame: false

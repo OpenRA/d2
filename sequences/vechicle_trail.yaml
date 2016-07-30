@@ -1,0 +1,8 @@
+vtrail: 
+	idle: ICON.ICN
+		Start: 25
+		Length: 1
+		Facings: -8
+		Tick: 12000
+		BlendMode: None
+		ZOffset: -1023

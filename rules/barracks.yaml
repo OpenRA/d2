@@ -1,0 +1,76 @@
+barracks:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: construction_yard, wind_trap
+		Queue: Building
+		BuildPaletteOrder: 40
+	Selectable:
+		Bounds: 32,32
+	Valued:
+		Cost: 300
+	CustomBuildTimeValue:
+		Value: 231
+	Tooltip:
+		Name: Barracks
+		Description: Trains infantry
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 300
+	Armor:
+		Type: wood
+	RevealsShroud:
+		Range: 3c768
+	RallyPoint:
+		Offset: 1,2
+	Exit@1:
+		SpawnOffset: 352,576,0
+		ExitCell: 0,2
+	Exit@2:
+		SpawnOffset: 512,480,0
+		ExitCell: 1,2
+	Production:
+		Produces: Infantry
+	PrimaryBuilding:
+	ProductionBar:
+	ProvidesPrerequisite@atreides:
+		Prerequisite: barracks.atreides
+		Factions: atreides
+	ProvidesPrerequisite@ordos:
+		Prerequisite: barracks.ordos
+		Factions: ordos
+	ProvidesPrerequisite@harkonnen:
+		Prerequisite: barracks.harkonnen
+		Factions: harkonnen
+	Power:
+		Amount: -10
+	RenderSprites:
+		Image: barracks
+		PlayerPalette: player
+	WithTilesetBody:
+		SkipFrames: 3
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	ProvidesPrerequisite@buildingname:
+	GlobalUpgradable:
+		Prerequisites: upgrade.barracks
+		Upgrades: stardecoration
+
+upgrade.barracks:
+	AlwaysVisible:
+	Tooltip:
+		Name: Barracks Upgrade
+		Description: Unlocks infantry squads
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: barracks
+		Queue: Upgrade
+		BuildLimit: 1
+	Valued:
+		Cost: 500
+	CustomBuildTimeValue:
+		Value: 290
+	RenderSprites:
+		Image: barracks
+	ProvidesPrerequisite@upgradename:

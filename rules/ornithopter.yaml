@@ -1,0 +1,32 @@
+ornithopter:
+	Inherits: ^Plane
+		TargetTypes: Air
+	AttackBomber:
+	Armament:
+		Weapon: OrniBomb
+	Health:
+		HP: 900
+	Armor:
+		Type: light
+	Aircraft:
+		Speed: 224 # 189 * ~1.2 for balance reasons
+		TurnSpeed: 2
+		Repulsable: False
+		CanHover: True
+	AmmoPool:
+		Ammo: 5
+	Tooltip:
+		Name: Ornithopter
+	SpawnActorOnDeath:
+		Actor: ornithopter.husk
+	RejectsOrders:
+
+ornithopter.husk:
+	Inherits: ^AircraftHusk
+	Tooltip:
+		Name: Ornithopter
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 224
+	RenderSprites:
+		Image: ornithopter

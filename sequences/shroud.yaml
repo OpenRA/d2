@@ -1,0 +1,13 @@
+shroud:
+	shrouda: ICON.ICN
+		Start: 108
+		Length: 16
+	shroudfull: ICON.ICN
+		Start: 123
+		Length: 1
+	foga: ICON.ICN
+		Start: 108
+		Length: 16
+	fogfull: ICON.ICN
+		Start: 123
+		Length: 1

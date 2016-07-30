@@ -1,0 +1,28 @@
+large_trail: 
+	idle: UNITS1.SHP
+		Start: 32
+		Length: 4
+		Tick: 80
+		BlendMode: Additive
+		ZOffset: 1023
+
+small_trail:
+	idle: UNITS1.SHP
+		Start: 32
+		Length: 4
+		Tick: 80
+		ZOffset: 1023
+
+bazooka_trail:
+	idle: UNITS1.SHP
+		Start: 32
+		Length: 4
+		Tick: 80
+		ZOffset: 1023
+
+deviator_trail:
+	idle: UNITS1.SHP
+		Start: 32
+		Length: 4
+		Tick: 80
+		ZOffset: 1023

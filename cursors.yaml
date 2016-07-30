@@ -1,0 +1,272 @@
+ShadowIndex: 1
+
+Palettes:
+	mouse: IBM.PAL
+
+Cursors:
+	MOUSE.SHP: mouse
+		scroll-t:
+			Start: 4
+			X: -8
+			Y: -8
+		scroll-tr:
+			Start: 4
+			X: -8
+			Y: -8
+		scroll-r:
+			Start: 1
+			X: -8
+			Y: -8
+		scroll-br:
+			Start: 1
+			X: -8
+			Y: -8
+		scroll-b:
+			Start: 3
+			X: -8
+			Y: -8
+		scroll-bl:
+			Start: 3
+			X: -8
+			Y: -8
+		scroll-l:
+			Start: 2
+			X: -8
+			Y: -8
+		scroll-tl:
+			Start: 2
+			X: -8
+			Y: -8
+		scroll-t-blocked:
+			Start: 4
+			X: -8
+			Y: -8
+		scroll-tr-blocked:
+			Start: 4
+			X: -8
+			Y: -8
+		scroll-r-blocked:
+			Start: 1
+			X: -8
+			Y: -8
+		scroll-br-blocked:
+			Start: 1
+			X: -8
+			Y: -8
+		scroll-b-blocked:
+			Start: 3
+			X: -8
+			Y: -8
+		scroll-bl-blocked:
+			Start: 3
+			X: -8
+			Y: -8
+		scroll-l-blocked:
+			Start: 2
+			X: -8
+			Y: -8
+		scroll-tl-blocked:
+			Start: 2
+			X: -8
+			Y: -8
+		select:
+			Start: 6
+			X: 0
+			Y: 0
+		default:
+			Start: 0
+			X: -8
+			Y: -8
+		default-minimap:
+			Start: 0
+			X: -8
+			Y: -8
+		generic-blocked:
+			Start: 0
+			X: -8
+			Y: -8
+		generic-blocked-minimap:
+			Start: 0
+			X: -8
+			Y: -8
+		move:
+			Start: 5
+			X: 0
+			Y: 0
+		move-minimap:
+			Start: 5
+			X: 0
+			Y: 0
+		move-blocked:
+			Start: 5
+			X: 0
+			Y: 0
+		move-blocked-minimap:
+			Start: 5
+			X: 0
+			Y: 0
+		attack:
+			Start: 5
+			X: 0
+			Y: 0
+		attack-minimap:
+			Start: 5
+			X: 0
+			Y: 0
+		attackoutsiderange:
+			Start: 5
+			X: 0
+			Y: 0
+		attackoutsiderange-minimap:
+			Start: 5
+			X: 0
+			Y: 0
+		attackmove:
+			Start: 5
+			X: 0
+			Y: 0
+		attackmove-minimap:
+			Start: 5
+			X: 0
+			Y: 0
+		harvest:
+			Start: 5
+			X: 0
+			Y: 0
+		harvest-minimap:
+			Start: 5
+			X: 0
+			Y: 0
+		enter:
+			Start: 5
+			X: 0
+			Y: 0
+		enter-minimap:
+			Start: 5
+			X: 0
+			Y: 0
+		enter-blocked:
+			Start: 5
+			X: 0
+			Y: 0
+		enter-blocked-minimap:
+			Start: 5
+			X: 0
+			Y: 0
+		c4:
+			Start: 6
+			X: 0
+			Y: 0
+		c4-minimap:
+			Start: 6
+			X: 0
+			Y: 0
+		guard:
+			Start: 5
+			X: 0
+			Y: 0
+		guard-minimap:
+			Start: 5
+			X: 0
+			Y: 0
+		capture:
+			Start: 5
+			X: 0
+			Y: 0
+		capture-minimap:
+			Start: 5
+			X: 0
+			Y: 0
+		ability:
+			Start: 0
+			X: -8
+			Y: -8
+		ability-minimap:
+			Start: 0
+			X: -8
+			Y: -8
+		joystick-all:
+			Start: 0
+			X: -8
+			Y: -8
+		joystick-t-blocked:
+			Start: 4
+			X: -8
+			Y: -8
+		joystick-tr-blocked:
+			Start: 4
+			X: -8
+			Y: -8
+		joystick-r-blocked:
+			Start: 1
+			X: -8
+			Y: -8
+		joystick-br-blocked:
+			Start: 1
+			X: -8
+			Y: -8
+		joystick-b-blocked:
+			Start: 3
+			X: -8
+			Y: -8
+		joystick-bl-blocked:
+			Start: 3
+			X: -8
+			Y: -8
+		joystick-l-blocked:
+			Start: 2
+			X: -8
+			Y: -8
+		joystick-tl-blocked:
+			Start: 2
+			X: -8
+			Y: -8
+# Cursors that need minimap variants
+		deploy:
+			Start: 6
+			X: 0
+			Y: 0
+		deploy-blocked:
+			Start: 6
+			X: 0
+			Y: 0
+		nuke:
+			Start: 5
+			X: 0
+			Y: 0
+		sell:
+			Start: 6
+			X: 0
+			Y: 0
+		sell-blocked:
+			Start: 6
+			X: 0
+			Y: 0
+		repair:
+			Start: 5
+			X: 0
+			Y: 0
+		repair-blocked:
+			Start: 5
+			X: 0
+			Y: 0
+		goldwrench:
+			Start: 0
+			X: 0
+			Y: 0
+		goldwrench-blocked:
+			Start: 0
+			X: -8
+			Y: -8
+		move-rough:
+			Start: 0
+			X: -8
+			Y: -8
+		powerdown-blocked:
+			Start: 5
+			X: 0
+			Y: 0
+		powerdown:
+			Start: 5
+			X: 0
+			Y: 0

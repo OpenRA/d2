@@ -1,0 +1,49 @@
+repair_pad:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		Prerequisites: construction_yard, heavy_factory, upgrade.heavy, ~techlevel.medium
+		BuildPaletteOrder: 130
+	Valued:
+		Cost: 700
+	CustomBuildTimeValue:
+		Value: 324
+	Tooltip:
+		Name: Repair Pad
+		Description: Repairs vehicles\n Allows construction of MCVs
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 400
+	Armor:
+		Type: building
+	RevealsShroud:
+		Range: 4c768
+	Selectable:
+		Bounds: 48,32
+	SelectionDecorations:
+		VisualBounds: 48,32
+	Reservable:
+	RepairsUnits:
+		Interval: 10
+		HpPerStep: 80
+		FinishRepairingNotification: UnitRepaired
+	RallyPoint:
+		Offset: 1,3
+	WithTilesetBody:
+		SkipFrames: 1
+	RenderSprites:
+		Image: repair_pad
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	WithRepairOverlay@ACTIVE1:
+		Sequence: active-1
+		#Palette: effect75alpha
+	WithRepairOverlay@ACTIVE2:
+		Sequence: active-2
+		#Palette: effect75alpha
+	Power:
+		Amount: -20
+	ProvidesPrerequisite@buildingname:
+

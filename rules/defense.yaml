@@ -1,0 +1,16 @@
+^Defense:
+	Inherits: ^Building
+	WithSpriteTurret:
+	AttackTurreted:
+	AutoTarget:
+	#RenderRangeCircle:
+	-GivesBuildableArea:
+	-WithTilesetBody:
+	WithWallSpriteBody:
+	LineBuildNode:
+		Types: turret
+	MustBeDestroyed:
+		RequiredForShortGame: false
+	Building:
+		Dimensions: 1,1
+		Footprint: x

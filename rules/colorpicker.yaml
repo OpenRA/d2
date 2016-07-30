@@ -1,0 +1,8 @@
+^carryall.colorpicker:
+	Inherits: carryall
+	Aircraft:
+		InitialFacing: 104
+	RenderSprites:
+		Image: harvester.colorpicker
+		Scale: 2
+		Palette: colorpicker

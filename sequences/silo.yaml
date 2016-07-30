@@ -1,0 +1,18 @@
+silo:
+	idle: ICON.ICN
+		Start: 372
+		Offset: -8,-8
+	idle-tileset: ICON.ICN
+		Frames: 372, 373, 375, 376
+		Length: 4
+		Offset: 0,0
+		ZOffset: -2047
+	idle-flag: ICON.ICN
+		Start: 373
+		Length: 2
+		Offset: 8,-8
+		ZOffset: -2047
+		Tick: 1000
+	icon: SHAPES.SHP
+		Start: 69
+		Offset: 0,0

@@ -1,0 +1,48 @@
+fremen:
+	Inherits: ^Infantry
+	Tooltip:
+		Name: Fremen
+		Description: Elite sniper infantry unit\n  Strong vs Infantry\n  Weak vs Vehicles\n  Special Ability: Invisibility
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 100
+		Prerequisites: ~disabled
+	Mobile:
+		Speed: 43
+	Valued:
+		Cost: 200	## actually 0, but spawns from support power at Palace
+	Health:
+		HP: 700
+	RevealsShroud:
+		Range: 4c768
+	AutoTarget:
+		ScanRadius: 7
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
+	Armament@PRIMARY:
+		Weapon: Fremen_S
+	Armament@SECONDARY:
+		Weapon: Fremen_L
+	AttackFrontal:
+	WithInfantryBody:
+		AttackSequence: shoot
+	Cloak:
+		InitialDelay: 85
+		CloakDelay: 85
+		CloakSound: STEALTH1.WAV
+		UncloakSound: STEALTH2.WAV
+		IsPlayerPalette: true
+	-MustBeDestroyed:
+	Voiced:
+		VoiceSet: FremenVoice
+
+nsfremen:
+	Inherits: fremen
+	Tooltip:
+		Description: Elite sniper infantry unit\n  Strong vs Infantry\n  Weak vs Vehicles
+	Buildable:
+		BuildPaletteOrder: 105
+		Prerequisites: ~disabled
+	RenderSprites:
+		Image: fremen
+	-Cloak:

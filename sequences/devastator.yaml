@@ -1,0 +1,108 @@
+devastator:
+	idle:
+		Combine:
+			UNITS2.SHP:
+				Start: 20
+				Length: 5
+			UNITS2.SHP:
+				Start: 21
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	turret:
+		Combine:
+			UNITS2.SHP:
+				Start: 25
+				Length: 1
+				Offset: 0,-3
+			UNITS2.SHP:
+				Start: 26
+				Length: 1
+				Offset: -2,-3
+			UNITS2.SHP:
+				Start: 27
+				Length: 1
+				Offset: 1,-4
+			UNITS2.SHP:
+				Start: 28
+				Length: 1
+				Offset: 0,-3
+			UNITS2.SHP:
+				Start: 29
+				Length: 1
+				Offset: -1,-3
+			UNITS2.SHP:
+				Start: 28
+				Length: 1
+				FlipX: true
+				Offset: 1,-4
+			UNITS2.SHP:
+				Start: 27
+				Length: 1
+				FlipX: true
+				Offset: -1,-4
+			UNITS2.SHP:
+				Start: 26
+				Length: 1
+				FlipX: true
+				Offset: 2,-3
+		Facings: -8
+	muzzle: DATA.R8
+		Start: 3418
+		Length: 3
+		BlendMode: Additive
+	icon: SHAPES.SHP
+		Start: 75
+		Offset: 0,0
+
+devastator.husk:
+	idle:
+		Combine:
+			UNITS2.SHP:
+				Start: 20
+				Length: 5
+			UNITS2.SHP:
+				Start: 21
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	turret:
+		Combine:
+			UNITS2.SHP:
+				Start: 25
+				Length: 1
+				Offset: 0,-3
+			UNITS2.SHP:
+				Start: 26
+				Length: 1
+				Offset: -2,-3
+			UNITS2.SHP:
+				Start: 27
+				Length: 1
+				Offset: 1,-4
+			UNITS2.SHP:
+				Start: 28
+				Length: 1
+				Offset: 0,-3
+			UNITS2.SHP:
+				Start: 29
+				Length: 1
+				Offset: -1,-3
+			UNITS2.SHP:
+				Start: 28
+				Length: 1
+				FlipX: true
+				Offset: 1,-4
+			UNITS2.SHP:
+				Start: 27
+				Length: 1
+				FlipX: true
+				Offset: -1,-4
+			UNITS2.SHP:
+				Start: 26
+				Length: 1
+				FlipX: true
+				Offset: 2,-3
+		Facings: -8

@@ -1,0 +1,90 @@
+MapFormat: 11
+
+RequiresMod: d2
+
+Title: Dune2 shellmap
+
+Author: OpenRA Authors
+
+Tileset: DUNE2
+
+MapSize: 130,130
+
+Bounds: 1,1,128,128
+
+Visibility: Shellmap
+
+Categories: Conquest
+
+Players:
+	PlayerReference@Neutral:
+		Name: Neutral
+		OwnsWorld: True
+		NonCombatant: True
+		Faction: Random
+	PlayerReference@Creeps:
+		Name: Creeps
+		NonCombatant: True
+		Faction: Random
+
+Actors:
+	Actor0: refinery
+		Owner: Neutral
+		Location: 52,64
+	Actor1: refinery
+		Owner: Neutral
+		Location: 59,57
+	Actor2: refinery
+		Owner: Neutral
+		Location: 69,51
+	Actor3: refinery
+		Owner: Neutral
+		Location: 75,66
+	Actor4: refinery
+		Owner: Neutral
+		Location: 76,62
+	Actor5: refinery
+		Owner: Neutral
+		Location: 73,56
+	Actor6: wormspawner
+		Owner: Neutral
+		Location: 72,72
+	Actor7: wormspawner
+		Owner: Neutral
+		Location: 72,66
+	Actor8: wormspawner
+		Owner: Neutral
+		Location: 68,61
+	Actor9: wormspawner
+		Owner: Neutral
+		Location: 78,59
+	Actor10: wormspawner
+		Owner: Neutral
+		Location: 74,62
+	Actor11: wormspawner
+		Owner: Neutral
+		Location: 60,55
+	Actor12: wormspawner
+		Owner: Neutral
+		Location: 53,54
+	Actor13: wormspawner
+		Owner: Neutral
+		Location: 49,57
+	Actor14: wormspawner
+		Owner: Neutral
+		Location: 47,61
+	Actor15: wormspawner
+		Owner: Neutral
+		Location: 62,52
+	Actor16: wormspawner
+		Owner: Neutral
+		Location: 55,50
+	Actor17: wormspawner
+		Owner: Neutral
+		Location: 62,77
+	Actor18: wormspawner
+		Owner: Neutral
+		Location: 53,72
+	Actor19: wormspawner
+		Owner: Neutral
+		Location: 61,62

@@ -1,0 +1,57 @@
+^Vehicle:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^GainsExperience
+	Inherits@3: ^SpriteActor
+	Mobile:
+		UpgradeTypes: notmobile
+		UpgradeMaxEnabledLevel: 0
+		Crushes: crate, spicebloom
+		TerrainSpeeds:
+			Sand: 100
+			Rock: 100
+			Transition: 100
+			Concrete: 100
+			SpiceSand: 100
+			Spice: 100
+			SpiceBlobs: 100
+			Dune: 50
+		TurnSpeed: 5
+	SelectionDecorations:
+	Selectable:
+		Bounds: 16,16
+	Targetable:
+		TargetTypes: Ground, Vehicle, C4
+	Passenger:
+		CargoType: Vehicle
+	AttackMove:
+	#DrawLineToTarget:
+	HiddenUnderFog:
+	ActorLostNotification:
+	Repairable:
+		RepairBuildings: repair_pad
+	Guard:
+		Voice: Guard
+	Guardable:
+	WithFacingSpriteBody:
+	Demolishable:
+	TemporaryOwnerManager:
+	MustBeDestroyed:
+	Voiced:
+		VoiceSet: VehicleVoice
+	Carryable:
+		CarryableUpgrades: notmobile
+	WithDecorationCarryable:
+		Image: pips
+		Sequence: pickup-indicator
+		Offset: -12, -12
+	WithDamageOverlay:
+	LeavesTrails:
+		Image: vtrail
+		Palette: dune2
+		Type: Cell
+		TerrainTypes: Sand, Dune, Spice
+
+^Tank:
+	Inherits: ^Vehicle
+	Mobile:
+		Crushes: crate, infantry, spicebloom

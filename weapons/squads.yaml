@@ -1,0 +1,55 @@
+Bazooka_squad:
+	ReloadDelay: 18
+	Range: 3c0
+	Report: ROCKET1.WAV
+	Projectile: Missile
+		Speed: 281
+		Inaccuracy: 256
+		Image: RPG
+		HorizontalRateOfTurn: 1
+		#TrailImage: bazooka_trail
+		#TrailPalette: effect75alpha
+		#TrailInterval: 1
+		RangeLimit: 3c614
+	Warhead@1Dam: SpreadDamage
+		Spread: 192
+		Falloff: 100, 50, 25, 0
+		Damage: 300
+		Versus:
+			none: 8
+			wall: 75
+			building: 40
+			wood: 45
+			light: 70
+			invulnerable: 0
+			cy: 20
+			harvester: 50
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater, RockCrater
+	Warhead@3Eff: CreateEffect
+		Explosions: tiny_explosion
+		ImpactSounds: EXPLSML1.WAV
+
+LMG_squad:
+	ReloadDelay: 20
+	Range: 2c512
+	Report: MGUN2.WAV
+	Projectile: Bullet
+		Speed: 1c256
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Falloff: 100, 50, 25, 0
+		Damage: 200
+		Versus:
+			wall: 10
+			building: 25
+			wood: 75
+			light: 40
+			heavy: 20
+			invulnerable: 0
+			cy: 20
+			harvester: 25
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: piffs

@@ -1,0 +1,78 @@
+wor:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: construction_yard, wind_trap, barracks
+		Queue: Building
+		BuildPaletteOrder: 40
+	Selectable:
+		Bounds: 32,32
+	Valued:
+		Cost: 400
+	CustomBuildTimeValue:
+		Value: 231
+	Tooltip:
+		Name: WOR
+		Description: Trains heavy infantry
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 400
+	Armor:
+		Type: wood
+	RevealsShroud:
+		Range: 3c768
+	RallyPoint:
+		Offset: 1,2
+	Exit@1:
+		SpawnOffset: 352,576,0
+		ExitCell: 0,2
+	Exit@2:
+		SpawnOffset: 512,480,0
+		ExitCell: 1,2
+	Production:
+		Produces: Infantry
+	PrimaryBuilding:
+	ProductionBar:
+	ProvidesPrerequisite@atreides:
+		Prerequisite: wor.atreides
+		Factions: atreides
+	ProvidesPrerequisite@ordos:
+		Prerequisite: wor.ordos
+		Factions: ordos
+	ProvidesPrerequisite@harkonnen:
+		Prerequisite: wor.harkonnen
+		Factions: harkonnen
+	Power:
+		Amount: -20
+	RenderSprites:
+		Image: wor
+		PlayerPalette: player
+	WithTilesetBody:
+		SkipFrames: 0, 2
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	WithIdleOverlay@TOP-FLAG:
+		Sequence: idle-top-flag
+	ProvidesPrerequisite@buildingname:
+	GlobalUpgradable:
+		Prerequisites: upgrade.wor
+		Upgrades: stardecoration
+
+upgrade.wor:
+	AlwaysVisible:
+	Tooltip:
+		Name: WOR Upgrade
+		Description: Unlocks troopers squads
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: wor
+		Queue: Upgrade
+		BuildLimit: 1
+	Valued:
+		Cost: 500
+	CustomBuildTimeValue:
+		Value: 290
+	RenderSprites:
+		Image: wor
+	ProvidesPrerequisite@upgradename:

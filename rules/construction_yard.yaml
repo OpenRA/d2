@@ -1,0 +1,63 @@
+construction_yard:
+	Inherits: ^Building
+	-DamagedByTerrain:
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		Adjacent: 4
+	LaysTerrain:
+		TerrainTypes: Rock
+		Template: 127
+	Selectable:
+		Bounds: 32,32
+	Health:
+		HP: 400
+	Armor:
+		Type: cy
+	RevealsShroud:
+		Range: 5c768
+	Production:
+		Produces: Building, Upgrade
+	Exit:
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Construction Yard
+	CustomSellValue:
+		Value: 400
+	EmitInfantryOnSell:
+		ActorTypes: light_inf, light_inf, light_squad
+	BaseBuilding:
+	ProductionBar:
+	Power:
+		Amount: 0
+	WithTilesetBody:
+		SkipFrames: 0
+	RenderSprites:
+		Image: conyard
+		PlayerPalette: player
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	PrimaryBuilding:
+	ProvidesPrerequisite@buildingname:
+	GlobalUpgradable:
+		Prerequisites: upgrade.conyard
+		Upgrades: stardecoration
+
+upgrade.conyard:
+	AlwaysVisible:
+	Tooltip:
+		Name: Construction Yard Upgrade
+		Description: Unlocks new construction options
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: construction_yard
+		Queue: Upgrade
+		BuildLimit: 1
+	Valued:
+		Cost: 400
+	CustomBuildTimeValue:
+		Value: 590
+	RenderSprites:
+		Image: conyard
+	ProvidesPrerequisite@upgradename:

@@ -1,0 +1,55 @@
+light_inf:
+	stand:
+		Combine:
+			UNITS.SHP:
+				Start: 73
+			UNITS.SHP:
+				Start: 76
+			UNITS.SHP:
+				Start: 79
+			UNITS.SHP:
+				Start: 76
+				FlipX: true
+		Facings: -4
+	run:
+		Combine:
+			UNITS.SHP:
+				Start: 73
+				Length: 3
+			UNITS.SHP:
+				Start: 76
+				Length: 3
+			UNITS.SHP:
+				Start: 79
+				Length: 3
+			UNITS.SHP:
+				Start: 76
+				Length: 3
+				FlipX: true
+		Length: 3
+		Facings: -4
+		Tick: 110
+	die1: ICON.ICN
+		Frames: 19, 20
+		Length: 2
+		Tick: 5000
+	die2: ICON.ICN
+		Frames: 19, 20
+		Length: 2
+		Tick: 5000
+	die3: ICON.ICN
+		Frames: 19, 20
+		Length: 2
+		Tick: 5000
+	die4: ICON.ICN
+		Frames: 19, 20
+		Length: 2
+		Tick: 5000
+	die-crushed: ICON.ICN
+		Frames: 23
+		Length: 1
+		Tick: 10000
+		ZOffset: -1024
+	icon: SHAPES.SHP
+		Start: 90
+		Offset: 0,0

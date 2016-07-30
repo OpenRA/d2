@@ -1,0 +1,13 @@
+harvester.colorpicker:
+	idle:
+		Combine:
+			UNITS.SHP:
+				Start: 10
+				Length: 5
+			UNITS.SHP:
+				Start: 11
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+		Offset: 8,-8

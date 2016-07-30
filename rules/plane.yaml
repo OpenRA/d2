@@ -1,0 +1,21 @@
+^Plane:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	AppearsOnRadar:
+		UseLocation: yes
+	HiddenUnderFog:
+		Type: CenterPosition
+		AlwaysVisibleStances: None
+	ActorLostNotification:
+	AttackMove:
+	#DrawLineToTarget:
+	WithFacingSpriteBody:
+	WithShadow:
+
+^AircraftHusk:
+	Inherits: ^Husk
+	WithShadow:
+	FallsToEarth:
+		Spins: False
+		Moves: True
+		Explosion: UnitExplodeLarge

@@ -1,0 +1,63 @@
+starport:
+	Inherits: ^Building
+	Tooltip:
+		Name: Starport
+		Description: Dropzone for quick reinforcements, at a price.\n  Requires power to operate
+	Buildable:
+		Prerequisites: construction_yard, heavy_factory, outpost, ~techlevel.high
+		Queue: Building
+		BuildPaletteOrder: 80
+	Valued:
+		Cost: 500
+	CustomBuildTimeValue:
+		Value: 540
+	Building:
+		Footprint: xxx ==x ==x
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 48,48
+	Health:
+		HP: 500
+	Armor:
+		Type: building
+	RevealsShroud:
+		Range: 4c768
+	RallyPoint:
+		Offset: 1,3
+	Exit@1:
+		SpawnOffset: 0,-480,0
+		ExitCell: 2,2
+	Exit@2:
+		SpawnOffset: 0,-480,0
+		ExitCell: 0,2
+	ProductionAirdrop:
+		Produces: Starport
+		ActorType: frigate
+	WithTilesetBody:
+		SkipFrames: 0
+	RenderSprites:
+		Image: starport
+		PlayerPalette: player
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	#WithDeliveryOverlay:
+	#	Palette: starportlights
+	ProductionBar:
+	PrimaryBuilding:
+	RequiresPower:
+	CanPowerDown:
+		PowerupSound: EnablePower
+		PowerdownSound: DisablePower
+	#DisabledOverlay:
+	ProvidesPrerequisite@atreides:
+		Prerequisite: starport.atreides
+		Factions: atreides
+	ProvidesPrerequisite@ordos:
+		Prerequisite: starport.ordos
+		Factions: ordos
+	ProvidesPrerequisite@harkonnen:
+		Prerequisite: starport.harkonnen
+		Factions: harkonnen
+	Power:
+		Amount: -50
+	ProvidesPrerequisite@buildingname:

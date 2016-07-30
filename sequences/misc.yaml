@@ -1,0 +1,134 @@
+pips:
+	groups: DATA.R8
+		Start: 17
+		Length: 10
+	pickup-indicator: DATA.R8
+		Start: 112
+	tag-primary: transparent.shp
+		Offset: 0, 2
+	pip-empty: DATA.R8
+		Start: 15
+	pip-green: DATA.R8
+		Start: 16
+	tag-upgraded: DATA.R8
+		Start: 110
+		Offset: -8,-8
+
+clock:
+	idle: clock.shp
+		Length: *
+
+powerdown:
+	disabled: speed.shp
+		Start: 3
+		ZOffset: 2047
+
+poweroff:
+	offline: poweroff.shp
+		Length: *
+		Tick: 160
+		ZOffset: 2047
+
+rank:
+	rank: rank.shp
+		Length: *
+
+editor-overlay:
+	Defaults: DATA.R8
+		Offset: -16,-16
+	copy:
+	paste:
+		Start: 1
+
+rallypoint:
+	flag: flagfly.shp
+		Length: *
+		Offset: 11,-5
+		ZOffset: 2535
+	circles: fpls.shp
+		Length: *
+		ZOffset: 2047
+
+beacon:
+	arrow: MOUSE.R8
+		Start: 148
+		Offset: -24,-24
+		ZOffset: 2535
+	circles: fpls.shp
+		Length: *
+		ZOffset: 2047
+
+crate-effects:
+	Defaults:
+		ZOffset: 2047
+	dollar: DATA.R8
+		Start: 3679
+		Length: 8
+	reveal-map: DATA.R8
+		Start: 3947
+		Length: 18
+	hide-map: DATA.R8
+		Frames: 3965, 3964, 3963, 3962, 3961, 3960, 3959, 3958, 3957, 3956, 3955, 3954, 3953, 3952, 3951, 3950, 3949, 3948
+		Length: 18
+	levelup: levelup.shp
+		Length: *
+		Tick: 200
+	cloak: DATA.R8
+		Start: 3911
+		Lenght: 36
+
+allyrepair:
+	repair: DATA.R8
+		Frames: 3, 39
+		Length: 2
+		Tick: 300
+		Offset: -11,-10
+		ZOffset: 2047
+
+mpspawn:
+	idle: mpspawn.shp
+		Length: *
+
+waypoint:
+	idle: waypoint.shp
+		Length: *
+
+camera:
+	idle: camera.shp
+		Length: *
+
+wormspawner:
+	idle: wormspawner.shp
+		Length: *
+
+sietch:
+	idle: DATA.R8
+		Start: 2998
+		Offset: -32,32
+
+doubleblast:
+	idle: DATA.R8
+		Start: 3279
+		Facings: -16
+		BlendMode: Additive
+		ZOffset: 511
+
+crate:
+	idle: DATA.R8
+		Start: 102
+		ZOffset: -511
+		Offset: -16,-16
+
+moveflsh:
+	idle: DATA.R8
+		Start: 3304
+#	idle: DATA.R8
+#		Start: 3621
+#		Length: 5
+#		Tick: 80
+#		BlendMode: Multiply
+#		ZOffset: 2047
+
+null:
+	idle: DATA.R8
+		Start: 3304

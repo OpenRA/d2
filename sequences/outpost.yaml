@@ -1,0 +1,24 @@
+outpost:
+	idle: ICON.ICN
+		Start: 379
+		Offset: -8,-8
+	idle-tileset: ICON.ICN
+		Frames: 379, 380, 388, 387
+		Length: 4
+		Offset: 0,0
+		ZOffset: -2047
+	idle-flag: ICON.ICN
+		Frames: 388, 386
+		Length: 2
+		Offset: -8,8
+		ZOffset: -2047
+		Tick: 1000
+	idle-dish: ICON.ICN
+		Frames: 383, 382, 381, 380
+		Length: 4
+		Offset: 8,-8
+		ZOffset: -2047
+		Tick: 400
+	icon: SHAPES.SHP
+		Start: 70
+		Offset: 0,0

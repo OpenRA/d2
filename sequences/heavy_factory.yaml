@@ -1,0 +1,30 @@
+heavy:
+	idle: ICON.ICN
+		Start: 254
+		Offset: -16,-8
+	idle-tileset: ICON.ICN
+		Frames: 254, 255, 256, 261, 262, 263
+		Length: 6
+		Offset: -8,0
+		ZOffset: -2047
+	idle-flag: ICON.ICN
+		Frames: 254, 257
+		Length: 2
+		Offset: -16,-8
+		ZOffset: -2047
+		Tick: 1000
+	production-welding-1: ICON.ICN
+		Frames: 262, 264, 266
+		Length: 3
+		Offset: 0,8
+		ZOffset: 0
+		Tick: 2000
+	production-welding-2: ICON.ICN
+		Frames: 263, 265, 267
+		Length: 3
+		Offset: 16,8
+		ZOffset: 0
+		Tick: 2000
+	icon: SHAPES.SHP
+		Start: 56
+		Offset: 0,0

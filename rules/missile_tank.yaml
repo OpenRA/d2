@@ -1,0 +1,41 @@
+missile_tank:
+	Inherits: ^Tank
+	Tooltip:
+		Name: Missile Tank
+		Description: Rocket Artillery\n  Strong vs Vehicles, Buildings, Aircraft\n  Weak vs Infantry
+	Buildable:
+		Queue: Armor
+		Prerequisites: ~heavy.missiletank, upgrade.heavy, research_centre, ~techlevel.high
+		BuildPaletteOrder: 60
+	Valued:
+		Cost: 900
+	CustomBuildTimeValue:
+		Value: 441
+	Mobile:
+		Speed: 64
+		TurnSpeed: 5
+	Health:
+		HP: 1300
+	Armor:
+		Type: wood
+	RevealsShroud:
+		Range: 6c768
+	Armament:
+		Weapon: mtank_pri
+		LocalOffset: -128,128,171, -128,-128,171
+	AttackFrontal:
+	Turreted:
+		TurnSpeed: 5
+		RealignDelay: 0
+	WithSpriteTurret:
+	AutoTarget:
+		InitialStanceAI: Defend
+	Explodes:
+		Weapon: UnitExplodeMed
+		EmptyWeapon: UnitExplodeMed
+	Selectable:
+		Class: missiletank
+	SpawnActorOnDeath:
+		Actor: missile_tank.husk
+	AttractsWorms:
+		Intensity: 600

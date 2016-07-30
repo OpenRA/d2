@@ -1,0 +1,27 @@
+starport:
+	idle: ICON.ICN
+		Start: 309
+		ZOffset: -1c511
+		Offset: -16,-16
+	idle-tileset: ICON.ICN
+		Frames: 309, 310, 311, 314, 315, 316, 319, 320, 321
+		Length: 9
+		Offset: -8,-8
+		ZOffset: -2047
+	idle-flag: ICON.ICN
+		Frames: 309, 312
+		Length: 2
+		Offset: -16,-16
+		ZOffset: -2047
+		Tick: 1000
+	active: DATA.R8
+		Start: 4723
+		Length: 23
+		ZOffset: -1c511
+		Offset: -48,48
+		BlendMode: Additive
+		Tick: 200
+	icon: SHAPES.SHP
+		Start: 63
+		Offset: 0,0
+

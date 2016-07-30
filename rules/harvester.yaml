@@ -1,0 +1,50 @@
+harvester:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Armor
+		Prerequisites: refinery
+		BuildPaletteOrder: 10
+		InitialActivity: FindResources
+	Valued:
+		Cost: 1200
+	CustomBuildTimeValue:
+		Value: 540
+	Tooltip:
+		Name: Spice Harvester
+		Description: Collects Spice for processing\n  Unarmed
+	Selectable:
+		Class: harvester
+		Priority: 7
+	Harvester:
+		PipCount: 7
+		Capacity: 28
+		HarvestFacings: 8
+		Resources: Spice
+		BaleUnloadDelay: 5
+		SearchFromProcRadius: 30
+		SearchFromOrderRadius: 15
+	Health:
+		HP: 4500
+	Armor:
+		Type: harvester
+	Mobile:
+		Speed: 43
+		Crushes: crate, infantry, spicebloom
+	RevealsShroud:
+		Range: 3c768
+	Explodes:
+		Weapon: UnitExplodeLarge
+		EmptyWeapon: UnitExplodeLarge
+	SpawnActorOnDeath:
+		Actor: harvester.Husk
+	WithHarvestOverlay:
+		Palette: effect50alpha
+	WithDockingAnimation:
+	AttractsWorms:
+		Intensity: 700
+	SelectionDecorations:
+		VisualBounds: 24,24
+	SelfHealing:
+		Step: 5
+		Delay: 3
+		HealIfBelow: 50

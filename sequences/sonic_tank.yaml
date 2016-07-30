@@ -1,0 +1,52 @@
+sonic_tank:
+	idle:
+		Combine:
+			UNITS2.SHP:
+				Start: 0
+				Length: 5
+			UNITS2.SHP:
+				Start: 1
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	turret:
+		Combine:
+			UNITS2.SHP:
+				Start: 30
+				Length: 5
+			UNITS2.SHP:
+				Start: 31
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+		Offset: 0,-4
+	icon: SHAPES.SHP
+		Start: 79
+		Offset: 0,0
+
+sonic_tank.husk:
+	idle:
+		Combine:
+			UNITS2.SHP:
+				Start: 0
+				Length: 5
+			UNITS2.SHP:
+				Start: 1
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	turret:
+		Combine:
+			UNITS2.SHP:
+				Start: 30
+				Length: 5
+			UNITS2.SHP:
+				Start: 31
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+		Offset: 0,-4

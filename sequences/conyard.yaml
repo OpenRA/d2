@@ -1,0 +1,18 @@
+conyard:
+	idle: ICON.ICN
+		Start: 292
+		Offset: -8,-8
+	idle-tileset: ICON.ICN
+		Frames: 292, 293, 297, 298
+		Length: 4
+		Offset: 0,0
+		ZOffset: -2047
+	idle-flag: ICON.ICN
+		Frames: 292, 294
+		Length: 2
+		Offset: -8,-8
+		ZOffset: -2047
+		Tick: 1000
+	icon: SHAPES.SHP
+		Start: 55
+		Offset: 0,0

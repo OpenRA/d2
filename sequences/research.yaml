@@ -1,0 +1,18 @@
+research:
+	idle: ICON.ICN
+		Start: 280
+		Offset: -8,-8
+	idle-tileset: ICON.ICN
+		Frames: 280, 281, 282, 283
+		Length: 4
+		Offset: 0,0
+		ZOffset: -2047
+	idle-flag: ICON.ICN
+		Start: 283
+		Length: 2
+		Offset: 8,8
+		ZOffset: -2047
+		Tick: 1000
+	icon: SHAPES.SHP
+		Start: 58
+		Offset: 0,0

@@ -1,0 +1,8 @@
+atomic:
+	up: UNITS.SHP
+		Start: 40
+		ZOffset: 1023
+	down: UNITS.SHP
+		Start: 40
+		FlipY: true
+		ZOffset: 1023

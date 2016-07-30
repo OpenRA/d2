@@ -1,0 +1,24 @@
+gun_turret:
+	idle: ICON.ICN
+		Start: 356
+		Length: 1
+		Offset: 0,0
+	damaged-idle: ICON.ICN
+		Start: 356
+		Length: 1
+		Offset: 0,0
+	turret: ICON.ICN
+		Start: 356
+		Facings: -8
+		Offset: 0,0
+	muzzle: DATA.R8
+		Start: 3775
+		Tick: 60
+		Facings: -32
+		Offset: 0,2
+		BlendMode: Additive
+	icon: SHAPES.SHP
+		Start: 67
+		Offset: 0,0
+
+

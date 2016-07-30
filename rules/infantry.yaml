@@ -1,0 +1,70 @@
+^Infantry:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^GainsExperience
+	Inherits@3: ^SpriteActor
+	Health:
+		Shape: Circle
+			Radius: 96
+	Armor:
+		Type: none
+	RevealsShroud:
+		Range: 1c768
+	Mobile:
+		Crushes: crate, spicebloom
+		SharesCell: true
+		TerrainSpeeds:
+			Sand: 100
+			Rock: 100
+			Transition: 100
+			Concrete: 100
+			SpiceSand: 100
+			Spice: 100
+			SpiceBlobs: 100
+			Dune: 80
+			Rough: 80
+	SelectionDecorations:
+	Selectable:
+		Bounds: 16,16,0,0
+	Targetable:
+		TargetTypes: Ground, Infantry
+	BodyOrientation:
+		QuantizedFacings: 4
+	#QuantizeFacingsFromSequence:
+	#	Sequence: stand
+	WithInfantryBody:
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+	WithDeathAnimation:
+		DeathTypes:
+			ExplosionDeath: 1
+			SoundDeath: 2
+			SmallExplosionDeath: 3
+			BulletDeath: 4
+		CrushedSequence: die-crushed
+	AutoTarget:
+	AttackMove:
+	#DrawLineToTarget:
+	Passenger:
+		CargoType: Infantry
+		PipType: Green
+	HiddenUnderFog:
+	ActorLostNotification:
+	Crushable:
+		CrushSound: CRUSH1.WAV
+	Guard:
+		Voice: Guard
+	Guardable:
+	DetectCloaked:
+		Range: 1c384
+	DeathSounds:
+		DeathTypes: ExplosionDeath, SoundDeath, SmallExplosionDeath, BulletDeath
+	MustBeDestroyed:
+	TerrainModifiesDamage:
+		TerrainModifier:
+			Rough: 80
+	Voiced:
+		VoiceSet: InfantryVoice
+	Captures:
+		CaptureTypes: building, husk

@@ -1,0 +1,47 @@
+mcv:
+	Inherits: ^Vehicle
+	Buildable:
+		Prerequisites: repair_pad, upgrade.heavy, ~techlevel.medium
+		Queue: Armor
+		BuildPaletteOrder: 110
+	Valued:
+		Cost: 2000
+	CustomBuildTimeValue:
+		Value: 648
+	Tooltip:
+		Name: Mobile Construction Vehicle
+		Description: Deploys into another Construction Yard\n  Unarmed
+	Selectable:
+		Class: mcv
+		Priority: 3
+	Health:
+		HP: 4500
+	Armor:
+		Type: light
+	Mobile:
+		Speed: 31
+		Crushes: crate, infantry, spicebloom
+	RevealsShroud:
+		Range: 2c768
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	BaseBuilding:
+	Explodes:
+		Weapon: UnitExplodeLarge
+		EmptyWeapon: UnitExplodeLarge
+	Transforms:
+		Facing: 16
+		IntoActor: construction_yard
+		Offset: -1,-1
+		TransformSounds: BUILD1.WAV
+		NoTransformNotification: CannotDeploy
+	SpawnActorOnDeath:
+		Actor: mcv.husk
+	AttractsWorms:
+		Intensity: 700
+	SelectionDecorations:
+		VisualBounds: 24,24
+	SelfHealing:
+		Step: 5
+		Delay: 3
+		HealIfBelow: 50

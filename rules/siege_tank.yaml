@@ -1,0 +1,46 @@
+siege_tank:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Armor
+		Prerequisites: upgrade.heavy, ~techlevel.medium
+		BuildPaletteOrder: 50
+	Valued:
+		Cost: 700
+	CustomBuildTimeValue:
+		Value: 324
+	Tooltip:
+		Name: Siege Tank
+		Description: Siege Artillery\n  Strong vs Infantry, Buildings\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 1200
+	Armor:
+		Type: light
+	Mobile:
+		Speed: 43
+		TurnSpeed: 3
+	RevealsShroud:
+		Range: 6c768
+	Turreted:
+		TurnSpeed: 3
+		Offset: 0,0,-32
+	Armament:
+		Weapon: 155mm
+		Recoil: 150
+		RecoilRecovery: 19
+		LocalOffset: 512,0,320
+		MuzzleSequence: muzzle
+	AttackFrontal:
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	Explodes:
+		Weapon: UnitExplodeMed
+		EmptyWeapon: UnitExplodeMed
+	AutoTarget:
+		InitialStanceAI: Defend
+	Selectable:
+		Class: siegetank
+	SpawnActorOnDeath:
+		Actor: siege_tank.husk
+	AttractsWorms:
+		Intensity: 600
+

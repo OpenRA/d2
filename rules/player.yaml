@@ -1,0 +1,93 @@
+Player:
+	AlwaysVisible:
+	TechTree:
+	ClassicProductionQueue@Building:
+		Type: Building
+		BuildSpeed: 100
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: BuildingReady
+		BlockedAudio: NoRoom
+		SpeedUp: true
+	ClassicProductionQueue@Upgrade:
+		Type: Upgrade
+		BuildSpeed: 100
+		LowPowerSlowdown: 0
+		QueuedAudio: Upgrading
+		ReadyAudio: NewOptions
+		BlockedAudio: NoRoom
+		SpeedUp: true
+	ClassicProductionQueue@Infantry:
+		Type: Infantry
+		BuildSpeed: 100
+		LowPowerSlowdown: 3
+		BlockedAudio: NoRoom
+		SpeedUp: true
+	ClassicProductionQueue@Vehicle:
+		Type: Vehicle
+		BuildSpeed: 100
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		BlockedAudio: NoRoom
+		SpeedUp: true
+	ClassicProductionQueue@Armor:
+		Type: Armor
+		BuildSpeed: 100
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		BlockedAudio: NoRoom
+		SpeedUp: true
+	ClassicProductionQueue@Starport:
+		Type: Starport
+		BuildSpeed: 85
+		LowPowerSlowdown: 0
+		BlockedAudio: NoRoom
+		QueuedAudio: OrderPlaced
+		ReadyAudio:
+	ClassicProductionQueue@Aircraft:
+		Type: Aircraft
+		BuildSpeed: 125
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		BlockedAudio: NoRoom
+		SpeedUp: true
+	PlaceBuilding:
+	SupportPowerManager:
+	ScriptTriggers:
+	MissionObjectives:
+	ConquestVictoryConditions:
+	PowerManager:
+		AdviceInterval: 650
+	AllyRepair:
+	PlayerResources:
+		SelectableCash: 2500, 5000, 7000, 10000, 20000
+		InsufficientFundsNotification: InsufficientFunds
+	ActorGroupProxy:
+	DeveloperMode:
+	BaseAttackNotifier:
+	Shroud:
+	FrozenActorLayer:
+	HarvesterAttackNotifier:
+	PlayerStatistics:
+	PlaceBeacon:
+	ProvidesTechPrerequisite@low:
+		Name: Low
+		Prerequisites: techlevel.low
+		Id: low
+	ProvidesTechPrerequisite@medium:
+		Name: Medium
+		Prerequisites: techlevel.low, techlevel.medium
+		Id: medium
+	ProvidesTechPrerequisite@nosuper:
+		Name: No Powers
+		Prerequisites: techlevel.low, techlevel.medium, techlevel.high
+		Id: nopowers
+	ProvidesTechPrerequisite@all:
+		Name: Unrestricted
+		Prerequisites: techlevel.low, techlevel.medium, techlevel.high, techlevel.superweapons
+		Id: unrestricted
+	EnemyWatcher:
+	HarvesterInsurance:
+	GlobalUpgradeManager:
+	ResourceStorageWarning:
+		AdviceInterval: 26

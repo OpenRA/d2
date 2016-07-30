@@ -1,0 +1,61 @@
+raider:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 10
+		Prerequisites: ~light.ordos
+	Valued:
+		Cost: 350
+	CustomBuildTimeValue:
+		Value: 194
+	Tooltip:
+		Name: Raider Trike
+		Description: Improved Scout\n Strong vs Infantry, Light Vehicles
+	Health:
+		HP: 1000
+	Armor:
+		Type: wood
+	Mobile:
+		TurnSpeed: 10
+		Speed: 149
+	RevealsShroud:
+		Range: 4c768
+	WithMuzzleOverlay:
+	Armament@damage:
+		Weapon: HMGo
+		LocalOffset: 170,0,0
+	Armament@muzzle:
+		Weapon: HMGo_muzzle
+		LocalOffset: 170,0,0
+		MuzzleSequence: muzzle
+	AttackFrontal:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	AttractsWorms:
+		Intensity: 420
+
+stealth_raider:
+	Inherits: raider
+	Buildable:
+		Prerequisites: ~light.ordos, upgrade.light, high_tech_factory, ~techlevel.medium
+		BuildPaletteOrder: 30
+	Valued:
+		Cost: 400
+	CustomBuildTimeValue:
+		Value: 194	## Copied from Raider, not included in conversion. Both have same "BuildSpeed" in TibEd
+	Tooltip:
+		Name: Stealth Raider Trike
+		Description: Invisible Raider Trike\n Strong vs Infantry, Light Vehicles
+	Cloak:
+		InitialDelay: 45
+		CloakDelay: 90
+		CloakSound: STEALTH1.WAV
+		UncloakSound: STEALTH2.WAV
+		IsPlayerPalette: true
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
+	-MustBeDestroyed:
+	-LeavesTrails:

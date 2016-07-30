@@ -1,0 +1,49 @@
+wall:
+	Inherits@1: ^SpriteActor
+	CombatDebugOverlay:
+	HiddenUnderShroud:
+	Buildable:
+		Queue: Building
+		Prerequisites: construction_yard, barracks
+		BuildPaletteOrder: 60
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds: EXPLSML4.WAV
+	Valued:
+		Cost: 50
+	CustomBuildTimeValue:
+		Value: 54
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Concrete Wall
+		Description: Stop units and blocks enemy fire.
+	AppearsOnRadar:
+	Building:
+		BuildSounds: CHUNG.WAV
+		Adjacent: 7
+		TerrainTypes: Rock, Concrete
+	Health:
+		HP: 50
+		Shape: Rectangle
+			TopLeft: -512, -512
+			BottomRight: 512, 512
+	Armor:
+		Type: none
+	RevealsShroud:
+		Range: 2c768
+	Crushable:
+		CrushClasses: wall
+	BlocksProjectiles:
+	LineBuild:
+		Range: 5
+		NodeTypes: wall, turret
+	LineBuildNode:
+		Types: wall
+	Targetable:
+		TargetTypes: Ground, Wall
+	WithWallSpriteBody:
+	AutoTargetIgnore:
+	Sellable:
+		SellSounds: CHUNG.WAV
+	Guardable:

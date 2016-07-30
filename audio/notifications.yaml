@@ -1,0 +1,75 @@
+# requires Dune 2 data copied to $PlatformSupportDir/Content/d2
+
+Speech:
+	DefaultVariant: .VOC
+	Prefixes:
+		atreides: A
+		ordos: O
+		harkonnen: H
+	Notifications:
+		BaseAttack: ATTACK
+		Building:
+		BuildingCannotPlaceAudio:
+		BuildingCaptured: CAPTURE
+		BuildingLost: DESTROY
+		BuildingReady: CONST
+		Cancelled:
+		CannotDeploy:
+		DeathHandMissilePrepping:
+		DeathHandMissileReady:
+		EnemyUnitsApproaching:
+		EnemyUnitsDetected:
+		GameLoaded:
+		GameSaved:
+		Guarding:
+		HarvesterAttack:
+		InsufficientFunds:
+		Leave: LOSE
+		Lose: LOSE
+		LowPower:
+		MissileLaunchDetected:
+		NewOptions:
+		NoRoom:
+		OnHold:
+		OrderPlaced:
+		PrimaryBuildingSelected:
+		Reinforce:
+		Repairing:
+		Retreating:
+		SilosNeeded:
+		StarportActions:
+		StartGame:
+		StructureSold:
+		TMinusFive:
+		TMinusFour:
+		TMinusOne:
+		TMinusThree:
+		TMinusTwo:
+		Training:
+		UnitLost:
+		UnitReady:
+		UnitRepaired: REPAIR
+		UpgradeOptions:
+		Upgrading:
+		Win: WIN
+		WormAttack:
+		WormSign: WORMY
+
+Sounds:
+	DefaultVariant: .VOC
+	Notifications:
+		RadarUp: STATICP
+		RadarDown: STATICP
+#TODO: make faction specific
+		DisablePower: HON
+		EnablePower: HOFF
+		CashTickUp: 
+		CashTickDown:
+		LevelUp:
+		ChatLine:
+		BuildPaletteOpen: BUTTON
+		BuildPaletteClose: BUTTON
+		TabClick:
+		ClickSound: BUTTON
+		ClickDisabledSound:
+		Beacon:

@@ -1,0 +1,18 @@
+hightech:
+	idle: ICON.ICN
+		Start: 254
+		Offset: -16,-8
+	idle-tileset: ICON.ICN
+		Frames: 270, 271, 272, 276, 277, 278
+		Length: 6
+		Offset: -8,0
+		ZOffset: -2047
+	idle-flag: ICON.ICN
+		Frames: 276, 279
+		Length: 2
+		Offset: -16,8
+		ZOffset: -2047
+		Tick: 1000
+	icon: SHAPES.SHP
+		Start: 57
+		Offset: 0,0

@@ -1,0 +1,18 @@
+frigate:
+	Inherits: ^Plane
+	ParaDrop:
+		DropRange: 1c0
+	Tooltip:
+		Name: Frigate
+		Description: Supply spacecraft
+	Aircraft:
+		Speed: 189 # 126 * ~1.5 for balance reasons
+		TurnSpeed: 1
+		Repulsable: False
+		MaximumPitch: 20
+	-AppearsOnRadar:
+	Cargo:
+		MaxWeight: 20
+		PipCount: 10
+	FlyAwayOnIdle:
+	RejectsOrders:

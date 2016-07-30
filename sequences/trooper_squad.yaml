@@ -1,0 +1,55 @@
+trooper_squad:
+	stand:
+		Combine:
+			UNITS.SHP:
+				Start: 103
+			UNITS.SHP:
+				Start: 107
+			UNITS.SHP:
+				Start: 111
+			UNITS.SHP:
+				Start: 107
+				FlipX: true
+		Facings: -4
+	run:
+		Combine:
+			UNITS.SHP:
+				Start: 103
+				Length: 4
+			UNITS.SHP:
+				Start: 107
+				Length: 4
+			UNITS.SHP:
+				Start: 111
+				Length: 4
+			UNITS.SHP:
+				Start: 107
+				Length: 4
+				FlipX: true
+		Length: 4
+		Facings: -4
+		Tick: 110
+	die1: ICON.ICN
+		Frames: 21, 22
+		Length: 2
+		Tick: 5000
+	die2: ICON.ICN
+		Frames: 21, 22
+		Length: 2
+		Tick: 5000
+	die3: ICON.ICN
+		Frames: 21, 22
+		Length: 2
+		Tick: 5000
+	die4: ICON.ICN
+		Frames: 21, 22
+		Length: 2
+		Tick: 5000
+	die-crushed: ICON.ICN
+		Frames: 24
+		Length: 1
+		Tick: 10000
+		ZOffset: -511
+	icon: SHAPES.SHP
+		Start: 91
+		Offset: 0,0

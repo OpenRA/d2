@@ -1,0 +1,79 @@
+high_tech_factory:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: construction_yard, outpost, ~techlevel.medium
+		Queue: Building
+		BuildPaletteOrder: 110
+	Selectable:
+		Bounds: 48,32
+	Valued:
+		Cost: 500
+	CustomBuildTimeValue:
+		Value: 405
+	Tooltip:
+		Name: High Tech Factory
+		Description: Unlocks advanced technology
+	ProductionFromMapEdge:
+		Produces: Aircraft
+	Exit:
+		SpawnOffset: 0,0,728
+		ExitCell: 0,0
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 400
+	Armor:
+		Type: wood
+	RevealsShroud:
+		Range: 4c768
+	#WithSpriteBody:
+	WithTilesetBody:
+		SkipFrames: 3
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+#	WithProductionOverlay@WELDING:
+#		Sequence: production-welding
+	RenderSprites:
+		Image: hightech
+		PlayerPalette: player
+	ProvidesPrerequisite@upgrade:
+		Prerequisite: hightech.atreides
+		Factions: atreides
+	ProvidesPrerequisite@buildingname:
+	AirstrikePower:
+		Icon: ornistrike
+		Description: Air Strike
+		Prerequisites: ~techlevel.superweapons, upgrade.hightech
+		ChargeTime: 30
+		SquadSize: 3
+		LongDesc: Ornithopters hit the target with bombs
+		UnitType: ornithopter
+		SelectTargetSound:
+		DisplayBeacon: True
+		CameraActor: camera
+	Power:
+		Amount: -35
+	SelectionDecorations:
+		VisualBounds: 64,32
+	GlobalUpgradable:
+		Prerequisites: upgrade.hightech
+		Upgrades: stardecoration
+
+upgrade.hightech:
+	AlwaysVisible:
+	Tooltip:
+		Name: High Tech Factory Upgrade
+		Description: Unlocks the Air Strike superweapon
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~hightech.atreides, ~techlevel.superweapons
+		Queue: Upgrade
+		BuildLimit: 1
+	Valued:
+		Cost: 500
+	CustomBuildTimeValue:
+		Value: 720
+	RenderSprites:
+		Image: hightech
+	ProvidesPrerequisite@upgradename:

@@ -1,0 +1,35 @@
+wind_trap:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		Prerequisites: construction_yard
+		BuildPaletteOrder: 10
+	Selectable:
+		Bounds: 32,32
+	Valued:
+		Cost: 300
+	CustomBuildTimeValue:
+		Value: 180
+	Tooltip:
+		Name: Wind Trap
+		Description: Provides power for other structures
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 200
+	Armor:
+		Type: building
+	RevealsShroud:
+		Range: 3c768
+	WithTilesetBody:
+		SkipFrames: 3
+	RenderSprites:
+		Image: wind_trap
+		PlayerPalette: wind
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	Power:
+		Amount: 100
+	ScalePowerWithHealth:
+	ProvidesPrerequisite@buildingname:

@@ -1,0 +1,18 @@
+wind_trap:
+	idle: ICON.ICN
+		Start: 304
+		Offset: -8,-8
+	idle-tileset: ICON.ICN
+		Frames: 304, 305, 306, 307
+		Length: 4
+		Offset: 0,0
+		ZOffset: -2047
+	idle-flag: ICON.ICN
+		Start: 307
+		Length: 2
+		Offset: 8,8
+		ZOffset: -2047
+		Tick: 1000
+	icon: SHAPES.SHP
+		Start: 61
+		Offset: 0,0

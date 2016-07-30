@@ -1,0 +1,13 @@
+icon:
+	ornistrike: SHAPES.SHP
+		Start: 85
+		Offset: 0,0
+	fremen: SHAPES.SHP
+		Start: 82
+		Offset: 0,0
+	saboteur: SHAPES.SHP
+		Start: 84
+		Offset: 0,0
+	deathhand: SHAPES.SHP
+		Start: 18
+		Offset: 0,0

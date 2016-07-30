@@ -1,0 +1,78 @@
+^combat_tank:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Armor
+		BuildPaletteOrder: 40
+	Valued:
+		Cost: 700
+	CustomBuildTimeValue:
+		Value: 373
+	Tooltip:
+		Name: Combat Tank
+		Description: Main Battle Tank\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft\n \n  Atreides:      +Range\n  Harkonnen: +Health\n  Ordos:         +Speed
+	Health:
+		HP: 2100
+	Armor:
+		Type: heavy
+	Mobile:
+		Speed: 75
+		TurnSpeed: 5
+	RevealsShroud:
+		Range: 5c768
+	Turreted:
+		TurnSpeed: 5
+		RealignDelay: 0
+	Armament:
+		Weapon: 80mm_A
+		Recoil: 128
+		RecoilRecovery: 32
+		LocalOffset: 256,0,0
+		MuzzleSequence: muzzle
+	AttackTurreted:
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeMed
+		EmptyWeapon: UnitExplodeMed
+	Selectable:
+		Class: combat
+	AttractsWorms:
+		Intensity: 520
+
+combat_tank_a:
+	Inherits: ^combat_tank
+	Buildable:
+		Prerequisites: ~heavy.atreides
+	Armament:
+		Weapon: 80mm_A
+	SpawnActorOnDeath:
+		Actor: combat_tank_a.husk
+
+combat_tank_h:
+	Inherits: ^combat_tank
+	Buildable:
+		Prerequisites: ~heavy.harkonnen
+	Armament:
+		Weapon: 80mm_H
+	Mobile:
+		Speed: 64
+	Health:
+		HP: 2700
+	SpawnActorOnDeath:
+		Actor: combat_tank_h.husk
+
+combat_tank_o:
+	Inherits: ^combat_tank
+	Buildable:
+		Prerequisites: ~heavy.ordos
+	Turreted:
+		TurnSpeed: 5
+	Armament:
+		Weapon: 80mm_O
+	Mobile:
+		Speed: 85
+	Health:
+		HP: 1800
+	SpawnActorOnDeath:
+		Actor: combat_tank_o.husk

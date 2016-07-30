@@ -1,0 +1,56 @@
+deviator:
+	idle:
+		Combine:
+			UNITS2.SHP:
+				Start: 0
+				Length: 5
+			UNITS2.SHP:
+				Start: 1
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	turret:
+		Combine:
+			UNITS2.SHP:
+				Start: 35
+				Length: 5
+			UNITS2.SHP:
+				Start: 36
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+		Offset: 0,-4
+	muzzle: DATA.R8
+		Start: 3418
+		Length: 3
+		BlendMode: Additive
+	icon: SHAPES.SHP
+		Start: 86
+		Offset: 0,0
+
+deviator.husk:
+	idle:
+		Combine:
+			UNITS2.SHP:
+				Start: 0
+				Length: 5
+			UNITS2.SHP:
+				Start: 1
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	turret:
+		Combine:
+			UNITS2.SHP:
+				Start: 35
+				Length: 5
+			UNITS2.SHP:
+				Start: 36
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+		Offset: 0,-4

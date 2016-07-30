@@ -1,0 +1,20 @@
+stealth_raider:
+	idle:
+		Combine:
+			UNITS.SHP:
+				Start: 5
+				Length: 5
+			UNITS.SHP:
+				Start: 6
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	muzzle: DATA.R8
+		Start: 3839
+		Tick: 50
+		Facings: -32
+		BlendMode: Additive
+	icon: SHAPES.SHP
+		Start: 87
+		Offset: 0,0

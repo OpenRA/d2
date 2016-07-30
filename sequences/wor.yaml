@@ -1,0 +1,24 @@
+wor:
+	idle: ICON.ICN
+		Start: 285
+		Offset: 0,0
+	idle-tileset: ICON.ICN
+		Frames: 285, 286, 288, 289
+		Length: 4
+		Offset: 0,0
+		ZOffset: -2047
+	idle-flag: ICON.ICN
+		Frames: 285, 287
+		Length: 2
+		Offset: -8,-8
+		ZOffset: -2047
+		Tick: 1000
+	idle-top-flag: ICON.ICN
+		Frames: 288, 290
+		Length: 2
+		Offset: -8,8
+		ZOffset: -2047
+		Tick: 1000
+	icon: SHAPES.SHP
+		Start: 59
+		Offset: 0,0

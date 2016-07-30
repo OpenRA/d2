@@ -1,0 +1,18 @@
+barracks:
+	idle: ICON.ICN
+		Start: 299
+		Offset: 0,0
+	idle-tileset: ICON.ICN
+		Frames: 299, 300, 301, 302
+		Length: 4
+		Offset: 0,0
+		ZOffset: -2047
+	idle-flag: ICON.ICN
+		Frames: 302, 303
+		Length: 2
+		Offset: 8,8
+		ZOffset: -2047
+		Tick: 1000
+	icon: SHAPES.SHP
+		Start: 62
+		Offset: 0,0

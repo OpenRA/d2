@@ -1,0 +1,60 @@
+SpiceExplosion:
+	Projectile: Bullet
+		Speed: 50, 75
+		Blockable: false
+		Angle: 60, 90
+		Image: 120mm
+	Warhead@1Dam: SpreadDamage
+		Spread: 320
+		Falloff: 100, 60, 30, 15, 0
+		Damage: 75
+		Versus:
+			none: 90
+			wall: 5
+			building: 65
+			wood: 50
+			light: 40
+			heavy: 30
+			invulnerable: 0
+			cy: 20
+			harvester: 25
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		AffectsParent: true
+	Warhead@2Res: CreateResource
+		AddsResourceType: Spice
+		Size: 2
+	Warhead@3Eff: CreateEffect
+		Explosions: med_explosion
+
+BloomExplosion:
+	Report: EXPLMD1.WAV
+	Range: 0c8
+	Projectile: Bullet
+		Speed: 1c0
+		Blockable: false
+		Image: null
+	Warhead@1Dam: SpreadDamage
+		Spread: 320
+		Falloff: 100, 60, 30, 15, 0
+		Damage: 750
+		Versus:
+			none: 90
+			wall: 5
+			building: 65
+			wood: 50
+			light: 40
+			heavy: 30
+			invulnerable: 0
+			cy: 20
+			harvester: 25
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		AffectsParent: true
+
+BloomSpawn:
+	Range: 0c1
+	Projectile: Bullet
+		Speed: 1c0
+		Blockable: false
+		Image: null
+	Warhead@1Eff: CreateEffect
+		Explosions: bloomspawn

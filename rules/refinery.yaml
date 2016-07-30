@@ -1,0 +1,53 @@
+refinery:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: construction_yard, wind_trap
+		Queue: Building
+		BuildPaletteOrder: 20
+	Selectable:
+		Bounds: 48,32
+	CustomBuildTimeValue:
+		Value: 540
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Spice Refinery
+		Description: Harvesters unload Spice here for processing
+	Building:
+		Footprint: xx= xx=
+		Dimensions: 3,2
+	Health:
+		HP: 450
+	Armor:
+		Type: building
+	RevealsShroud:
+		Range: 4c768
+	Refinery:
+		DockAngle: 120
+		DockOffset: 2,1
+		TickRate: 20
+	StoresResources:
+		PipColor: green
+		PipCount: 10
+		Capacity: 2000
+	CustomSellValue:
+		Value: 500
+	FreeActorWithDelivery:
+		Actor: harvester
+		DeliveryOffset: 2,1
+		DeliveringActor: carryall.reinforce
+		Facing: 120
+	WithSpriteBody:
+	WithTilesetBody:
+		SkipFrames: 1,2,5
+	RenderSprites:
+		Image: refinery
+	Power:
+		Amount: -30
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	WithIdleOverlay@DOCK1:
+		Sequence: idle-dock-top
+	WithIdleOverlay@DOCK2:
+		Sequence: idle-dock-bottom
+	ProvidesPrerequisite@buildingname:

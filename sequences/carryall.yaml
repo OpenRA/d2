@@ -1,0 +1,42 @@
+carryall:
+	idle:
+		Combine:
+			UNITS.SHP:
+				Start: 45
+				Length: 3
+			UNITS.SHP:
+				Start: 45
+				Length: 2
+				FlipY: true
+			UNITS.SHP:
+				Start: 46
+				FlipX: true
+				FlipY: true
+			UNITS.SHP:
+				Start: 46
+				Length: 2
+				FlipX: true
+		Frames: 0, 1, 2, 4, 3, 5, 7, 6
+		Facings: -8
+	icon: SHAPES.SHP
+		Start: 77
+		Offset: 0,0
+	unload:
+		Combine:
+			UNITS.SHP:
+				Start: 45
+				Length: 3
+			UNITS.SHP:
+				Start: 45
+				Length: 2
+				FlipY: true
+			UNITS.SHP:
+				Start: 46
+				FlipX: true
+				FlipY: true
+			UNITS.SHP:
+				Start: 46
+				Length: 2
+				FlipX: true
+		Frames: 0, 1, 2, 4, 3, 5, 7, 6
+		Facings: -8

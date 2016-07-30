@@ -1,0 +1,40 @@
+ornithopter:
+	idle:
+		Combine:
+			UNITS.SHP:
+				Start: 51
+				Length: 3
+			UNITS.SHP:
+				Start: 54
+				Length: 3
+			UNITS.SHP:
+				Start: 57
+				Length: 3
+			UNITS.SHP:
+				Start: 54
+				Length: 3
+				FlipY: true
+			UNITS.SHP:
+				Start: 51
+				Length: 3
+				FlipY: true
+			UNITS.SHP:
+				Start: 54
+				Length: 3
+				FlipX: true
+				FlipY: true
+			UNITS.SHP:
+				Start: 57
+				Length: 3
+				FlipX: true
+			UNITS.SHP:
+				Start: 54
+				Length: 3
+				FlipX: true
+		Length: 3
+		Facings: -8
+		Tick: 200
+		ZOffset: 2047
+	icon: SHAPES.SHP
+		Start: 85
+		Offset: 0,0

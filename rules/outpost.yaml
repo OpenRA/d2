@@ -1,0 +1,44 @@
+outpost:
+	Inherits: ^Building
+	RequiresPower:
+	CanPowerDown:
+		PowerupSound: EnablePower
+		PowerdownSound: DisablePower
+	#DisabledOverlay:
+	Buildable:
+		Prerequisites: construction_yard, barracks, ~techlevel.medium
+		Queue: Building
+		BuildPaletteOrder: 50
+	Selectable:
+		Bounds: 32,32
+	Valued:
+		Cost: 400
+	CustomBuildTimeValue:
+		Value: 270
+	Tooltip:
+		Name: Outpost
+		Description: Provides a radar map of the battlefield\n  Requires power to operate
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 500
+	Armor:
+		Type: light
+	RevealsShroud:
+		Range: 4c768
+	ProvidesRadar:
+	WithTilesetBody:
+		SkipFrames: 1,2
+		PlayerPalette: player
+	RenderSprites:
+		Image: outpost
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+		PauseOnLowPower: yes
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	Power:
+		Amount: -30
+	ProvidesPrerequisite@buildingname:
+

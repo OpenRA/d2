@@ -1,0 +1,34 @@
+quad:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		Prerequisites: upgrade.light, ~techlevel.medium
+		BuildPaletteOrder: 20
+	Valued:
+		Cost: 400
+	CustomBuildTimeValue:
+		Value: 277
+	Tooltip:
+		Name: Missile Quad
+		Description: Missile Scout\n Strong vs Vehicles\n  Weak vs Infantry
+	Health:
+		HP: 1100
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 8
+		Speed: 96
+	RevealsShroud:
+		Range: 4c768
+	Armament:
+		Weapon: Rocket
+		LocalOffset: 128,64,64, 128,-64,64
+	AttackFrontal:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Selectable:
+		Class: quad
+	AttractsWorms:
+		Intensity: 470

@@ -1,0 +1,39 @@
+deviator:
+	Inherits: ^Tank
+	Valued:
+		Cost: 1000
+	CustomBuildTimeValue:
+		Value: 486
+	Tooltip:
+		Name: Deviator
+		Description: Fires a warhead which changes\nthe allegiance of enemy vehicles
+	Buildable:
+		Queue: Armor
+		BuildPaletteOrder: 50
+		Prerequisites: ~heavy.ordos, research_centre, ~techlevel.high
+	Mobile:
+		TurnSpeed: 3
+		Speed: 53
+	Health:
+		HP: 1100
+	Armor:
+		Type: wood
+	RevealsShroud:
+		Range: 4c768
+	Armament:
+		Weapon: DeviatorMissile
+		LocalOffset: -299,0,85
+	AttackFrontal:
+	Turreted:
+		TurnSpeed: 5
+		RealignDelay: 0
+	WithSpriteTurret:
+	AutoTarget:
+		InitialStanceAI: Defend
+	Explodes:
+		Weapon: UnitExplodeLarge
+		EmptyWeapon: UnitExplodeLarge
+	SpawnActorOnDeath:
+		Actor: deviator.husk
+	AttractsWorms:
+		Intensity: 600

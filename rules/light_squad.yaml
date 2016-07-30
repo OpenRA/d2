@@ -1,0 +1,26 @@
+light_squad:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 10
+		Prerequisites: upgrade.barracks
+	Valued:
+		Cost: 50
+	CustomBuildTimeValue:
+		Value: 54
+	Tooltip:
+		Name: Light Infantry Squad
+		Description: General-purpose infantry\n  Strong vs Infantry\n  Weak vs Vehicles, Artillery
+	Health:
+		HP: 1200
+	Mobile:
+		Speed: 43
+	Armament:
+		Weapon: LMG_squad
+	SpawnActorOnDeath:
+		Actor: light_inf
+	AttackFrontal:
+	WithInfantryBody:
+		AttackSequence: shoot
+	Selectable:
+		Bounds: 24,24,0,0

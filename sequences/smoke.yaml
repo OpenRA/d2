@@ -1,0 +1,18 @@
+smoke_m:
+	Defaults:
+		ZOffset: 511
+	idle: UNITS1.SHP
+		Start: 29
+		Length: 3
+		Tick: 500
+		Offset: 0,-12
+	loop: UNITS1.SHP
+		Start: 29
+		Length: 3
+		Tick: 500
+		Offset: 0,-12
+	end: UNITS1.SHP
+		Start: 29
+		Length: 3
+		Tick: 500
+		Offset: 0,-12

@@ -1,0 +1,164 @@
+combat_tank_a:
+	idle:
+		Combine:
+			UNITS2.SHP:
+				Start: 0
+				Length: 5
+			UNITS2.SHP:
+				Start: 1
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	turret:
+		Combine:
+			UNITS2.SHP:
+				Start: 5
+				Length: 5
+			UNITS2.SHP:
+				Start: 6
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	muzzle: DATA.R8
+		Start: 3418
+		Length: 3
+		BlendMode: Additive
+	icon: SHAPES.SHP
+		Start: 78
+		Offset: 0,0
+
+combat_tank_h:
+	idle:
+		Combine:
+			UNITS2.SHP:
+				Start: 0
+				Length: 5
+			UNITS2.SHP:
+				Start: 1
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	turret:
+		Combine:
+			UNITS2.SHP:
+				Start: 5
+				Length: 5
+			UNITS2.SHP:
+				Start: 6
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	muzzle: DATA.R8
+		Start: 3418
+		Length: 3
+		BlendMode: Additive
+	icon: SHAPES.SHP
+		Start: 78
+		Offset: 0,0
+
+combat_tank_o:
+	idle:
+		Combine:
+			UNITS2.SHP:
+				Start: 0
+				Length: 5
+			UNITS2.SHP:
+				Start: 1
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	turret:
+		Combine:
+			UNITS2.SHP:
+				Start: 5
+				Length: 5
+			UNITS2.SHP:
+				Start: 6
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	muzzle: DATA.R8
+		Start: 3418
+		Length: 3
+		BlendMode: Additive
+	icon: SHAPES.SHP
+		Start: 78
+		Offset: 0,0
+
+combat_tank_a.husk:
+	idle:
+		Combine:
+			UNITS2.SHP:
+				Start: 0
+				Length: 5
+			UNITS2.SHP:
+				Start: 1
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	turret:
+		Combine:
+			UNITS2.SHP:
+				Start: 5
+				Length: 5
+			UNITS2.SHP:
+				Start: 6
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+
+combat_tank_h.husk:
+	idle:
+		Combine:
+			UNITS2.SHP:
+				Start: 0
+				Length: 5
+			UNITS2.SHP:
+				Start: 1
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	turret:
+		Combine:
+			UNITS2.SHP:
+				Start: 5
+				Length: 5
+			UNITS2.SHP:
+				Start: 6
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+
+combat_tank_o.husk:
+	idle:
+		Combine:
+			UNITS2.SHP:
+				Start: 0
+				Length: 5
+			UNITS2.SHP:
+				Start: 1
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
+	turret:
+		Combine:
+			UNITS2.SHP:
+				Start: 5
+				Length: 5
+			UNITS2.SHP:
+				Start: 6
+				Length: 3
+				FlipX: true
+		Frames: 0, 1, 2, 3, 4, 7, 6, 5
+		Facings: -8
