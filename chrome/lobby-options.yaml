@@ -26,11 +26,6 @@ Background@LOBBY_OPTIONS_BIN:
 					Width: 150
 					Height: 20
 					Text: Fog of War
-				Checkbox@CRATES_CHECKBOX:
-					X: 170
-					Width: 225
-					Height: 20
-					Text: Crates
 				Checkbox@ALLYBUILDRADIUS_CHECKBOX:
 					X: 170
 					Y: 35

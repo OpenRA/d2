@@ -11,7 +11,6 @@ Player:
 		DefaultCashLocked: True
 
 World:
-	-CrateSpawner:
 	-SpawnMPUnits:
 	-MPStartLocations:
 	ObjectivesPanel:

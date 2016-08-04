@@ -66,13 +66,6 @@ World:
 	ProductionQueueFromSelection:
 		ProductionPaletteWidget: PRODUCTION_PALETTE
 	WormManager:
-	CrateSpawner:
-		Minimum: 0
-		Maximum: 2
-		SpawnInterval: 1500
-		WaterChance: 0
-		ValidGround: Sand, Dune, Rock, Concrete
-		InitialSpawnDelay: 1500
 	DomainIndex:
 	PathfinderDebugOverlay:
 	WarheadDebugOverlay:
