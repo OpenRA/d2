@@ -29,10 +29,6 @@ poweroff:
 		Tick: 160
 		ZOffset: 2047
 
-rank:
-	rank: rank.shp
-		Length: *
-
 editor-overlay:
 	Defaults: DATA.R8
 		Offset: -16,-16

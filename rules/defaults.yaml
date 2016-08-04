@@ -2,7 +2,6 @@
 	AppearsOnRadar:
 	UpdatesPlayerStatistics:
 	CombatDebugOverlay:
-	GivesExperience:
 	ScriptTriggers:
 	UpgradeManager:
 	Huntable:
@@ -14,45 +13,6 @@
 	#QuantizeFacingsFromSequence:
 	AutoSelectionSize:
 	RenderSprites:
-
-^GainsExperience:
-	GainsExperience:
-		Upgrades:
-			200: firepower, damage, speed, reload, inaccuracy, rank
-			400: firepower, damage, speed, reload, inaccuracy, rank
-			800: firepower, damage, speed, reload, inaccuracy, rank
-			1600: firepower, damage, speed, reload, inaccuracy, rank, eliteweapon, selfheal
-	FirepowerMultiplier@EXPERIENCE:
-		UpgradeTypes: firepower
-		Modifier: 105, 110, 115, 125
-	DamageMultiplier@EXPERIENCE:
-		UpgradeTypes: damage
-		Modifier: 96, 92, 88, 80
-	SpeedMultiplier@EXPERIENCE:
-		UpgradeTypes: speed
-		Modifier: 105, 110, 115, 125
-	ReloadDelayMultiplier@EXPERIENCE:
-		UpgradeTypes: reload
-		Modifier: 96, 92, 88, 80
-	InaccuracyMultiplier@EXPERIENCE:
-		UpgradeTypes: inaccuracy
-		Modifier: 90, 80, 70, 50
-	SelfHealing@ELITE:
-		Step: 2
-		Delay: 125
-		HealIfBelow: 100
-		DamageCooldown: 125
-		UpgradeTypes: selfheal
-		UpgradeMinEnabledLevel: 1
-	WithRankDecoration:
-		Image: rank
-		Sequence: rank
-		Palette: effect
-		ReferencePoint: Bottom, Right
-		UpgradeTypes: rank
-		ZOffset: 256
-		UpgradeMinEnabledLevel: 1
-		UpgradeMaxAcceptedLevel: 4
 
 ^Husk:
 	Inherits@1: ^SpriteActor

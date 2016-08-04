@@ -1,6 +1,5 @@
 ^Vehicle:
 	Inherits@1: ^ExistsInWorld
-	Inherits@2: ^GainsExperience
 	Inherits@3: ^SpriteActor
 	Mobile:
 		UpgradeTypes: notmobile
