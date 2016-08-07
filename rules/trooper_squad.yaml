@@ -16,6 +16,7 @@ trooper_squad:
 	RevealsShroud:
 		Range: 4c768
 	Mobile:
+		SharesCell: false
 		Speed: 31
 	Armament:
 		Weapon: Bazooka_squad
@@ -26,4 +27,4 @@ trooper_squad:
 	SpawnActorOnDeath:
 		Actor: trooper
 	Selectable:
-		Bounds: 24,24,0,0
+		Bounds: 16,16,0,0

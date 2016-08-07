@@ -14,6 +14,7 @@ light_squad:
 	Health:
 		HP: 1200
 	Mobile:
+		SharesCell: false
 		Speed: 43
 	Armament:
 		Weapon: LMG_squad
@@ -23,4 +24,4 @@ light_squad:
 	WithInfantryBody:
 		AttackSequence: shoot
 	Selectable:
-		Bounds: 24,24,0,0
+		Bounds: 16,16,0,0

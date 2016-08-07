@@ -162,6 +162,8 @@ TileSets:
 MapGrid:
 	TileSize: 16,16
 	Type: Rectangular
+	SubCellOffsets: 0,0,0, -256,-256,0, 256,-256,0, 0,256,0
+	DefaultSubCell: 1
 
 Cursors:
 	d2|cursors.yaml

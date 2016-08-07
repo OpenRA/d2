@@ -23,7 +23,7 @@
 			Rough: 80
 	SelectionDecorations:
 	Selectable:
-		Bounds: 16,16,0,0
+		Bounds: 11,11,0,0
 	Targetable:
 		TargetTypes: Ground, Infantry
 	BodyOrientation:
