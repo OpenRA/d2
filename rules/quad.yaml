@@ -5,7 +5,7 @@ quad:
 		Prerequisites: upgrade.light, ~techlevel.medium
 		BuildPaletteOrder: 20
 	Valued:
-		Cost: 400
+		Cost: 200
 	CustomBuildTimeValue:
 		Value: 277
 	Tooltip:

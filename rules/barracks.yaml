@@ -68,9 +68,9 @@ upgrade.barracks:
 		Queue: Upgrade
 		BuildLimit: 1
 	Valued:
-		Cost: 500
+		Cost: 150
 	CustomBuildTimeValue:
-		Value: 290
+		Value: 250
 	RenderSprites:
 		Image: barracks
 	ProvidesPrerequisite@upgradename:

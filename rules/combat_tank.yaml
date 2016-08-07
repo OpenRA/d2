@@ -4,7 +4,7 @@
 		Queue: Armor
 		BuildPaletteOrder: 40
 	Valued:
-		Cost: 700
+		Cost: 300
 	CustomBuildTimeValue:
 		Value: 373
 	Tooltip:

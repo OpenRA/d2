@@ -8,7 +8,7 @@ missile_tank:
 		Prerequisites: ~heavy.missiletank, upgrade.heavy, research_centre, ~techlevel.high
 		BuildPaletteOrder: 60
 	Valued:
-		Cost: 900
+		Cost: 450
 	CustomBuildTimeValue:
 		Value: 441
 	Mobile:

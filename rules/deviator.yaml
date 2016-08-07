@@ -1,7 +1,7 @@
 deviator:
 	Inherits: ^Tank
 	Valued:
-		Cost: 1000
+		Cost: 750
 	CustomBuildTimeValue:
 		Value: 486
 	Tooltip:

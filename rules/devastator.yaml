@@ -5,7 +5,7 @@ devastator:
 		BuildPaletteOrder: 100
 		Prerequisites: ~heavy.harkonnen, research_centre, ~techlevel.high
 	Valued:
-		Cost: 1050
+		Cost: 800
 	CustomBuildTimeValue:
 		Value: 540
 	Tooltip:

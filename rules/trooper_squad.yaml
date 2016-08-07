@@ -5,7 +5,7 @@ trooper_squad:
 		BuildPaletteOrder: 20
 		Prerequisites: wor, upgrade.wor, ~techlevel.medium
 	Valued:
-		Cost: 90
+		Cost: 200
 	CustomBuildTimeValue:
 		Value: 73
 	Tooltip:

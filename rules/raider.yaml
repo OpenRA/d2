@@ -5,7 +5,7 @@ raider:
 		BuildPaletteOrder: 10
 		Prerequisites: ~light.ordos
 	Valued:
-		Cost: 350
+		Cost: 150
 	CustomBuildTimeValue:
 		Value: 194
 	Tooltip:
