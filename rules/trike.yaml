@@ -5,7 +5,7 @@ trike:
 		BuildPaletteOrder: 10
 		Prerequisites: ~light.regulartrikes
 	Valued:
-		Cost: 300
+		Cost: 150
 	CustomBuildTimeValue:
 		Value: 194
 	Tooltip:

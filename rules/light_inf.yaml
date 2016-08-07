@@ -4,7 +4,7 @@ light_inf:
 		Queue: Infantry
 		BuildPaletteOrder: 10
 	Valued:
-		Cost: 50
+		Cost: 60
 	CustomBuildTimeValue:
 		Value: 54
 	Tooltip:

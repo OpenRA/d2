@@ -6,7 +6,7 @@ harvester:
 		BuildPaletteOrder: 10
 		InitialActivity: FindResources
 	Valued:
-		Cost: 1200
+		Cost: 300
 	CustomBuildTimeValue:
 		Value: 540
 	Tooltip:

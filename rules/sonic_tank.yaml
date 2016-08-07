@@ -5,7 +5,7 @@ sonic_tank:
 		BuildPaletteOrder: 100
 		Prerequisites: ~heavy.atreides, research_centre, ~techlevel.high
 	Valued:
-		Cost: 1000
+		Cost: 600
 	CustomBuildTimeValue:
 		Value: 486
 	Tooltip:

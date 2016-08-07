@@ -5,7 +5,7 @@ trooper:
 		BuildPaletteOrder: 20
 		Prerequisites: wor, ~techlevel.medium
 	Valued:
-		Cost: 90
+		Cost: 100
 	CustomBuildTimeValue:
 		Value: 73
 	Tooltip:

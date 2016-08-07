@@ -73,9 +73,9 @@ upgrade.heavy:
 		Queue: Upgrade
 		BuildLimit: 1
 	Valued:
-		Cost: 800
+		Cost: 300
 	CustomBuildTimeValue:
-		Value: 380
+		Value: 250
 	RenderSprites:
 		Image: heavy
 	ProvidesPrerequisite@upgradename:

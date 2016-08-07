@@ -5,7 +5,7 @@ siege_tank:
 		Prerequisites: upgrade.heavy, ~techlevel.medium
 		BuildPaletteOrder: 50
 	Valued:
-		Cost: 700
+		Cost: 600
 	CustomBuildTimeValue:
 		Value: 324
 	Tooltip:

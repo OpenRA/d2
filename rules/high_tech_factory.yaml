@@ -71,9 +71,9 @@ upgrade.hightech:
 		Queue: Upgrade
 		BuildLimit: 1
 	Valued:
-		Cost: 500
+		Cost: 200
 	CustomBuildTimeValue:
-		Value: 720
+		Value: 250
 	RenderSprites:
 		Image: hightech
 	ProvidesPrerequisite@upgradename:

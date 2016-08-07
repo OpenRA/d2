@@ -5,7 +5,7 @@ light_squad:
 		BuildPaletteOrder: 10
 		Prerequisites: upgrade.barracks
 	Valued:
-		Cost: 50
+		Cost: 100
 	CustomBuildTimeValue:
 		Value: 54
 	Tooltip:

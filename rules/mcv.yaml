@@ -5,7 +5,7 @@ mcv:
 		Queue: Armor
 		BuildPaletteOrder: 110
 	Valued:
-		Cost: 2000
+		Cost: 900
 	CustomBuildTimeValue:
 		Value: 648
 	Tooltip:
