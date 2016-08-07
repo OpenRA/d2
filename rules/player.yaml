@@ -67,6 +67,8 @@ Player:
 	DeveloperMode:
 	BaseAttackNotifier:
 	Shroud:
+		FogEnabled: False
+		ExploredMapEnabled: False
 	FrozenActorLayer:
 	HarvesterAttackNotifier:
 	PlayerStatistics:

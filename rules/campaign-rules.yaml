@@ -4,7 +4,7 @@ Player:
 		EarlyGameOver: true
 	Shroud:
 		FogLocked: True
-		FogEnabled: True
+		FogEnabled: False
 		ExploredMapLocked: True
 		ExploredMapEnabled: False
 	PlayerResources:
