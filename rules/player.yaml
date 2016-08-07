@@ -60,7 +60,8 @@ Player:
 		AdviceInterval: 650
 	AllyRepair:
 	PlayerResources:
-		SelectableCash: 2500, 5000, 7000, 10000, 20000
+		SelectableCash: 1000, 1500, 2000
+		DefaultCash: 1500
 		InsufficientFundsNotification: InsufficientFunds
 	ActorGroupProxy:
 	DeveloperMode:
