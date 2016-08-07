@@ -14,8 +14,6 @@ silo:
 		Name: Silo
 		Description: Stores excess harvested Spice
 	Building:
-		Adjacent: 4
-	-GivesBuildableArea:
 	Health:
 		HP: 150
 	Armor:

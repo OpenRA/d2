@@ -21,7 +21,6 @@ wall:
 	AppearsOnRadar:
 	Building:
 		BuildSounds: CHUNG.WAV
-		Adjacent: 7
 		TerrainTypes: Rock, Concrete
 	Health:
 		HP: 50

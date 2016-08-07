@@ -12,7 +12,6 @@ gun_turret:
 		Name: Gun Turret
 		Description: Defensive structure\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft
 	Building:
-		Adjacent: 4
 		BuildSounds: CHUNG.WAV
 	Sellable:
 		SellSounds: CHUNG.WAV

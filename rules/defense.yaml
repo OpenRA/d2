@@ -4,7 +4,6 @@
 	AttackTurreted:
 	AutoTarget:
 	#RenderRangeCircle:
-	-GivesBuildableArea:
 	-WithTilesetBody:
 	WithWallSpriteBody:
 	LineBuildNode:

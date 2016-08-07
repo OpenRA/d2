@@ -12,7 +12,6 @@ rocket_turret:
 		Name: Rocket Turret
 		Description: Defensive structure\n  Strong vs Infantry, Aircraft\n  Weak vs Tanks\n\n  Requires power to operate
 	Building:
-		Adjacent: 4
 		BuildSounds: CHUNG.WAV
 	Sellable:
 		SellSounds: CHUNG.WAV

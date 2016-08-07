@@ -13,7 +13,6 @@ sietch:
 	RevealsShroud:
 		Range: 10c0
 	-DamagedByTerrain:
-	-GivesBuildableArea:
 	-Sellable:
 	-Capturable:
 	Power:

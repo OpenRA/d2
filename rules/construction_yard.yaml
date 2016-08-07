@@ -4,7 +4,6 @@ construction_yard:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-		Adjacent: 4
 	LaysTerrain:
 		TerrainTypes: Rock
 		Template: 127

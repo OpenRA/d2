@@ -1,10 +1,10 @@
 ^concrete:
 	AlwaysVisible:
 	Building:
-		Adjacent: 4
 		TerrainTypes: Rock
 		BuildSounds: CHUNG.WAV
 		AllowInvalidPlacement: true
+		Adjacent: 1
 	Tooltip:
 		Name: Concrete
 		Description: Provides a strong foundation that prevents\ndamage from the terrain.
