@@ -10,7 +10,7 @@ missile_tank:
 	Valued:
 		Cost: 450
 	CustomBuildTimeValue:
-		Value: 441
+		Value: 900
 	Mobile:
 		Speed: 64
 		TurnSpeed: 5

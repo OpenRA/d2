@@ -9,7 +9,7 @@ wind_trap:
 	Valued:
 		Cost: 300
 	CustomBuildTimeValue:
-		Value: 180
+		Value: 600
 	Tooltip:
 		Name: Wind Trap
 		Description: Provides power for other structures

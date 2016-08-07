@@ -14,7 +14,7 @@ outpost:
 	Valued:
 		Cost: 400
 	CustomBuildTimeValue:
-		Value: 270
+		Value: 1000
 	Tooltip:
 		Name: Outpost
 		Description: Provides a radar map of the battlefield\n  Requires power to operate

@@ -7,7 +7,7 @@ raider:
 	Valued:
 		Cost: 150
 	CustomBuildTimeValue:
-		Value: 194
+		Value: 500
 	Tooltip:
 		Name: Raider Trike
 		Description: Improved Scout\n Strong vs Infantry, Light Vehicles

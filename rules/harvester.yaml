@@ -8,7 +8,7 @@ harvester:
 	Valued:
 		Cost: 300
 	CustomBuildTimeValue:
-		Value: 540
+		Value: 800
 	Tooltip:
 		Name: Spice Harvester
 		Description: Collects Spice for processing\n  Unarmed

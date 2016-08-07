@@ -7,7 +7,7 @@ refinery:
 	Selectable:
 		Bounds: 48,32
 	CustomBuildTimeValue:
-		Value: 540
+		Value: 1000
 	Valued:
 		Cost: 400
 	Tooltip:

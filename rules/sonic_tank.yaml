@@ -7,7 +7,7 @@ sonic_tank:
 	Valued:
 		Cost: 600
 	CustomBuildTimeValue:
-		Value: 486
+		Value: 1300
 	Tooltip:
 		Name: Sonic Tank
 		Description: Fires sonic shocks\n  Strong vs Infantry, Vehicles\n  Weak vs Artillery, Aircraft

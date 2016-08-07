@@ -7,7 +7,7 @@ siege_tank:
 	Valued:
 		Cost: 600
 	CustomBuildTimeValue:
-		Value: 324
+		Value: 1200
 	Tooltip:
 		Name: Siege Tank
 		Description: Siege Artillery\n  Strong vs Infantry, Buildings\n  Weak vs Tanks, Aircraft

@@ -7,7 +7,7 @@ light_squad:
 	Valued:
 		Cost: 100
 	CustomBuildTimeValue:
-		Value: 54
+		Value: 400
 	Tooltip:
 		Name: Light Infantry Squad
 		Description: General-purpose infantry\n  Strong vs Infantry\n  Weak vs Vehicles, Artillery

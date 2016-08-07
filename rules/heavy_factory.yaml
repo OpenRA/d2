@@ -9,7 +9,7 @@ heavy_factory:
 	Valued:
 		Cost: 600
 	CustomBuildTimeValue:
-		Value: 648
+		Value: 1800
 	Tooltip:
 		Name: Heavy Factory
 		Description: Produces heavy vehicles

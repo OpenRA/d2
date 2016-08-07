@@ -9,7 +9,7 @@ research_centre:
 	Valued:
 		Cost: 500
 	CustomBuildTimeValue:
-		Value: 270
+		Value: 1500
 	Tooltip:
 		Name: Ix Lab
 		Description: Unlocks experimental tanks
