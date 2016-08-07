@@ -9,7 +9,7 @@
 	RevealsShroud:
 		Range: 1c768
 	Mobile:
-		Crushes: crate, spicebloom
+		Crushes: spicebloom
 		SharesCell: true
 		TerrainSpeeds:
 			Sand: 100

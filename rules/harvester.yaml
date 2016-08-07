@@ -29,7 +29,7 @@ harvester:
 		Type: harvester
 	Mobile:
 		Speed: 43
-		Crushes: crate, infantry, spicebloom
+		Crushes: infantry, spicebloom
 	RevealsShroud:
 		Range: 3c768
 	Explodes:

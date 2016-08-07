@@ -4,7 +4,7 @@
 	Mobile:
 		UpgradeTypes: notmobile
 		UpgradeMaxEnabledLevel: 0
-		Crushes: crate, spicebloom
+		Crushes: spicebloom
 		TerrainSpeeds:
 			Sand: 100
 			Rock: 100
@@ -53,4 +53,4 @@
 ^Tank:
 	Inherits: ^Vehicle
 	Mobile:
-		Crushes: crate, infantry, spicebloom
+		Crushes: infantry, spicebloom

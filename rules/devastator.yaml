@@ -18,7 +18,7 @@ devastator:
 	Mobile:
 		TurnSpeed: 3
 		Speed: 31
-		Crushes: crate, infantry, spicebloom, wall
+		Crushes: infantry, spicebloom, wall
 	RevealsShroud:
 		Range: 4c768
 	Armament:

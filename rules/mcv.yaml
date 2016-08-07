@@ -20,7 +20,7 @@ mcv:
 		Type: light
 	Mobile:
 		Speed: 31
-		Crushes: crate, infantry, spicebloom
+		Crushes: infantry, spicebloom
 	RevealsShroud:
 		Range: 2c768
 	MustBeDestroyed:
