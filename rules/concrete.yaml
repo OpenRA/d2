@@ -5,12 +5,13 @@
 		BuildSounds: CHUNG.WAV
 		AllowInvalidPlacement: true
 		Adjacent: 1
+	GivesBuildableArea:
 	Tooltip:
 		Name: Concrete
 		Description: Provides a strong foundation that prevents\ndamage from the terrain.
 	RenderSprites:
-	KillsSelf:
-		RemoveInstead: true
+#	KillsSelf:
+#		RemoveInstead: true
 	Buildable:
 		Queue: Building
 		Prerequisites: construction_yard
