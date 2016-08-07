@@ -9,7 +9,7 @@ light_factory:
 	Valued:
 		Cost: 400
 	CustomBuildTimeValue:
-		Value: 277
+		Value: 1200
 	Tooltip:
 		Name: Light Factory
 		Description: Produces light vehicles

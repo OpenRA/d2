@@ -12,7 +12,7 @@ wall:
 	Valued:
 		Cost: 50
 	CustomBuildTimeValue:
-		Value: 54
+		Value: 500
 	CustomSellValue:
 		Value: 0
 	Tooltip:

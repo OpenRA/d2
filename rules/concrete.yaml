@@ -30,7 +30,7 @@ concretea:
 	Valued:
 		Cost: 5
 	CustomBuildTimeValue:
-		Value: 54
+		Value: 200
 
 concreteb:
 	Inherits: ^concrete

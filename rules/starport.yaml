@@ -10,7 +10,7 @@ starport:
 	Valued:
 		Cost: 500
 	CustomBuildTimeValue:
-		Value: 540
+		Value: 1500
 	Building:
 		Footprint: xxx ==x ==x
 		Dimensions: 3,3

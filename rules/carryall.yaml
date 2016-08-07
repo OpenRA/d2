@@ -3,7 +3,7 @@ carryall.reinforce:
 	Valued:
 		Cost: 1100
 	CustomBuildTimeValue:
-		Value: 648
+		Value: 800
 	Tooltip:
 		Name: Carryall
 		Description: Large winged, planet-bound ship\n  Automatically lifts harvesters.

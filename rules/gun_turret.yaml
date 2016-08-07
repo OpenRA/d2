@@ -7,7 +7,7 @@ gun_turret:
 	Valued:
 		Cost: 125
 	CustomBuildTimeValue:
-		Value: 231
+		Value: 800
 	Tooltip:
 		Name: Gun Turret
 		Description: Defensive structure\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft

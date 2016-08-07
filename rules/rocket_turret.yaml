@@ -7,7 +7,7 @@ rocket_turret:
 	Valued:
 		Cost: 250
 	CustomBuildTimeValue:
-		Value: 270
+		Value: 1200
 	Tooltip:
 		Name: Rocket Turret
 		Description: Defensive structure\n  Strong vs Infantry, Aircraft\n  Weak vs Tanks\n\n  Requires power to operate

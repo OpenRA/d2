@@ -9,7 +9,7 @@ barracks:
 	Valued:
 		Cost: 300
 	CustomBuildTimeValue:
-		Value: 231
+		Value: 900
 	Tooltip:
 		Name: Barracks
 		Description: Trains infantry

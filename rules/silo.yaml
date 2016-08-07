@@ -9,7 +9,7 @@ silo:
 	Valued:
 		Cost: 150
 	CustomBuildTimeValue:
-		Value: 135
+		Value: 600
 	Tooltip:
 		Name: Silo
 		Description: Stores excess harvested Spice
