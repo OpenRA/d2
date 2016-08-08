@@ -38,11 +38,6 @@ explosion:
 	shockwave: UNITS1.SHP
 		Start: 8
 		Length: 3
-#	shockwave: DATA.R8
-#		Start: 3687
-#		Length: 6
-#		Palette: d2k
-#		Tick: 120
 	deviator: UNITS1.SHP
 		Start: 57
 		Length: 5
