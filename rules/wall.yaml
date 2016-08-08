@@ -22,6 +22,8 @@ wall:
 	Building:
 		BuildSounds: CHUNG.WAV
 		TerrainTypes: Rock, Concrete
+		Adjacent: 1
+	GivesBuildableArea:
 	Health:
 		HP: 50
 		Shape: Rectangle
@@ -34,11 +36,6 @@ wall:
 	Crushable:
 		CrushClasses: wall
 	BlocksProjectiles:
-	LineBuild:
-		Range: 5
-		NodeTypes: wall, turret
-	LineBuildNode:
-		Types: wall
 	Targetable:
 		TargetTypes: Ground, Wall
 	WithWallSpriteBody:
