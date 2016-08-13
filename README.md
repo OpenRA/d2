@@ -1,23 +1,36 @@
 # d2 mod for OpenRA
 
-1. Install OpenRA or build it from sources. Note that current release-20160508 can not be used for d2 mod. At this moment you should build from bleed
+Notes:
+  * d2 will not run against the `release-20160508` version. You must build OpenRA from source (exact commit unknown).
+  * The commands given below are meant to be ran in a command prompt / terminal from inside of the `OpenRA.Mods.D2` directory.
 
-2. Copy or link the following files from your main OpenRA installation into OpenRA.Mods.D2/dependencies directory: 
-```
-OpenRA.Game.exe
-OpenRA.Mods.Common.dll
-Eluant.dll
-```
+1. [Build OpenRA from source](https://github.com/OpenRA/OpenRA/wiki/Compiling)
 
-3. Run ```make all``` in OpenRA.Mods.D2 directory for linux and mac. Or open OpenRA.Mods.D2.sln solution in Visual Studio and build project for windows
+2. Install [`cake`](http://cakebuild.net/):
+  * OS X: `brew install cake`
+  * Windows: `choco install cake-portable`
+  * GNU/Linux: https://github.com/cake-build/cake#1-install-the-cake-bootstrapper
 
-4. Create subdirectory named 'd2' in main OpenRA installation in directory 'mods'
+3. Build the d2 mod:
+  * GNU/Linux, OS X: Run `make`
+  * Windows: Run `make.ps1` in PowerShell
 
-5. Copy all files from this repo to directory 'd2', including OpenRA.Mods.D2.dll. But exclude OpenRA.Mods.D2 directory from copying (this is sources of OpenRA.Mods.D2.dll)
+4. Launch OpenRA and install the D2k assets if you do not have them already:
+  * Click the D2k option 
+  * Click `Manage Content`
+  * Click `Download` (in the `Base Game Files` row)
+  * Click `Back`
 
-6. Launch your OpenRA, Choose d2k mod (not d2, but dune2000) and load assets for it. This is because some sprites in d2 uses d2k assets
+5. Place these files in your [Content directory for d2](https://github.com/OpenRA/OpenRA/wiki/Game-Content#manual-installation) (where `$MOD` is `d2`):
+  * DUNE.PAK
+  * VOC.PAK
+  * ATRE.PAK
+  * HARK.PAK
+  * ORDOS.PAK
+  * INTRO.PAK
+  * FINALE.PAK
 
-7. Launch your OpenRA. Choose mod 'd2' in modchooser and play game.
+6. Choose the Dune 2 mod, click `Play`, and enjoy
 
 More information here: [wiki](https://github.com/OpenRA/d2/wiki)
 

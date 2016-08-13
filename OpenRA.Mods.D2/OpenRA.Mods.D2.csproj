@@ -17,10 +17,8 @@
     <ErrorReport>prompt</ErrorReport>
     <OutputPath>bin\Debug\</OutputPath>
     <CustomCommands>
-      <CustomCommands>
-        <Command type="AfterBuild" command="cp ${TargetFile} .." workingdir="${ProjectDir}" />
-        <Command type="AfterBuild" command="cp ${TargetFile}.mdb .." workingdir="${ProjectDir}" />
-      </CustomCommands>
+      <Command type="AfterBuild" command="cp ${TargetFile} .." workingdir="${ProjectDir}" />
+      <Command type="AfterBuild" command="cp ${TargetFile}.mdb .." workingdir="${ProjectDir}" />
     </CustomCommands>
     <DefineConstants>TRACE;DEBUG;</DefineConstants>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
@@ -38,10 +36,8 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Optimize>true</Optimize>
     <CustomCommands>
-      <CustomCommands>
-        <Command type="AfterBuild" command="cp ${TargetFile} .." workingdir="${ProjectDir}" />
-        <Command type="AfterBuild" command="cp ${TargetFile}.mdb .." workingdir="${ProjectDir}" />
-      </CustomCommands>
+      <Command type="AfterBuild" command="cp ${TargetFile} .." workingdir="${ProjectDir}" />
+      <Command type="AfterBuild" command="cp ${TargetFile}.mdb .." workingdir="${ProjectDir}" />
     </CustomCommands>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -51,9 +47,6 @@
     </Reference>
     <Reference Include="OpenRA.Mods.Common">
       <HintPath>dependencies\OpenRA.Mods.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Eluant">
-      <HintPath>dependencies\Eluant.dll</HintPath>
     </Reference>
     <Reference Include="Eluant">
       <HintPath>dependencies\Eluant.dll</HintPath>
@@ -78,9 +71,4 @@
     <Compile Include="Traits\World\D2ShroudRenderer.cs" />
     <Compile Include="D2LoadScreen.cs" />
   </ItemGroup>
-  <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)/../"</PostBuildEvent>
-  </PropertyGroup>
-  <ItemGroup />
-  <ItemGroup />
 </Project>
