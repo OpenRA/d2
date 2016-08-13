@@ -26,6 +26,7 @@ refinery:
 		DockAngle: 120
 		DockOffset: 2,1
 		TickRate: 20
+		ShowTicks: false
 	StoresResources:
 		PipColor: green
 		PipCount: 10
