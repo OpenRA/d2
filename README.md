@@ -2,7 +2,7 @@
 
 Notes:
   * d2 will not run against the `release-20160508` version. You must build OpenRA from source (exact commit unknown).
-  * The commands given below are meant to be ran in a command prompt / terminal from inside of the `OpenRA.Mods.D2` directory.
+  * The commands given below are meant to be run in a command prompt / terminal from inside of the `OpenRA.Mods.D2` directory.
 
 1. [Build OpenRA from source](https://github.com/OpenRA/OpenRA/wiki/Compiling)
 
@@ -15,7 +15,17 @@ Notes:
   * GNU/Linux, OS X: Run `make`
   * Windows: Run `make.ps1` in PowerShell
 
-4. Launch OpenRA and install the D2k assets if you do not have them already:
+4. Alternatively, instead of installing `cake` you can:
+  * Put `d2` directory into OpenRA sources in `mods` directory
+  * Copy or link the following files from your main OpenRA installation into `OpenRA.Mods.D2/dependencies` directory:
+    ```
+    OpenRA.Game.exe,
+    OpenRA.Mods.Common.dll,
+    Eluant.dll
+    ```
+  * Run `make all` in `OpenRA.Mods.D2` directory for linux and mac. Or open `OpenRA.Mods.D2.sln` solution in Visual Studio and build project for windows
+
+5. Launch OpenRA and install the D2k assets if you do not have them already:
   * Click the D2k option 
   * Click `Manage Content`
   * Click `Download` (in the `Base Game Files` row)
