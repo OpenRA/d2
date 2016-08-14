@@ -33,7 +33,6 @@ Packages:
 	d2k|bits
 	d2k|bits/tex
 	d2k|uibits
-	d2|scripts
 
 MapFolders:
 	d2|maps: System

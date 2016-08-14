@@ -2,15 +2,15 @@ MapFormat: 11
 
 RequiresMod: d2
 
-Title: Shellmap
+Title: Dune2 shellmap
 
-Author: Phrohdoh
+Author: OpenRA Authors
 
 Tileset: DUNE2
 
-MapSize: 66,66
+MapSize: 130,130
 
-Bounds: 1,1,64,64
+Bounds: 1,1,128,128
 
 Visibility: Shellmap
 
@@ -26,305 +26,65 @@ Players:
 		Name: Creeps
 		NonCombatant: True
 		Faction: Random
-		Enemies: Atreides, Harkonnen
-	PlayerReference@Atreides:
-		Name: Atreides
-		Faction: atreides
-		LockColor: True
-		Color: 0000AA
-		Enemies: Creeps, Harkonnen
-	PlayerReference@Harkonnen:
-		Name: Harkonnen
-		Faction: harkonnen
-		LockColor: True
-		Color: AA0000
-		Enemies: Creeps, Atreides
 
 Actors:
-	AtreidesMPSpawn: mpspawn
+	Actor0: refinery
 		Owner: Neutral
-		Location: 34,33
-	Actor1: mpspawn
+		Location: 52,64
+	Actor1: refinery
 		Owner: Neutral
-		Location: 34,8
+		Location: 59,57
+	Actor2: refinery
+		Owner: Neutral
+		Location: 69,51
+	Actor3: refinery
+		Owner: Neutral
+		Location: 75,66
 	Actor4: refinery
-		Owner: Atreides
-		Location: 29,35
-	Actor6: refinery
-		Owner: Atreides
-		Location: 38,35
-	Actor5: barracks
-		Owner: Atreides
-		Location: 34,38
-	Actor7: construction_yard
-		Owner: Atreides
-		Location: 34,34
-	Actor9: wall
-		Owner: Atreides
-		Location: 32,42
-	Actor10: wall
-		Owner: Atreides
-		Location: 31,42
-	Actor11: wall
-		Owner: Atreides
-		Location: 30,42
-	Actor12: wall
-		Owner: Atreides
-		Location: 29,42
-	Actor13: wall
-		Owner: Atreides
-		Location: 29,42
-	Actor14: wall
-		Owner: Atreides
-		Location: 28,42
-	Actor15: wall
-		Owner: Atreides
-		Location: 28,41
-	Actor16: wall
-		Owner: Atreides
-		Location: 28,40
-	Actor17: wall
-		Owner: Atreides
-		Location: 27,40
-	Actor18: wall
-		Owner: Atreides
-		Location: 26,40
-	Actor19: wall
-		Owner: Atreides
-		Location: 26,39
-	Actor20: wall
-		Owner: Atreides
-		Location: 26,37
-	Actor21: wall
-		Owner: Atreides
-		Location: 26,38
-	Actor31: gun_turret
-		Owner: Atreides
-		Location: 25,37
-	Actor32: gun_turret
-		Owner: Atreides
-		Location: 25,34
-	Actor33: gun_turret
-		Owner: Atreides
-		Location: 33,42
-	Actor34: gun_turret
-		Owner: Atreides
-		Location: 36,42
-	Actor35: wall
-		Owner: Atreides
-		Location: 37,42
-	Actor36: wall
-		Owner: Atreides
-		Location: 38,42
-	Actor37: wall
-		Owner: Atreides
-		Location: 39,42
-	Actor38: wall
-		Owner: Atreides
-		Location: 41,42
-	Actor39: wall
-		Owner: Atreides
-		Location: 40,42
-	Actor40: wall
-		Owner: Atreides
-		Location: 42,42
-	Actor41: wall
-		Owner: Atreides
-		Location: 42,41
-	Actor42: wall
-		Owner: Atreides
-		Location: 42,40
-	Actor43: wall
-		Owner: Atreides
-		Location: 43,40
-	Actor44: wall
-		Owner: Atreides
-		Location: 44,40
-	Actor45: wall
-		Owner: Atreides
-		Location: 44,39
-	Actor46: wall
-		Owner: Atreides
-		Location: 44,38
-	Actor47: gun_turret
-		Owner: Atreides
-		Location: 44,37
-	Actor48: gun_turret
-		Owner: Atreides
-		Location: 44,34
-	Actor49: wall
-		Owner: Atreides
-		Location: 44,33
-	Actor50: wall
-		Owner: Atreides
-		Location: 44,32
-	Actor51: wall
-		Owner: Atreides
-		Location: 44,31
-	Actor52: wall
-		Owner: Atreides
-		Location: 44,30
-	Actor53: wall
-		Owner: Atreides
-		Location: 44,29
-	Actor56: wall
-		Owner: Atreides
-		Location: 40,28
-	Actor57: wall
-		Owner: Atreides
-		Location: 39,28
-	Actor58: wall
-		Owner: Atreides
-		Location: 37,28
-	Actor59: wall
-		Owner: Atreides
-		Location: 38,28
-	Actor61: wall
-		Owner: Atreides
-		Location: 32,28
-	Actor62: wall
-		Owner: Atreides
-		Location: 31,28
-	Actor63: wall
-		Owner: Atreides
-		Location: 30,28
-	Actor64: wall
-		Owner: Atreides
-		Location: 29,28
-	Actor65: wall
-		Owner: Atreides
-		Location: 28,28
-	Actor72: gun_turret
-		Owner: Atreides
-		Location: 36,28
-	Actor73: gun_turret
-		Owner: Atreides
-		Location: 33,28
-	HarkSpawnNorth: waypoint
-		Owner: Harkonnen
-		Location: 34,2
-	Actor79: waypoint
-		Owner: Harkonnen
-		Location: 34,64
-	Actor81: spicebloom.spawnpoint
 		Owner: Neutral
-		Location: 28,48
-	Actor82: spicebloom.spawnpoint
+		Location: 76,62
+	Actor5: refinery
 		Owner: Neutral
-		Location: 45,50
-	Actor60: wall
-		Owner: Atreides
-		Location: 25,30
-	Actor66: wall
-		Owner: Atreides
-		Location: 25,31
-	Actor67: wall
-		Owner: Atreides
-		Location: 25,32
-	Actor68: wall
-		Owner: Atreides
-		Location: 25,33
-	Actor69: wall
-		Owner: Atreides
-		Location: 27,28
-	Actor70: wall
-		Owner: Atreides
-		Location: 26,28
-	Actor71: wall
-		Owner: Atreides
-		Location: 26,28
-	Actor77: wall
-		Owner: Atreides
-		Location: 25,28
-	Actor78: wall
-		Owner: Atreides
-		Location: 24,28
-	Actor74: wall
-		Owner: Atreides
-		Location: 44,28
-	Actor75: wall
-		Owner: Atreides
-		Location: 44,27
-	Actor84: wall
-		Owner: Atreides
-		Location: 44,26
-	Actor85: wall
-		Owner: Atreides
-		Location: 43,28
-	Actor86: wall
-		Owner: Atreides
-		Location: 42,28
-	Actor87: wall
-		Owner: Atreides
-		Location: 41,28
-	Actor89: wall
-		Owner: Atreides
-		Location: 25,29
-	Actor83: rocket_turret
-		Owner: Atreides
-		Location: 44,25
-	Actor88: rocket_turret
-		Owner: Atreides
-		Location: 23,28
-	Actor80: outpost
-		Owner: Atreides
-		Location: 38,30
-	Actor90: wind_trap
-		Owner: Atreides
-		Location: 29,31
-	Actor91: light_factory
-		Owner: Atreides
-		Location: 34,30
-	TankSpawn1: waypoint
-		Owner: Atreides
-		Location: 35,29
-	TankSpawn2: waypoint
-		Owner: Atreides
-		Location: 33,31
-	InfSpawn1: waypoint
-		Owner: Atreides
-		Location: 36,38
-	InfSpawn2: waypoint
-		Owner: Atreides
-		Location: 34,40
-	BaseEntranceSouth: waypoint
-		Owner: Atreides
-		Location: 35,43
-	BaseEntranceWest: waypoint
-		Owner: Atreides
-		Location: 24,35
-	BaseEntranceNorth: waypoint
-		Owner: Atreides
-		Location: 34,27
-	BaseEntranceEast: waypoint
-		Owner: Atreides
-		Location: 45,36
-	HarkSpawnSouthEast: waypoint
-		Owner: Harkonnen
-		Location: 63,63
-	HarkSpawnSouthWest: waypoint
-		Owner: Harkonnen
-		Location: 2,63
-
-Rules:
-	World:
-		ScriptUpgradesCache:
-			Upgrades: invincible
-		LuaScript:
-			Scripts: d2|scripts/utils.lua, map.lua
-		GlobalLightingPaletteEffect:
-			Blue: 0.7
-			Ambient: 0.7
-	wall:
-		DamageMultiplier@invincible:
-			UpgradeTypes: invincible
-			Modifier: 0, 0
-		UpgradeManager:
-	gun_turret:
-		DamageMultiplier@invincible:
-			UpgradeTypes: invincible
-			Modifier: 0, 0
-	rocket_turret:
-		DamageMultiplier@invincible:
-			UpgradeTypes: invincible
-			Modifier: 0, 0
+		Location: 73,56
+	Actor6: wormspawner
+		Owner: Neutral
+		Location: 72,72
+	Actor7: wormspawner
+		Owner: Neutral
+		Location: 72,66
+	Actor8: wormspawner
+		Owner: Neutral
+		Location: 68,61
+	Actor9: wormspawner
+		Owner: Neutral
+		Location: 78,59
+	Actor10: wormspawner
+		Owner: Neutral
+		Location: 74,62
+	Actor11: wormspawner
+		Owner: Neutral
+		Location: 60,55
+	Actor12: wormspawner
+		Owner: Neutral
+		Location: 53,54
+	Actor13: wormspawner
+		Owner: Neutral
+		Location: 49,57
+	Actor14: wormspawner
+		Owner: Neutral
+		Location: 47,61
+	Actor15: wormspawner
+		Owner: Neutral
+		Location: 62,52
+	Actor16: wormspawner
+		Owner: Neutral
+		Location: 55,50
+	Actor17: wormspawner
+		Owner: Neutral
+		Location: 62,77
+	Actor18: wormspawner
+		Owner: Neutral
+		Location: 53,72
+	Actor19: wormspawner
+		Owner: Neutral
+		Location: 61,62
