@@ -71,4 +71,8 @@
     <Compile Include="Traits\World\D2ShroudRenderer.cs" />
     <Compile Include="D2LoadScreen.cs" />
   </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(ProjectDir)..
+</PostBuildEvent>
+  </PropertyGroup>
 </Project>
