@@ -44,14 +44,15 @@
 		InternalName: smuggler
 		Selectable: false
 	ResourceType@Spice:
+		Type: Spice
+		Name: Spice
+		PipColor: green
 		ResourceType: 1
 		Palette: dune2
 		TerrainType: Spice
-		Variants: spice
+		Sequences: spice
 		MaxDensity: 20
 		ValuePerUnit: 25
-		Name: Spice
-		PipColor: green
 		AllowedTerrainTypes: Sand
 		AllowUnderActors: true
 
@@ -67,10 +68,12 @@ World:
 		ProductionPaletteWidget: PRODUCTION_PALETTE
 	WormManager:
 	DomainIndex:
-	PathfinderDebugOverlay:
 	WarheadDebugOverlay:
 	D2TerrainLayer:
 	BuildableTerrainLayer:
+	D2ResourceLayer:
+	ResourceClaimLayer:
+	CustomTerrainDebugOverlay:
 	SmudgeLayer@Rock:
 		Type: RockCrater
 		Sequence: rockcraters
@@ -79,9 +82,6 @@ World:
 		Type: SandCrater
 		Sequence: sandcraters
 		SmokePercentage: 0
-	D2ResourceLayer:
-	ResourceClaimLayer:
-	CustomTerrainDebugOverlay:
 	MapCreeps:
 	SpawnMapActors:
 	MapBuildRadius:
