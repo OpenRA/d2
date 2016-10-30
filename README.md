@@ -1,7 +1,6 @@
 # d2 mod for OpenRA
 
 Notes:
-  * d2 will not run against the `release-20160508` version. You must build OpenRA from source (exact commit unknown).
   * The commands given below are meant to be run in a command prompt / terminal from inside of the `OpenRA.Mods.D2` directory.
 
 1. [Build OpenRA from source](https://github.com/OpenRA/OpenRA/wiki/Compiling)
@@ -25,7 +24,7 @@ Notes:
     ```
   * Run `make all` in `OpenRA.Mods.D2` directory for linux and mac. Or open `OpenRA.Mods.D2.sln` solution in Visual Studio and build project for windows
 
-5. Launch OpenRA and install the D2k assets if you do not have them already:
+5. Launch OpenRA and install the D2k assets if you do not have them installed already:
   * Click the D2k option 
   * Click `Manage Content`
   * Click `Download` (in the `Base Game Files` row)
