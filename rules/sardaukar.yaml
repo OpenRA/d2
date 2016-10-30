@@ -3,14 +3,14 @@ sardaukar:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 80
+		BuildDuration: 700
+		BuildDurationModifier: 40
 		Prerequisites: ~barracks.harkonnen, palace, ~techlevel.high
+		Description: Elite assault infantry\n  Strong vs Infantry, Vehicles\n  Weak vs Artillery
 	Valued:
 		Cost: 200
-	CustomBuildTimeValue:
-		Value: 700
 	Tooltip:
 		Name: Sardaukar
-		Description: Elite assault infantry\n  Strong vs Infantry, Vehicles\n  Weak vs Artillery
 	Health:
 		HP: 1000
 	Mobile:

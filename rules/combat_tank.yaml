@@ -3,13 +3,13 @@
 	Buildable:
 		Queue: Armor
 		BuildPaletteOrder: 40
+		BuildDuration: 800
+		BuildDurationModifier: 40
+		Description: Main Battle Tank\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft\n \n  Atreides:      +Range\n  Harkonnen: +Health\n  Ordos:         +Speed
 	Valued:
 		Cost: 300
-	CustomBuildTimeValue:
-		Value: 800
 	Tooltip:
 		Name: Combat Tank
-		Description: Main Battle Tank\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft\n \n  Atreides:      +Range\n  Harkonnen: +Health\n  Ordos:         +Speed
 	Health:
 		HP: 2100
 	Armor:

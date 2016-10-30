@@ -3,13 +3,13 @@ light_inf:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 10
+		BuildDuration: 400
+		BuildDurationModifier: 40
+		Description: General-purpose infantry\n  Strong vs Infantry\n  Weak vs Vehicles, Artillery
 	Valued:
 		Cost: 60
-	CustomBuildTimeValue:
-		Value: 400
 	Tooltip:
 		Name: Light Infantry
-		Description: General-purpose infantry\n  Strong vs Infantry\n  Weak vs Vehicles, Artillery
 	Health:
 		HP: 600
 	Mobile:

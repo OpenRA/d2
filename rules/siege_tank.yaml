@@ -4,13 +4,13 @@ siege_tank:
 		Queue: Armor
 		Prerequisites: upgrade.heavy, ~techlevel.medium
 		BuildPaletteOrder: 50
+		BuildDuration: 1200
+		BuildDurationModifier: 40
+		Description: Siege Artillery\n  Strong vs Infantry, Buildings\n  Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 600
-	CustomBuildTimeValue:
-		Value: 1200
 	Tooltip:
 		Name: Siege Tank
-		Description: Siege Artillery\n  Strong vs Infantry, Buildings\n  Weak vs Tanks, Aircraft
 	Health:
 		HP: 1200
 	Armor:

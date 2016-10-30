@@ -4,15 +4,15 @@ silo:
 		Prerequisites: construction_yard, refinery
 		Queue: Building
 		BuildPaletteOrder: 30
+		BuildDuration: 600
+		BuildDurationModifier: 40
+		Description: Stores excess harvested Spice
 	Selectable:
 		Bounds: 32,32
 	Valued:
 		Cost: 150
-	CustomBuildTimeValue:
-		Value: 600
 	Tooltip:
 		Name: Silo
-		Description: Stores excess harvested Spice
 	Building:
 	Health:
 		HP: 150

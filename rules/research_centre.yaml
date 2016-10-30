@@ -4,15 +4,15 @@ research_centre:
 		Queue: Building
 		Prerequisites: construction_yard, outpost, heavy_factory, upgrade.heavy, ~techlevel.high
 		BuildPaletteOrder: 140
+		BuildDuration: 1500
+		BuildDurationModifier: 40
+		Description: Unlocks experimental tanks
 	Selectable:
 		Bounds: 32,32
 	Valued:
 		Cost: 500
-	CustomBuildTimeValue:
-		Value: 1500
 	Tooltip:
 		Name: Ix Lab
-		Description: Unlocks experimental tanks
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2

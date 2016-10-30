@@ -4,15 +4,15 @@ palace:
 		Prerequisites: construction_yard, research_centre, ~techlevel.high
 		Queue: Building
 		BuildPaletteOrder: 150
+		BuildDuration: 1620
+		BuildDurationModifier: 40
+		Description: Unlocks elite infantry
 	Selectable:
 		Bounds: 48,48
 	Valued:
 		Cost: 999
-	CustomBuildTimeValue:
-		Value: 1620
 	Tooltip:
 		Name: Palace
-		Description: Unlocks elite infantry
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3

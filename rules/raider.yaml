@@ -3,14 +3,14 @@ raider:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 10
+		BuildDuration: 500
+		BuildDurationModifier: 40
 		Prerequisites: ~light.ordos
+		Description: Improved Scout\n Strong vs Infantry, Light Vehicles
 	Valued:
 		Cost: 150
-	CustomBuildTimeValue:
-		Value: 500
 	Tooltip:
 		Name: Raider Trike
-		Description: Improved Scout\n Strong vs Infantry, Light Vehicles
 	Health:
 		HP: 1000
 	Armor:
@@ -41,13 +41,13 @@ stealth_raider:
 	Buildable:
 		Prerequisites: ~light.ordos, upgrade.light, high_tech_factory, ~techlevel.medium
 		BuildPaletteOrder: 30
+		BuildDuration: 500
+		BuildDurationModifier: 40
+		Description: Invisible Raider Trike\n Strong vs Infantry, Light Vehicles
 	Valued:
 		Cost: 400
-	CustomBuildTimeValue:
-		Value: 194	## Copied from Raider, not included in conversion. Both have same "BuildSpeed" in TibEd
 	Tooltip:
 		Name: Stealth Raider Trike
-		Description: Invisible Raider Trike\n Strong vs Infantry, Light Vehicles
 	Cloak:
 		InitialDelay: 45
 		CloakDelay: 90

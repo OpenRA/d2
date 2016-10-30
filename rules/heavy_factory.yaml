@@ -4,15 +4,15 @@ heavy_factory:
 		Prerequisites: construction_yard, refinery
 		Queue: Building
 		BuildPaletteOrder: 100
+		BuildDuration: 1800
+		BuildDurationModifier: 40
+		Description: Produces heavy vehicles
 	Selectable:
 		Bounds: 32,32
 	Valued:
 		Cost: 600
-	CustomBuildTimeValue:
-		Value: 1800
 	Tooltip:
 		Name: Heavy Factory
-		Description: Produces heavy vehicles
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -66,16 +66,16 @@ upgrade.heavy:
 	AlwaysVisible:
 	Tooltip:
 		Name: Heavy Factory Upgrade
-		Description: Unlocks advanced technology and heavy weapons
 	Buildable:
 		BuildPaletteOrder: 50
 		Prerequisites: heavy_factory
 		Queue: Upgrade
 		BuildLimit: 1
+		BuildDuration: 250
+		BuildDurationModifier: 40
+		Description: Unlocks advanced technology and heavy weapons
 	Valued:
 		Cost: 300
-	CustomBuildTimeValue:
-		Value: 250
 	RenderSprites:
 		Image: heavy
 	ProvidesPrerequisite@upgradename:

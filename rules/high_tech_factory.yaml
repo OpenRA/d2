@@ -4,15 +4,15 @@ high_tech_factory:
 		Prerequisites: construction_yard, outpost, ~techlevel.medium
 		Queue: Building
 		BuildPaletteOrder: 110
+		BuildDuration: 1500
+		BuildDurationModifier: 40
+		Description: Unlocks advanced technology
 	Selectable:
 		Bounds: 48,32
 	Valued:
 		Cost: 500
-	CustomBuildTimeValue:
-		Value: 1500
 	Tooltip:
 		Name: High Tech Factory
-		Description: Unlocks advanced technology
 	ProductionFromMapEdge:
 		Produces: Aircraft
 	Exit:
@@ -64,16 +64,16 @@ upgrade.hightech:
 	AlwaysVisible:
 	Tooltip:
 		Name: High Tech Factory Upgrade
-		Description: Unlocks the Air Strike superweapon
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~hightech.atreides, ~techlevel.superweapons
 		Queue: Upgrade
 		BuildLimit: 1
+		BuildDuration: 250
+		BuildDurationModifier: 40
+		Description: Unlocks the Air Strike superweapon
 	Valued:
 		Cost: 200
-	CustomBuildTimeValue:
-		Value: 250
 	RenderSprites:
 		Image: hightech
 	ProvidesPrerequisite@upgradename:

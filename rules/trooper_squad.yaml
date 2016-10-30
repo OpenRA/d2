@@ -3,14 +3,14 @@ trooper_squad:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 20
+		BuildDuration: 700
+		BuildDurationModifier: 40
 		Prerequisites: wor, upgrade.wor, ~techlevel.medium
+		Description: Anti-tank/Anti-aircraft infantry\n  Strong vs Tanks, Aircraft\n  Weak vs Infantry, Artillery
 	Valued:
 		Cost: 200
-	CustomBuildTimeValue:
-		Value: 700
 	Tooltip:
 		Name: Trooper
-		Description: Anti-tank/Anti-aircraft infantry\n  Strong vs Tanks, Aircraft\n  Weak vs Infantry, Artillery
 	Health:
 		HP: 1400
 	RevealsShroud:

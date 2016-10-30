@@ -4,13 +4,13 @@ rocket_turret:
 		Queue: Building
 		Prerequisites: construction_yard, outpost, upgrade.conyard, ~techlevel.medium
 		BuildPaletteOrder: 120
+		BuildDuration: 1200
+		BuildDurationModifier: 40
+		Description: Defensive structure\n  Strong vs Infantry, Aircraft\n  Weak vs Tanks\n\n  Requires power to operate
 	Valued:
 		Cost: 250
-	CustomBuildTimeValue:
-		Value: 1200
 	Tooltip:
 		Name: Rocket Turret
-		Description: Defensive structure\n  Strong vs Infantry, Aircraft\n  Weak vs Tanks\n\n  Requires power to operate
 	Building:
 		BuildSounds: CHUNG.WAV
 	Sellable:

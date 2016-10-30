@@ -3,14 +3,14 @@ light_squad:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 10
+		BuildDuration: 400
+		BuildDurationModifier: 40
 		Prerequisites: upgrade.barracks
+		Description: General-purpose infantry\n  Strong vs Infantry\n  Weak vs Vehicles, Artillery
 	Valued:
 		Cost: 100
-	CustomBuildTimeValue:
-		Value: 400
 	Tooltip:
 		Name: Light Infantry Squad
-		Description: General-purpose infantry\n  Strong vs Infantry\n  Weak vs Vehicles, Artillery
 	Health:
 		HP: 1200
 	Mobile:

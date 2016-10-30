@@ -4,13 +4,13 @@ devastator:
 		Queue: Armor
 		BuildPaletteOrder: 100
 		Prerequisites: ~heavy.harkonnen, research_centre, ~techlevel.high
+		BuildDuration: 1300
+		BuildDurationModifier: 40
+		Description: Super Heavy Tank\n  Strong vs Tanks\n  Weak vs Artillery, Aircraft
 	Valued:
 		Cost: 800
-	CustomBuildTimeValue:
-		Value: 1300
 	Tooltip:
 		Name: Devastator
-		Description: Super Heavy Tank\n  Strong vs Tanks\n  Weak vs Artillery, Aircraft
 	Health:
 		HP: 5000
 	Armor:

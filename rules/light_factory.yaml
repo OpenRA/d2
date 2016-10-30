@@ -4,15 +4,15 @@ light_factory:
 		Prerequisites: construction_yard, refinery
 		Queue: Building
 		BuildPaletteOrder: 70
+		BuildDuration: 1200
+		BuildDurationModifier: 40
+		Description: Produces light vehicles
 	Selectable:
 		Bounds: 32,32
 	Valued:
 		Cost: 400
-	CustomBuildTimeValue:
-		Value: 1200
 	Tooltip:
 		Name: Light Factory
-		Description: Produces light vehicles
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -63,16 +63,16 @@ upgrade.light:
 	AlwaysVisible:
 	Tooltip:
 		Name: Light Factory Upgrade
-		Description: Unlocks additional light units
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: light_factory
 		Queue: Upgrade
 		BuildLimit: 1
+		BuildDuration: 250
+		BuildDurationModifier: 40
+		Description: Unlocks additional light units
 	Valued:
 		Cost: 200
-	CustomBuildTimeValue:
-		Value: 250
 	RenderSprites:
 		Image: light
 	ProvidesPrerequisite@upgradename:

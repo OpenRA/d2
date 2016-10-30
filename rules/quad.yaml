@@ -4,13 +4,13 @@ quad:
 		Queue: Vehicle
 		Prerequisites: upgrade.light, ~techlevel.medium
 		BuildPaletteOrder: 20
+		BuildDuration: 600
+		BuildDurationModifier: 40
+		Description: Missile Scout\n Strong vs Vehicles\n  Weak vs Infantry
 	Valued:
 		Cost: 200
-	CustomBuildTimeValue:
-		Value: 600
 	Tooltip:
 		Name: Missile Quad
-		Description: Missile Scout\n Strong vs Vehicles\n  Weak vs Infantry
 	Health:
 		HP: 1100
 	Armor:
