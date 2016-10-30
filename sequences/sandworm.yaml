@@ -18,5 +18,3 @@ sandtrail:
 		Frames: 2, 6, 4, 5, 0, 1, 3, 7
 	trailc: sandtrail.shp
 		Frames: 7, 4, 6, 5, 2, 0, 3, 1
-
-
