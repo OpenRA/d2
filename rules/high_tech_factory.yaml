@@ -59,7 +59,7 @@ high_tech_factory:
 	GlobalUpgradable:
 		Prerequisites: upgrade.hightech
 		Upgrades: stardecoration
-	WithSpriteControlGroup:
+	#WithSpriteControlGroup:
 
 upgrade.hightech:
 	AlwaysVisible:

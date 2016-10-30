@@ -48,7 +48,7 @@
 		Palette: dune2
 		Type: Cell
 		TerrainTypes: Sand, Dune, Spice
-	WithSpriteControlGroup:
+	#WithSpriteControlGroup:
 
 ^Tank:
 	Inherits: ^Vehicle

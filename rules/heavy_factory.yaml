@@ -61,7 +61,7 @@ heavy_factory:
 	GlobalUpgradable:
 		Prerequisites: upgrade.heavy
 		Upgrades: stardecoration
-	WithSpriteControlGroup:
+	#WithSpriteControlGroup:
 
 upgrade.heavy:
 	AlwaysVisible:

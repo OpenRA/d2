@@ -64,4 +64,4 @@
 		VoiceSet: InfantryVoice
 	Captures:
 		CaptureTypes: building, husk
-	WithSpriteControlGroup:
+	#WithSpriteControlGroup:

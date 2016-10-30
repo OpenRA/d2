@@ -47,4 +47,4 @@
 		DamageThreshold: 50
 		StartOnThreshold: true
 	#WithMakeAnimation:
-	WithSpriteControlGroup:
+	#WithSpriteControlGroup:
