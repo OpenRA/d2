@@ -23,7 +23,7 @@ trooper_squad:
 		LocalOffset: 128,0,256
 	AttackFrontal:
 	WithInfantryBody:
-		AttackSequence: shoot
+		DefaultAttackSequence: shoot
 	SpawnActorOnDeath:
 		Actor: trooper
 	Selectable:

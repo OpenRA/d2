@@ -4,7 +4,6 @@ outpost:
 	CanPowerDown:
 		PowerupSound: EnablePower
 		PowerdownSound: DisablePower
-	#DisabledOverlay:
 	Buildable:
 		Prerequisites: construction_yard, barracks, ~techlevel.medium
 		Queue: Building
@@ -41,4 +40,3 @@ outpost:
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:
-

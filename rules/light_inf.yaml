@@ -18,4 +18,4 @@ light_inf:
 		Weapon: LMG
 	AttackFrontal:
 	WithInfantryBody:
-		AttackSequence: shoot
+		DefaultAttackSequence: shoot

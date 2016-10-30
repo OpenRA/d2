@@ -8,7 +8,6 @@
 		AlwaysVisibleStances: None
 	ActorLostNotification:
 	AttackMove:
-	#DrawLineToTarget:
 	WithFacingSpriteBody:
 	WithShadow:
 

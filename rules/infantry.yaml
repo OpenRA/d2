@@ -28,8 +28,6 @@
 		TargetTypes: Ground, Infantry
 	BodyOrientation:
 		QuantizedFacings: 4
-	#QuantizeFacingsFromSequence:
-	#	Sequence: stand
 	WithInfantryBody:
 	TakeCover:
 		DamageModifiers:
@@ -44,7 +42,6 @@
 		CrushedSequence: die-crushed
 	AutoTarget:
 	AttackMove:
-	#DrawLineToTarget:
 	Passenger:
 		CargoType: Infantry
 		PipType: Green
@@ -67,3 +64,4 @@
 		VoiceSet: InfantryVoice
 	Captures:
 		CaptureTypes: building, husk
+	WithSpriteControlGroup:

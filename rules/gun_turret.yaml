@@ -38,3 +38,4 @@ gun_turret:
 		Amount: -10
 	SelectionDecorations:
 		VisualBounds: 16,16
+	WithSpriteControlGroup:

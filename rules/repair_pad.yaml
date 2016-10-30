@@ -39,11 +39,9 @@ repair_pad:
 		Sequence: idle-flag
 	WithRepairOverlay@ACTIVE1:
 		Sequence: active-1
-		#Palette: effect75alpha
 	WithRepairOverlay@ACTIVE2:
 		Sequence: active-2
-		#Palette: effect75alpha
 	Power:
 		Amount: -20
 	ProvidesPrerequisite@buildingname:
-
+	WithSpriteControlGroup:

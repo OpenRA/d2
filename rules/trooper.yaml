@@ -22,4 +22,4 @@ trooper:
 		LocalOffset: 128,0,256
 	AttackFrontal:
 	WithInfantryBody:
-		AttackSequence: shoot
+		DefaultAttackSequence: shoot

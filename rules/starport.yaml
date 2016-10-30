@@ -40,15 +40,12 @@ starport:
 		PlayerPalette: player
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
-	#WithDeliveryOverlay:
-	#	Palette: starportlights
 	ProductionBar:
 	PrimaryBuilding:
 	RequiresPower:
 	CanPowerDown:
 		PowerupSound: EnablePower
 		PowerdownSound: DisablePower
-	#DisabledOverlay:
 	ProvidesPrerequisite@atreides:
 		Prerequisite: starport.atreides
 		Factions: atreides

@@ -18,7 +18,7 @@ sardaukar:
 	RevealsShroud:
 		Range: 4c768
 	WithInfantryBody:
-		AttackSequence: shoot
+		DefaultAttackSequence: shoot
 	Armament@PRIMARY:
 		Weapon: M_LMG
 	Armament@SECONDARY:

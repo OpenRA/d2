@@ -36,8 +36,8 @@ rocket_turret:
 	CanPowerDown:
 		PowerupSound: EnablePower
 		PowerdownSound: DisablePower
-	#DisabledOverlay:
 	Power:
 		Amount: -25
 	SelectionDecorations:
 		VisualBounds: 16,16
+	WithSpriteControlGroup:

@@ -10,7 +10,6 @@
 ^SpriteActor:
 	BodyOrientation:
 		QuantizedFacings: 8
-	#QuantizeFacingsFromSequence:
 	AutoSelectionSize:
 	RenderSprites:
 

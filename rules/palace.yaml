@@ -27,7 +27,7 @@ palace:
 	RenderSprites:
 		Image: palace
 		PlayerPalette: player
-	WithIdleOverlay@FLAG
+	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	Power:
 		Amount: -80
@@ -94,7 +94,6 @@ palace:
 	CanPowerDown:
 		PowerupSound: EnablePower
 		PowerdownSound: DisablePower
-	#DisabledOverlay:
 	RequiresPower:
 	SupportPowerChargeBar:
 	ProvidesPrerequisite@buildingname:

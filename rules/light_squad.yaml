@@ -22,6 +22,6 @@ light_squad:
 		Actor: light_inf
 	AttackFrontal:
 	WithInfantryBody:
-		AttackSequence: shoot
+		DefaultAttackSequence: shoot
 	Selectable:
 		Bounds: 16,16,0,0

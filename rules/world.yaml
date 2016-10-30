@@ -55,6 +55,7 @@
 		ValuePerUnit: 25
 		AllowedTerrainTypes: Sand
 		AllowUnderActors: true
+		Type: Spice
 
 World:
 	Inherits: ^BaseWorld
