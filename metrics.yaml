@@ -1,13 +1,15 @@
 # General dumping-ground for UI element sizes, etc.
 Metrics:
-	ButtonDepth: 1
-	ButtonFont: Regular
+	ButtonDepth: 0
+	ButtonFont: Bold
 	ButtonTextColor: FFFFFF
 	ButtonTextColorDisabled: 808080
 	ButtonTextContrast: false
-	ButtonTextContrastColor: 000000
+	ButtonTextShadow: false
+	ButtonTextContrastColorDark: 000000
+	ButtonTextContrastColorLight: 7F7F7F
 	ButtonBaseLine: 0
-	CheckboxPressedState: false
+	CheckboxPressedState: true
 	HotkeyFont: Regular
 	HotkeyColor: FFFFFF
 	HotkeyColorDisabled: 808080
@@ -18,6 +20,8 @@ Metrics:
 	TextFont: Regular
 	TextColor: FFFFFF
 	TextContrast: false
-	TextContrastColor: 000000
+	TextShadow: false
+	TextContrastColorDark: 000000
+	TextContrastColorLight: 7F7F7F
 	ColorPickerRemapIndices: 144, 145, 146, 147, 148, 149
 	ColorPickerActorType: ^carryall.colorpicker
