@@ -53,9 +53,9 @@ barracks:
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	ProvidesPrerequisite@buildingname:
-	GlobalUpgradable:
+	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.barracks
-		Upgrades: stardecoration
+		Condition: stardecoration
 
 upgrade.barracks:
 	AlwaysVisible:

@@ -58,9 +58,9 @@ heavy_factory:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 32,32
-	GlobalUpgradable:
+	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.heavy
-		Upgrades: stardecoration
+		Condition: stardecoration
 	#WithSpriteControlGroup:
 
 upgrade.heavy:
