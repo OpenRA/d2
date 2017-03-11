@@ -12,7 +12,7 @@ quad:
 	Tooltip:
 		Name: Missile Quad
 	Health:
-		HP: 1100
+		HP: 130
 	Armor:
 		Type: Light
 	Mobile:

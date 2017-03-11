@@ -14,7 +14,7 @@ trike:
 	Selectable:
 		Class: trike
 	Health:
-		HP: 900
+		HP: 100
 	Armor:
 		Type: wood
 	Mobile:

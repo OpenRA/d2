@@ -15,7 +15,7 @@ deviator:
 		TurnSpeed: 3
 		Speed: 53
 	Health:
-		HP: 1100
+		HP: 120
 	Armor:
 		Type: wood
 	RevealsShroud:

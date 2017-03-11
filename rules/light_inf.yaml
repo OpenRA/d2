@@ -11,7 +11,7 @@ light_inf:
 	Tooltip:
 		Name: Light Infantry
 	Health:
-		HP: 600
+		HP: 20
 	Mobile:
 		Speed: 43
 	Armament:

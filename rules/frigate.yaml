@@ -4,6 +4,8 @@ frigate:
 		DropRange: 1c0
 	Tooltip:
 		Name: Frigate
+	Health:
+		HP: 500
 	Aircraft:
 		Speed: 189 # 126 * ~1.5 for balance reasons
 		TurnSpeed: 1

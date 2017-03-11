@@ -12,7 +12,7 @@ trooper_squad:
 	Tooltip:
 		Name: Trooper
 	Health:
-		HP: 1400
+		HP: 110
 	RevealsShroud:
 		Range: 4c768
 	Mobile:

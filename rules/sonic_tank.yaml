@@ -12,7 +12,7 @@ sonic_tank:
 	Tooltip:
 		Name: Sonic Tank
 	Health:
-		HP: 3000
+		HP: 110
 	Armor:
 		Type: light
 	Mobile:

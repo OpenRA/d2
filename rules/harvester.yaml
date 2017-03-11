@@ -24,7 +24,7 @@ harvester:
 		SearchFromProcRadius: 30
 		SearchFromOrderRadius: 15
 	Health:
-		HP: 4500
+		HP: 150
 	Armor:
 		Type: harvester
 	Mobile:

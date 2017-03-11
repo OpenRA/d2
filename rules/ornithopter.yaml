@@ -5,7 +5,7 @@ ornithopter:
 	Armament:
 		Weapon: OrniBomb
 	Health:
-		HP: 900
+		HP: 10
 	Armor:
 		Type: light
 	Aircraft:

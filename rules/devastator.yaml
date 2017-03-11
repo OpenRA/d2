@@ -12,7 +12,7 @@ devastator:
 	Tooltip:
 		Name: Devastator
 	Health:
-		HP: 5000
+		HP: 400
 	Armor:
 		Type: heavy
 	Mobile:

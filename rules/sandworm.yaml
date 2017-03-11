@@ -3,7 +3,7 @@ sandworm:
 	Tooltip:
 		Name: Sandworm
 	Health:
-		HP: 9990
+		HP: 1000
 		Radius: 256
 	Armor:
 		Type: heavy
