@@ -48,6 +48,6 @@ concreteb:
 	Valued:
 		Cost: 20
 	Buildable:
-		BuildDuration: 800
+		BuildDuration: 200
 		BuildDurationModifier: 40
 		Prerequisites: upgrade.conyard
