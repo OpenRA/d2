@@ -15,7 +15,7 @@ mcv:
 		Class: mcv
 		Priority: 3
 	Health:
-		HP: 4500
+		HP: 150
 	Armor:
 		Type: light
 	Mobile:

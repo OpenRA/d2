@@ -12,7 +12,7 @@ siege_tank:
 	Tooltip:
 		Name: Siege Tank
 	Health:
-		HP: 1200
+		HP: 300
 	Armor:
 		Type: light
 	Mobile:

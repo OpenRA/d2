@@ -12,7 +12,7 @@ raider:
 	Tooltip:
 		Name: Raider Trike
 	Health:
-		HP: 1000
+		HP: 80
 	Armor:
 		Type: wood
 	Mobile:

@@ -19,7 +19,7 @@ gun_turret:
 		Bounds: 16,16
 		Priority: 3
 	Health:
-		HP: 100
+		HP: 200
 	Armor:
 		Type: heavy
 	RevealsShroud:

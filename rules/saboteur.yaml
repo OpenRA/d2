@@ -10,7 +10,7 @@ saboteur:
 	Tooltip:
 		Name: Saboteur
 	Health:
-		HP: 400
+		HP: 10
 	Mobile:
 		Speed: 43
 	Demolition:

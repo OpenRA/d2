@@ -12,7 +12,7 @@ light_squad:
 	Tooltip:
 		Name: Light Infantry Squad
 	Health:
-		HP: 1200
+		HP: 50
 	Mobile:
 		SharesCell: false
 		Speed: 43

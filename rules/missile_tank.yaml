@@ -15,7 +15,7 @@ missile_tank:
 		Speed: 64
 		TurnSpeed: 5
 	Health:
-		HP: 1300
+		HP: 100
 	Armor:
 		Type: wood
 	RevealsShroud:

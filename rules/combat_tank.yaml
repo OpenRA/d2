@@ -11,7 +11,7 @@
 	Tooltip:
 		Name: Combat Tank
 	Health:
-		HP: 2100
+		HP: 200
 	Armor:
 		Type: heavy
 	Mobile:

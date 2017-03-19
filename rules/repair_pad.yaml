@@ -15,7 +15,7 @@ repair_pad:
 		Footprint: xxx xxx
 		Dimensions: 3,2
 	Health:
-		HP: 400
+		HP: 200
 	Armor:
 		Type: building
 	RevealsShroud:

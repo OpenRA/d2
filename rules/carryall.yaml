@@ -9,7 +9,7 @@ carryall.reinforce:
 	Tooltip:
 		Name: Carryall
 	Health:
-		HP: 4800
+		HP: 100
 	Armor:
 		Type: light
 	Aircraft:
