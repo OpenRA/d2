@@ -13,8 +13,6 @@ trooper:
 		Name: Trooper
 	Health:
 		HP: 45
-	RevealsShroud:
-		Range: 4c768
 	Mobile:
 		Speed: 31
 	Armament:

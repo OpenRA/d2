@@ -19,7 +19,7 @@ silo:
 	Armor:
 		Type: wall
 	RevealsShroud:
-		Range: 2c768
+		Range: 2c0
 	WithTilesetBody:
 		SkipFrames: 1
 	RenderSprites:

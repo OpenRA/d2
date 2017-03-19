@@ -19,7 +19,7 @@ missile_tank:
 	Armor:
 		Type: wood
 	RevealsShroud:
-		Range: 6c768
+		Range: 5c0
 	Armament:
 		Weapon: mtank_pri
 		LocalOffset: -128,128,171, -128,-128,171

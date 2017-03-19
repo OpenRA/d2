@@ -25,7 +25,7 @@ outpost:
 	Armor:
 		Type: light
 	RevealsShroud:
-		Range: 4c768
+		Range: 10c0
 	ProvidesRadar:
 	WithTilesetBody:
 		SkipFrames: 1,2

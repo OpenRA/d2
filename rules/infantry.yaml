@@ -7,7 +7,7 @@
 	Armor:
 		Type: none
 	RevealsShroud:
-		Range: 1c768
+		Range: 1c0
 	Mobile:
 		Crushes: spicebloom
 		SharesCell: true

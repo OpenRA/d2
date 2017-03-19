@@ -21,7 +21,7 @@ research_centre:
 	Armor:
 		Type: wood
 	RevealsShroud:
-		Range: 4c768
+		Range: 3c0
 	WithTilesetBody:
 		SkipFrames: 3
 	RenderSprites:

@@ -5,6 +5,8 @@
 		BuildSounds: CHUNG.WAV
 		AllowInvalidPlacement: true
 		Adjacent: 1
+	RevealsShroud:
+		Range: 1c0
 	GivesBuildableArea:
 	Tooltip:
 		Name: Concrete

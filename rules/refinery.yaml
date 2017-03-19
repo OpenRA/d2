@@ -21,7 +21,7 @@ refinery:
 	Armor:
 		Type: building
 	RevealsShroud:
-		Range: 4c768
+		Range: 4c0
 	Refinery:
 		DockAngle: 120
 		DockOffset: 2,1

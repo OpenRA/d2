@@ -21,7 +21,7 @@ barracks:
 	Armor:
 		Type: wood
 	RevealsShroud:
-		Range: 3c768
+		Range: 2c0
 	RallyPoint:
 		Offset: 1,2
 	Exit@1:

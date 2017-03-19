@@ -20,7 +20,7 @@ devastator:
 		Speed: 31
 		Crushes: infantry, spicebloom, wall
 	RevealsShroud:
-		Range: 4c768
+		Range: 4c0
 	Armament:
 		Weapon: DevBullet
 		LocalOffset: 640,0,32

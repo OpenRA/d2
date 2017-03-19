@@ -19,7 +19,7 @@ deviator:
 	Armor:
 		Type: wood
 	RevealsShroud:
-		Range: 4c768
+		Range: 5c0
 	Armament:
 		Weapon: DeviatorMissile
 		LocalOffset: -299,0,85
