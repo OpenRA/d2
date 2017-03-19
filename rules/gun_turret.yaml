@@ -24,7 +24,7 @@ gun_turret:
 	Armor:
 		Type: heavy
 	RevealsShroud:
-		Range: 4c768
+		Range: 2c0
 	BodyOrientation:
 		QuantizedFacings: 8
 	WithMuzzleOverlay:

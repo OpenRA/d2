@@ -5,6 +5,8 @@
 		TerrainTypes: Rock
 		BuildSounds: CHUNG.WAV
 		AllowInvalidPlacement: true
+	RevealsShroud:
+		Range: 1c0
 	Tooltip:
 		Name: Concrete
 		Description: Provides a strong foundation that prevents\ndamage from the terrain.

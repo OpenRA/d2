@@ -15,8 +15,6 @@ sardaukar:
 		HP: 1000
 	Mobile:
 		Speed: 31
-	RevealsShroud:
-		Range: 4c768
 	WithInfantryBody:
 		AttackSequence: shoot
 	Armament@PRIMARY:

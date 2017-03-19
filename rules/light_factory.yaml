@@ -21,7 +21,7 @@ light_factory:
 	Armor:
 		Type: light
 	RevealsShroud:
-		Range: 4c768
+		Range: 3c0
 	WithTilesetBody:
 		SkipFrames: 1
 	RenderSprites:

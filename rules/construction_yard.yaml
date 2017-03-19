@@ -15,7 +15,7 @@ construction_yard:
 	Armor:
 		Type: cy
 	RevealsShroud:
-		Range: 5c768
+		Range: 3c0
 	Production:
 		Produces: Building, Upgrade
 	Exit:

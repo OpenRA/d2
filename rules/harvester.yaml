@@ -31,7 +31,7 @@ harvester:
 		Speed: 43
 		Crushes: infantry, spicebloom
 	RevealsShroud:
-		Range: 3c768
+		Range: 2c0
 	Explodes:
 		Weapon: UnitExplodeLarge
 		EmptyWeapon: UnitExplodeLarge

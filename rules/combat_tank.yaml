@@ -18,7 +18,7 @@
 		Speed: 75
 		TurnSpeed: 5
 	RevealsShroud:
-		Range: 5c768
+		Range: 3c0
 	Turreted:
 		TurnSpeed: 5
 		RealignDelay: 0

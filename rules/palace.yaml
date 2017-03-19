@@ -21,7 +21,7 @@ palace:
 	Armor:
 		Type: wood
 	RevealsShroud:
-		Range: 4c768
+		Range: 5c0
 	WithTilesetBody:
 		SkipFrames: 0
 	RenderSprites:

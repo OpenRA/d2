@@ -13,8 +13,6 @@ trooper_squad:
 		Description: Anti-tank/Anti-aircraft infantry\n  Strong vs Tanks, Aircraft\n  Weak vs Infantry, Artillery
 	Health:
 		HP: 1400
-	RevealsShroud:
-		Range: 4c768
 	Mobile:
 		SharesCell: false
 		Speed: 31

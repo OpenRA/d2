@@ -19,7 +19,7 @@ siege_tank:
 		Speed: 43
 		TurnSpeed: 3
 	RevealsShroud:
-		Range: 6c768
+		Range: 4c0
 	Turreted:
 		TurnSpeed: 3
 		Offset: 0,0,-32

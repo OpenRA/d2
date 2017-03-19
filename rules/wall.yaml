@@ -31,7 +31,7 @@ wall:
 	Armor:
 		Type: none
 	RevealsShroud:
-		Range: 2c768
+		Range: 1c0
 	Crushable:
 		CrushClasses: wall
 	BlocksProjectiles:

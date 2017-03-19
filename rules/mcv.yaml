@@ -22,7 +22,7 @@ mcv:
 		Speed: 31
 		Crushes: infantry, spicebloom
 	RevealsShroud:
-		Range: 2c768
+		Range: 2c0
 	MustBeDestroyed:
 		RequiredForShortGame: true
 	BaseBuilding:

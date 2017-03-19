@@ -24,7 +24,7 @@ rocket_turret:
 	Armor:
 		Type: concrete
 	RevealsShroud:
-		Range: 5c768
+		Range: 5c0
 	BodyOrientation:
 		QuantizedFacings: 8
 	Armament:

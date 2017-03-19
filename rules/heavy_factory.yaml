@@ -21,7 +21,7 @@ heavy_factory:
 	Armor:
 		Type: wood
 	RevealsShroud:
-		Range: 4c768
+		Range: 3c0
 	RallyPoint:
 		Offset: 0,3
 	Exit@1:
