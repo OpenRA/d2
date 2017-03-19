@@ -2,15 +2,15 @@ starport:
 	Inherits: ^Building
 	Tooltip:
 		Name: Starport
-		Description: Dropzone for quick reinforcements, at a price.\n  Requires power to operate
 	Buildable:
 		Prerequisites: construction_yard, heavy_factory, outpost, ~techlevel.high
 		Queue: Building
 		BuildPaletteOrder: 80
+		BuildDuration: 1500
+		BuildDurationModifier: 40
+		Description: Dropzone for quick reinforcements, at a price.\n  Requires power to operate
 	Valued:
 		Cost: 500
-	CustomBuildTimeValue:
-		Value: 540
 	Building:
 		Footprint: xxx ==x ==x
 		Dimensions: 3,3
@@ -40,15 +40,12 @@ starport:
 		PlayerPalette: player
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
-	#WithDeliveryOverlay:
-	#	Palette: starportlights
 	ProductionBar:
 	PrimaryBuilding:
 	RequiresPower:
 	CanPowerDown:
 		PowerupSound: EnablePower
 		PowerdownSound: DisablePower
-	#DisabledOverlay:
 	ProvidesPrerequisite@atreides:
 		Prerequisite: starport.atreides
 		Factions: atreides

@@ -3,16 +3,16 @@ sonic_tank:
 	Buildable:
 		Queue: Armor
 		BuildPaletteOrder: 100
+		BuildDuration: 1300
+		BuildDurationModifier: 40
 		Prerequisites: ~heavy.atreides, research_centre, ~techlevel.high
+		Description: Fires sonic shocks\n  Strong vs Infantry, Vehicles\n  Weak vs Artillery, Aircraft
 	Valued:
-		Cost: 1000
-	CustomBuildTimeValue:
-		Value: 486
+		Cost: 600
 	Tooltip:
 		Name: Sonic Tank
-		Description: Fires sonic shocks\n  Strong vs Infantry, Vehicles\n  Weak vs Artillery, Aircraft
 	Health:
-		HP: 3000
+		HP: 110
 	Armor:
 		Type: light
 	Mobile:

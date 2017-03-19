@@ -17,7 +17,7 @@ doubleblastbullet:
 		ZOffset: 1023
 
 rpg:
-	idle: 
+	idle:
 		Combine:
 			UNITS.SHP:
 				Start: 30
@@ -26,12 +26,12 @@ rpg:
 				Start: 31
 				Length: 3
 				FlipY: true
-			UNITS.SHP
+			UNITS.SHP:
 				Start: 30
 				Length: 5
 				FlipY: true
 				FlipX: true
-			UNITS.SHP
+			UNITS.SHP:
 				Start: 31
 				Length: 3
 				FlipX: true
@@ -42,12 +42,12 @@ rpg:
 				Start: 36
 				Length: 3
 				FlipY: true
-			UNITS.SHP
+			UNITS.SHP:
 				Start: 35
 				Length: 5
 				FlipY: true
 				FlipX: true
-			UNITS.SHP
+			UNITS.SHP:
 				Start: 36
 				Length: 3
 				FlipX: true
@@ -58,7 +58,7 @@ rpg:
 		ZOffset: 1023
 
 missile:
-	idle: 
+	idle:
 		Combine:
 			UNITS.SHP:
 				Start: 20
@@ -67,12 +67,12 @@ missile:
 				Start: 21
 				Length: 3
 				FlipY: true
-			UNITS.SHP
+			UNITS.SHP:
 				Start: 20
 				Length: 5
 				FlipY: true
 				FlipX: true
-			UNITS.SHP
+			UNITS.SHP:
 				Start: 21
 				Length: 3
 				FlipX: true
@@ -83,12 +83,12 @@ missile:
 				Start: 26
 				Length: 3
 				FlipY: true
-			UNITS.SHP
+			UNITS.SHP:
 				Start: 25
 				Length: 5
 				FlipY: true
 				FlipX: true
-			UNITS.SHP
+			UNITS.SHP:
 				Start: 26
 				Length: 3
 				FlipX: true

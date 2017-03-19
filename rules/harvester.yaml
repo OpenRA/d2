@@ -4,14 +4,14 @@ harvester:
 		Queue: Armor
 		Prerequisites: refinery
 		BuildPaletteOrder: 10
+		BuildDuration: 800
+		BuildDurationModifier: 40
 		InitialActivity: FindResources
+		Description: Collects Spice for processing\n  Unarmed
 	Valued:
-		Cost: 1200
-	CustomBuildTimeValue:
-		Value: 540
+		Cost: 300
 	Tooltip:
 		Name: Spice Harvester
-		Description: Collects Spice for processing\n  Unarmed
 	Selectable:
 		Class: harvester
 		Priority: 7
@@ -24,7 +24,7 @@ harvester:
 		SearchFromProcRadius: 30
 		SearchFromOrderRadius: 15
 	Health:
-		HP: 4500
+		HP: 150
 	Armor:
 		Type: harvester
 	Mobile:
@@ -48,3 +48,4 @@ harvester:
 		Step: 5
 		Delay: 3
 		HealIfBelow: 50
+	#WithSpriteControlGroup:

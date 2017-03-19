@@ -1,10 +1,11 @@
 construction_yard:
 	Inherits: ^Building
+	Buildable:
+		Description: Produces structures.
 	-DamagedByTerrain:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-		Adjacent: 4
 	LaysTerrain:
 		TerrainTypes: Rock
 		Template: 127
@@ -48,16 +49,16 @@ upgrade.conyard:
 	AlwaysVisible:
 	Tooltip:
 		Name: Construction Yard Upgrade
-		Description: Unlocks new construction options
 	Buildable:
 		BuildPaletteOrder: 10
 		Prerequisites: construction_yard
 		Queue: Upgrade
 		BuildLimit: 1
+		BuildDuration: 250
+		BuildDurationModifier: 40
+		Description: Unlocks new construction options
 	Valued:
-		Cost: 400
-	CustomBuildTimeValue:
-		Value: 590
+		Cost: 200
 	RenderSprites:
 		Image: conyard
 	ProvidesPrerequisite@upgradename:

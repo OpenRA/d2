@@ -4,20 +4,19 @@ outpost:
 	CanPowerDown:
 		PowerupSound: EnablePower
 		PowerdownSound: DisablePower
-	#DisabledOverlay:
 	Buildable:
 		Prerequisites: construction_yard, barracks, ~techlevel.medium
 		Queue: Building
 		BuildPaletteOrder: 50
+		BuildDuration: 1000
+		BuildDurationModifier: 40
+		Description: Provides a radar map of the battlefield\n  Requires power to operate
 	Selectable:
 		Bounds: 32,32
 	Valued:
 		Cost: 400
-	CustomBuildTimeValue:
-		Value: 270
 	Tooltip:
 		Name: Outpost
-		Description: Provides a radar map of the battlefield\n  Requires power to operate
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -41,4 +40,3 @@ outpost:
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:
-

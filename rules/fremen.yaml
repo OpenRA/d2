@@ -2,11 +2,11 @@ fremen:
 	Inherits: ^Infantry
 	Tooltip:
 		Name: Fremen
-		Description: Elite sniper infantry unit\n  Strong vs Infantry\n  Weak vs Vehicles\n  Special Ability: Invisibility
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 100
 		Prerequisites: ~disabled
+		Description: Elite sniper infantry unit\n  Strong vs Infantry\n  Weak vs Vehicles\n  Special Ability: Invisibility
 	Mobile:
 		Speed: 43
 	Valued:
@@ -23,7 +23,7 @@ fremen:
 		Weapon: Fremen_L
 	AttackFrontal:
 	WithInfantryBody:
-		AttackSequence: shoot
+		DefaultAttackSequence: shoot
 	Cloak:
 		InitialDelay: 85
 		CloakDelay: 85
@@ -37,10 +37,10 @@ fremen:
 nsfremen:
 	Inherits: fremen
 	Tooltip:
-		Description: Elite sniper infantry unit\n  Strong vs Infantry\n  Weak vs Vehicles
 	Buildable:
 		BuildPaletteOrder: 105
 		Prerequisites: ~disabled
+		Description: Elite sniper infantry unit\n  Strong vs Infantry\n  Weak vs Vehicles
 	RenderSprites:
 		Image: fremen
 	-Cloak:

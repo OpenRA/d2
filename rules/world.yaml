@@ -67,10 +67,12 @@ World:
 		ProductionPaletteWidget: PRODUCTION_PALETTE
 	WormManager:
 	DomainIndex:
-	PathfinderDebugOverlay:
 	WarheadDebugOverlay:
 	D2TerrainLayer:
 	BuildableTerrainLayer:
+	D2ResourceLayer:
+	ResourceClaimLayer:
+	CustomTerrainDebugOverlay:
 	SmudgeLayer@Rock:
 		Type: RockCrater
 		Sequence: rockcraters
@@ -79,9 +81,6 @@ World:
 		Type: SandCrater
 		Sequence: sandcraters
 		SmokePercentage: 0
-	D2ResourceLayer:
-	ResourceClaimLayer:
-	CustomTerrainDebugOverlay:
 	MapCreeps:
 	SpawnMapActors:
 	MapBuildRadius:

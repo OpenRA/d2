@@ -9,7 +9,7 @@ RequiresMods:
 
 Packages:
 	~^Content/d2
-	~^Content/d2k
+	~^Content/d2k/v2
 	.
 	$d2: d2
 	$d2k: d2k

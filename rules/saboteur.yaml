@@ -4,13 +4,13 @@ saboteur:
 		Queue: Infantry
 		BuildPaletteOrder: 100
 		Prerequisites: ~disabled
+		Description: Sneaky infantry, armed with explosives\n  Strong vs Buildings\n  Weak vs Everything\n  Special Ability: destroy buildings
 	Valued:
 		Cost: 300	## actually 0, but spawns from support power at Palace
 	Tooltip:
 		Name: Saboteur
-		Description: Sneaky infantry, armed with explosives\n  Strong vs Buildings\n  Weak vs Everything\n  Special Ability: destroy buildings
 	Health:
-		HP: 400
+		HP: 10
 	Mobile:
 		Speed: 43
 	Demolition:

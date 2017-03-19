@@ -1,21 +1,21 @@
 deviator:
 	Inherits: ^Tank
 	Valued:
-		Cost: 1000
-	CustomBuildTimeValue:
-		Value: 486
+		Cost: 750
 	Tooltip:
 		Name: Deviator
-		Description: Fires a warhead which changes\nthe allegiance of enemy vehicles
 	Buildable:
 		Queue: Armor
 		BuildPaletteOrder: 50
+		BuildDuration: 1000
+		BuildDurationModifier: 40
 		Prerequisites: ~heavy.ordos, research_centre, ~techlevel.high
+		Description: Fires a warhead which changes\nthe allegiance of enemy vehicles
 	Mobile:
 		TurnSpeed: 3
 		Speed: 53
 	Health:
-		HP: 1100
+		HP: 120
 	Armor:
 		Type: wood
 	RevealsShroud:

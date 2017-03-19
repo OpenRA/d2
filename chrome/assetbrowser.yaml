@@ -1,6 +1,6 @@
 Background@ASSETBROWSER_PANEL:
 	Logic: AssetBrowserLogic
-		SupportedFormats: .shp, .r8, .cps, .wsa, .icn
+		SupportedFormats: .shp, .cps, .wsa, .icn
 	X: (WINDOW_RIGHT - WIDTH)/2
 	Y: (WINDOW_BOTTOM - HEIGHT)/2
 	Width: 700

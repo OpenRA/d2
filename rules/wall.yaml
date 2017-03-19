@@ -6,23 +6,24 @@ wall:
 		Queue: Building
 		Prerequisites: construction_yard, barracks
 		BuildPaletteOrder: 60
+		BuildDuration: 500
+		BuildDurationModifier: 40
+		Description: Stop units and blocks enemy fire.
 	SoundOnDamageTransition:
 		DamagedSounds:
 		DestroyedSounds: EXPLSML4.WAV
 	Valued:
 		Cost: 50
-	CustomBuildTimeValue:
-		Value: 54
 	CustomSellValue:
 		Value: 0
 	Tooltip:
 		Name: Concrete Wall
-		Description: Stop units and blocks enemy fire.
 	AppearsOnRadar:
 	Building:
 		BuildSounds: CHUNG.WAV
-		Adjacent: 7
 		TerrainTypes: Rock, Concrete
+		Adjacent: 1
+	GivesBuildableArea:
 	Health:
 		HP: 50
 		Shape: Rectangle
@@ -35,11 +36,6 @@ wall:
 	Crushable:
 		CrushClasses: wall
 	BlocksProjectiles:
-	LineBuild:
-		Range: 5
-		NodeTypes: wall, turret
-	LineBuildNode:
-		Types: wall
 	Targetable:
 		TargetTypes: Ground, Wall
 	WithWallSpriteBody:

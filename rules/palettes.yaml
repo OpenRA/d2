@@ -5,10 +5,6 @@
 		Name: dune2
 		Filename: IBM.PAL
 		ShadowIndex: 1
-	PaletteFromFile@d2k:
-		Name: d2k
-		Filename: PALETTE.BIN
-		ShadowIndex: 1
 	PaletteFromFile@chrome:
 		Name: chrome
 		Filename: IBM.PAL
@@ -24,10 +20,6 @@
 		Filename: IBM.PAL
 		ShadowIndex: 4
 		AllowModifiers: false
-	PaletteFromFile@dune2:
-		Name: dune2
-		Filename: IBM.PAL
-		ShadowIndex: 1
 	PaletteFromFile@shroud:
 		Name: shroud
 		Filename: IBM.PAL
@@ -46,11 +38,12 @@
 		G: 255
 		B: 255
 		A: 128
-	PaletteFromR8@moveflash:
+	PaletteFromRGBA@moveflash:
 		Name: moveflash
-		Filename: DATA.R8
-		Offset: 2572352
-		InvertColor: true
+		R: 255
+		G: 255
+		B: 255
+		A: 64
 	PaletteFromRGBA@disabled:
 		Name: disabled
 		R: 0

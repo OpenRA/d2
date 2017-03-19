@@ -2,7 +2,7 @@ SpiceExplosion:
 	Projectile: Bullet
 		Speed: 50, 75
 		Blockable: false
-		Angle: 60, 90
+		LaunchAngle: 60, 90
 		Image: 120mm
 	Warhead@1Dam: SpreadDamage
 		Spread: 320

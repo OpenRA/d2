@@ -1,23 +1,44 @@
 # d2 mod for OpenRA
 
-1. Install OpenRA or build it from sources. Note that current release-20160508 can not be used for d2 mod. At this moment you should build from bleed
+How to install:
+  * Download [OpenRA-Source - Release-20161019](https://github.com/OpenRA/OpenRA/archive/release-20161019.zip)
+  * Download [D2-Source](https://github.com/OpenRA/d2/archive/master.zip)
+  * Extract both files, rename the `d2-master` folder to `d2` and move it into the just extracted OpenRA-Source folder  
+  -> OpenRA-release-20161019/mods
+  * Assuming that you already installed OpenRA before from the Website (not from source), you need to switch to its Directory and copy 3 files : 
+    - `OpenRA.Game.exe`
+    - `Eluant.dll`
+    - `OpenRA.Mods.Common.dll` (OpenRA/mods/common)
+  * Paste the files into `/OpenRA-release-20161019/mods/d2/OpenRA.Mods.D2/dependencies`
+  * Now download the [Original Game](http://www.abandonia.com/en/games/36/Dune+II+-+The+Building+of+a+Dynasty.html) and copy following files: 
+    - `DUNE.PAK`
+    - `VOC.PAK`
+    - `ATRE.PAK`
+    - `HARK.PAK`
+    - `ORDOS.PAK`
+    - `INTRO.PAK`
+    - `FINALE.PAK`
+  * Paste those files into `Documents/OpenRA/Content/d2` (if the d2 folder doesnt exist, create it)
+  * Keep sure that you atleast once started the Dune2000 mod (thus downloaded the content for it)
+  * Run `make all` in `OpenRA-release-20161019` directory via commandline.
+  * Head to `/OpenRA-release-20161019/mods/d2` and run `make` (win) or `build.sh` (linux)
+  * You should be able to start the just built OpenRA-version and select d2 in the modchooser
 
-2. Copy or link the following files from your main OpenRA installation into OpenRA.Mods.D2/dependencies directory: 
-```
-OpenRA.Game.exe
-OpenRA.Mods.Common.dll
-Eluant.dll
-```
+-------------------------------------------------------------------------------------------------------------------------
 
-3. Run ```make all``` in OpenRA.Mods.D2 directory for linux and mac. Or open OpenRA.Mods.D2.sln solution in Visual Studio and build project for windows
+Installing with cake
 
-4. Create subdirectory named 'd2' in main OpenRA installation in directory 'mods'
+1. [Build OpenRA from source](https://github.com/OpenRA/OpenRA/wiki/Compiling)
 
-5. Copy all files from this repo to directory 'd2', including OpenRA.Mods.D2.dll. But exclude OpenRA.Mods.D2 directory from copying (this is sources of OpenRA.Mods.D2.dll)
+2. Install [`cake`](http://cakebuild.net/):
+   * OS X: `brew install cake`
+   * Windows: `choco install cake-portable`
+   * GNU/Linux: https://github.com/cake-build/cake#1-install-the-cake-bootstrapper
 
-6. Launch your OpenRA, Choose d2k mod (not d2, but dune2000) and load assets for it. This is because some sprites in d2 uses d2k assets
+3. Build the d2 mod:
+   * GNU/Linux, OS X: Run `make`
+   * Windows: Run `make.ps1` in PowerShell
 
-7. Launch your OpenRA. Choose mod 'd2' in modchooser and play game.
 
 More information here: [wiki](https://github.com/OpenRA/d2/wiki)
 

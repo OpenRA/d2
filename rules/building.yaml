@@ -13,7 +13,7 @@
 		Footprint: xx xx
 		TerrainTypes: Rock, Concrete
 		BuildSounds: BUILD1.WAV
-		Adjacent: 3
+		Adjacent: 1
 	GivesBuildableArea:
 	Capturable:
 		CaptureThreshold: 100
@@ -47,3 +47,4 @@
 		DamageThreshold: 50
 		StartOnThreshold: true
 	#WithMakeAnimation:
+	#WithSpriteControlGroup:

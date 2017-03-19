@@ -4,15 +4,15 @@ wor:
 		Prerequisites: construction_yard, wind_trap, barracks
 		Queue: Building
 		BuildPaletteOrder: 40
+		BuildDuration: 1300
+		BuildDurationModifier: 40
+		Description: Trains heavy infantry
 	Selectable:
 		Bounds: 32,32
 	Valued:
 		Cost: 400
-	CustomBuildTimeValue:
-		Value: 231
 	Tooltip:
 		Name: WOR
-		Description: Trains heavy infantry
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -63,16 +63,16 @@ upgrade.wor:
 	AlwaysVisible:
 	Tooltip:
 		Name: WOR Upgrade
-		Description: Unlocks troopers squads
 	Buildable:
 		BuildPaletteOrder: 30
 		Prerequisites: wor
 		Queue: Upgrade
 		BuildLimit: 1
+		BuildDuration: 250
+		BuildDurationModifier: 40
+		Description: Unlocks troopers squads
 	Valued:
-		Cost: 500
-	CustomBuildTimeValue:
-		Value: 290
+		Cost: 150
 	RenderSprites:
 		Image: wor
 	ProvidesPrerequisite@upgradename:

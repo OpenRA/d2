@@ -4,7 +4,8 @@ frigate:
 		DropRange: 1c0
 	Tooltip:
 		Name: Frigate
-		Description: Supply spacecraft
+	Health:
+		HP: 500
 	Aircraft:
 		Speed: 189 # 126 * ~1.5 for balance reasons
 		TurnSpeed: 1
@@ -16,3 +17,5 @@ frigate:
 		PipCount: 10
 	FlyAwayOnIdle:
 	RejectsOrders:
+	Buildable:
+		Description: Supply spacecraft

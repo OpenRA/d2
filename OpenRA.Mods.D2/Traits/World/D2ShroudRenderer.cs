@@ -225,7 +225,7 @@ namespace OpenRA.Mods.Common.Traits
 			cellsDirty.UnionWith(cells);
 		}
 
-		public void RenderShroud(WorldRenderer wr, Shroud shroud)
+		public void RenderShroud(Shroud shroud, WorldRenderer wr)
 		{
 			if (currentShroud != shroud)
 			{

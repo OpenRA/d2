@@ -4,15 +4,15 @@ refinery:
 		Prerequisites: construction_yard, wind_trap
 		Queue: Building
 		BuildPaletteOrder: 20
+		BuildDuration: 1000
+		BuildDurationModifier: 40
+		Description: Harvesters unload Spice here for processing
 	Selectable:
 		Bounds: 48,32
-	CustomBuildTimeValue:
-		Value: 540
 	Valued:
 		Cost: 400
 	Tooltip:
 		Name: Spice Refinery
-		Description: Harvesters unload Spice here for processing
 	Building:
 		Footprint: xx= xx=
 		Dimensions: 3,2
@@ -26,6 +26,7 @@ refinery:
 		DockAngle: 120
 		DockOffset: 2,1
 		TickRate: 20
+		ShowTicks: false
 	StoresResources:
 		PipColor: green
 		PipCount: 10

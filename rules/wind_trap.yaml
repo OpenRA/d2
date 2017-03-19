@@ -4,15 +4,15 @@ wind_trap:
 		Queue: Building
 		Prerequisites: construction_yard
 		BuildPaletteOrder: 10
+		BuildDuration: 600
+		BuildDurationModifier: 40
+		Description: Provides power for other structures
 	Selectable:
 		Bounds: 32,32
 	Valued:
 		Cost: 300
-	CustomBuildTimeValue:
-		Value: 180
 	Tooltip:
 		Name: Wind Trap
-		Description: Provides power for other structures
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2

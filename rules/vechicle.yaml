@@ -23,7 +23,6 @@
 	Passenger:
 		CargoType: Vehicle
 	AttackMove:
-	#DrawLineToTarget:
 	HiddenUnderFog:
 	ActorLostNotification:
 	Repairable:
@@ -49,6 +48,7 @@
 		Palette: dune2
 		Type: Cell
 		TerrainTypes: Sand, Dune, Spice
+	#WithSpriteControlGroup:
 
 ^Tank:
 	Inherits: ^Vehicle

@@ -3,18 +3,18 @@ trike:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 10
+		BuildDuration: 500
+		BuildDurationModifier: 40
 		Prerequisites: ~light.regulartrikes
+		Description: Fast scout\n Strong vs Infantry\n Weak vs Tanks, Aircraft
 	Valued:
-		Cost: 300
-	CustomBuildTimeValue:
-		Value: 194
+		Cost: 150
 	Tooltip:
 		Name: Trike
-		Description: Fast scout\n Strong vs Infantry\n Weak vs Tanks, Aircraft
 	Selectable:
 		Class: trike
 	Health:
-		HP: 900
+		HP: 100
 	Armor:
 		Type: wood
 	Mobile:

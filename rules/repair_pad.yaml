@@ -4,18 +4,18 @@ repair_pad:
 		Queue: Building
 		Prerequisites: construction_yard, heavy_factory, upgrade.heavy, ~techlevel.medium
 		BuildPaletteOrder: 130
+		BuildDuration: 1000
+		BuildDurationModifier: 40
+		Description: Repairs vehicles\n Allows construction of MCVs
 	Valued:
 		Cost: 700
-	CustomBuildTimeValue:
-		Value: 324
 	Tooltip:
 		Name: Repair Pad
-		Description: Repairs vehicles\n Allows construction of MCVs
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
 	Health:
-		HP: 400
+		HP: 200
 	Armor:
 		Type: building
 	RevealsShroud:
@@ -39,11 +39,9 @@ repair_pad:
 		Sequence: idle-flag
 	WithRepairOverlay@ACTIVE1:
 		Sequence: active-1
-		#Palette: effect75alpha
 	WithRepairOverlay@ACTIVE2:
 		Sequence: active-2
-		#Palette: effect75alpha
 	Power:
 		Amount: -20
 	ProvidesPrerequisite@buildingname:
-
+	#WithSpriteControlGroup:

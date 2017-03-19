@@ -1,15 +1,15 @@
 ^concrete:
 	AlwaysVisible:
 	Building:
-		Adjacent: 4
 		TerrainTypes: Rock
 		BuildSounds: CHUNG.WAV
 		AllowInvalidPlacement: true
+    Adjacent: 1
 	RevealsShroud:
 		Range: 1c0
+	GivesBuildableArea:
 	Tooltip:
 		Name: Concrete
-		Description: Provides a strong foundation that prevents\ndamage from the terrain.
 	RenderSprites:
 	KillsSelf:
 		RemoveInstead: true
@@ -17,6 +17,7 @@
 		Queue: Building
 		Prerequisites: construction_yard
 		BuildPaletteOrder: 10
+		Description: Provides a strong foundation that prevents\ndamage from the terrain.
 
 concretea:
 	Inherits: ^concrete
@@ -31,8 +32,9 @@ concretea:
 		Image: concretea
 	Valued:
 		Cost: 5
-	CustomBuildTimeValue:
-		Value: 54
+	Buildable:
+		BuildDuration: 200
+		BuildDurationModifier: 40
 
 concreteb:
 	Inherits: ^concrete
@@ -47,7 +49,7 @@ concreteb:
 		Image: concreteb
 	Valued:
 		Cost: 20
-	CustomBuildTimeValue:
-		Value: 81
 	Buildable:
+		BuildDuration: 200
+		BuildDurationModifier: 40
 		Prerequisites: upgrade.conyard

@@ -4,15 +4,15 @@ barracks:
 		Prerequisites: construction_yard, wind_trap
 		Queue: Building
 		BuildPaletteOrder: 40
+		BuildDuration: 900
+		BuildDurationModifier: 40
+		Description: Trains infantry
 	Selectable:
 		Bounds: 32,32
 	Valued:
 		Cost: 300
-	CustomBuildTimeValue:
-		Value: 231
 	Tooltip:
 		Name: Barracks
-		Description: Trains infantry
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -61,16 +61,16 @@ upgrade.barracks:
 	AlwaysVisible:
 	Tooltip:
 		Name: Barracks Upgrade
-		Description: Unlocks infantry squads
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: barracks
 		Queue: Upgrade
 		BuildLimit: 1
+		BuildDuration: 250
+		BuildDurationModifier: 40
+		Description: Unlocks infantry squads
 	Valued:
-		Cost: 500
-	CustomBuildTimeValue:
-		Value: 290
+		Cost: 150
 	RenderSprites:
 		Image: barracks
 	ProvidesPrerequisite@upgradename:

@@ -4,18 +4,18 @@ mcv:
 		Prerequisites: repair_pad, upgrade.heavy, ~techlevel.medium
 		Queue: Armor
 		BuildPaletteOrder: 110
+		BuildDuration: 1000
+		BuildDurationModifier: 40
+		Description: Deploys into another Construction Yard\n  Unarmed
 	Valued:
-		Cost: 2000
-	CustomBuildTimeValue:
-		Value: 648
+		Cost: 900
 	Tooltip:
 		Name: Mobile Construction Vehicle
-		Description: Deploys into another Construction Yard\n  Unarmed
 	Selectable:
 		Class: mcv
 		Priority: 3
 	Health:
-		HP: 4500
+		HP: 150
 	Armor:
 		Type: light
 	Mobile:
@@ -45,3 +45,4 @@ mcv:
 		Step: 5
 		Delay: 3
 		HealIfBelow: 50
+	#WithSpriteControlGroup:

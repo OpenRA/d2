@@ -2,20 +2,20 @@ missile_tank:
 	Inherits: ^Tank
 	Tooltip:
 		Name: Missile Tank
-		Description: Rocket Artillery\n  Strong vs Vehicles, Buildings, Aircraft\n  Weak vs Infantry
 	Buildable:
 		Queue: Armor
 		Prerequisites: ~heavy.missiletank, upgrade.heavy, research_centre, ~techlevel.high
 		BuildPaletteOrder: 60
+		BuildDuration: 900
+		BuildDurationModifier: 40
+		Description: Rocket Artillery\n  Strong vs Vehicles, Buildings, Aircraft\n  Weak vs Infantry
 	Valued:
-		Cost: 900
-	CustomBuildTimeValue:
-		Value: 441
+		Cost: 450
 	Mobile:
 		Speed: 64
 		TurnSpeed: 5
 	Health:
-		HP: 1300
+		HP: 100
 	Armor:
 		Type: wood
 	RevealsShroud:

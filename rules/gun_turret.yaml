@@ -4,15 +4,14 @@ gun_turret:
 		Queue: Building
 		Prerequisites: construction_yard, barracks
 		BuildPaletteOrder: 90
+		BuildDuration: 800
+		BuildDurationModifier: 40
+		Description: Defensive structure\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 125
-	CustomBuildTimeValue:
-		Value: 231
 	Tooltip:
 		Name: Gun Turret
-		Description: Defensive structure\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft
 	Building:
-		Adjacent: 4
 		BuildSounds: CHUNG.WAV
 	Sellable:
 		SellSounds: CHUNG.WAV
@@ -20,7 +19,7 @@ gun_turret:
 		Bounds: 16,16
 		Priority: 3
 	Health:
-		HP: 100
+		HP: 200
 	Armor:
 		Type: heavy
 	RevealsShroud:
@@ -39,3 +38,4 @@ gun_turret:
 		Amount: -10
 	SelectionDecorations:
 		VisualBounds: 16,16
+	#WithSpriteControlGroup:
