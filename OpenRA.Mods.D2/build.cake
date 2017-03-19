@@ -13,16 +13,14 @@ var depsDir = Directory("dependencies");
 var deps = new[] {
     "Eluant.dll",
     "OpenRA.Game.exe",
-    "OpenRA.Mods.Common.dll",
-    "OpenRA.Mods.D2k.dll"
+    "OpenRA.Mods.Common.dll"
 };
 
 // The path to the assembly relative to the OpenRA root
 var depsInOpenRA = new[] {
     "Eluant.dll",
     "OpenRA.Game.exe",
-    "mods/common/OpenRA.Mods.Common.dll",
-    "mods/d2k/OpenRA.Mods.D2k.dll"
+    "mods/common/OpenRA.Mods.Common.dll"
 };
 
 // Location on-disk of the OpenRA source code.
