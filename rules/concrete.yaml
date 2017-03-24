@@ -4,7 +4,7 @@
 		TerrainTypes: Rock
 		BuildSounds: CHUNG.WAV
 		AllowInvalidPlacement: true
-		Adjacent: 1
+		Adjacent: 3
 	GivesBuildableArea:
 	Tooltip:
 		Name: Concrete
