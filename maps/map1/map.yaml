@@ -60,27 +60,6 @@ Actors:
 	Actor1: mpspawn
 		Owner: Neutral
 		Location: 42,73
-	Actor2: wormspawner
-		Owner: Neutral
-		Location: 74,79
-	Actor3: wormspawner
-		Owner: Neutral
-		Location: 52,45
-	Actor4: wormspawner
-		Owner: Neutral
-		Location: 48,64
-	Actor5: wormspawner
-		Owner: Neutral
-		Location: 68,63
-	Actor6: wormspawner
-		Owner: Neutral
-		Location: 76,50
-	Actor7: wormspawner
-		Owner: Neutral
-		Location: 64,50
-	Actor8: wormspawner
-		Owner: Neutral
-		Location: 43,78
 	Actor9: wormspawner
 		Owner: Neutral
 		Location: 59,70
@@ -93,3 +72,30 @@ Actors:
 	Actor12: mpspawn
 		Owner: Neutral
 		Location: 17,70
+	Actor13: wormspawner
+		Owner: Neutral
+		Location: 62,50
+	Actor14: wormspawner
+		Owner: Neutral
+		Location: 78,50
+	Actor15: wormspawner
+		Owner: Neutral
+		Location: 68,65
+	Actor16: wormspawner
+		Owner: Neutral
+		Location: 76,79
+	Actor17: wormspawner
+		Owner: Neutral
+		Location: 52,64
+	Actor18: wormspawner
+		Owner: Neutral
+		Location: 42,81
+	Actor19: wormspawner
+		Owner: Neutral
+		Location: 48,50
+	Actor20: wormspawner
+		Owner: Neutral
+		Location: 35,55
+	Actor21: wormspawner
+		Owner: Neutral
+		Location: 17,74
