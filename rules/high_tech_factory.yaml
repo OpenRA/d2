@@ -56,9 +56,9 @@ high_tech_factory:
 		Amount: -35
 	SelectionDecorations:
 		VisualBounds: 64,32
-	GlobalUpgradable:
+	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.hightech
-		Upgrades: stardecoration
+		Condition: stardecoration
 	#WithSpriteControlGroup:
 
 upgrade.hightech:

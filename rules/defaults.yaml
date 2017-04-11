@@ -3,7 +3,7 @@
 	UpdatesPlayerStatistics:
 	CombatDebugOverlay:
 	ScriptTriggers:
-	UpgradeManager:
+	ConditionManager:
 	Huntable:
 	RenderDebugState:
 

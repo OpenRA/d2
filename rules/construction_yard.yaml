@@ -41,9 +41,9 @@ construction_yard:
 		Sequence: idle-flag
 	PrimaryBuilding:
 	ProvidesPrerequisite@buildingname:
-	GlobalUpgradable:
+	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.conyard
-		Upgrades: stardecoration
+		Condition: stardecoration
 
 upgrade.conyard:
 	AlwaysVisible:

@@ -171,6 +171,10 @@ CrateExplosion:
 		Explosions: large_explosion
 		ImpactSounds: EXPLSML4.WAV
 
+BuildingExplode:
+	Warhead@1Eff: CreateEffect
+		Explosions: building, self_destruct, large_explosion
+
 UnitExplodeSmall:
 	Warhead@1Eff: CreateEffect
 		Explosions: self_destruct

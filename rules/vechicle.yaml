@@ -38,10 +38,10 @@
 		VoiceSet: VehicleVoice
 	Carryable:
 		CarryableUpgrades: notmobile
-	WithDecorationCarryable:
-		Image: pips
-		Sequence: pickup-indicator
-		Offset: -12, -12
+	# WithDecoration@Carryable:
+	# 	Image: pips
+	# 	Sequence: pickup-indicator
+	# 	Offset: -12, -12
 	WithDamageOverlay:
 	LeavesTrails:
 		Image: vtrail

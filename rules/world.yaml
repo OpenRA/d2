@@ -44,10 +44,10 @@
 		InternalName: smuggler
 		Selectable: false
 	ResourceType@Spice:
-		ResourceType: 1
+		Type: 1
 		Palette: dune2
 		TerrainType: Spice
-		Variants: spice
+		Sequences: spice
 		MaxDensity: 20
 		ValuePerUnit: 25
 		Name: Spice
