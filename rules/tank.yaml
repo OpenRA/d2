@@ -1,0 +1,4 @@
+^Tank:
+	Inherits: ^Vehicle
+	Mobile:
+		Crushes: infantry, spicebloom

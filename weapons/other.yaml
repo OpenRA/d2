@@ -186,6 +186,11 @@ UnitExplodeLarge:
 		Explosions: large_explosion
 		ImpactSounds: EXPLLG2.WAV
 
+BuildingExplode:
+	Warhead@1Eff: CreateEffect
+		Explosions: building
+		ImpactSounds: EXPLSML2.WAV
+
 Weathering:
 	ReloadDelay: 100
 	Warhead@1Dam: SpreadDamage

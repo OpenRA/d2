@@ -2,10 +2,6 @@ carryall.reinforce:
 	Inherits: ^Plane
 	Valued:
 		Cost: 800
-	Buildable:
-		BuildDuration: 800
-		BuildDurationModifier: 40
-		Description: Large winged, planet-bound ship\n  Automatically lifts harvesters.
 	Tooltip:
 		Name: Carryall
 	Health:
@@ -13,24 +9,21 @@ carryall.reinforce:
 	Armor:
 		Type: light
 	Aircraft:
-		CruiseAltitude: 2100
+		CruiseAltitude: 2160
 		InitialFacing: 0
 		Speed: 144 # 112 * ~1.3 for balance reasons
 		TurnSpeed: 4
 		LandableTerrainTypes: Sand, Rock, Transition, Spice, SpiceSand, Dune
 		Repulsable: False
-		LandAltitude: 100
 		LandWhenIdle: False
-		AirborneUpgrades: airborne
+		AirborneCondition: airborne
 		CanHover: True
 	Targetable@GROUND:
 		TargetTypes: Ground, Vehicle
-		UpgradeTypes: airborne
-		UpgradeMaxEnabledLevel: 0
+		RequiresCondition: !airborne
 	Targetable@AIRBORNE:
 		TargetTypes: Air
-		UpgradeTypes: airborne
-		UpgradeMinEnabledLevel: 1
+		RequiresCondition: airborne
 	SpawnActorOnDeath:
 		Actor: carryall.husk
 	Carryall:
@@ -42,11 +35,17 @@ carryall.reinforce:
 		Step: 5
 		Delay: 3
 		HealIfBelow: 50
+	Buildable:
+		BuildDuration: 800
+		BuildDurationModifier: 40
+		Description: Large winged, planet-bound ship\n  Automatically lifts harvesters from and to Spice.\n  Lifts vehicles to Repair Pads when ordered.
 
 carryall:
 	Inherits: carryall.reinforce
-	Carryall:
-		Automatic: True
+	-Carryall:
+	AutoCarryall:
+		LoadingDelay: 10
+		UnloadingDelay: 15
 		LocalOffset: 0, 0, -128
 	Buildable:
 		Queue: Aircraft

@@ -1,6 +1,7 @@
 ^Infantry:
 	Inherits@1: ^ExistsInWorld
 	Inherits@3: ^SpriteActor
+	Huntable:
 	Health:
 		Shape: Circle
 			Radius: 96
@@ -22,6 +23,7 @@
 			Dune: 80
 			Rough: 80
 	SelectionDecorations:
+	WithSpriteControlGroupDecoration:
 	Selectable:
 		Bounds: 11,11,0,0
 	Targetable:
@@ -64,4 +66,6 @@
 		VoiceSet: InfantryVoice
 	Captures:
 		CaptureTypes: building, husk
-	#WithSpriteControlGroup:
+	RevealOnFire:
+	RevealOnDeath:
+		Duration: 100

@@ -11,6 +11,7 @@ frigate:
 		TurnSpeed: 1
 		Repulsable: False
 		MaximumPitch: 20
+		CruiseAltitude: 2048
 	-AppearsOnRadar:
 	Cargo:
 		MaxWeight: 20

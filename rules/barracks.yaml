@@ -33,6 +33,7 @@ barracks:
 	Production:
 		Produces: Infantry
 	PrimaryBuilding:
+		PrimaryCondition: primary
 	ProductionBar:
 	ProvidesPrerequisite@atreides:
 		Prerequisite: barracks.atreides
@@ -53,9 +54,11 @@ barracks:
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	ProvidesPrerequisite@buildingname:
-	GlobalUpgradable:
+	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.barracks
-		Upgrades: stardecoration
+		Condition: stardecoration
+	RevealOnDeath:
+		Radius: 3c768
 
 upgrade.barracks:
 	AlwaysVisible:

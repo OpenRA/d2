@@ -40,10 +40,13 @@ construction_yard:
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	PrimaryBuilding:
+		PrimaryCondition: primary
 	ProvidesPrerequisite@buildingname:
-	GlobalUpgradable:
+	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.conyard
-		Upgrades: stardecoration
+		Condition: stardecoration
+	RevealOnDeath:
+		Radius: 5c768
 
 upgrade.conyard:
 	AlwaysVisible:

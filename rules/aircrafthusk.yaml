@@ -1,0 +1,7 @@
+^AircraftHusk:
+	Inherits: ^Husk
+	WithShadow:
+	FallsToEarth:
+		Spins: False
+		Moves: True
+		Explosion: UnitExplodeLarge

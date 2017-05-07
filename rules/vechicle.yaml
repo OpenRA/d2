@@ -1,9 +1,8 @@
 ^Vehicle:
 	Inherits@1: ^ExistsInWorld
 	Inherits@3: ^SpriteActor
+	Huntable:
 	Mobile:
-		UpgradeTypes: notmobile
-		UpgradeMaxEnabledLevel: 0
 		Crushes: spicebloom
 		TerrainSpeeds:
 			Sand: 100
@@ -15,6 +14,7 @@
 			SpiceBlobs: 100
 			Dune: 50
 		TurnSpeed: 5
+		RequiresCondition: !notmobile
 	SelectionDecorations:
 	Selectable:
 		Bounds: 16,16
@@ -36,21 +36,22 @@
 	MustBeDestroyed:
 	Voiced:
 		VoiceSet: VehicleVoice
-	Carryable:
-		CarryableUpgrades: notmobile
-	WithDecorationCarryable:
+	AutoCarryable:
+		CarriedCondition: notmobile
+		ReservedCondition: carryall-reserved
+	WithDecoration@CARRYALL:
 		Image: pips
 		Sequence: pickup-indicator
 		Offset: -12, -12
+		RequiresCondition: carryall-reserved
+	RevealOnFire:
+	RevealOnDeath:
+		Duration: 100
+		Radius: 2c512
 	WithDamageOverlay:
 	LeavesTrails:
 		Image: vtrail
 		Palette: dune2
 		Type: Cell
 		TerrainTypes: Sand, Dune, Spice
-	#WithSpriteControlGroup:
-
-^Tank:
-	Inherits: ^Vehicle
-	Mobile:
-		Crushes: infantry, spicebloom
+	WithSpriteControlGroupDecoration:

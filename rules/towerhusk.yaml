@@ -1,0 +1,13 @@
+^TowerHusk:
+	Health:
+		HP: 125
+	Armor:
+		Type: concrete
+	Husk:
+	AppearsOnRadar:
+	HiddenUnderFog:
+	Burns:
+		Interval: 2
+	Tooltip:
+		Name: Destroyed Tower
+	ScriptTriggers:

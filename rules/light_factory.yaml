@@ -39,6 +39,7 @@ light_factory:
 	Production:
 		Produces: Vehicle
 	PrimaryBuilding:
+		PrimaryCondition: primary
 	ProductionBar:
 	ProvidesPrerequisite@atreides:
 		Prerequisite: light.atreides
@@ -55,9 +56,9 @@ light_factory:
 	ProvidesPrerequisite@buildingname:
 	Power:
 		Amount: -20
-	GlobalUpgradable:
+	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.light
-		Upgrades: stardecoration
+		Condition: stardecoration
 
 upgrade.light:
 	AlwaysVisible:

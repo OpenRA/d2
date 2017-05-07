@@ -33,4 +33,3 @@ research_centre:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 32,32
-	#WithSpriteControlGroup:

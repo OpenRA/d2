@@ -1,6 +1,8 @@
 ^Building:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
+	Huntable:
+	WithSpriteControlGroupDecoration:
 	SelectionDecorations:
 	Selectable:
 		Priority: 2
@@ -22,9 +24,12 @@
 		DestroyedSounds: EXPLHG1.WAV
 	#WithSpriteBody:
 	WithTilesetBody:
-	WithBuildingExplosion:
-		Sequences: building, self_destruct, large_explosion
+	Explodes:
+		Type: Footprint
+		Weapon: BuildingExplode
+		EmptyWeapon: BuildingExplode
 	RepairableBuilding:
+		RepairStep: 50
 	EmitInfantryOnSell:
 		ActorTypes: light_inf
 	MustBeDestroyed:
@@ -47,4 +52,6 @@
 		DamageThreshold: 50
 		StartOnThreshold: true
 	#WithMakeAnimation:
-	#WithSpriteControlGroup:
+	RevealOnDeath:
+		Duration: 100
+		Radius: 4c768

@@ -3,8 +3,7 @@
 	UpdatesPlayerStatistics:
 	CombatDebugOverlay:
 	ScriptTriggers:
-	UpgradeManager:
-	Huntable:
+	ConditionManager:
 	RenderDebugState:
 
 ^SpriteActor:
@@ -13,44 +12,9 @@
 	AutoSelectionSize:
 	RenderSprites:
 
-^Husk:
-	Inherits@1: ^SpriteActor
-	Health:
-		HP: 75
-	Armor:
-		Type: light
-	HiddenUnderFog:
-		Type: CenterPosition
-	Tooltip:
-		Name: Wreck
-	AutoTargetIgnore:
-	ScriptTriggers:
-	WithFacingSpriteBody:
-
-^VehicleHusk:
-	Inherits: ^Husk
-	Husk:
-		AllowedTerrain: Sand, Rock, Transition, Concrete, Spice, SpiceSand, SpiceBlobs, Dune
-	Burns:
-		Interval: 4
-	Targetable:
-		TargetTypes: Ground, Vehicle
-		RequiresForceFire: yes
-	DisabledOverlay:
-	Explodes:
-		Weapon: UnitExplodeMed
-		EmptyWeapon: UnitExplodeMed
-
-^TowerHusk:
-	Health:
-		HP: 125
-	Armor:
-		Type: concrete
-	Husk:
-	AppearsOnRadar:
-	HiddenUnderFog:
-	Burns:
-		Interval: 2
-	Tooltip:
-		Name: Destroyed Tower
-	ScriptTriggers:
+^DisabledOverlay:
+	WithColoredOverlay@IDISABLE:
+		RequiresCondition: disabled
+		Palette: disabled
+	GrantConditionOnDisabled@IDISABLE:
+		Condition: disabled

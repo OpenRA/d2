@@ -33,6 +33,7 @@ wor:
 	Production:
 		Produces: Infantry
 	PrimaryBuilding:
+		PrimaryCondition: primary
 	ProductionBar:
 	ProvidesPrerequisite@atreides:
 		Prerequisite: wor.atreides
@@ -55,9 +56,9 @@ wor:
 	WithIdleOverlay@TOP-FLAG:
 		Sequence: idle-top-flag
 	ProvidesPrerequisite@buildingname:
-	GlobalUpgradable:
+	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.wor
-		Upgrades: stardecoration
+		Condition: stardecoration
 
 upgrade.wor:
 	AlwaysVisible:

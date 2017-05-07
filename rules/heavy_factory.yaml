@@ -30,6 +30,7 @@ heavy_factory:
 	Production:
 		Produces: Armor
 	PrimaryBuilding:
+		PrimaryCondition: primary
 	ProductionBar:
 	ProvidesPrerequisite@atreides:
 		Prerequisite: heavy.atreides
@@ -58,10 +59,9 @@ heavy_factory:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 32,32
-	GlobalUpgradable:
+	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.heavy
-		Upgrades: stardecoration
-	#WithSpriteControlGroup:
+		Condition: stardecoration
 
 upgrade.heavy:
 	AlwaysVisible:

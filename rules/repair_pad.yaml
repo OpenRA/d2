@@ -44,4 +44,3 @@ repair_pad:
 	Power:
 		Amount: -20
 	ProvidesPrerequisite@buildingname:
-	#WithSpriteControlGroup:

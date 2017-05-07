@@ -40,4 +40,3 @@ rocket_turret:
 		Amount: -25
 	SelectionDecorations:
 		VisualBounds: 16,16
-	#WithSpriteControlGroup:
