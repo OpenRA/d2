@@ -17,8 +17,9 @@
 	Mobile:
 		Speed: 75
 		TurnSpeed: 5
-	RevealsShroud:
-		Range: 5c768
+	D2RevealsShroud:
+		Range: 3c256
+		MovingRange: 1c256
 	Turreted:
 		TurnSpeed: 5
 		RealignDelay: 0

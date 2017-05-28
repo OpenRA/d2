@@ -7,8 +7,6 @@
 			Radius: 96
 	Armor:
 		Type: none
-	RevealsShroud:
-		Range: 1c768
 	Mobile:
 		Crushes: spicebloom
 		SharesCell: true
@@ -22,6 +20,9 @@
 			SpiceBlobs: 100
 			Dune: 80
 			Rough: 80
+	D2RevealsShroud:
+		Range: 1c768
+		MovingRange: 1c256
 	SelectionDecorations:
 	WithSpriteControlGroupDecoration:
 	Selectable:

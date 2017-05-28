@@ -18,8 +18,9 @@ quad:
 	Mobile:
 		TurnSpeed: 8
 		Speed: 96
-	RevealsShroud:
+	D2RevealsShroud:
 		Range: 4c768
+		MovingRange: 1c256
 	Armament:
 		Weapon: Rocket
 		LocalOffset: 128,64,64, 128,-64,64

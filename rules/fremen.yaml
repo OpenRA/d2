@@ -13,8 +13,9 @@ fremen:
 		Cost: 200	## actually 0, but spawns from support power at Palace
 	Health:
 		HP: 700
-	RevealsShroud:
+	D2RevealsShroud:
 		Range: 4c768
+		MovingRange: 1c256
 	AutoTarget:
 		ScanRadius: 7
 		InitialStance: HoldFire

@@ -20,8 +20,9 @@ trike:
 	Mobile:
 		TurnSpeed: 10
 		Speed: 128
-	RevealsShroud:
-		Range: 4c768
+	D2RevealsShroud:
+		Range: 3c512
+		MovingRange: 1c256
 	WithMuzzleOverlay:
 	Armament@damage:
 		Weapon: HMG

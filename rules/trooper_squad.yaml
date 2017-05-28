@@ -13,8 +13,9 @@ trooper_squad:
 		Name: Trooper
 	Health:
 		HP: 110
-	RevealsShroud:
+	D2RevealsShroud:
 		Range: 4c768
+		MovingRange: 1c256
 	Mobile:
 		SharesCell: false
 		Speed: 31

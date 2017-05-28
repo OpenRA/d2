@@ -21,8 +21,9 @@ mcv:
 	Mobile:
 		Speed: 31
 		Crushes: infantry, spicebloom
-	RevealsShroud:
+	D2RevealsShroud:
 		Range: 2c768
+		MovingRange: 1c256
 	MustBeDestroyed:
 		RequiredForShortGame: true
 	BaseBuilding:

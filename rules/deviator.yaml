@@ -18,8 +18,9 @@ deviator:
 		HP: 120
 	Armor:
 		Type: wood
-	RevealsShroud:
+	D2RevealsShroud:
 		Range: 4c768
+		MovingRange: 1c256
 	Armament:
 		Weapon: DeviatorMissile
 		LocalOffset: -299,0,85
