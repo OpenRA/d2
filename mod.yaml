@@ -1,11 +1,8 @@
 Metadata:
 	Title: Dune 2
-	Description: Dune II mod.\nBattle for Arrakis.
 	Version: {DEV_VERSION}
-	Author: the OpenRA Developers
 
-RequiresMods:
-	modchooser: {DEV_VERSION}
+PackageFormats: PakFile, D2kSoundResources
 
 Packages:
 	~^Content/d2
@@ -16,17 +13,17 @@ Packages:
 	$ra: ra
 	$cnc: cnc
 	./mods/common: common
-	DUNE.PAK
-	VOC.PAK
-	ATRE.PAK
-	HARK.PAK
-	ORDOS.PAK
-	#ENGLISH.PAK
-	INTRO.PAK
-	#INTROVOC.PAK
-	#MENTAT.PAK
-	#MERC.PAK
-	FINALE.PAK
+	~DUNE.PAK
+	~VOC.PAK
+	~ATRE.PAK
+	~HARK.PAK
+	~ORDOS.PAK
+	#~ENGLISH.PAK
+	~INTRO.PAK
+	#~INTROVOC.PAK
+	#~MENTAT.PAK
+	#~MERC.PAK
+	~FINALE.PAK
 	~SOUND.RS
 	d2|bits
 	#d2|uibits
