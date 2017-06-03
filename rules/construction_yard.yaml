@@ -3,7 +3,7 @@ construction_yard:
 	Buildable:
 		Description: Produces structures.
 	-DamagedByTerrain:
-	Building:
+	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 	LaysTerrain:

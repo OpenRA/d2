@@ -11,7 +11,7 @@ gun_turret:
 		Cost: 125
 	Tooltip:
 		Name: Gun Turret
-	Building:
+	D2Building:
 		BuildSounds: CHUNG.WAV
 	Sellable:
 		SellSounds: CHUNG.WAV

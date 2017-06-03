@@ -13,7 +13,7 @@ wind_trap:
 		Cost: 300
 	Tooltip:
 		Name: Wind Trap
-	Building:
+	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Health:

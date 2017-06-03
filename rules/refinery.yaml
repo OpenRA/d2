@@ -13,7 +13,7 @@ refinery:
 		Cost: 400
 	Tooltip:
 		Name: Spice Refinery
-	Building:
+	D2Building:
 		Footprint: xx= xx=
 		Dimensions: 3,2
 	Health:

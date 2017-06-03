@@ -11,7 +11,7 @@ rocket_turret:
 		Cost: 250
 	Tooltip:
 		Name: Rocket Turret
-	Building:
+	D2Building:
 		BuildSounds: CHUNG.WAV
 	Sellable:
 		SellSounds: CHUNG.WAV

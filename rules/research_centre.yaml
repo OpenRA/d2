@@ -13,7 +13,7 @@ research_centre:
 		Cost: 500
 	Tooltip:
 		Name: Ix Lab
-	Building:
+	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Health:

@@ -68,6 +68,7 @@ World:
 	HelpCommand:
 	ScreenShaker:
 	BuildingInfluence:
+	D2ConcreteOwners:
 	ProductionQueueFromSelection:
 		ProductionPaletteWidget: PRODUCTION_PALETTE
 	WormManager:

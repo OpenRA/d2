@@ -17,7 +17,7 @@ outpost:
 		Cost: 400
 	Tooltip:
 		Name: Outpost
-	Building:
+	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Health:

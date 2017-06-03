@@ -2,7 +2,7 @@ sietch:
 	Inherits: ^Building
 	Tooltip:
 		Name: Fremen Sietch
-	Building:
+	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 		TerrainTypes: Cliff

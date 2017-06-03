@@ -10,7 +10,7 @@
 		VisibilityType: CenterPosition
 	Targetable:
 		TargetTypes: Ground, C4, Structure
-	Building:
+	D2Building:
 		Dimensions: 2,2
 		Footprint: xx xx
 		TerrainTypes: Rock, Concrete

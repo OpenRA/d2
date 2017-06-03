@@ -13,7 +13,7 @@ heavy_factory:
 		Cost: 600
 	Tooltip:
 		Name: Heavy Factory
-	Building:
+	D2Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
 	Health:

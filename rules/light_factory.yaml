@@ -13,7 +13,7 @@ light_factory:
 		Cost: 400
 	Tooltip:
 		Name: Light Factory
-	Building:
+	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Health:

@@ -19,7 +19,7 @@ wall:
 	Tooltip:
 		Name: Concrete Wall
 	AppearsOnRadar:
-	Building:
+	D2Building:
 		BuildSounds: CHUNG.WAV
 		TerrainTypes: Rock, Concrete
 		Adjacent: 1

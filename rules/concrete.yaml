@@ -1,16 +1,16 @@
 ^concrete:
 	AlwaysVisible:
-	Building:
+	D2Building:
 		TerrainTypes: Rock
 		BuildSounds: CHUNG.WAV
 		AllowInvalidPlacement: true
-		Adjacent: 3
-	GivesBuildableArea:
+		Adjacent: 1
 	Tooltip:
 		Name: Concrete
 	RenderSprites:
 	KillsSelf:
 		RemoveInstead: true
+	D2Concrete:
 	Buildable:
 		Queue: Building
 		Prerequisites: construction_yard
@@ -19,7 +19,7 @@
 
 concretea:
 	Inherits: ^concrete
-	Building:
+	D2Building:
 		Footprint: x
 		Dimensions: 1,1
 	LaysTerrain:
@@ -36,7 +36,7 @@ concretea:
 
 concreteb:
 	Inherits: ^concrete
-	Building:
+	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 	LaysTerrain:

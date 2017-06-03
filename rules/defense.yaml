@@ -9,7 +9,7 @@
 		Types: turret
 	MustBeDestroyed:
 		RequiredForShortGame: false
-	Building:
+	D2Building:
 		Dimensions: 1,1
 		Footprint: x
 	RevealOnFire:

@@ -18,7 +18,7 @@ high_tech_factory:
 	Exit:
 		SpawnOffset: 0,0,728
 		ExitCell: 0,0
-	Building:
+	D2Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
 	Health:

@@ -13,7 +13,7 @@ palace:
 		Cost: 999
 	Tooltip:
 		Name: Palace
-	Building:
+	D2Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
 	Health:

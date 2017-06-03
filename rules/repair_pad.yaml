@@ -11,7 +11,7 @@ repair_pad:
 		Cost: 700
 	Tooltip:
 		Name: Repair Pad
-	Building:
+	D2Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
 	Health:

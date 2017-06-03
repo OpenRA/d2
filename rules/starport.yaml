@@ -11,7 +11,7 @@ starport:
 		Description: Dropzone for quick reinforcements, at a price.\n  Requires power to operate
 	Valued:
 		Cost: 500
-	Building:
+	D2Building:
 		Footprint: xxx ==x ==x
 		Dimensions: 3,3
 	Selectable:

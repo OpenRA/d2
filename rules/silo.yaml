@@ -13,7 +13,7 @@ silo:
 		Cost: 150
 	Tooltip:
 		Name: Silo
-	Building:
+	D2Building:
 	Health:
 		HP: 150
 	Armor:

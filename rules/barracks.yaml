@@ -13,7 +13,7 @@ barracks:
 		Cost: 300
 	Tooltip:
 		Name: Barracks
-	Building:
+	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Health:
