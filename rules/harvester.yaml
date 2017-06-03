@@ -39,7 +39,6 @@ harvester:
 	SpawnActorOnDeath:
 		Actor: harvester.Husk
 	WithHarvestOverlay:
-		Palette: effect50alpha
 	WithDockingAnimation:
 	AttractsWorms:
 		Intensity: 700
