@@ -18,6 +18,10 @@ starport:
 		Bounds: 48,48
 	Health:
 		HP: 500
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1536, -1536
+			BottomRight: 1536, 1536
 	Armor:
 		Type: building
 	RevealsShroud:

@@ -10,6 +10,11 @@
 		VisibilityType: CenterPosition
 	Targetable:
 		TargetTypes: Ground, C4, Structure
+	HitShape:
+		UseOccupiedCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -512, -512
+			BottomRight: 512, 512
 	D2Building:
 		Dimensions: 2,2
 		Footprint: xx xx

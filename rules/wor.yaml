@@ -18,6 +18,10 @@ wor:
 		Dimensions: 2,2
 	Health:
 		HP: 400
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1024, -1024
+			BottomRight: 1024, 1024
 	Armor:
 		Type: wood
 	RevealsShroud:

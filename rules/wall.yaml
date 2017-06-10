@@ -26,7 +26,8 @@ wall:
 	GivesBuildableArea:
 	Health:
 		HP: 50
-		Shape: Rectangle
+	HitShape:
+		Type: Rectangle
 			TopLeft: -512, -512
 			BottomRight: 512, 512
 	Armor:

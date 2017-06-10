@@ -11,3 +11,4 @@
 	Tooltip:
 		Name: Destroyed Tower
 	ScriptTriggers:
+	HitShape:

@@ -55,3 +55,4 @@
 		Type: Cell
 		TerrainTypes: Sand, Dune, Spice
 	WithSpriteControlGroupDecoration:
+	HitShape:

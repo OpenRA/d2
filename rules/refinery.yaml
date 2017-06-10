@@ -18,6 +18,10 @@ refinery:
 		Dimensions: 3,2
 	Health:
 		HP: 450
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1024, -1536
+			BottomRight: 1024, 1536
 	Armor:
 		Type: building
 	RevealsShroud:

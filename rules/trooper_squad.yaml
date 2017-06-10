@@ -1,5 +1,5 @@
 trooper_squad:
-	Inherits: ^Infantry
+	Inherits: ^Infantry_squad
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 20

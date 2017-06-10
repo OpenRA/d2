@@ -4,7 +4,9 @@ sandworm:
 		Name: Sandworm
 	Health:
 		HP: 1000
-		Radius: 256
+	HitShape:
+		Type: Circle
+			Radius: 256
 	Armor:
 		Type: heavy
 	Mobile:

@@ -18,6 +18,10 @@ palace:
 		Dimensions: 3,3
 	Health:
 		HP: 1000
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1536, -1536
+			BottomRight: 1536, 1536
 	Armor:
 		Type: wood
 	RevealsShroud:
