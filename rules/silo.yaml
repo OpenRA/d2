@@ -28,7 +28,7 @@ silo:
 	StoresResources:
 		PipColor: green
 		PipCount: 5
-		Capacity: 2000
+		Capacity: 1000
 	-EmitInfantryOnSell:
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag

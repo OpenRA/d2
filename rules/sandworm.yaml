@@ -10,7 +10,7 @@ sandworm:
 	Armor:
 		Type: heavy
 	Mobile:
-		Speed: 42
+		Speed: 56 # 56 km/h
 		TerrainSpeeds:
 			Sand: 100
 			Dune: 100

@@ -28,7 +28,7 @@ harvester:
 	Armor:
 		Type: harvester
 	Mobile:
-		Speed: 43
+		Speed: 32 # 32 km/h
 		Crushes: infantry, spicebloom
 	D2RevealsShroud:
 		Range: 3c768

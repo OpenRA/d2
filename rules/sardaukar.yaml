@@ -14,7 +14,7 @@ sardaukar:
 	Health:
 		HP: 1000
 	Mobile:
-		Speed: 31
+		Speed: 15 # 15 km/h
 	D2RevealsShroud:
 		Range: 4c768
 		MovingRange: 1c256

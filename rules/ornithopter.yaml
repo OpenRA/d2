@@ -9,7 +9,7 @@ ornithopter:
 	Armor:
 		Type: light
 	Aircraft:
-		Speed: 224 # 189 * ~1.2 for balance reasons
+		Speed: 340 # 340 km/h
 		TurnSpeed: 2
 		Repulsable: False
 		CanHover: True
@@ -27,6 +27,6 @@ ornithopter.husk:
 		Name: Ornithopter
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 224
+		Speed: 340
 	RenderSprites:
 		Image: ornithopter

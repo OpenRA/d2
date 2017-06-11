@@ -8,11 +8,11 @@ fremen:
 		Prerequisites: ~disabled
 		Description: Elite sniper infantry unit\n  Strong vs Infantry\n  Weak vs Vehicles\n  Special Ability: Invisibility
 	Mobile:
-		Speed: 43
+		Speed: 17 # 17 km/h
 	Valued:
 		Cost: 200	## actually 0, but spawns from support power at Palace
 	Health:
-		HP: 700
+		HP: 90
 	D2RevealsShroud:
 		Range: 4c768
 		MovingRange: 1c256

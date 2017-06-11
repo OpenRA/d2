@@ -34,7 +34,7 @@ refinery:
 	StoresResources:
 		PipColor: green
 		PipCount: 10
-		Capacity: 2000
+		Capacity: 1000
 	CustomSellValue:
 		Value: 500
 	FreeActorWithDelivery:

@@ -13,7 +13,7 @@ light_inf:
 	Health:
 		HP: 20
 	Mobile:
-		Speed: 43
+		Speed: 5 # 5 km/h
 	Armament:
 		Weapon: LMG
 	AttackFrontal:

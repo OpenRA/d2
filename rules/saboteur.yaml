@@ -12,7 +12,7 @@ saboteur:
 	Health:
 		HP: 10
 	Mobile:
-		Speed: 43
+		Speed: 12 # 12 km/h (variants: 95 and 40 km/h ?)
 	Demolition:
 		DetonationDelay: 0
 		Flashes: 0

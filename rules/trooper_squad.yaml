@@ -17,8 +17,7 @@ trooper_squad:
 		Range: 4c768
 		MovingRange: 1c256
 	Mobile:
-		SharesCell: false
-		Speed: 31
+		Speed: 12 # 12 km/h
 	Armament:
 		Weapon: Bazooka_squad
 		LocalOffset: 128,0,256

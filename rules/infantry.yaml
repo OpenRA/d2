@@ -77,3 +77,5 @@
 	HitShape:
 		Type: Circle
 			Radius: 512
+	Mobile:
+		SharesCell: false

@@ -5,7 +5,7 @@
 		BuildPaletteOrder: 40
 		BuildDuration: 800
 		BuildDurationModifier: 40
-		Description: Main Battle Tank\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft\n \n  Atreides:      +Range\n  Harkonnen: +Health\n  Ordos:         +Speed
+		Description: Main Battle Tank\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -13,9 +13,9 @@
 	Health:
 		HP: 200
 	Armor:
-		Type: heavy
+		Type: medium
 	Mobile:
-		Speed: 75
+		Speed: 40 # 40 km/h
 		TurnSpeed: 5
 	D2RevealsShroud:
 		Range: 3c256
@@ -57,9 +57,9 @@ combat_tank_h:
 	Armament:
 		Weapon: 80mm_H
 	Mobile:
-		Speed: 64
+		Speed: 40
 	Health:
-		HP: 2700
+		HP: 200
 	SpawnActorOnDeath:
 		Actor: combat_tank_h.husk
 
@@ -72,8 +72,8 @@ combat_tank_o:
 	Armament:
 		Weapon: 80mm_O
 	Mobile:
-		Speed: 85
+		Speed: 40
 	Health:
-		HP: 1800
+		HP: 200
 	SpawnActorOnDeath:
 		Actor: combat_tank_o.husk

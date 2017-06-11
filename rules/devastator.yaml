@@ -17,7 +17,7 @@ devastator:
 		Type: heavy
 	Mobile:
 		TurnSpeed: 3
-		Speed: 31
+		Speed: 20 # 20 km/h
 		Crushes: infantry, spicebloom, wall
 	D2RevealsShroud:
 		Range: 4c768

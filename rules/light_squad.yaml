@@ -14,8 +14,7 @@ light_squad:
 	Health:
 		HP: 50
 	Mobile:
-		SharesCell: false
-		Speed: 43
+		Speed: 5 # 5 km/h
 	Armament:
 		Weapon: LMG_squad
 	SpawnActorOnDeath:

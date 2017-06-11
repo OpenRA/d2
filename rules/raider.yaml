@@ -17,7 +17,7 @@ raider:
 		Type: wood
 	Mobile:
 		TurnSpeed: 10
-		Speed: 149
+		Speed: 90 # 90 km/h
 	D2RevealsShroud:
 		Range: 4c768
 		MovingRange: 1c256

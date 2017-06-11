@@ -16,7 +16,7 @@ siege_tank:
 	Armor:
 		Type: light
 	Mobile:
-		Speed: 43
+		Speed: 32 # 32 km/h
 		TurnSpeed: 3
 	D2RevealsShroud:
 		Range: 6c768

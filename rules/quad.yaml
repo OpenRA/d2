@@ -17,7 +17,7 @@ quad:
 		Type: Light
 	Mobile:
 		TurnSpeed: 8
-		Speed: 96
+		Speed: 59 # 59 km/h
 	D2RevealsShroud:
 		Range: 4c768
 		MovingRange: 1c256

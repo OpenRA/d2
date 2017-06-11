@@ -12,12 +12,12 @@ missile_tank:
 	Valued:
 		Cost: 450
 	Mobile:
-		Speed: 64
+		Speed: 48 # 48 km/h
 		TurnSpeed: 5
 	Health:
 		HP: 100
 	Armor:
-		Type: wood
+		Type: medium
 	D2RevealsShroud:
 		Range: 6c768
 		MovingRange: 1c256

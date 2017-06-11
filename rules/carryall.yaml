@@ -11,7 +11,7 @@ carryall.reinforce:
 	Aircraft:
 		CruiseAltitude: 2160
 		InitialFacing: 0
-		Speed: 144 # 112 * ~1.3 for balance reasons
+		Speed: 160 # 160 km/h
 		TurnSpeed: 4
 		LandableTerrainTypes: Sand, Rock, Transition, Spice, SpiceSand, Dune
 		Repulsable: False
@@ -57,7 +57,7 @@ carryall.husk:
 		Name: Carryall
 	Aircraft:
 		TurnSpeed: 4
-		Speed: 144
+		Speed: 160 # 160 km/h
 		CanHover: True
 	RenderSprites:
 		Image: carryall

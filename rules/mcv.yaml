@@ -19,7 +19,7 @@ mcv:
 	Armor:
 		Type: light
 	Mobile:
-		Speed: 31
+		Speed: 36 # 36 km/h
 		Crushes: infantry, spicebloom
 	D2RevealsShroud:
 		Range: 2c768

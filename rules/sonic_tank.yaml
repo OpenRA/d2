@@ -17,7 +17,7 @@ sonic_tank:
 		Type: light
 	Mobile:
 		TurnSpeed: 3
-		Speed: 31
+		Speed: 44 # 44 km/h
 	D2RevealsShroud:
 		Range: 5c768
 		MovingRange: 1c256
