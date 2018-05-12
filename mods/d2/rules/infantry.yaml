@@ -1,0 +1,83 @@
+^Infantry:
+	Inherits@1: ^ExistsInWorld
+	Inherits@3: ^SpriteActor
+	Tooltip:
+		GenericName: Unit
+	Huntable:
+	Health:
+	Armor:
+		Type: none
+	D2RevealsShroud:
+		Range: 1c768
+		MovingRange: 1c256
+	Mobile:
+		Crushes: spicebloom
+		SharesCell: true
+		TerrainSpeeds:
+			Sand: 100
+			Rock: 100
+			Transition: 100
+			Concrete: 100
+			SpiceSand: 100
+			Spice: 100
+			SpiceBlobs: 100
+			Dune: 80
+			Rough: 80
+	SelectionDecorations:
+	WithSpriteControlGroupDecoration:
+	Selectable:
+		Bounds: 11,11,0,0
+	Targetable:
+		TargetTypes: Ground, Infantry
+	BodyOrientation:
+		QuantizedFacings: 4
+	WithInfantryBody:
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+		ProneOffser: 300 0 0
+	WithDeathAnimation:
+		DeathTypes:
+			ExplosionDeath: 1
+			SoundDeath: 2
+			SmallExplosionDeath: 3
+			BulletDeath: 4
+		CrushedSequence: die-crushed
+	AttackMove:
+	Passenger:
+		CargoType: Infantry
+		PipType: Green
+	HiddenUnderFog:
+	ActorLostNotification:
+	Crushable:
+		CrushSound: CRUSH1.WAV
+	Guard:
+		Voice: Guard
+	Guardable:
+	DetectCloaked:
+		Range: 1c384
+	DeathSounds:
+		DeathTypes: ExplosionDeath, SoundDeath, SmallExplosionDeath, BulletDeath
+	MustBeDestroyed:
+	TerrainModifiesDamage:
+		TerrainModifier:
+			Rough: 80
+	Voiced:
+		VoiceSet: InfantryVoice
+	Captures:
+		CaptureTypes: building, husk
+	RevealOnFire:
+	RevealOnDeath:
+		Duration: 100
+	HitShape:
+		Type: Circle
+			Radius: 256
+	EditorTilesetFilter:
+		Categories: Infantry
+
+^Infantry_squad:
+	Inherits@1: ^Infantry
+	HitShape:
+		Type: Circle
+			Radius: 512

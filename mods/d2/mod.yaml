@@ -1,0 +1,350 @@
+Metadata:
+	Title: d2 mod
+	Version: release-20180307
+
+PackageFormats: PakFile, D2kSoundResources
+
+Packages:
+	.
+	$d2: d2
+	$d2k: d2k
+	$ra: ra
+	$cnc: cnc
+	./mods/common: common
+	~^Content/d2
+	~^Content/d2k/v2
+	~DUNE.PAK
+	~VOC.PAK
+	~ATRE.PAK
+	~HARK.PAK
+	~ORDOS.PAK
+	~INTRO.PAK
+	~FINALE.PAK
+	#~INTROVOC.PAK
+	#~MENTAT.PAK
+	#~MERC.PAK
+	#~ENGLISH.PAK
+	~SOUND.RS
+	d2|bits
+	d2k|bits
+	d2k|bits/tex
+	d2k|uibits
+
+MapFolders:
+	d2|maps: System
+	~^maps/d2/release-20180307: User
+
+Rules:
+	d2|rules/misc.yaml
+	d2|rules/ai.yaml
+	d2|rules/player.yaml
+	d2|rules/world.yaml
+	d2|rules/palettes.yaml
+	d2|rules/defaults.yaml
+	d2|rules/autotarget.yaml
+	d2|rules/powerdown.yaml
+	d2|rules/husk.yaml
+	d2|rules/vechiclehusk.yaml
+	d2|rules/aircrafthusk.yaml
+	d2|rules/arrakis.yaml
+	d2|rules/sandworm.yaml
+	d2|rules/plane.yaml
+	d2|rules/husks.yaml
+	d2|rules/research_centre.yaml
+	d2|rules/repair_pad.yaml
+	d2|rules/palace.yaml
+	d2|rules/high_tech_factory.yaml
+	d2|rules/wall.yaml
+	d2|rules/carryall.yaml
+	d2|rules/colorpicker.yaml
+	d2|rules/ornithopter.yaml
+	d2|rules/frigate.yaml
+	d2|rules/infantry.yaml
+	d2|rules/light_inf.yaml
+	d2|rules/light_squad.yaml
+	d2|rules/trooper.yaml
+	d2|rules/trooper_squad.yaml
+	d2|rules/fremen.yaml
+	d2|rules/sardaukar.yaml
+	d2|rules/saboteur.yaml
+	d2|rules/building.yaml
+	d2|rules/starport.yaml
+	d2|rules/starport_items.yaml
+	d2|rules/silo.yaml
+	d2|rules/barracks.yaml
+	d2|rules/refinery.yaml
+	d2|rules/vechicle.yaml
+	d2|rules/tank.yaml
+	d2|rules/quad.yaml
+	d2|rules/harvester.yaml
+	d2|rules/mcv.yaml
+	d2|rules/construction_yard.yaml
+	d2|rules/concrete.yaml
+	d2|rules/wind_trap.yaml
+	d2|rules/defense.yaml
+	d2|rules/gun_turret.yaml
+	d2|rules/rocket_turret.yaml
+	d2|rules/light_factory.yaml
+	d2|rules/heavy_factory.yaml
+	d2|rules/outpost.yaml
+	d2|rules/wor.yaml
+	d2|rules/combat_tank.yaml
+	d2|rules/trike.yaml
+	d2|rules/raider.yaml
+	d2|rules/devastator.yaml
+	d2|rules/deviator.yaml
+	d2|rules/missile_tank.yaml
+	d2|rules/siege_tank.yaml
+	d2|rules/sonic_tank.yaml
+	d2|rules/spicebloom.yaml
+
+Sequences:
+	d2|sequences/palace.yaml
+	d2|sequences/misc.yaml
+	d2|sequences/overlay.yaml
+	d2|sequences/spice.yaml
+	d2|sequences/sides.yaml
+	d2|sequences/silo.yaml
+	d2|sequences/barracks.yaml
+	d2|sequences/refinery.yaml
+	d2|sequences/quad.yaml
+	d2|sequences/harvester.yaml
+	d2|sequences/carryall.yaml
+	d2|sequences/concrete.yaml
+	d2|sequences/conyard.yaml
+	d2|sequences/craters.yaml
+	d2|sequences/light_inf.yaml
+	d2|sequences/light_squad.yaml
+	d2|sequences/trooper.yaml
+	d2|sequences/trooper_squad.yaml
+	d2|sequences/fremen.yaml
+	d2|sequences/sardaukar.yaml
+	d2|sequences/saboteur.yaml
+	d2|sequences/mcv.yaml
+	d2|sequences/ornithopter.yaml
+	d2|sequences/frigate.yaml
+	d2|sequences/outpost.yaml
+	d2|sequences/sandworm.yaml
+	d2|sequences/shroud.yaml
+	d2|sequences/trike.yaml
+	d2|sequences/wall.yaml
+	d2|sequences/wind_trap.yaml
+	d2|sequences/gun_turret.yaml
+	d2|sequences/rocket_turret.yaml
+	d2|sequences/light_factory.yaml
+	d2|sequences/heavy_factory.yaml
+	d2|sequences/wor.yaml
+	d2|sequences/combat_tank.yaml
+	d2|sequences/starport.yaml
+	d2|sequences/repair_pad.yaml
+	d2|sequences/high_tech_factory.yaml
+	d2|sequences/research.yaml
+	d2|sequences/raider.yaml
+	d2|sequences/stealth_raider.yaml
+	d2|sequences/missile_tank.yaml
+	d2|sequences/deviator.yaml
+	d2|sequences/siege_tank.yaml
+	d2|sequences/devastator.yaml
+	d2|sequences/sonic_tank.yaml
+	d2|sequences/icon.yaml
+	d2|sequences/guns_fire.yaml
+	d2|sequences/smoke.yaml
+	d2|sequences/explosion.yaml
+	d2|sequences/fire.yaml
+	#d2|sequences/bombs.yaml
+	d2|sequences/atomic.yaml
+	d2|sequences/colorpicker.yaml
+	d2|sequences/trails.yaml
+	d2|sequences/vechicle_trail.yaml
+	d2|sequences/spicebloom.yaml
+
+TileSets:
+	d2|tilesets/arrakis2.yaml
+
+MapGrid:
+	TileSize: 16,16
+	Type: Rectangular
+	SubCellOffsets: 0,0,0, -256,-256,0, 256,-256,0, 0,256,0
+	DefaultSubCell: 1
+
+Cursors:
+	d2|cursors.yaml
+
+Chrome:
+	d2|chrome.yaml
+
+Assemblies:
+	common|OpenRA.Mods.Common.dll
+	common|OpenRA.Mods.Cnc.dll
+	d2k|OpenRA.Mods.D2k.dll
+	d2|OpenRA.Mods.D2.dll
+
+ChromeLayout:
+	common|chrome/ingame.yaml
+	common|chrome/ingame-chat.yaml
+	common|chrome/ingame-fmvplayer.yaml
+	d2k|chrome/ingame-menu.yaml
+	common|chrome/ingame-info.yaml
+	common|chrome/ingame-infoscripterror.yaml
+	common|chrome/ingame-infobriefing.yaml
+	common|chrome/ingame-infoobjectives.yaml
+	d2k|chrome/ingame-infostats.yaml
+	common|chrome/ingame-observer.yaml
+	common|chrome/ingame-observerstats.yaml
+	d2k|chrome/ingame-player.yaml
+	common|chrome/ingame-perf.yaml
+	common|chrome/ingame-debug.yaml
+	common|chrome/ingame-infochat.yaml
+	d2k|chrome/mainmenu.yaml
+	common|chrome/settings.yaml
+	common|chrome/credits.yaml
+	common|chrome/lobby.yaml
+	common|chrome/lobby-mappreview.yaml
+	d2k|chrome/lobby-players.yaml
+	common|chrome/lobby-options.yaml
+	common|chrome/lobby-music.yaml
+	common|chrome/lobby-servers.yaml
+	common|chrome/lobby-kickdialogs.yaml
+	common|chrome/color-picker.yaml
+	common|chrome/map-chooser.yaml
+	common|chrome/multiplayer-browser.yaml
+	d2k|chrome/multiplayer-browserpanels.yaml
+	common|chrome/multiplayer-createserver.yaml
+	common|chrome/multiplayer-directconnect.yaml
+	common|chrome/connection.yaml
+	d2k|chrome/dropdowns.yaml
+	common|chrome/musicplayer.yaml
+	d2k|chrome/tooltips.yaml
+	d2|chrome/assetbrowser.yaml
+	d2k|chrome/missionbrowser.yaml
+	common|chrome/confirmation-dialogs.yaml
+	common|chrome/editor.yaml
+	common|chrome/replaybrowser.yaml
+
+Weapons:
+	d2|weapons/smallguns.yaml
+	d2|weapons/largeguns.yaml
+	d2|weapons/missiles.yaml
+	d2|weapons/other.yaml
+	d2|weapons/squads.yaml
+	d2|weapons/spicebloom.yaml
+
+Voices:
+	d2|audio/voices.yaml
+
+Notifications:
+	d2|audio/notifications.yaml
+
+Music:
+	d2|audio/music.yaml
+
+Translations:
+	d2|languages/english.yaml
+
+Hotkeys:
+	common|hotkeys/game.yaml
+	common|hotkeys/observer.yaml
+	common|hotkeys/production-common.yaml
+	common|hotkeys/supportpowers.yaml
+	common|hotkeys/viewport.yaml
+	d2|hotkeys.yaml
+
+LoadScreen: D2LoadScreen
+	Image: BIGPLAN.CPS
+	Palette: IBM.PAL
+	Text: Loading DOS emulator..., Looking for CRT..., Rewinding floppy disks..., Recount the bytes..., Initialize Upper memory..., Combine bits into bytes..., Looking for additional 64Kbytes...
+
+ServerTraits:
+	LobbyCommands
+	PlayerPinger
+	MasterServerPinger
+	LobbySettingsNotification
+
+ChromeMetrics:
+	common|metrics.yaml
+	d2|metrics.yaml
+
+Fonts:
+	Regular:
+		Font: common|FreeSans.ttf
+		Size:14
+	Bold:
+		Font: common|FreeSansBold.ttf
+		Size:14
+	Title:
+		Font: d2k|Dune2k.ttf
+		Size:32
+	MediumBold:
+		Font: common|FreeSansBold.ttf
+		Size:18
+	BigBold:
+		Font: common|FreeSansBold.ttf
+		Size:24
+	Small:
+		Font: common|FreeSans.ttf
+		Size:12
+	Tiny:
+		Font: common|FreeSans.ttf
+		Size:10
+	TinyBold:
+		Font: common|FreeSansBold.ttf
+		Size:10
+
+Missions:
+	d2|missions.yaml
+
+SupportsMapsFrom: d2
+
+SoundFormats: D2Voc, Aud, Wav
+
+SpriteFormats: R8, ShpD2, IcnD2, ShpTD, CpsD2, WsaD2
+
+SpriteSequenceFormat: DefaultSpriteSequence
+
+ModelSequenceFormat: PlaceholderModelSequence
+
+GameSpeeds:
+	slowest:
+		Name: Slowest
+		Timestep: 80
+		OrderLatency: 2
+	slower:
+		Name: Slower
+		Timestep: 50
+		OrderLatency: 3
+	default:
+		Name: Normal
+		Timestep: 40
+		OrderLatency: 3
+	fast:
+		Name: Fast
+		Timestep: 35
+		OrderLatency: 4
+	faster:
+		Name: Faster
+		Timestep: 30
+		OrderLatency: 4
+	fastest:
+		Name: Fastest
+		Timestep: 20
+		OrderLatency: 6
+
+ColorValidator:
+	TeamColorPresets: ffc9ca, f53333, ffae00, fff830, 87f506, f872ad, da06f3, ddb8ff, def7b2, 39c46f, 200738, 280df6, 2f86f2, 76d2f8, 498221, 000000
+
+ModContent:
+	InstallPromptMessage: d2 mod requires artwork and audio from the original game.\n\nQuick Install will automatically download this content
+#	QuickDownload: basefiles
+	HeaderMessage: The original game content may be copied from an original game disc,\nor downloaded from an online mirror of the game files.
+	Packages:
+		base: Base Game Files
+			TestFiles: ^Content/d2/DUNE.PAK, ^Content/d2/VOC.PAK, ^Content/d2/ATRE.PAK, ^Content/d2/HARK.PAK, ^Content/d2/ORDOS.PAK, ^Content/d2/INTRO.PAK, ^Content/d2/FINALE.PAK
+#			Sources: d2, d2-linux
+			Required: true
+#			Download: basefiles
+#			Sources: d2, d2-linux
+#	Downloads:
+#		basefiles: Base Content
+#		MirrorList: http://www.openra.net/packages/d2k-103-mirrors.txt
+#			Extract:
+#				^Content/d2/SOUND.RS: SOUND.RS

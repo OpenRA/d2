@@ -1,0 +1,34 @@
+sardaukar:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 80
+		BuildDuration: 700
+		BuildDurationModifier: 40
+		Prerequisites: ~barracks.harkonnen, palace, ~techlevel.high
+		Description: Elite assault infantry\n  Strong vs Infantry, Vehicles\n  Weak vs Artillery
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Sardaukar
+	Health:
+		HP: 1000
+	Mobile:
+		Speed: 31
+	D2RevealsShroud:
+		Range: 4c768
+		MovingRange: 1c256
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	Armament@PRIMARY:
+		Weapon: M_LMG
+	Armament@SECONDARY:
+		Weapon: M_HMG
+	AttackFrontal:
+	Voiced:
+		VoiceSet: GenericVoice
+	Explodes:
+		Weapon: SardDeath
+		EmptyWeapon: SardDeath
+		Chance: 100

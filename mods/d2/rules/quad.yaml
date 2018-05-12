@@ -1,0 +1,35 @@
+quad:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Vehicle
+		Prerequisites: upgrade.light, ~techlevel.medium
+		BuildPaletteOrder: 20
+		BuildDuration: 600
+		BuildDurationModifier: 40
+		Description: Missile Scout\n Strong vs Vehicles\n  Weak vs Infantry
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Missile Quad
+	Health:
+		HP: 130
+	Armor:
+		Type: light
+	Mobile:
+		TurnSpeed: 8
+		Speed: 96
+	D2RevealsShroud:
+		Range: 4c768
+		MovingRange: 1c256
+	Armament:
+		Weapon: Rocket
+		LocalOffset: 128,64,64, 128,-64,64
+	AttackFrontal:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Selectable:
+		Class: quad
+	AttractsWorms:
+		Intensity: 470

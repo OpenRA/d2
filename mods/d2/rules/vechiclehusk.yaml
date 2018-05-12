@@ -1,0 +1,15 @@
+^VehicleHusk:
+	Inherits: ^Husk
+	Husk:
+		AllowedTerrain: Sand, Rock, Transition, Concrete, Spice, SpiceSand, SpiceBlobs, Dune
+	Burns:
+		Damage: 10
+		Interval: 4
+	Targetable:
+		TargetTypes: Ground, Vehicle
+		RequiresForceFire: true
+	WithColoredOverlay@IDISABLE:
+		Palette: disabled
+	Explodes:
+		Weapon: UnitExplodeMed
+		EmptyWeapon: UnitExplodeMed

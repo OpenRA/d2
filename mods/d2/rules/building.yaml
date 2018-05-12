@@ -1,0 +1,70 @@
+^Building:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Tooltip:
+		GenericName: Structure
+	Huntable:
+	SelectionDecorations:
+	WithSpriteControlGroupDecoration:
+	Selectable:
+		Priority: 2
+	RevealsShroud:
+		VisibilityType: CenterPosition
+	Targetable:
+		TargetTypes: Ground, C4, Structure
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -512, -512
+			BottomRight: 512, 512
+	D2Building:
+		Dimensions: 2,2
+		Footprint: xx xx
+		TerrainTypes: Rock, Concrete
+		BuildSounds: BUILD1.WAV
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 1
+	GivesBuildableArea:
+		AreaTypes: building
+	Capturable:
+		CaptureThreshold: 100
+	SoundOnDamageTransition:
+		DamagedSounds: EXPLSML1.WAV
+		DestroyedSounds: EXPLHG1.WAV
+	#WithSpriteBody:
+	WithTilesetBody:
+	Explodes:
+		Type: Footprint
+		Weapon: BuildingExplode
+		EmptyWeapon: BuildingExplode
+	RepairableBuilding:
+		RepairStep: 50
+	EmitInfantryOnSell:
+		ActorTypes: light_inf
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	FrozenUnderFog:
+	CaptureNotification:
+	ActorLostNotification:
+		Notification: BuildingLost
+	ShakeOnDeath:
+	Sellable:
+		SellSounds: BUILD1.WAV
+	Guardable:
+		Range: 3c0
+	#WithCrumbleOverlay:
+	Demolishable:
+	DamagedByTerrain:
+		Damage: 10
+		DamageInterval: 100
+		Terrain: Rock
+		DamageThreshold: 50
+		StartOnThreshold: true
+	#WithMakeAnimation:
+	RevealOnDeath:
+		Duration: 100
+		Radius: 4c768
+	EditorTilesetFilter:
+		Categories: Building
+	CommandBarBlacklist:

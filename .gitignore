@@ -1,3 +1,6 @@
+user.config
+engine
+
 # Visual Studio
 Release
 bin
@@ -5,19 +8,12 @@ obj
 *.ncb
 *.vcproj*
 *.suo
-*.dll
 *.user
 *.sln.cache
 *.manifest
 *.CodeAnalysisLog.xml
 *.lastcodeanalysissucceeded
 _ReSharper.*/
-
-# movies
-*.vqa
-
-# archives
-*.mix
 
 # binaries
 /*.exe
@@ -27,9 +23,17 @@ _ReSharper.*/
 /*.dylib
 /*.pdb
 /*.mdb
-OpenRA.Mods.D2/dependencies/*.dll
-OpenRA.Mods.D2/dependencies/*.exe
 *.mmdb.gz
+/mods/d2/*.dll
+/mods/d2/*.pdb
+/mods/d2/*.mdb
+
+# TODO: Compiling creates a /mods/common folder with dlls and pdbs
+OpenRA.Mods.D2/mods/*
+mods/common/*
+
+# StyleCop
+StyleCopViolations.xml
 
 # backup files by various editors
 *~
@@ -45,17 +49,9 @@ OpenRA.Mods.D2/dependencies/*.exe
 .DS_Store
 
 # XCode
-packaging/osx/launcher/build/
-packaging/osx/launcher/OpenRA.xcodeproj/*.pbxuser
-packaging/osx/launcher/OpenRA.xcodeproj/*.perspectivev3
-packaging/osx/launcher/OpenRA.xcodeproj/*.mode1v3
 temp.c
 temp.o
 temp.s
-OpenRA.Launcher.Mac/build/
-OpenRA.Launcher.Mac/OpenRA.xcodeproj/*.pbxuser
-OpenRA.Launcher.Mac/OpenRA.xcodeproj/*.perspectivev3
-OpenRA.Launcher.Mac/OpenRA.xcodeproj/*.mode1v3
 *.resources
 
 # SublimeText

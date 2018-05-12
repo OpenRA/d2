@@ -1,0 +1,43 @@
+deviator:
+	Inherits: ^Tank
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: Deviator
+	Buildable:
+		Queue: Armor
+		BuildPaletteOrder: 50
+		BuildDuration: 1000
+		BuildDurationModifier: 40
+		Prerequisites: ~heavy.ordos, research_centre, ~techlevel.high
+		Description: Fires a warhead which changes\nthe allegiance of enemy vehicles
+	Mobile:
+		TurnSpeed: 3
+		Speed: 53
+	Health:
+		HP: 120
+	Armor:
+		Type: wood
+	D2RevealsShroud:
+		Range: 4c768
+		MovingRange: 1c256
+	Armament:
+		Weapon: DeviatorMissile
+		LocalOffset: -299,0,85
+	AttackFrontal:
+	Turreted:
+		TurnSpeed: 5
+		RealignDelay: 0
+	WithSpriteTurret:
+	AutoTarget:
+		InitialStanceAI: Defend
+	Explodes:
+		Weapon: UnitExplodeLarge
+		EmptyWeapon: UnitExplodeLarge
+	SpawnActorOnDeath:
+		Actor: deviator.husk
+		OwnerType: InternalName
+		EffectiveOwnerFromOwner: true
+	AttractsWorms:
+		Intensity: 600
