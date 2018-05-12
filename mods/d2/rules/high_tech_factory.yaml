@@ -1,0 +1,97 @@
+high_tech_factory:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: construction_yard, outpost, ~techlevel.medium
+		Queue: Building
+		BuildPaletteOrder: 110
+		BuildDuration: 1500
+		BuildDurationModifier: 40
+		Description: Unlocks advanced technology
+	Selectable:
+		Bounds: 48,32
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: High Tech Factory
+	ProductionFromMapEdge:
+		Produces: Aircraft, Upgrade
+	ProductionBar:
+	PrimaryBuilding:
+		PrimaryCondition: primary
+		ProductionQueues: Aircraft
+	Exit:
+		SpawnOffset: 0,0,728
+		ExitCell: 0,0
+	D2Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 400
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1024, -1536
+			BottomRight: 1024, 1536
+	Armor:
+		Type: building
+	RevealsShroud:
+		Range: 4c768
+	WithTilesetBody:
+		SkipFrames: 3
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+#	WithProductionOverlay@WELDING:
+#		Sequence: production-welding
+	RenderSprites:
+		Image: hightech
+		PlayerPalette: player
+	ProvidesPrerequisite@upgrade:
+		Prerequisite: hightech.atreides
+		Factions: atreides
+	ProvidesPrerequisite@buildingname:
+	AirstrikePower:
+		Icon: ornistrike
+		Description: Air Strike
+		Prerequisites: ~techlevel.superweapons, upgrade.hightech
+		ChargeTime: 7500
+		SquadSize: 3
+		SquadOffset: -1536, 1024, 0
+		LongDesc: Ornithopters hit the target with bombs
+		UnitType: ornithopter
+		SelectTargetSound:
+		DisplayBeacon: True
+		CameraActor: camera
+		ArrowSequence: arrow
+		CircleSequence: circles
+	Power:
+		Amount: -35
+	SelectionDecorations:
+		VisualBounds: 64,32
+	GrantConditionOnPrerequisite:
+		Prerequisites: upgrade.hightech
+		Condition: stardecoration
+	WithTextDecoration@primary:
+		RequiresSelection: true
+		Text: PRIMARY
+		ReferencePoint: Top
+		ZOffset: 256
+		RequiresCondition: primary
+
+upgrade.hightech:
+	AlwaysVisible:
+	Interactable:
+	ScriptTriggers:
+	Tooltip:
+		Name: High Tech Factory Upgrade
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~hightech.atreides, ~techlevel.superweapons
+		Queue: Upgrade
+		BuildLimit: 1
+		BuildDuration: 250
+		BuildDurationModifier: 40
+		Description: Unlocks the Air Strike superweapon
+	Valued:
+		Cost: 200
+	RenderSprites:
+		Image: hightech
+	ProvidesPrerequisite@upgradename:

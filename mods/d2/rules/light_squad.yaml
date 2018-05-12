@@ -1,0 +1,28 @@
+light_squad:
+	Inherits: ^Infantry_squad
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 10
+		BuildDuration: 400
+		BuildDurationModifier: 40
+		Prerequisites: upgrade.barracks
+		Description: General-purpose infantry\n  Strong vs Infantry\n  Weak vs Vehicles, Artillery
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Light Infantry Squad
+	Health:
+		HP: 50
+	Mobile:
+		SharesCell: false
+		Speed: 43
+	Armament:
+		Weapon: LMG_squad
+	SpawnActorOnDeath:
+		Actor: light_inf
+	AttackFrontal:
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	Selectable:
+		Bounds: 16,16,0,0

@@ -1,0 +1,55 @@
+devastator:
+	Inherits: ^Tank
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Armor
+		BuildPaletteOrder: 100
+		Prerequisites: ~heavy.harkonnen, research_centre, ~techlevel.high
+		BuildDuration: 1300
+		BuildDurationModifier: 40
+		Description: Super Heavy Tank\n  Strong vs Tanks\n  Weak vs Artillery, Aircraft
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Devastator
+	Health:
+		HP: 400
+	Armor:
+		Type: heavy
+	Mobile:
+		TurnSpeed: 3
+		Speed: 31
+		Crushes: infantry, spicebloom, wall
+		RequiresCondition: !overload && !notmobile
+	AutoCarryable:
+		RequiresCondition: !overload
+	D2RevealsShroud:
+		Range: 4c768
+		MovingRange: 1c256
+	Armament:
+		Weapon: DevBullet
+		LocalOffset: 640,0,32
+		MuzzleSequence: muzzle
+	AttackFrontal:
+	Turreted:
+		TurnSpeed: 5
+		RealignDelay: 0
+	WithSpriteTurret:
+	WithMuzzleOverlay:
+		IgnoreOffset: true
+	Explodes:
+		Weapon: UnitExplodeLarge
+		EmptyWeapon: UnitExplodeLarge
+		RequiresCondition: !overload
+	SpawnActorOnDeath:
+		Actor: devastator.husk
+		OwnerType: InternalName
+		EffectiveOwnerFromOwner: true
+	AttractsWorms:
+		Intensity: 700
+	SelectionDecorations:
+		VisualBounds: 44,38,0,0
+	SelfHealing:
+		Step: 5
+		Delay: 3
+		HealIfBelow: 50

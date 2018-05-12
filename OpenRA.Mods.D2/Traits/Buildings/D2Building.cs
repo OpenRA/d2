@@ -1,6 +1,6 @@
 #region Copyright & License Information
 /*
- * Copyright 2007-2017 The OpenRA Developers (see AUTHORS)
+ * Copyright 2007-2018 The OpenRA Developers (see AUTHORS)
  * This file is part of OpenRA, which is free software. It is made
  * available to you under the terms of the GNU General Public License
  * as published by the Free Software Foundation, either version 3 of
@@ -13,8 +13,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using OpenRA.Graphics;
-using OpenRA.Mods.Common.Traits.Render;
 using OpenRA.Mods.Common.Traits;
+using OpenRA.Mods.Common.Traits.Render;
 using OpenRA.Primitives;
 using OpenRA.Traits;
 
@@ -37,15 +37,36 @@ namespace OpenRA.Mods.D2.Traits
 
 		public override object Create(ActorInitializer init) { return new Building(init, this); }
 
+
 		public override bool IsCloseEnoughToBase(World world, Player p, string buildingName, CPos topLeft)
 		{
 			if (base.IsCloseEnoughToBase(world, p, buildingName, topLeft))
 				return true;
 
+			var requiresBuildableArea = world.Map.Rules.Actors[buildingName].TraitInfoOrDefault<RequiresBuildableAreaInfo>();
+			var mapBuildRadius = world.WorldActor.Trait<MapBuildRadius>();
+
+			if (requiresBuildableArea == null || p.PlayerActor.Trait<DeveloperMode>().BuildAnywhere)
+				return true;
+
+			if (mapBuildRadius.BuildRadiusEnabled && RequiresBaseProvider && FindBaseProvider(world, p, topLeft) == null)
+				return false;
+
+			var adjacent = requiresBuildableArea.Adjacent;
+			var buildingMaxBounds = Dimensions;
+
+			var scanStart = world.Map.Clamp(topLeft - new CVec(adjacent, adjacent));
+			var scanEnd = world.Map.Clamp(topLeft + buildingMaxBounds + new CVec(adjacent, adjacent));
+
+			var nearnessCandidates = new List<CPos>();
+			var allyBuildEnabled = mapBuildRadius.AllyBuildRadiusEnabled;
+
+			var co = world.WorldActor.Trait<D2ConcreteOwners>();
 			var shroud = p.Shroud;
 
 			var hasVisibleCells = false;
 			var hasExploredCells = false;
+
 			for (var y = topLeft.Y; y < topLeft.Y + Dimensions.Y; y++)
 			{
 				for (var x = topLeft.X; x < topLeft.X + Dimensions.X; x++)
@@ -72,13 +93,6 @@ namespace OpenRA.Mods.D2.Traits
 			if (AnyCellShouldBeVisible && !hasVisibleCells)
 				return false;
 
-			var scanStart = world.Map.Clamp(topLeft - new CVec(Adjacent, Adjacent));
-			var scanEnd = world.Map.Clamp(topLeft + Dimensions + new CVec(Adjacent, Adjacent));
-
-			var nearnessCandidates = new List<CPos>();
-			var co = world.WorldActor.Trait<D2ConcreteOwners>();
-			var allyBuildEnabled = world.WorldActor.Trait<MapBuildRadius>().AllyBuildRadiusEnabled;
-
 			for (var y = scanStart.Y; y < scanEnd.Y; y++)
 			{
 				for (var x = scanStart.X; x < scanEnd.X; x++)
@@ -95,12 +109,11 @@ namespace OpenRA.Mods.D2.Traits
 				}
 			}
 
-			var buildingTiles = FootprintUtils.Tiles(world.Map.Rules, buildingName, this, topLeft).ToList();
+			var buildingTiles = Tiles(topLeft).ToList();
 			return nearnessCandidates
 				.Any(a => buildingTiles
-					.Any(b => Math.Abs(a.X - b.X) <= Adjacent
-						&& Math.Abs(a.Y - b.Y) <= Adjacent));
-
+					.Any(b => Math.Abs(a.X - b.X) <= adjacent
+						&& Math.Abs(a.Y - b.Y) <= adjacent));
 		}
 
 	}

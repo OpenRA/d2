@@ -1,0 +1,115 @@
+Player:
+	AlwaysVisible:
+	TechTree:
+	ClassicProductionQueue@Building:
+		Type: Building
+		BuildDurationModifier: 250
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: BuildingReady
+		BlockedAudio: NoRoom
+		SpeedUp: true
+	ClassicProductionQueue@Infantry:
+		Type: Infantry
+		BuildDurationModifier: 250
+		LowPowerSlowdown: 3
+		BlockedAudio: NoRoom
+		SpeedUp: true
+	ClassicProductionQueue@Vehicle:
+		Type: Vehicle
+		BuildDurationModifier: 250
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		BlockedAudio: NoRoom
+		SpeedUp: true
+	ClassicProductionQueue@Armor:
+		Type: Armor
+		BuildDurationModifier: 250
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		BlockedAudio: NoRoom
+		SpeedUp: true
+	ClassicProductionQueue@Starport:
+		Type: Starport
+		BuildDurationModifier: 212
+		LowPowerSlowdown: 0
+		BlockedAudio: NoRoom
+		QueuedAudio: OrderPlaced
+		ReadyAudio:
+	ClassicProductionQueue@Aircraft:
+		Type: Aircraft
+		BuildDurationModifier: 312
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		BlockedAudio: NoRoom
+		SpeedUp: true
+	ClassicProductionQueue@Upgrade:
+		Type: Upgrade
+		BuildDurationModifier: 250
+		LowPowerSlowdown: 1
+		QueuedAudio: Upgrading
+		ReadyAudio: NewOptions
+		BlockedAudio: NoRoom
+	PlaceBuilding:
+	SupportPowerManager:
+	ScriptTriggers:
+	MissionObjectives:
+	ConquestVictoryConditions:
+	PowerManager:
+		AdviceInterval: 650
+	AllyRepair:
+	PlayerResources:
+		SelectableCash: 1000, 1500, 2000
+		DefaultCash: 1500
+		InsufficientFundsNotification: InsufficientFunds
+	DeveloperMode:
+		CheckboxDisplayOrder: 6
+	BaseAttackNotifier:
+	Shroud:
+		FogCheckboxDisplayOrder: 3
+	FrozenActorLayer:
+	HarvesterAttackNotifier:
+	PlayerStatistics:
+	PlaceBeacon:
+	ProvidesPrerequisite@atreides:
+		Prerequisite: player.atreides
+		Factions: atreides
+	ProvidesPrerequisite@harkonnen:
+		Prerequisite: player.harkonnen
+		Factions: harkonnen
+	ProvidesPrerequisite@ordos:
+		Prerequisite: player.ordos
+		Factions: ordos
+	ProvidesPrerequisite@corrino:
+		Prerequisite: player.corrino
+		Factions: corrino
+	ProvidesPrerequisite@fremen:
+		Prerequisite: player.fremen
+		Factions: fremen
+	ProvidesPrerequisite@mercenary:
+		Prerequisite: player.mercenary
+		Factions: mercenary
+	ProvidesPrerequisite@smuggler:
+		Prerequisite: player.smuggler
+		Factions: smuggler
+	ProvidesTechPrerequisite@low:
+		Name: Low
+		Prerequisites: techlevel.low
+		Id: low
+	ProvidesTechPrerequisite@medium:
+		Name: Medium
+		Prerequisites: techlevel.low, techlevel.medium
+		Id: medium
+	ProvidesTechPrerequisite@nosuper:
+		Name: No Powers
+		Prerequisites: techlevel.low, techlevel.medium, techlevel.high
+		Id: nopowers
+	ProvidesTechPrerequisite@all:
+		Name: Unrestricted
+		Prerequisites: techlevel.low, techlevel.medium, techlevel.high, techlevel.superweapons
+		Id: unrestricted
+	EnemyWatcher:
+	HarvesterInsurance:
+	GrantConditionOnPrerequisiteManager:
+	ResourceStorageWarning:
+		AdviceInterval: 26

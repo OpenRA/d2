@@ -1,0 +1,59 @@
+^concrete:
+	AlwaysVisible:
+	Interactable:
+	D2Building:
+		TerrainTypes: Rock
+		BuildSounds: CHUNG.WAV
+		AllowInvalidPlacement: true
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 1
+	Tooltip:
+		Name: Concrete
+		GenericName: Structure
+	RenderSprites:
+	KillsSelf:
+		RemoveInstead: true
+	D2Concrete:
+	Buildable:
+		Queue: Building
+		Prerequisites: construction_yard
+		BuildPaletteOrder: 10
+		Description: Provides a strong foundation that prevents\ndamage from the terrain.
+
+concretea:
+	Inherits: ^concrete
+	D2Building:
+		Footprint: x
+		Dimensions: 1,1
+	LaysTerrain:
+		Template: 126
+		TerrainTypes: Rock
+	WithSpriteBody:
+	RenderSprites:
+		Image: concretea
+	Valued:
+		Cost: 5
+	Buildable:
+		BuildPaletteOrder: 10
+		BuildDuration: 200
+		BuildDurationModifier: 40
+
+concreteb:
+	Inherits: ^concrete
+	D2Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	LaysTerrain:
+		Template: 127
+		TerrainTypes: Rock
+	WithTilesetBody:
+	RenderSprites:
+		Image: concreteb
+	Valued:
+		Cost: 20
+	Buildable:
+		BuildPaletteOrder: 10
+		BuildDuration: 200
+		BuildDurationModifier: 40
+		Prerequisites: upgrade.conyard

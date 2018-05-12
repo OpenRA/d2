@@ -1,0 +1,133 @@
+palace:
+	Inherits: ^Building
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Buildable:
+		Prerequisites: construction_yard, research_centre, ~techlevel.high
+		Queue: Building
+		BuildPaletteOrder: 150
+		BuildDuration: 1620
+		BuildDurationModifier: 40
+		Description: Unlocks elite infantry and weapons
+	Selectable:
+		Bounds: 48,48
+	Valued:
+		Cost: 999
+	Tooltip:
+		Name: Palace
+	D2Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 1000
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1536, -1536
+			BottomRight: 1536, 1536
+	Armor:
+		Type: heavy
+	RevealsShroud:
+		Range: 4c768
+	WithTilesetBody:
+		SkipFrames: 0
+	RenderSprites:
+		Image: palace
+		PlayerPalette: player
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	Power:
+		Amount: -80
+	ProvidesPrerequisite@nuke:
+		Prerequisite: palace.nuke
+		Factions: harkonnen
+	ProvidesPrerequisite@fremen:
+		Prerequisite: palace.fremen
+		Factions: atreides
+	ProvidesPrerequisite@saboteur:
+		Prerequisite: palace.saboteur
+		Factions: ordos
+	ProvidesPrerequisite@sardaukar:
+		Prerequisite: palace.sardaukar
+		Factions: corrino
+	PrimaryBuilding:
+		PrimaryCondition: primary
+		RequiresCondition: atreides || ordos
+	WithTextDecoration@primary:
+		RequiresSelection: true
+		Text: PRIMARY
+		ReferencePoint: Top
+		ZOffset: 256
+		RequiresCondition: primary && (atreides || ordos)
+	NukePower:
+		Cursor: nuke
+		Icon: deathhand
+		PauseOnCondition: disabled
+		Prerequisites: ~techlevel.superweapons, ~palace.nuke
+		ChargeTime: 7500
+		Description: Death Hand
+		LongDesc: Launches an atomic missile at a target location
+		BeginChargeSpeechNotification: DeathHandMissilePrepping
+		EndChargeSpeechNotification: DeathHandMissileReady
+		MissileLaunchDetected: MissileLaunchDetected
+		MissileWeapon: atomic
+		MissileDelay: 19
+		SpawnOffset: -512,1c171,0
+		DisplayBeacon: True
+		DisplayRadarPing: True
+		CameraRange: 10c0
+		ArrowSequence: arrow
+		CircleSequence: circles
+	WithNukeLaunchOverlay:
+		RequiresCondition: !launchpad-damaged && harkonnen
+	GrantConditionOnDamageState@LAUNCHPADDAMAGED:
+		Condition: launchpad-damaged
+		ValidDamageState: Medium, Heavy, Critical
+	ProduceActorPower@fremen:
+		Description: Recruit Fremen
+		LongDesc: Elite infantry unit armed with assault rifles and rockets\n  Strong vs Infantry, Vehicles\n  Weak vs Artillery\n  Special Ability: Invisibility
+		Icon: fremen
+		PauseOnCondition: disabled
+		RequiresCondition: atreides
+		Prerequisites: ~techlevel.superweapons, ~palace.fremen
+		Actors: fremen, fremen
+		Type: Palace
+		ChargeInterval: 2250
+		ReadyAudio: Reinforce
+		BlockedAudio: NoRoom
+		OrderName: ProduceActorPower.Fremen
+	ProduceActorPower@saboteur:
+		Description: Recruit Saboteur
+		LongDesc: Sneaky infantry, armed with explosives\n  Strong vs Buildings\n  Weak vs Everything\n  Special Ability: destroy buildings
+		Icon: saboteur
+		PauseOnCondition: disabled
+		RequiresCondition: ordos
+		Prerequisites: ~techlevel.superweapons, ~palace.saboteur
+		Actors: saboteur
+		Type: Palace
+		ChargeInterval: 2250
+		ReadyAudio: Reinforce
+		BlockedAudio: NoRoom
+		OrderName: ProduceActorPower.Saboteur
+	Exit@1:
+		SpawnOffset: -704,768,0
+		ExitCell: -1,2
+	Exit@2:
+		SpawnOffset: -704,768,0
+		ExitCell: -1,3
+	Exit@3:
+		SpawnOffset: -704,768,0
+		ExitCell: 0,3
+	Production:
+		Produces: Palace
+		RequiresCondition: atreides || ordos
+	GrantConditionOnFaction@Atreides:
+		Condition: atreides
+		Factions: atreides, fremen
+	GrantConditionOnFaction@Harkonnen:
+		Condition: harkonnen
+		Factions: harkonnen
+	GrantConditionOnFaction@Ordos:
+		Condition: ordos
+		Factions: ordos, mercenary, smuggler
+	SupportPowerChargeBar:
+		RequiresCondition: atreides || harkonnen || ordos
+	ProvidesPrerequisite@buildingname:

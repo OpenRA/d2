@@ -1,0 +1,20 @@
+^Defense:
+	Inherits: ^Building
+	WithSpriteTurret:
+	AttackTurreted:
+	-Capturable:
+	-WithTilesetBody:
+	WithWallSpriteBody:
+	LineBuildNode:
+		Types: turret
+	MustBeDestroyed:
+		RequiredForShortGame: false
+	D2Building:
+		Dimensions: 1,1
+		Footprint: x
+	RevealOnFire:
+	Targetable:
+		TargetTypes: Ground, C4, Structure, Defence
+	EditorTilesetFilter:
+		Categories: Defense
+	-CommandBarBlacklist:

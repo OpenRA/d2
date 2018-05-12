@@ -1,0 +1,20 @@
+^Plane:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Interactable:
+	Tooltip:
+		GenericName: Unit
+	Huntable:
+	AppearsOnRadar:
+		UseLocation: true
+	HiddenUnderFog:
+		Type: GroundPosition
+		AlwaysVisibleStances: None
+	ActorLostNotification:
+	AttackMove:
+	WithFacingSpriteBody:
+	WithShadow:
+	HitShape:
+	EditorTilesetFilter:
+		Categories: Aircraft
+

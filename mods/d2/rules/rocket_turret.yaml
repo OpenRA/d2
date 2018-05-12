@@ -1,0 +1,44 @@
+rocket_turret:
+	Inherits: ^Defense
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	AttackTurreted:
+		PauseOnCondition: disabled
+	Buildable:
+		Queue: Building
+		Prerequisites: construction_yard, outpost, upgrade.conyard, ~techlevel.medium
+		BuildPaletteOrder: 120
+		BuildDuration: 1200
+		BuildDurationModifier: 40
+		Description: Defensive structure\n  Strong vs Infantry, Aircraft\n  Weak vs Tanks\n\n  Requires power to operate
+	Valued:
+		Cost: 250
+	Tooltip:
+		Name: Rocket Turret
+	D2Building:
+		BuildSounds: CHUNG.WAV
+	RequiresBuildableArea:
+		Adjacent: 1
+	Sellable:
+		SellSounds: CHUNG.WAV
+	Selectable:
+		Bounds: 16,16
+		Priority: 3
+	Health:
+		HP: 200
+	Armor:
+		Type: heavy
+	RevealsShroud:
+		Range: 5c768
+	BodyOrientation:
+		QuantizedFacings: 8
+	Armament:
+		Weapon: TowerMissile
+		LocalOffset: 256,384,768, 256,-384,768
+	Turreted:
+		TurnSpeed: 8
+		InitialFacing: 128
+	Power:
+		Amount: -25
+	RevealOnDeath:
+		Radius: 5c768

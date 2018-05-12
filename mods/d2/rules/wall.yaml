@@ -1,0 +1,55 @@
+wall:
+	Inherits@1: ^SpriteActor
+	Interactable:
+	CombatDebugOverlay:
+	FrozenUnderFog:
+	ScriptTriggers:
+	Buildable:
+		Queue: Building
+		Prerequisites: construction_yard, barracks
+		BuildPaletteOrder: 60
+		BuildDuration: 500
+		BuildDurationModifier: 40
+		Description: Stop units and blocks enemy fire.
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds: EXPLSML4.WAV
+	Valued:
+		Cost: 50
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Concrete Wall
+		GenericName: Structure
+	AppearsOnRadar:
+	D2Building:
+		BuildSounds: CHUNG.WAV
+		TerrainTypes: Rock, Concrete
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 1
+	GivesBuildableArea:
+		AreaTypes: building
+	Health:
+		HP: 50
+	Armor:
+		Type: wall
+	RevealsShroud:
+		Range: 2c768
+	Crushable:
+		CrushClasses: wall
+	BlocksProjectiles:
+		Height: 512
+	Targetable:
+		TargetTypes: Ground, Wall
+	WithWallSpriteBody:
+	Guardable:
+	Explodes:
+		Weapon: WallExplode
+		EmptyWeapon: WallExplode
+	HitShape:
+		Type: Rectangle
+			TopLeft: -512, -512
+			BottomRight: 512, 512
+	EditorTilesetFilter:
+		Categories: Defense

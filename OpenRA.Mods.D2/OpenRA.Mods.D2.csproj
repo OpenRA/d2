@@ -2,8 +2,8 @@
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C0B0465C-6BE2-409C-8770-3A9BF64C4341}</ProjectGuid>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{3B845E07-4689-47BC-90F4-27217B0A2DF6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>OpenRA.Mods.D2</RootNamespace>
     <AssemblyName>OpenRA.Mods.D2</AssemblyName>
@@ -16,14 +16,8 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <OutputPath>bin\Debug\</OutputPath>
-    <CustomCommands>
-      <Command type="AfterBuild" command="cp ${TargetFile} .." workingdir="${ProjectDir}" />
-      <Command type="AfterBuild" command="cp ${TargetFile}.mdb .." workingdir="${ProjectDir}" />
-    </CustomCommands>
-    <DefineConstants>TRACE;DEBUG;</DefineConstants>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -35,21 +29,13 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Optimize>true</Optimize>
-    <CustomCommands>
-      <Command type="AfterBuild" command="cp ${TargetFile} .." workingdir="${ProjectDir}" />
-      <Command type="AfterBuild" command="cp ${TargetFile}.mdb .." workingdir="${ProjectDir}" />
-    </CustomCommands>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OpenRA.Game">
-      <HintPath>dependencies\OpenRA.Game.exe</HintPath>
-    </Reference>
-    <Reference Include="OpenRA.Mods.Common">
-      <HintPath>dependencies\OpenRA.Mods.Common.dll</HintPath>
-    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="Eluant">
-      <HintPath>dependencies\Eluant.dll</HintPath>
+      <HintPath>..\engine\thirdparty\download\Eluant.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -58,8 +44,8 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <Compile Include="AudioLoaders\D2VocLoader.cs" />
     <Compile Include="SpriteLoaders\IcnD2Loader.cs" />
     <Compile Include="SpriteLoaders\CpsD2Loader.cs" />
     <Compile Include="SpriteLoaders\WsaD2Loader.cs" />
@@ -70,9 +56,43 @@
     <Compile Include="Traits\PaletteEffects\D2WindtrapPaletteEffect.cs" />
     <Compile Include="Traits\World\D2ShroudRenderer.cs" />
     <Compile Include="D2LoadScreen.cs" />
+    <Compile Include="Traits\Buildings\D2Building.cs" />
+    <Compile Include="Traits\Buildings\D2Concrete.cs" />
+    <Compile Include="Traits\Buildings\D2ConcreteOwners.cs" />
+    <Compile Include="Traits\D2AffectsShroud.cs" />
+    <Compile Include="Traits\D2RevealsShroud.cs" />
   </ItemGroup>
-  <PropertyGroup>
-    <PostBuildEvent>copy $(TargetPath) $(ProjectDir)..
-</PostBuildEvent>
-  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Widgets\Logic\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\engine\OpenRA.Mods.Common\OpenRA.Mods.Common.csproj">
+      <Project>{FE6C8CC0-2F07-442A-B29F-17617B3B7FC6}</Project>
+      <Name>OpenRA.Mods.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\engine\OpenRA.Game\OpenRA.Game.csproj">
+      <Project>{0DFB103F-2962-400F-8C6D-E2C28CCBA633}</Project>
+      <Name>OpenRA.Game</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="AfterBuild">
+    <MakeDir Directories="$(SolutionDir)mods/d2/" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SolutionDir)mods/d2/" />
+    <!--
+        We need to copy OpenRA.Mods.Cnc.pdb (not `.dll.pdb`). This is only necessary on Windows.
+        Mono outputs a `.dll.mdb` so we can just append `.mdb` directly.
+    -->
+    <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(SolutionDir)mods/d2/" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
+    <Copy SourceFiles="$(TargetPath).mdb" DestinationFolder="$(SolutionDir)mods/d2/" Condition="Exists('$(TargetPath).mdb')" />
+    <!-- Uncomment these lines when debugging or adding to this target
+    <Message Text="DEBUG OS:                     $(OS)"/>
+    <Message Text="DEBUG SolutionDir:            $(SolutionDir)"/>
+    <Message Text="DEBUG TargetPath:             $(TargetPath)"/>
+    <Message Text="DEBUG TargetDir:              $(TargetDir)"/>
+    <Message Text="DEBUG TargetName:             $(TargetName)"/>
+	-->
+  </Target>
 </Project>

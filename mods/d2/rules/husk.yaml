@@ -1,0 +1,16 @@
+^Husk:
+	Inherits@1: ^SpriteActor
+	Interactable:
+	Health:
+		HP: 75
+	Armor:
+		Type: light
+	HiddenUnderFog:
+		Type: CenterPosition
+	Tooltip:
+		GenericName: Destroyed Unit
+	ScriptTriggers:
+	WithFacingSpriteBody:
+	HitShape:
+	EditorTilesetFilter:
+		Categories: Husk

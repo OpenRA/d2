@@ -1,0 +1,48 @@
+outpost:
+	Inherits: ^Building
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Buildable:
+		Prerequisites: construction_yard, barracks, ~techlevel.medium
+		Queue: Building
+		BuildPaletteOrder: 50
+		BuildDuration: 1000
+		BuildDurationModifier: 40
+		Description: Provides a radar map of the battlefield\n  Requires power to operate
+	Selectable:
+		Bounds: 32,32
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Outpost
+	D2Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 500
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1024, -1024
+			BottomRight: 1024, 1024
+	Armor:
+		Type: building
+	RevealsShroud:
+		Range: 4c768
+	ProvidesRadar:
+		RequiresCondition: !disabled
+	WithTilesetBody:
+		SkipFrames: 1,2
+		PlayerPalette: player
+	RenderSprites:
+		Image: outpost
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+		PauseOnCondition: disabled
+		RequiresCondition: !severe-damaged
+        GrantConditionOnDamageState@STOPDISH:
+		Condition: severe-damaged
+		ValidDamageState: Medium, Heavy, Critical
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	Power:
+		Amount: -30
+	ProvidesPrerequisite@buildingname:
