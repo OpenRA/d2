@@ -6,8 +6,8 @@ wall:
 	ScriptTriggers:
 	Buildable:
 		Queue: Building
-		Prerequisites: construction_yard, barracks
-		BuildPaletteOrder: 60
+		Prerequisites: wind_trap, outpost
+		BuildPaletteOrder: 70
 		BuildDuration: 500
 		BuildDurationModifier: 40
 		Description: Stop units and blocks enemy fire.

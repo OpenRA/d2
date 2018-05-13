@@ -1,9 +1,9 @@
 silo:
 	Inherits: ^Building
 	Buildable:
-		Prerequisites: construction_yard, refinery
+		Prerequisites: wind_trap, refinery
 		Queue: Building
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 60
 		BuildDuration: 600
 		BuildDurationModifier: 40
 		Description: Stores excess harvested Spice

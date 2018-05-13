@@ -2,8 +2,7 @@ wind_trap:
 	Inherits: ^Building
 	Buildable:
 		Queue: Building
-		Prerequisites: construction_yard
-		BuildPaletteOrder: 10
+		BuildPaletteOrder: 20
 		BuildDuration: 600
 		BuildDurationModifier: 40
 		Description: Provides power for other structures

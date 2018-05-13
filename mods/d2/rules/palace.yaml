@@ -2,9 +2,9 @@ palace:
 	Inherits: ^Building
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Buildable:
-		Prerequisites: construction_yard, research_centre, ~techlevel.high
+		Prerequisites: starport, ~techlevel.high
 		Queue: Building
-		BuildPaletteOrder: 150
+		BuildPaletteOrder: 170
 		BuildDuration: 1620
 		BuildDurationModifier: 40
 		Description: Unlocks elite infantry and weapons

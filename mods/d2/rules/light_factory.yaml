@@ -1,9 +1,9 @@
 light_factory:
 	Inherits: ^Building
 	Buildable:
-		Prerequisites: construction_yard, refinery
+		Prerequisites: wind_trap, refinery
 		Queue: Building
-		BuildPaletteOrder: 70
+		BuildPaletteOrder: 110
 		BuildDuration: 1200
 		BuildDurationModifier: 40
 		Description: Produces light vehicles

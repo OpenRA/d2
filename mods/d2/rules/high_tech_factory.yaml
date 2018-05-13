@@ -1,9 +1,9 @@
 high_tech_factory:
 	Inherits: ^Building
 	Buildable:
-		Prerequisites: construction_yard, outpost, ~techlevel.medium
+		Prerequisites: wind_trap, light_factory, outpost, ~techlevel.medium
 		Queue: Building
-		BuildPaletteOrder: 110
+		BuildPaletteOrder: 140
 		BuildDuration: 1500
 		BuildDurationModifier: 40
 		Description: Unlocks advanced technology

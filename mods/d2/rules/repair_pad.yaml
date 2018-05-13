@@ -2,8 +2,8 @@ repair_pad:
 	Inherits: ^Building
 	Buildable:
 		Queue: Building
-		Prerequisites: construction_yard, heavy_factory, upgrade.heavy, ~techlevel.medium
-		BuildPaletteOrder: 130
+		Prerequisites: light_factory, wind_trap, outpost, ~techlevel.medium
+		BuildPaletteOrder: 160
 		BuildDuration: 1000
 		BuildDurationModifier: 40
 		Description: Repairs vehicles\n Allows construction of MCVs

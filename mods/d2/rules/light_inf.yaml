@@ -6,6 +6,7 @@ light_inf:
 		BuildPaletteOrder: 10
 		BuildDuration: 400
 		BuildDurationModifier: 40
+		Prerequisites: ~barracks
 		Description: General-purpose infantry\n  Strong vs Infantry\n  Weak vs Vehicles, Artillery
 	Valued:
 		Cost: 60
