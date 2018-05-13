@@ -8,7 +8,7 @@ heavy_factory:
 		BuildDurationModifier: 40
 		Description: Produces heavy vehicles
 	Selectable:
-		Bounds: 32,32
+		Bounds: 48,32
 	Valued:
 		Cost: 600
 	Tooltip:
