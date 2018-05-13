@@ -15,31 +15,17 @@ Sound:
 	Warhead@1Dam: SpreadDamage
 		Range: 0, 32
 		Falloff: 100, 100
-		Damage: 150
+		Damage: 60
 		AffectsParent: false
 		ValidStances: Neutral, Enemy
-		Versus:
-			wall: 50
-			building: 60
-			heavy: 60
-			invulnerable: 0
-			cy: 20
-			harvester: 50
 		DamageTypes: Prone50Percent, TriggerProne, SoundDeath
 	Warhead@2Dam: SpreadDamage
 		Range: 0, 32
 		Falloff: 50, 50 # Only does half damage to friendly units
-		Damage: 150
+		Damage: 60
 		InvalidTargets: Sonictank # Does not affect friendly sonic tanks at all
 		AffectsParent: false
 		ValidStances: Ally
-		Versus:
-			wall: 50
-			building: 60
-			heavy: 60
-			invulnerable: 0
-			cy: 20
-			harvester: 50
 		DamageTypes: Prone50Percent, TriggerProne, SoundDeath
 
 Heal:
@@ -77,17 +63,7 @@ OrniBomb:
 	Warhead@1Dam: SpreadDamage
 		Spread: 320
 		Falloff: 100, 60, 30, 15, 0
-		Damage: 1000 #400 in original, reduce when bombers can do multiple passes
-		Versus:
-			none: 90
-			wall: 50
-			building: 75
-			wood: 60
-			light: 60
-			heavy: 60
-			invulnerable: 0
-			cy: 25
-			harvester: 60
+		Damage: 50
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SandCrater, RockCrater
@@ -113,17 +89,7 @@ Atomic:
 	Warhead@1Dam: SpreadDamage
 		Spread: 1c0
 		Falloff: 200, 100, 50, 25, 12, 0
-		Damage: 2700	##225 in vanilla but of course is a cluster bomb instead, so damage spread out
-		Versus:
-			none: 90
-			wall: 50
-			building: 75
-			wood: 60
-			light: 60
-			heavy: 60
-			invulnerable: 0
-			cy: 25
-			harvester: 60
+		Damage: 100
 		DamageTypes: Prone50Percent, TriggerProne, SoundDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: nuke
@@ -133,17 +99,7 @@ CrateNuke:
 	Warhead@1Dam: SpreadDamage
 		Spread: 320
 		Falloff: 100, 60, 30, 15, 0
-		Damage: 500
-		Versus:
-			none: 90
-			wall: 50
-			building: 75
-			wood: 60
-			light: 60
-			heavy: 60
-			invulnerable: 0
-			cy: 25
-			harvester: 60
+		Damage: 100
 		AffectsParent: true
 		DamageTypes: Prone50Percent, TriggerProne, SoundDeath
 	Warhead@2Eff: CreateEffect
@@ -154,17 +110,7 @@ CrateExplosion:
 	Warhead@1Dam: SpreadDamage
 		Spread: 320
 		Falloff: 100, 60, 30, 15, 0
-		Damage: 500
-		Versus:
-			none: 90
-			wall: 5
-			building: 65
-			wood: 50
-			light: 40
-			heavy: 30
-			invulnerable: 0
-			cy: 20
-			harvester: 25
+		Damage: 100
 		AffectsParent: true
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
@@ -207,15 +153,6 @@ SardDeath:
 		Spread: 256
 		Falloff: 100, 50, 25, 0
 		Damage: 300
-		Versus:
-			none: 15
-			wall: 75
-			building: 60
-			wood: 65
-			light: 90
-			invulnerable: 0
-			cy: 30
-			harvester: 50
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SandCrater, RockCrater
