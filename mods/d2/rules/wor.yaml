@@ -66,6 +66,8 @@ wor:
 
 upgrade.wor:
 	AlwaysVisible:
+	Interactable:
+	ScriptTriggers:
 	Tooltip:
 		Name: WOR Upgrade
 	Buildable:
