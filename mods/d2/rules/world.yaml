@@ -103,16 +103,16 @@ World:
 		GameSpeedDropdownDisplayOrder: 3
 	CreateMPPlayers:
 	MPStartLocations:
-	MPStartUnits@mcv:
+	MPStartUnits@conyard:
 		Class: none
-		ClassName: MCV Only
-		BaseActor: mcv
+		ClassName: Con. Yard Only
+		BaseActor: construction_yard
 		Factions: atreides, ordos, harkonnen
 	MPStartUnits@lightatreides:
 		Class: light
 		ClassName: Light Support
 		Factions: atreides
-		BaseActor: mcv
+		BaseActor: construction_yard
 		SupportActors: light_inf, light_inf, light_inf, trooper, trooper_squad, trike, quad
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
@@ -120,7 +120,7 @@ World:
 		Class: light
 		ClassName: Light Support
 		Factions: harkonnen
-		BaseActor: mcv
+		BaseActor: construction_yard
 		SupportActors: light_inf, light_inf, light_inf, trooper, trooper, trike, quad
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
@@ -128,7 +128,7 @@ World:
 		Class: light
 		ClassName: Light Support
 		Factions: ordos
-		BaseActor: mcv
+		BaseActor: construction_yard
 		SupportActors: light_inf, light_inf, light_inf, trooper, raider, quad
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
@@ -136,7 +136,7 @@ World:
 		Class: heavy
 		ClassName: Heavy Support
 		Factions: atreides
-		BaseActor: mcv
+		BaseActor: construction_yard
 		SupportActors: light_inf, light_inf, light_inf, trooper, trooper_squad, trike, combat_tank_a, missile_tank
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
@@ -144,7 +144,7 @@ World:
 		Class: heavy
 		ClassName: Heavy Support
 		Factions: harkonnen
-		BaseActor: mcv
+		BaseActor: construction_yard
 		SupportActors: light_inf, light_inf, light_inf, trooper, quad, combat_tank_h, siege_tank
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
@@ -152,7 +152,7 @@ World:
 		Class: heavy
 		ClassName: Heavy Support
 		Factions: ordos
-		BaseActor: mcv
+		BaseActor: construction_yard
 		SupportActors: light_inf, light_inf, light_inf, trooper, raider, combat_tank_o, missile_tank
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
