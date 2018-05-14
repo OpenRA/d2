@@ -14,16 +14,7 @@ Bazooka_squad:
 	Warhead@1Dam: SpreadDamage
 		Spread: 192
 		Falloff: 100, 50, 25, 0
-		Damage: 300
-		Versus:
-			none: 8
-			wall: 75
-			building: 40
-			wood: 45
-			light: 70
-			invulnerable: 0
-			cy: 20
-			harvester: 50
+		Damage: 5
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SandCrater, RockCrater
@@ -40,16 +31,7 @@ LMG_squad:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Falloff: 100, 50, 25, 0
-		Damage: 200
-		Versus:
-			wall: 10
-			building: 25
-			wood: 75
-			light: 40
-			heavy: 20
-			invulnerable: 0
-			cy: 20
-			harvester: 25
+		Damage: 3
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs

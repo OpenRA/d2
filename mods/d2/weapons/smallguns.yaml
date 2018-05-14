@@ -7,16 +7,7 @@ LMG:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Falloff: 100, 50, 25, 0
-		Damage: 125
-		Versus:
-			wall: 10
-			building: 25
-			wood: 75
-			light: 40
-			heavy: 20
-			invulnerable: 0
-			cy: 20
-			harvester: 25
+		Damage: 3
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -31,15 +22,6 @@ Fremen_S:
 		Spread: 128
 		Falloff: 100, 50, 25, 0
 		Damage: 125
-		Versus:
-			wall: 10
-			building: 25
-			wood: 75
-			light: 40
-			heavy: 20
-			invulnerable: 0
-			cy: 20
-			harvester: 25
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: small_explosion
@@ -55,15 +37,6 @@ M_LMG:
 		Spread: 128
 		Falloff: 100, 50, 25, 0
 		Damage: 125
-		Versus:
-			wall: 10
-			building: 25
-			wood: 75
-			light: 40
-			heavy: 20
-			invulnerable: 0
-			cy: 20
-			harvester: 25
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -78,14 +51,6 @@ M_HMG:
 		Spread: 192
 		Falloff: 100, 50, 25, 0
 		Damage: 250
-		Versus:
-			none: 25
-			building: 50
-			wood: 65
-			heavy: 50
-			invulnerable: 0
-			cy: 20
-			harvester: 50
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -101,14 +66,6 @@ Fremen_L:
 		Spread: 192
 		Falloff: 100, 50, 25, 0
 		Damage: 250
-		Versus:
-			none: 25
-			building: 50
-			wood: 65
-			heavy: 50
-			invulnerable: 0
-			cy: 20
-			harvester: 50
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: small_explosion
@@ -122,52 +79,13 @@ HMG:
 	Warhead@1Dam: SpreadDamage
 		Spread: 160
 		Falloff: 100, 60, 30, 0
-		Damage: 180
-		Versus:
-			wall: 10
-			building: 25
-			wood: 75
-			light: 40
-			heavy: 20
-			invulnerable: 0
-			cy: 20
-			harvester: 25
-		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
-	Warhead@2Eff: CreateEffect
-		Explosions: piffs
-
-HMGo:
-	ReloadDelay: 18
-	Range: 3c0
-	Report: 20MMGUN1.WAV
-	Projectile: Bullet
-		Speed: 1c256
-	Warhead@1Dam: SpreadDamage
-		Spread: 160
-		Falloff: 100, 60, 30, 0
-		Damage: 180
-		Versus:
-			wall: 10
-			building: 25
-			wood: 75
-			light: 40
-			heavy: 20
-			invulnerable: 0
-			cy: 20
-			harvester: 25
+		Damage: 5
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
 
 HMG_muzzle:
 	ReloadDelay: 16
-	Range: 3c0
-	Burst: 3
-	BurstDelay: 2
-	Warhead@TargetValidation: SpreadDamage
-
-HMGo_muzzle:
-	ReloadDelay: 14
 	Range: 3c0
 	Burst: 3
 	BurstDelay: 2

@@ -14,16 +14,7 @@ Bazooka:
 	Warhead@1Dam: SpreadDamage
 		Spread: 192
 		Falloff: 100, 50, 25, 0
-		Damage: 300
-		Versus:
-			none: 8
-			wall: 75
-			building: 40
-			wood: 45
-			light: 70
-			invulnerable: 0
-			cy: 20
-			harvester: 50
+		Damage: 5
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SandCrater, RockCrater
@@ -47,15 +38,7 @@ Rocket:
 	Warhead@1Dam: SpreadDamage
 		Spread: 160
 		Falloff: 100, 50, 25, 0
-		Damage: 250
-		Versus:
-			none: 25
-			building: 50
-			wood: 65
-			heavy: 50
-			invulnerable: 0
-			cy: 20
-			harvester: 50
+		Damage: 7
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SandCrater, RockCrater
@@ -88,17 +71,8 @@ TowerMissile:
 	Warhead@1Dam: SpreadDamage
 		Spread: 256
 		Falloff: 100, 50, 25, 0
-		Damage: 480
+		Damage: 30
 		ValidTargets: Ground, Air
-		Versus:
-			none: 15
-			wall: 75
-			building: 60
-			wood: 65
-			light: 90
-			invulnerable: 0
-			cy: 30
-			harvester: 50
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SandCrater, RockCrater
@@ -129,17 +103,8 @@ mtank_pri:
 	Warhead@1Dam: SpreadDamage
 		Spread: 256
 		Falloff: 100, 50, 25, 0
-		Damage: 600
+		Damage: 75
 		ValidTargets: Ground, Air
-		Versus:
-			none: 15
-			wall: 75
-			building: 60
-			wood: 65
-			light: 90
-			invulnerable: 0
-			cy: 30
-			harvester: 50
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SandCrater, RockCrater
@@ -166,23 +131,6 @@ DeviatorMissile:
 		#TrailPalette: deviatorgas
 		#TrailUsePlayerPalette: true
 		#TrailInterval: 1
-	Warhead@1Dam: SpreadDamage
-		Spread: 256
-		Falloff: 100, 50, 25, 0
-		Damage: 500
-		Versus:
-			none: 20
-			wall: 20
-			building: 20
-			wood: 20
-			light: 20
-			heavy: 20
-			invulnerable: 0
-			cy: 10
-			harvester: 20
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SandCrater, RockCrater
 	Warhead@3Eff: CreateEffect
 		Explosions: deviator
 		ExplosionPalette: deviatorgas

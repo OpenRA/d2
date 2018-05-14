@@ -24,10 +24,10 @@ raider:
 		MovingRange: 1c256
 	WithMuzzleOverlay:
 	Armament@damage:
-		Weapon: HMGo
+		Weapon: HMG
 		LocalOffset: 170,0,0
 	Armament@muzzle:
-		Weapon: HMGo_muzzle
+		Weapon: HMG_muzzle
 		LocalOffset: 170,0,0
 		MuzzleSequence: muzzle
 	AttackFrontal:
