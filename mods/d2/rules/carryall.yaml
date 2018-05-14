@@ -9,7 +9,7 @@ carryall.reinforce:
 	Armor:
 		Type: light
 	Aircraft:
-		CruiseAltitude: 2160
+		CruiseAltitude: 192
 		InitialFacing: 0
 		Speed: 144 # 112 * ~1.3 for balance reasons
 		TurnSpeed: 4
