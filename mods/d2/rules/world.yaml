@@ -92,7 +92,7 @@ World:
 	MapCreeps:
 		CheckboxLabel: Worms
 		CheckboxDescription: Worms roam the map and devour unprepared forces
-		CheckboxDisplayOrder: 5
+		CheckboxDisplayOrder: 1
 	SpawnMapActors:
 	MapBuildRadius:
 		AllyBuildRadiusCheckboxDisplayOrder: 4
