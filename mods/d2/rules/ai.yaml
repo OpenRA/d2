@@ -50,6 +50,7 @@ Player:
 			upgrade.hightech: 0.1%
 		UnitsToBuild:
 			carryall: 1%
+			ornithopter: 0.5%
 			light_inf: 6%
 			trooper: 5%
 			medic: 1%
@@ -79,6 +80,7 @@ Player:
 		UnitLimits:
 			harvester: 8
 			carryall: 4
+			ornithopter: 1
 		SquadSize: 8
 		MaxBaseRadius: 40
 		SupportPowerDecision@Airstrike:
@@ -167,6 +169,7 @@ Player:
 			upgrade.hightech: 0.1%
 		UnitsToBuild:
 			carryall: 1%
+			ornithopter: 0.5%
 			light_inf: 2%
 			trooper: 2%
 			medic: 0.5%
@@ -196,6 +199,7 @@ Player:
 		UnitLimits:
 			harvester: 8
 			carryall: 4
+			ornithopter: 1
 		SquadSize: 6
 		MaxBaseRadius: 40
 		SupportPowerDecision@Airstrike:
@@ -284,6 +288,7 @@ Player:
 			upgrade.hightech: 0.1%
 		UnitsToBuild:
 			carryall: 1%
+			ornithopter: 0.5%
 			light_inf: 15%
 			trooper: 13%
 			medic: 2%
@@ -313,6 +318,7 @@ Player:
 		UnitLimits:
 			harvester: 8
 			carryall: 4
+			ornithopter: 1
 		SquadSize: 10
 		MaxBaseRadius: 40
 		SupportPowerDecision@Airstrike:

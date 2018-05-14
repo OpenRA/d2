@@ -192,3 +192,26 @@ DeviatorMissile:
 		Range: 512
 		Duration: 375
 		InvalidTargets: Infantry, Structure
+
+OrniMissile:
+	ReloadDelay: 50
+	Range: 3c0
+	MinRange: 0c96
+	Projectile: Missile
+		Speed: 281
+		RangeLimit: 4c0
+		Image: MISSILE
+		VerticalRateOfTurn: 10
+		HorizontalRateOfTurn: 3
+		Blockable: false
+		Shadow: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Falloff: 100, 50, 25, 0
+		Damage: 50
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater, RockCrater
+	Warhead@3Eff: CreateEffect
+		Explosions: large_explosion
+		ImpactSounds: NAPALM1.WAV

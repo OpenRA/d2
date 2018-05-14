@@ -1,16 +1,34 @@
 ornithopter:
 	Inherits: ^Plane
-	AttackBomber:
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Infantry, Vehicle, Water, Defense
+		InvalidTargets: NoAutoTarget, Creep
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidTargets: Infantry, Vehicle, Water, Structure, Defense
+		InvalidTargets: NoAutoTarget, Creep
+	AutoTarget:
+		ScanRadius: 1000
+		InitialStance: AttackAnything
+	Buildable:
+		Queue: Aircraft
+		BuildPaletteOrder: 130
+		Prerequisites: research_centre, upgrade.hightech, ~aircraft.atreides_or_ordos, ~techlevel.high
+		Description: Light aircraft armed with missiles.\nAutomatically attacks nearby targets, can't be manually controlled.
+	AttackHeli:
+		IgnoresVisibility: true
 	Armament:
-		Weapon: OrniBomb
+		Weapon: OrniMissile
+	Valued:
+		Cost: 600
 	Health:
 		HP: 10
 	Armor:
 		Type: light
 	Aircraft:
 		Speed: 224 # 189 * ~1.2 for balance reasons
-		TurnSpeed: 2
-		Repulsable: False
+		TurnSpeed: 5
+		Repulsable: True
 		CanHover: True
 		CruiseAltitude: 1928
 		VTOL: true
