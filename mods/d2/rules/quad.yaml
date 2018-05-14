@@ -3,7 +3,7 @@ quad:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Vehicle
-		Prerequisites: upgrade.light, ~techlevel.medium
+		Prerequisites: light.harkonnen_or_upgrade.light, ~techlevel.medium
 		BuildPaletteOrder: 20
 		BuildDuration: 600
 		BuildDurationModifier: 40
