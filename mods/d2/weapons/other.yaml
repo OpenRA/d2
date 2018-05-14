@@ -52,25 +52,6 @@ WormJaw:
 		Falloff: 100, 100, 0
 		Damage: 10000
 
-OrniBomb:
-	ReloadDelay: 25
-	Burst: 5
-	BurstDelay: 3
-	Range: 3c0
-	Projectile: GravityBomb
-		#Image: BOMBS
-		Image: missile
-	Warhead@1Dam: SpreadDamage
-		Spread: 320
-		Falloff: 100, 60, 30, 15, 0
-		Damage: 50
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SandCrater, RockCrater
-	Warhead@3Eff: CreateEffect
-		Explosions: large_explosion
-		ImpactSounds: NAPALM1.WAV
-
 Crush:
 	Warhead@1Dam: SpreadDamage
 		Damage: 100
