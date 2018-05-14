@@ -1,11 +1,7 @@
 overlay:
-    Defaults: DATA.R8
-	Offset: -16,-16
-    build-valid-arrakis2:
-    build-invalid:
-	Start: 1
-    target-select:
-	Start: 2
-    target-valid-arrakis2:
-    target-invalid:
-	Start: 1
+	Defaults: transparent.shp
+	build-valid-arrakis2:
+	build-invalid:
+	target-select:
+	target-valid-arrakis2:
+	target-invalid:
