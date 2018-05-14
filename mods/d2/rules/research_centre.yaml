@@ -2,8 +2,8 @@ research_centre:
 	Inherits: ^Building
 	Buildable:
 		Queue: Building
-		Prerequisites: construction_yard, outpost, heavy_factory, upgrade.heavy, ~techlevel.high
-		BuildPaletteOrder: 140
+		Prerequisites: wind_trap, starport, refinery, ~techlevel.high
+		BuildPaletteOrder: 150
 		BuildDuration: 1500
 		BuildDurationModifier: 40
 		Description: Unlocks experimental tanks

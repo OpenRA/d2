@@ -47,6 +47,24 @@ construction_yard:
 		PrimaryCondition: primary
 		ProductionQueues: Building
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@Atreides:
+		Prerequisite: structure.atreides
+		Factions: atreides
+	ProvidesPrerequisite@Ordos:
+		Prerequisite: structure.ordos
+		Factions: ordos
+	ProvidesPrerequisite@Harkonnen:
+		Prerequisite: structure.harkonnen
+		Factions: harkonnen
+	ProvidesPrerequisite@Atreides+Ordos:
+		Prerequisite: structure.atreides_or_ordos
+		Factions: atreides, ordos
+	ProvidesPrerequisite@Ordos+Harkonnen:
+		Prerequisite: structure.ordos_or_harkonnen
+		Factions: ordos, harkonnen
+	ProvidesPrerequisite@har_conyard_or_barracks:
+		Prerequisite: har_conyard_or_barracks
+		Factions: harkonnen
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.conyard
 		Condition: stardecoration

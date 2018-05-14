@@ -1,9 +1,9 @@
 refinery:
 	Inherits: ^Building
 	Buildable:
-		Prerequisites: construction_yard, wind_trap
+		Prerequisites: wind_trap
 		Queue: Building
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 30
 		BuildDuration: 1000
 		BuildDurationModifier: 40
 		Description: Harvesters unload Spice here for processing

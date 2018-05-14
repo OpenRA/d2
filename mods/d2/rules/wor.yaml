@@ -1,9 +1,9 @@
 wor:
 	Inherits: ^Building
 	Buildable:
-		Prerequisites: construction_yard, wind_trap, barracks
+		Prerequisites: ~structure.ordos_or_harkonnen, wind_trap, har_conyard_or_barracks, outpost
 		Queue: Building
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 100
 		BuildDuration: 1300
 		BuildDurationModifier: 40
 		Description: Trains heavy infantry

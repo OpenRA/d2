@@ -1,9 +1,9 @@
 barracks:
 	Inherits: ^Building
 	Buildable:
-		Prerequisites: construction_yard, wind_trap
+		Prerequisites: ~structure.atreides_or_ordos, wind_trap, outpost
 		Queue: Building
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 100
 		BuildDuration: 900
 		BuildDurationModifier: 40
 		Description: Trains infantry
@@ -59,6 +59,8 @@ barracks:
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@har_conyard_or_barracks:
+		Prerequisite: har_conyard_or_barracks
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.barracks
 		Condition: stardecoration
