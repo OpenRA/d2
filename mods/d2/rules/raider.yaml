@@ -7,7 +7,7 @@ raider:
 		BuildDuration: 500
 		BuildDurationModifier: 40
 		Prerequisites: ~light.ordos
-		Description: Improved Scout\n Strong vs Infantry, Light Vehicles
+		Description: Fast scout vehicle with low armor\n Strong vs Infantry\n Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 150
 	Tooltip:

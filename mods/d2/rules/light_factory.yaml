@@ -55,9 +55,12 @@ light_factory:
 	ProvidesPrerequisite@harkonnen:
 		Prerequisite: light.harkonnen
 		Factions: harkonnen
-	ProvidesPrerequisite@trikes:
-		Prerequisite: light.regulartrikes
-		Factions: atreides, harkonnen
+	ProvidesPrerequisite@atreides+ordos:
+		Prerequisite: light.atreides_or_ordos
+		Factions: atreides, ordos
+	ProvidesPrerequisite@light.harkonnen_or_upgrade.light:
+		Prerequisite: light.harkonnen_or_upgrade.light
+		Factions: harkonnen
 	ProvidesPrerequisite@buildingname:
 	Power:
 		Amount: -20
@@ -79,7 +82,7 @@ upgrade.light:
 		Name: Light Factory Upgrade
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: light_factory
+		Prerequisites: light.atreides_or_ordos
 		Queue: Upgrade
 		BuildLimit: 1
 		BuildDuration: 250
@@ -90,3 +93,5 @@ upgrade.light:
 	RenderSprites:
 		Image: light
 	ProvidesPrerequisite@upgradename:
+	ProvidesPrerequisite@light.harkonnen_or_upgrade.light:
+		Prerequisite: light.harkonnen_or_upgrade.light
