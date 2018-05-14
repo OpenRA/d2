@@ -113,7 +113,7 @@ World:
 		ClassName: Light Support
 		Factions: atreides
 		BaseActor: construction_yard
-		SupportActors: light_inf, light_inf, light_inf, trooper, trooper_squad, trike, quad
+		SupportActors: light_inf, light_inf, light_inf, light_squad, light_squad, trike, quad
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
 	MPStartUnits@lightharkonnen:
@@ -121,7 +121,7 @@ World:
 		ClassName: Light Support
 		Factions: harkonnen
 		BaseActor: construction_yard
-		SupportActors: light_inf, light_inf, light_inf, trooper, trooper, trike, quad
+		SupportActors: trooper, trooper, trooper, trooper_squad, trooper_squad, quad, quad
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
 	MPStartUnits@lightordos:
@@ -129,7 +129,31 @@ World:
 		ClassName: Light Support
 		Factions: ordos
 		BaseActor: construction_yard
-		SupportActors: light_inf, light_inf, light_inf, trooper, raider, quad
+		SupportActors: light_inf, light_inf, light_squad, trooper, trooper_squad, raider, quad
+		InnerSupportRadius: 3
+		OuterSupportRadius: 5
+	MPStartUnits@mediumatreides:
+		Class: medium
+		ClassName: Medium Support
+		Factions: atreides
+		BaseActor: construction_yard
+		SupportActors: light_inf, light_inf, light_squad, light_squad, light_squad, trike, quad, combat_tank, missile_tank, siege_tank
+		InnerSupportRadius: 3
+		OuterSupportRadius: 5
+	MPStartUnits@mediumharkonnen:
+		Class: medium
+		ClassName: Medium Support
+		Factions: harkonnen
+		BaseActor: construction_yard
+		SupportActors: trooper, trooper, trooper_squad, trooper_squad, trooper_squad, quad, quad, combat_tank, missile_tank, siege_tank
+		InnerSupportRadius: 3
+		OuterSupportRadius: 5
+	MPStartUnits@mediumordos:
+		Class: medium
+		ClassName: Medium Support
+		Factions: ordos
+		BaseActor: construction_yard
+		SupportActors: light_inf, light_squad, light_squad, trooper, trooper_squad, raider, quad, combat_tank, missile_tank, siege_tank
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
 	MPStartUnits@heavyatreides:
@@ -137,7 +161,7 @@ World:
 		ClassName: Heavy Support
 		Factions: atreides
 		BaseActor: construction_yard
-		SupportActors: light_inf, light_inf, light_inf, trooper, trooper_squad, trike, combat_tank_a, missile_tank
+		SupportActors: light_squad, light_squad, light_squad, light_squad, light_squad, trike, quad, combat_tank, combat_tank, missile_tank, siege_tank, sonic_tank
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
 	MPStartUnits@heavyharkonnen:
@@ -145,7 +169,7 @@ World:
 		ClassName: Heavy Support
 		Factions: harkonnen
 		BaseActor: construction_yard
-		SupportActors: light_inf, light_inf, light_inf, trooper, quad, combat_tank_h, siege_tank
+		SupportActors: trooper_squad, trooper_squad, trooper_squad, trooper_squad, trooper_squad, quad, quad, combat_tank, combat_tank, missile_tank, siege_tank, devastator
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
 	MPStartUnits@heavyordos:
@@ -153,7 +177,7 @@ World:
 		ClassName: Heavy Support
 		Factions: ordos
 		BaseActor: construction_yard
-		SupportActors: light_inf, light_inf, light_inf, trooper, raider, combat_tank_o, missile_tank
+		SupportActors: light_squad, light_squad, light_squad, trooper_squad, trooper_squad, raider, quad, combat_tank, combat_tank, missile_tank, siege_tank, deviator
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
 	SpawnMPUnits:
