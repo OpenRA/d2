@@ -63,7 +63,7 @@ Player:
 		DefaultCash: 1500
 		InsufficientFundsNotification: InsufficientFunds
 	DeveloperMode:
-		CheckboxDisplayOrder: 6
+		CheckboxDisplayOrder: 5
 	BaseAttackNotifier:
 	Shroud:
 		FogCheckboxDisplayOrder: 3
