@@ -7,7 +7,7 @@ raider:
 		BuildDuration: 500
 		BuildDurationModifier: 40
 		Prerequisites: ~light.ordos
-		Description: Improved Scout\n Strong vs Infantry, Light Vehicles
+		Description: Fast scout vehicle with low armor\n Strong vs Infantry\n Weak vs Tanks, Aircraft
 	Valued:
 		Cost: 150
 	Tooltip:
@@ -24,10 +24,10 @@ raider:
 		MovingRange: 1c256
 	WithMuzzleOverlay:
 	Armament@damage:
-		Weapon: HMGo
+		Weapon: HMG
 		LocalOffset: 170,0,0
 	Armament@muzzle:
-		Weapon: HMGo_muzzle
+		Weapon: HMG_muzzle
 		LocalOffset: 170,0,0
 		MuzzleSequence: muzzle
 	AttackFrontal:
@@ -36,29 +36,3 @@ raider:
 		EmptyWeapon: UnitExplodeSmall
 	AttractsWorms:
 		Intensity: 420
-
-stealth_raider:
-	Inherits: raider
-	Buildable:
-		Prerequisites: ~light.ordos, upgrade.light, high_tech_factory, ~techlevel.medium
-		BuildPaletteOrder: 30
-		BuildDuration: 194	## Copied from Raider, not included in conversion. Both have same "BuildSpeed" in TibEd
-		BuildDurationModifier: 40
-		Description: Invisible Raider Trike\n  Strong vs Infantry, Light Vehicles\n  Weak vs Tanks
-	Valued:
-		Cost: 400
-	Tooltip:
-		Name: Stealth Raider Trike
-	Cloak:
-		InitialDelay: 45
-		CloakDelay: 90
-		UncloakOn: Attack, Unload, Infiltrate, Demolish, Dock, Damage, Heal
-		IsPlayerPalette: true
-		RequiresCondition: !cloak-force-disabled
-	GrantConditionOnDamageState@UNCLOAK:
-		Condition: cloak-force-disabled
-		ValidDamageStates: Critical
-	AutoTarget:
-		InitialStance: HoldFire
-		InitialStanceAI: ReturnFire
-	-MustBeDestroyed:

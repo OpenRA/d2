@@ -8,16 +8,6 @@ SpiceExplosion:
 		Spread: 320
 		Falloff: 100, 60, 30, 15, 0
 		Damage: 75
-		Versus:
-			none: 90
-			wall: 5
-			building: 65
-			wood: 50
-			light: 40
-			heavy: 30
-			invulnerable: 0
-			cy: 20
-			harvester: 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		AffectsParent: true
 	Warhead@2Res: CreateResource
@@ -37,16 +27,6 @@ BloomExplosion:
 		Spread: 320
 		Falloff: 100, 60, 30, 15, 0
 		Damage: 750
-		Versus:
-			none: 90
-			wall: 5
-			building: 65
-			wood: 50
-			light: 40
-			heavy: 30
-			invulnerable: 0
-			cy: 20
-			harvester: 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		AffectsParent: true
 

@@ -58,35 +58,15 @@ missile_tank.starport:
 	RenderSprites:
 		Image: missile_tank
 
-combat_tank_a.starport:
-	Inherits: combat_tank_a
+combat_tank.starport:
+	Inherits: combat_tank
 	Buildable:
-		Prerequisites: ~starport.atreides
+		Prerequisites: starport
 		Queue: Starport
 	Valued:
 		Cost: 1300
 	RenderSprites:
-		Image: combat_tank_a
-
-combat_tank_h.starport:
-	Inherits: combat_tank_h
-	Buildable:
-		Prerequisites: ~starport.harkonnen
-		Queue: Starport
-	Valued:
-		Cost: 1300
-	RenderSprites:
-		Image: combat_tank_h
-
-combat_tank_o.starport:
-	Inherits: combat_tank_o
-	Buildable:
-		Prerequisites: ~starport.ordos
-		Queue: Starport
-	Valued:
-		Cost: 1300
-	RenderSprites:
-		Image: combat_tank_o
+		Image: combat_tank
 
 carryall.starport:
 	Inherits: carryall

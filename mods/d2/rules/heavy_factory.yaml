@@ -1,14 +1,14 @@
 heavy_factory:
 	Inherits: ^Building
 	Buildable:
-		Prerequisites: construction_yard, refinery
+		Prerequisites: wind_trap, light_factory, outpost
 		Queue: Building
-		BuildPaletteOrder: 100
+		BuildPaletteOrder: 130
 		BuildDuration: 1800
 		BuildDurationModifier: 40
 		Description: Produces heavy vehicles
 	Selectable:
-		Bounds: 32,32
+		Bounds: 48,32
 	Valued:
 		Cost: 600
 	Tooltip:

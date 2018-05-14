@@ -14,5 +14,5 @@ conyard:
 		ZOffset: -2047
 		Tick: 1000
 	icon: SHAPES.SHP
-		Start: 55
+		Start: 60
 		Offset: 0,0

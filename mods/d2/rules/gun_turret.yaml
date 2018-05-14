@@ -3,8 +3,8 @@ gun_turret:
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Buildable:
 		Queue: Building
-		Prerequisites: construction_yard, barracks
-		BuildPaletteOrder: 90
+		Prerequisites: wind_trap, outpost
+		BuildPaletteOrder: 80
 		BuildDuration: 800
 		BuildDurationModifier: 40
 		Description: Defensive structure\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft

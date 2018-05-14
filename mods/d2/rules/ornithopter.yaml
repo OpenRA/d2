@@ -30,7 +30,7 @@ ornithopter:
 		TurnSpeed: 5
 		Repulsable: True
 		CanHover: True
-		CruiseAltitude: 1928
+		CruiseAltitude: 192
 		VTOL: true
 	AmmoPool:
 		Ammo: 5

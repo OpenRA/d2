@@ -6,8 +6,8 @@ rocket_turret:
 		PauseOnCondition: disabled
 	Buildable:
 		Queue: Building
-		Prerequisites: construction_yard, outpost, upgrade.conyard, ~techlevel.medium
-		BuildPaletteOrder: 120
+		Prerequisites: wind_trap, outpost, upgrade.conyard, ~techlevel.medium
+		BuildPaletteOrder: 90
 		BuildDuration: 1200
 		BuildDurationModifier: 40
 		Description: Defensive structure\n  Strong vs Infantry, Aircraft\n  Weak vs Tanks\n\n  Requires power to operate

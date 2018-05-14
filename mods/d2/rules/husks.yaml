@@ -43,24 +43,11 @@ deviator.husk:
 	TransformOnCapture:
 		IntoActor: deviator
 
-^combat_tank.husk:
+combat_tank.husk:
 	Inherits: ^VehicleHusk
 	Health:
 		HP: 100
 	ThrowsParticle@turret:
 		Anim: turret
-
-combat_tank_a.husk:
-	Inherits: ^combat_tank.husk
 	TransformOnCapture:
-		IntoActor: combat_tank_a
-
-combat_tank_h.husk:
-	Inherits: ^combat_tank.husk
-	TransformOnCapture:
-		IntoActor: combat_tank_h
-
-combat_tank_o.husk:
-	Inherits: ^combat_tank.husk
-	TransformOnCapture:
-		IntoActor: combat_tank_o
+		IntoActor: combat_tank

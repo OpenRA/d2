@@ -2,7 +2,7 @@ outpost:
 	Inherits: ^Building
 	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
 	Buildable:
-		Prerequisites: construction_yard, barracks, ~techlevel.medium
+		Prerequisites: wind_trap
 		Queue: Building
 		BuildPaletteOrder: 50
 		BuildDuration: 1000
