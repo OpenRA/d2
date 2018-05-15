@@ -1,21 +1,5 @@
 spicebloom:
-	grow0: ICON.ICN
+	idle: ICON.ICN
 		Start: 208
 		Length: 1
 		ZOffset: -1023
-		Offset: -8,-8
-	grow1: ICON.ICN
-		Start: 208
-		Length: 1
-		ZOffset: -1023
-		Offset: -8,-8
-	grow2: ICON.ICN
-		Start: 209
-		Length: 1
-		ZOffset: -1023
-		Offset: -8,-8
-	grow3: ICON.ICN
-		Start: 209
-		Length: 1
-		ZOffset: -1023
-		Offset: -8,-8

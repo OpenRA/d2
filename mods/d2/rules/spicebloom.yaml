@@ -7,7 +7,6 @@ spicebloom.spawnpoint:
 		Image: spicebloom
 		Palette: effect50alpha
 	WithSpriteBody:
-		Sequence: grow0
 	BodyOrientation:
 		QuantizedFacings: 1
 	ConditionManager:
@@ -36,10 +35,9 @@ spicebloom:
 	RenderSprites:
 	AppearsOnRadar:
 		UseLocation: true
+	WithSpriteBody:
 	Tooltip:
 		Name: Spice Bloom
-	SpiceBloom:
-		Weapon: SpiceExplosion
 	Explodes:
 		Weapon: BloomExplosion
 		EmptyWeapon: BloomExplosion

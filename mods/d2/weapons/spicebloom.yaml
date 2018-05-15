@@ -34,7 +34,7 @@ BloomExplosion:
 		Blockable: false
 		Image: null
 	Warhead@1Dam: SpreadDamage
-		Spread: 320
+		Spread: 256
 		Falloff: 100, 60, 30, 15, 0
 		Damage: 750
 		Versus:
@@ -49,6 +49,9 @@ BloomExplosion:
 			harvester: 25
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 		AffectsParent: true
+	Warhead@2Res: CreateResource
+		AddsResourceType: Spice
+		Size: 5
 
 BloomSpawn:
 	Range: 0c1
