@@ -23,7 +23,7 @@ repair_pad:
 	Armor:
 		Type: building
 	RevealsShroud:
-		Range: 4c768
+		Range: 3c0
 	Selectable:
 		Bounds: 48,32
 	SelectionDecorations:

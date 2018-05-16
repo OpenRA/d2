@@ -21,7 +21,7 @@ deviator:
 		Type: wood
 	D2RevealsShroud:
 		Range: 4c768
-		MovingRange: 1c256
+		MovingRange: 1c768
 	Armament:
 		Weapon: DeviatorMissile
 		LocalOffset: -299,0,85

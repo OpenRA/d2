@@ -20,8 +20,8 @@ sonic_tank:
 		TurnSpeed: 3
 		Speed: 31
 	D2RevealsShroud:
-		Range: 5c768
-		MovingRange: 1c256
+		Range: 4c0
+		MovingRange: 1c768
 	Armament:
 		Weapon: Sound
 		LocalOffset: 600,0,427

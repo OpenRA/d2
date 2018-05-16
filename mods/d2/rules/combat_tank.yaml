@@ -20,8 +20,8 @@ combat_tank:
 		Speed: 75
 		TurnSpeed: 5
 	D2RevealsShroud:
-		Range: 3c256
-		MovingRange: 1c256
+		Range: 3c0
+		MovingRange: 1c768
 	Turreted:
 		TurnSpeed: 5
 		RealignDelay: 0

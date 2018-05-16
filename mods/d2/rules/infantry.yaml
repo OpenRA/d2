@@ -7,9 +7,8 @@
 	Health:
 	Armor:
 		Type: none
-	D2RevealsShroud:
+	RevealsShroud:
 		Range: 1c768
-		MovingRange: 1c256
 	Mobile:
 		Crushes: spicebloom
 		SharesCell: true

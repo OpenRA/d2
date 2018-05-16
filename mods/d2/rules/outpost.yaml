@@ -26,7 +26,7 @@ outpost:
 	Armor:
 		Type: building
 	RevealsShroud:
-		Range: 4c768
+		Range: 9c768
 	ProvidesRadar:
 		RequiresCondition: !disabled
 	WithTilesetBody:

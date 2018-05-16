@@ -24,8 +24,8 @@ devastator:
 	AutoCarryable:
 		RequiresCondition: !overload
 	D2RevealsShroud:
-		Range: 4c768
-		MovingRange: 1c256
+		Range: 4c0
+		MovingRange: 1c768
 	Armament:
 		Weapon: DevBullet
 		LocalOffset: 640,0,32
