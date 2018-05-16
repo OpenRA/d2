@@ -2,7 +2,7 @@ MapFormat: 11
 
 RequiresMod: d2
 
-Title: d2 mod shellmap
+Title: Shellmap
 
 Author: OpenRA Authors
 
@@ -40,24 +40,6 @@ Players:
 		Color: 4CD64C
 
 Actors:
-	Actor0: refinery
-		Owner: Atreides
-		Location: 52,64
-	Actor1: refinery
-		Owner: Atreides
-		Location: 59,57
-	Actor2: refinery
-		Owner: Harkonnen
-		Location: 69,51
-	Actor3: refinery
-		Owner: Ordos
-		Location: 75,66
-	Actor4: refinery
-		Owner: Ordos
-		Location: 76,62
-	Actor5: refinery
-		Owner: Harkonnen
-		Location: 73,56
 	Actor6: wormspawner
 		Owner: Neutral
 		Location: 72,72
@@ -76,21 +58,12 @@ Actors:
 	Actor11: wormspawner
 		Owner: Neutral
 		Location: 60,55
-	Actor12: wormspawner
-		Owner: Neutral
-		Location: 53,54
-	Actor13: wormspawner
-		Owner: Neutral
-		Location: 49,57
 	Actor14: wormspawner
 		Owner: Neutral
 		Location: 47,61
 	Actor15: wormspawner
 		Owner: Neutral
 		Location: 62,52
-	Actor16: wormspawner
-		Owner: Neutral
-		Location: 55,50
 	Actor17: wormspawner
 		Owner: Neutral
 		Location: 62,77
@@ -100,3 +73,126 @@ Actors:
 	Actor19: wormspawner
 		Owner: Neutral
 		Location: 61,62
+	Actor13: wind_trap
+		Owner: Harkonnen
+		Location: 67,51
+	Actor16: refinery
+		Owner: Harkonnen
+		Location: 67,53
+	Actor20: construction_yard
+		Owner: Harkonnen
+		Location: 72,53
+	Actor21: outpost
+		Owner: Harkonnen
+		Location: 67,55
+	Actor22: silo
+		Owner: Harkonnen
+		Location: 71,55
+	Actor23: wind_trap
+		Owner: Harkonnen
+		Location: 73,55
+	Actor24: wall
+		Owner: Harkonnen
+		Location: 66,58
+	Actor25: refinery
+		Owner: Harkonnen
+		Location: 71,58
+	Actor26: refinery
+		Owner: Atreides
+		Location: 57,59
+	Actor27: wall
+		Owner: Harkonnen
+		Location: 66,59
+	Actor28: wall
+		Owner: Harkonnen
+		Location: 67,59
+	Actor29: wall
+		Owner: Harkonnen
+		Location: 68,59
+	Actor30: wall
+		Owner: Harkonnen
+		Location: 69,59
+	Actor31: spicebloom
+		Owner: Neutral
+		Location: 62,60
+	Actor32: wind_trap
+		Owner: Atreides
+		Location: 51,62
+	Actor33: wall
+		Owner: Ordos
+		Location: 79,62
+	Actor34: wall
+		Owner: Ordos
+		Location: 80,62
+	Actor35: wall
+		Owner: Atreides
+		Location: 55,63
+	Actor36: wall
+		Owner: Atreides
+		Location: 56,63
+	Actor37: wall
+		Owner: Ordos
+		Location: 76,63
+	Actor38: wall
+		Owner: Ordos
+		Location: 77,63
+	Actor39: wall
+		Owner: Ordos
+		Location: 78,63
+	Actor40: wall
+		Owner: Ordos
+		Location: 79,63
+	Actor41: wall
+		Owner: Ordos
+		Location: 80,63
+	Actor42: construction_yard
+		Owner: Atreides
+		Location: 47,64
+	Actor43: wind_trap
+		Owner: Atreides
+		Location: 49,64
+	Actor44: wall
+		Owner: Atreides
+		Location: 55,64
+	Actor45: refinery
+		Owner: Ordos
+		Location: 74,64
+	Actor46: wall
+		Owner: Atreides
+		Location: 55,65
+	Actor47: refinery
+		Owner: Atreides
+		Location: 50,66
+	Actor48: wall
+		Owner: Atreides
+		Location: 55,66
+	Actor49: wall
+		Owner: Atreides
+		Location: 56,66
+	Actor50: wind_trap
+		Owner: Ordos
+		Location: 80,66
+	Actor51: silo
+		Owner: Ordos
+		Location: 78,67
+	Actor52: outpost
+		Owner: Atreides
+		Location: 51,68
+	Actor53: refinery
+		Owner: Ordos
+		Location: 73,68
+	Actor54: outpost
+		Owner: Ordos
+		Location: 82,68
+	Actor55: construction_yard
+		Owner: Ordos
+		Location: 78,69
+	Actor56: silo
+		Owner: Atreides
+		Location: 53,70
+	Actor57: wind_trap
+		Owner: Ordos
+		Location: 74,70
+	Actor58: wormspawner
+		Owner: Neutral
+		Location: 52,56
