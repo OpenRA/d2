@@ -1,0 +1,65 @@
+Player:
+	PlayerResources:
+		DefaultCash: 1000
+
+World:
+	LuaScript:
+		Scripts: campaign-global.lua, scena001.lua
+	MapOptions:
+		TechLevel: low
+	ScriptLobbyDropdown@difficulty:
+		ID: difficulty
+		Label: Difficulty
+		Values:
+			easy: Easy
+			normal: Normal
+			hard: Hard
+		Default: easy
+
+upgrade.conyard:
+	Buildable:
+		Prerequisites: ~disabled
+
+upgrade.barracks:
+	Buildable:
+		Prerequisites: ~disabled
+
+upgrade.light:
+	Buildable:
+		Prerequisites: ~disabled
+
+upgrade.heavy:
+	Buildable:
+		Prerequisites: ~disabled
+
+concreteb:
+	Buildable:
+		Prerequisites: ~disabled
+
+barracks:
+	Buildable:
+		Prerequisites: ~disabled
+
+light_factory:
+	Buildable:
+		Prerequisites: ~disabled
+
+heavy_factory:
+	Buildable:
+		Prerequisites: ~disabled
+
+outpost:
+	Buildable:
+		Prerequisites: ~disabled
+
+gun_turret:
+	Buildable:
+		Prerequisites: ~disabled
+
+wall:
+	Buildable:
+		Prerequisites: ~disabled
+
+silo:
+	Buildable:
+		Prerequisites: ~disabled
