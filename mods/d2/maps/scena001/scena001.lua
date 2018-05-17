@@ -23,7 +23,7 @@ Tick = function()
 		player.MarkCompletedObjective(GatherSpice)
 	end
 
-	UserInterface.SetMissionText("Harvested resources: " .. player.Resources .. "/" .. SpiceToHarvest, player.Color)
+	UserInterface.SetMissionText("Produced Credits: " .. player.Resources .. "/" .. SpiceToHarvest, player.Color)
 end
 
 WorldLoaded = function()
@@ -34,7 +34,7 @@ WorldLoaded = function()
 
 	InitObjectives(player)
 	KillAtreides = ordos.AddPrimaryObjective("Kill all Atreides units.")
-	GatherSpice = player.AddPrimaryObjective("Harvest " .. tostring(SpiceToHarvest) .. " Solaris worth of Spice.")
+	GatherSpice = player.AddPrimaryObjective("Harvest Spice and produce " .. tostring(SpiceToHarvest) .. " Credits.")
 	KillOrdos = player.AddSecondaryObjective("Eliminate all Ordos units in the area.")
 
 	local checkResourceCapacity = function()
