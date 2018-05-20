@@ -26,6 +26,7 @@ Packages:
 	#~ENGLISH.PAK
 	~SOUND.RS
 	d2|bits
+	d2|bits/tex
 	d2k|bits
 	d2k|bits/tex
 	d2k|bits/scripts
