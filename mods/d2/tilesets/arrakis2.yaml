@@ -37,6 +37,11 @@ Terrain:
 		TargetTypes: Ground
 		AcceptsSmudgeType: SandCrater
 		Color: EF944A
+	TerrainType@ClearRough:
+		Type: ClearRough
+		TargetTypes: Ground
+		Color: 587474
+		CustomCursor: move-rough
 
 Templates:
 	Template@0:
@@ -447,6 +452,118 @@ Templates:
 		Frames: 174
 		Size: 1,1
 		Categories: Rough
+		Tiles:
+			0: Rough
+	Template@200:
+		Id: 200
+		Images: clear-rough-00.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@201:
+		Id: 201
+		Images: clear-rough-01.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@202:
+		Id: 202
+		Images: clear-rough-02.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@203:
+		Id: 203
+		Images: clear-rough-03.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@204:
+		Id: 204
+		Images: clear-rough-04.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@205:
+		Id: 205
+		Images: clear-rough-05.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@206:
+		Id: 206
+		Images: clear-rough-06.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@207:
+		Id: 207
+		Images: clear-rough-07.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@208:
+		Id: 208
+		Images: clear-rough-08.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@209:
+		Id: 209
+		Images: clear-rough-09.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@210:
+		Id: 210
+		Images: clear-rough-10.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@211:
+		Id: 211
+		Images: clear-rough-11.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@212:
+		Id: 212
+		Images: clear-rough-12.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@213:
+		Id: 213
+		Images: clear-rough-13.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@214:
+		Id: 214
+		Images: clear-rough-14.shp
+		Size: 1,1
+		Categories: ClearRough
+		Tiles:
+			0: Rough
+	Template@215:
+		Id: 215
+		Images: clear-rough-15.shp
+		Size: 1,1
+		Categories: ClearRough
 		Tiles:
 			0: Rough
 
