@@ -19,7 +19,7 @@ devastator:
 	Mobile:
 		TurnSpeed: 3
 		Speed: 31
-		Crushes: infantry, spicebloom, wall
+		Locomotor: devastator
 		RequiresCondition: !overload && !notmobile
 	AutoCarryable:
 		RequiresCondition: !overload

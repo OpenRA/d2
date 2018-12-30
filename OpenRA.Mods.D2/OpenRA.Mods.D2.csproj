@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -16,7 +16,6 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <OutputPath>bin\Debug\</OutputPath>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -27,7 +26,6 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup>
@@ -48,7 +46,7 @@
     <Compile Include="AudioLoaders\D2VocLoader.cs" />
     <Compile Include="SpriteLoaders\IcnD2Loader.cs" />
     <Compile Include="SpriteLoaders\CpsD2Loader.cs" />
-    <Compile Include="SpriteLoaders\WsaD2Loader.cs" />
+    <Compile Include="SpriteLoaders\WsaLoader.cs" />
     <Compile Include="Traits\Render\WithTilesetBody.cs" />
     <Compile Include="Traits\World\D2ResourceLayer.cs" />
     <Compile Include="Traits\World\D2EditorResourceLayer.cs" />
@@ -61,6 +59,10 @@
     <Compile Include="Traits\Buildings\D2ConcreteOwners.cs" />
     <Compile Include="Traits\D2AffectsShroud.cs" />
     <Compile Include="Traits\D2RevealsShroud.cs" />
+    <Compile Include="Widgets\WsaPlayerWidget.cs" />
+    <Compile Include="Widgets\Logic\D2AssetBrowserLogic.cs" />
+    <Compile Include="Widgets\Logic\D2MissionBrowserLogic.cs" />
+    <Compile Include="FileFormats\WsaReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Widgets\Logic\" />

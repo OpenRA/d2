@@ -35,8 +35,6 @@ refinery:
 		PipColor: green
 		PipCount: 10
 		Capacity: 2000
-	CustomSellValue:
-		Value: 500
 	FreeActorWithDelivery:
 		Actor: harvester
 		DeliveryOffset: 2,1

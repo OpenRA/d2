@@ -28,10 +28,6 @@ construction_yard:
 		Cost: 400
 	Tooltip:
 		Name: Construction Yard
-	CustomSellValue:
-		Value: 400
-	EmitInfantryOnSell:
-		ActorTypes: light_inf, light_inf, light_squad
 	BaseBuilding:
 	ProductionBar:
 	Power:

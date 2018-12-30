@@ -14,7 +14,6 @@ sietch:
 		Range: 10c0
 	-DamagedByTerrain:
 	-GivesBuildableArea:
-	-Sellable:
 	-Capturable:
 	-RepairableBuilding:
 	Power:

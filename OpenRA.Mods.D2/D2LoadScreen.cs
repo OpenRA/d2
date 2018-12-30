@@ -32,6 +32,7 @@ namespace OpenRA.Mods.D2
 		string[] messages = { "Loading..." };
 		ImmutablePalette palette;
 		HardwarePalette hardwarePalette;
+		PaletteReference pr;
 
 		public override void Init(ModData modData, Dictionary<string, string> info)
 		{
@@ -57,6 +58,8 @@ namespace OpenRA.Mods.D2
 				hardwarePalette.AddPalette("loadscreen", palette, false);
 				hardwarePalette.Initialize();
 				r.SetPalette(hardwarePalette);
+				var pal = hardwarePalette.GetPalette("loadscreen");
+				pr = new PaletteReference("loadscreenref", hardwarePalette.GetPaletteIndex("loadscreen"), pal, hardwarePalette);
 			}
 
 			if (info.ContainsKey("Image"))
@@ -97,7 +100,7 @@ namespace OpenRA.Mods.D2
 			r.BeginFrame(int2.Zero, 1f);
 
 			if (logo != null)
-				r.SpriteRenderer.DrawSprite(logo, logoPos);
+				r.SpriteRenderer.DrawSprite(logo, logoPos, pr, logo.Size);
 
 			r.Fonts["Bold"].DrawText(text, new float2(r.Resolution.Width - textSize.X - 20, r.Resolution.Height - textSize.Y - 20), Color.White);
 			r.EndFrame(new NullInputHandler());

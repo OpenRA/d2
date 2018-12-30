@@ -16,8 +16,6 @@ wall:
 		DestroyedSounds: EXPLSML4.WAV
 	Valued:
 		Cost: 50
-	CustomSellValue:
-		Value: 0
 	Tooltip:
 		Name: Concrete Wall
 		GenericName: Structure

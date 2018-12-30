@@ -19,8 +19,6 @@ rocket_turret:
 		BuildSounds: CHUNG.WAV
 	RequiresBuildableArea:
 		Adjacent: 1
-	Sellable:
-		SellSounds: CHUNG.WAV
 	Selectable:
 		Bounds: 16,16
 		Priority: 3

@@ -221,7 +221,6 @@ Cursors:
 			Start: 2
 			X: -8
 			Y: -8
-# Cursors that need minimap variants
 		deploy:
 			Start: 6
 			X: 0
@@ -232,14 +231,6 @@ Cursors:
 			Y: 0
 		nuke:
 			Start: 5
-			X: 0
-			Y: 0
-		sell:
-			Start: 6
-			X: 0
-			Y: 0
-		sell-blocked:
-			Start: 6
 			X: 0
 			Y: 0
 		repair:

@@ -39,8 +39,6 @@ high_tech_factory:
 		SkipFrames: 3
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
-#	WithProductionOverlay@WELDING:
-#		Sequence: production-welding
 	RenderSprites:
 		Image: hightech
 		PlayerPalette: player

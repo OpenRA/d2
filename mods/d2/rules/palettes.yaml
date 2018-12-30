@@ -1,6 +1,8 @@
 ^Palettes:
-	PaletteFromCurrentTileset:
+	PaletteFromFile:
 		Name: terrain
+		Filename: IBM.PAL
+		ShadowIndex: 1
 	PaletteFromFile@d2:
 		Name: d2
 		Filename: IBM.PAL

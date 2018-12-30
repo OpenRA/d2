@@ -40,8 +40,6 @@
 		EmptyWeapon: BuildingExplode
 	RepairableBuilding:
 		RepairStep: 50
-	EmitInfantryOnSell:
-		ActorTypes: light_inf
 	MustBeDestroyed:
 		RequiredForShortGame: true
 	FrozenUnderFog:
@@ -49,8 +47,6 @@
 	ActorLostNotification:
 		Notification: BuildingLost
 	ShakeOnDeath:
-	Sellable:
-		SellSounds: BUILD1.WAV
 	Guardable:
 		Range: 3c0
 	#WithCrumbleOverlay:

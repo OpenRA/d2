@@ -15,6 +15,9 @@ World:
 			normal: Normal
 			hard: Hard
 		Default: easy
+	MissionData:
+		Briefing: Harvest some spice
+		StartVideo: INTRO2.WSA
 
 upgrade.conyard:
 	Buildable:
