@@ -1,6 +1,6 @@
 Metadata:
 	Title: d2 mod
-	Version: release-20180307
+	Version: release-20181215
 
 PackageFormats: PakFile, D2kSoundResources
 
@@ -191,7 +191,6 @@ ChromeLayout:
 	d2k|chrome/ingame-infostats.yaml
 	common|chrome/ingame-observer.yaml
 	common|chrome/ingame-observerstats.yaml
-	d2k|chrome/ingame-player.yaml
 	common|chrome/ingame-perf.yaml
 	common|chrome/ingame-debug.yaml
 	common|chrome/ingame-infochat.yaml
@@ -200,6 +199,7 @@ ChromeLayout:
 	common|chrome/credits.yaml
 	common|chrome/lobby.yaml
 	common|chrome/lobby-mappreview.yaml
+	common|chrome/playerprofile.yaml
 	d2k|chrome/lobby-players.yaml
 	common|chrome/lobby-options.yaml
 	common|chrome/lobby-music.yaml
@@ -215,11 +215,12 @@ ChromeLayout:
 	d2k|chrome/dropdowns.yaml
 	common|chrome/musicplayer.yaml
 	d2k|chrome/tooltips.yaml
-	d2|chrome/assetbrowser.yaml
-	d2k|chrome/missionbrowser.yaml
 	common|chrome/confirmation-dialogs.yaml
 	common|chrome/editor.yaml
 	common|chrome/replaybrowser.yaml
+	d2|chrome/ingame-player.yaml
+	d2|chrome/assetbrowser.yaml
+	d2|chrome/missionbrowser.yaml
 
 Weapons:
 	d2|weapons/smallguns.yaml
@@ -297,7 +298,7 @@ SupportsMapsFrom: d2
 
 SoundFormats: D2Voc, Aud, Wav
 
-SpriteFormats: R8, ShpD2, IcnD2, ShpTD, CpsD2, WsaD2
+SpriteFormats: R8, ShpD2, IcnD2, ShpTD, CpsD2, Wsa
 
 SpriteSequenceFormat: DefaultSpriteSequence
 
@@ -335,12 +336,12 @@ ColorValidator:
 ModContent:
 	InstallPromptMessage: d2 mod requires artwork and audio from the original game.\n\nQuick Install will automatically download this content
 #	QuickDownload: basefiles
-	HeaderMessage: The original game content may be copied from an original game disc,\nor downloaded from an online mirror of the game files.
-	Packages:
-		base: Base Game Files
-			TestFiles: ^Content/d2/DUNE.PAK, ^Content/d2/VOC.PAK, ^Content/d2/ATRE.PAK, ^Content/d2/HARK.PAK, ^Content/d2/ORDOS.PAK, ^Content/d2/INTRO.PAK, ^Content/d2/FINALE.PAK
+#	HeaderMessage: The original game content may be copied from an original game disc,\nor downloaded from an online mirror of the game files.
+#	Packages:
+#		base: Base Game Files
+#			TestFiles: ^Content/d2/DUNE.PAK, ^Content/d2/VOC.PAK, ^Content/d2/ATRE.PAK, ^Content/d2/HARK.PAK, ^Content/d2/ORDOS.PAK, ^Content/d2/INTRO.PAK, ^Content/d2/FINALE.PAK
 #			Sources: d2, d2-linux
-			Required: true
+#			Required: true
 #			Download: basefiles
 #			Sources: d2, d2-linux
 #	Downloads:

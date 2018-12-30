@@ -1,5 +1,12 @@
-Player:
+^BasePlayer:
 	AlwaysVisible:
+	Shroud:
+
+EditorPlayer:
+	Inherits: ^BasePlayer
+
+Player:
+	Inherits: ^BasePlayer
 	TechTree:
 	ClassicProductionQueue@Building:
 		Type: Building
@@ -63,7 +70,7 @@ Player:
 		DefaultCash: 1500
 		InsufficientFundsNotification: InsufficientFunds
 	DeveloperMode:
-		CheckboxDisplayOrder: 5
+		CheckboxDisplayOrder: 7
 	BaseAttackNotifier:
 	Shroud:
 		FogCheckboxDisplayOrder: 3

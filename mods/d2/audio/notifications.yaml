@@ -60,7 +60,6 @@ Sounds:
 	Notifications:
 		RadarUp: STATICP
 		RadarDown: STATICP
-#TODO: make faction specific
 		DisablePower: HON
 		EnablePower: HOFF
 		CashTickUp: 

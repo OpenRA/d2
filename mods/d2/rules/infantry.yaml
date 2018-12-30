@@ -11,18 +11,7 @@
 		Range: 1c768
 		MovingRange: 1c256
 	Mobile:
-		Crushes: spicebloom
-		SharesCell: true
-		TerrainSpeeds:
-			Sand: 100
-			Rock: 100
-			Transition: 100
-			Concrete: 100
-			SpiceSand: 100
-			Spice: 100
-			SpiceBlobs: 100
-			Dune: 80
-			Rough: 80
+		Locomotor: foot
 	SelectionDecorations:
 	WithSpriteControlGroupDecoration:
 	Selectable:
@@ -81,3 +70,5 @@
 	HitShape:
 		Type: Circle
 			Radius: 512
+	Mobile:
+		Locomotor: squad

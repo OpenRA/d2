@@ -38,12 +38,12 @@ namespace OpenRA.Mods.D2.Traits
 		public override object Create(ActorInitializer init) { return new Building(init, this); }
 
 
-		public override bool IsCloseEnoughToBase(World world, Player p, string buildingName, CPos topLeft)
+		public override bool IsCloseEnoughToBase(World world, Player p, ActorInfo ai, CPos topLeft)
 		{
-			if (base.IsCloseEnoughToBase(world, p, buildingName, topLeft))
+			if (base.IsCloseEnoughToBase(world, p, ai, topLeft))
 				return true;
 
-			var requiresBuildableArea = world.Map.Rules.Actors[buildingName].TraitInfoOrDefault<RequiresBuildableAreaInfo>();
+			var requiresBuildableArea = ai.TraitInfoOrDefault<RequiresBuildableAreaInfo>();
 			var mapBuildRadius = world.WorldActor.Trait<MapBuildRadius>();
 
 			if (requiresBuildableArea == null || p.PlayerActor.Trait<DeveloperMode>().BuildAnywhere)
@@ -74,15 +74,17 @@ namespace OpenRA.Mods.D2.Traits
 					var pos = new CPos(x, y);
 
 					if (!shroud.IsExplored(pos)) {
-						if (AllCellsShouldBeExplored)
+						if (AllCellsShouldBeExplored) {
 							return false;
+						}
 					} else {
 						hasExploredCells = true;
 					}
 
 					if (!shroud.IsVisible(pos)) {
-						if (AllCellsShouldBeVisible)
+						if (AllCellsShouldBeVisible) {
 							return false;
+						}
 					} else {
 						hasVisibleCells = true;
 					}
@@ -103,8 +105,9 @@ namespace OpenRA.Mods.D2.Traits
 					{
 						var ownerAtPos = co.GetOwnerAt(pos);
 
-						if (ownerAtPos != null && (ownerAtPos == p || (allyBuildEnabled && ownerAtPos.Stances[p] == Stance.Ally)))
+						if (ownerAtPos != null && (ownerAtPos == p || (allyBuildEnabled && ownerAtPos.Stances[p] == Stance.Ally))) {
 							nearnessCandidates.Add(pos);
+						}
 					}
 				}
 			}

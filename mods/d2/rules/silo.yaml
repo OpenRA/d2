@@ -31,7 +31,6 @@ silo:
 		PipColor: green
 		PipCount: 5
 		Capacity: 2000
-	-EmitInfantryOnSell:
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	Power:

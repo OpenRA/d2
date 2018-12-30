@@ -24,4 +24,4 @@ Metrics:
 	TextContrastColorDark: 000000
 	TextContrastColorLight: 7F7F7F
 	ColorPickerRemapIndices: 144, 145, 146, 147, 148, 149
-	ColorPickerActorType: ^carryall.colorpicker
+	ColorPickerActorType: harvester.colorpicker

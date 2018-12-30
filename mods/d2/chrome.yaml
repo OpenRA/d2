@@ -79,9 +79,6 @@ order-icons: chrome.png
 	repair: 88,357,34,35
 	repair-disabled: 88,393,34,35
 	repair-active: 88,430,34,35
-	sell: 127,357,34,35
-	sell-disabled: 127,393,34,35
-	sell-active: 127,430,34,35
 	options: 165,357,40,38
 	options-disabled: 165,393,40,38
 	options-active: 165,430,40,38
@@ -192,6 +189,9 @@ dialog3: dialog.png
 	corner-bl: 640,127,1,1
 	corner-br: 767,127,1,1
 
+tooltip-separator: dialog.png
+	border-t: 641,0,126,1
+
 # Same as the half transparent frame used in the Asset Browser
 dialog4: dialog.png
 	background: 517,392,54,54
@@ -212,6 +212,12 @@ lobby-bits: buttons.png
 	huepicker: 193,0,7,15
 	protected: 200,0,12,13
 	protected-disabled: 211,0,12,13
+	authentication: 199,16,12,13
+	authentication-disabled: 212,16,12,13
+	admin-registered: 224,0,16,16
+	admin-anonymous: 240,0,16,16
+	player-registered: 224,16,16,16
+	player-anonymous: 240,16,16,16
 
 reload-icon: chrome.png
 	enabled: 416,312,16,16

@@ -1,4 +1,5 @@
 ^Tank:
 	Inherits: ^Vehicle
 	Mobile:
-		Crushes: infantry, spicebloom
+		Locomotor: tank
+		TurnSpeed: 5
