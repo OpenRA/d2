@@ -31,8 +31,8 @@ harvester:
 		Speed: 43
 		Crushes: infantry, spicebloom
 	D2RevealsShroud:
-		Range: 3c768
-		MovingRange: 1c256
+		Range: 2c0
+		MovingRange: 1c768
 	Explodes:
 		Weapon: UnitExplodeLarge
 		EmptyWeapon: UnitExplodeLarge
