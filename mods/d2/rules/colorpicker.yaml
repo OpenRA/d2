@@ -1,6 +1,7 @@
 harvester.colorpicker:
 	Inherits: harvester
 	-Health:
+	-Buildable:
 	RenderSprites:
 		Image: harvester.colorpicker
 		Scale: 2
