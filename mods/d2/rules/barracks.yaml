@@ -36,10 +36,14 @@ barracks:
 		ExitCell: 1,2
 	Production:
 		Produces: Infantry
-	PrimaryBuilding:
-		PrimaryCondition: primary
-		ProductionQueues: Infantry
 	ProductionBar:
+		ProductionType: Infantry
+	ProductionQueue:
+		Type: Infantry
+		Group: Infantry
+		LowPowerSlowdown: 3
+		BlockedAudio: NoRoom
+		BuildDurationModifier: 250
 	ProvidesPrerequisite@atreides:
 		Prerequisite: barracks.atreides
 		Factions: atreides
@@ -74,9 +78,8 @@ upgrade.barracks:
 	Tooltip:
 		Name: Barracks Upgrade
 	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: barracks
-		Queue: Upgrade
+		BuildPaletteOrder: 999
+		Queue: Infantry
 		BuildLimit: 1
 		BuildDuration: 250
 		BuildDurationModifier: 40

@@ -22,14 +22,22 @@ construction_yard:
 	RevealsShroud:
 		Range: 5c768
 	Production:
-		Produces: Building, Upgrade
+		Produces: Building
+	ProductionBar:
+		ProductionType: Building
+	ProductionQueue:
+		Type: Building
+		Group: Building
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: BuildingReady
+		BuildDurationModifier: 250
 	Exit:
 	Valued:
 		Cost: 400
 	Tooltip:
 		Name: Construction Yard
 	BaseBuilding:
-	ProductionBar:
 	Power:
 		Amount: 0
 	WithTilesetBody:
@@ -39,9 +47,6 @@ construction_yard:
 		PlayerPalette: player
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
-	PrimaryBuilding:
-		PrimaryCondition: primary
-		ProductionQueues: Building
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@Atreides:
 		Prerequisite: structure.atreides
@@ -74,9 +79,8 @@ upgrade.conyard:
 	Tooltip:
 		Name: Construction Yard Upgrade
 	Buildable:
-		BuildPaletteOrder: 10
-		Prerequisites: construction_yard
-		Queue: Upgrade
+		BuildPaletteOrder: 999
+		Queue: Building
 		BuildLimit: 1
 		BuildDuration: 250
 		BuildDurationModifier: 40

@@ -41,11 +41,15 @@ light_factory:
 		SpawnOffset: -244,224,0
 		ExitCell: 1,2
 	Production:
-		Produces: Vehicle, Upgrade
-	PrimaryBuilding:
-		PrimaryCondition: primary
-		ProductionQueues: Vehicle
+		Produces: Vehicle
 	ProductionBar:
+		ProductionType: Vehicle
+	ProductionQueue:
+		Type: Vehicle
+		Group: Vehicle
+		LowPowerSlowdown: 3
+		BlockedAudio: NoRoom
+		BuildDurationModifier: 250
 	ProvidesPrerequisite@atreides:
 		Prerequisite: light.atreides
 		Factions: atreides
@@ -67,12 +71,6 @@ light_factory:
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.light
 		Condition: stardecoration
-	WithTextDecoration@primary:
-		RequiresSelection: true
-		Text: PRIMARY
-		ReferencePoint: Top
-		ZOffset: 256
-		RequiresCondition: primary
 
 upgrade.light:
 	AlwaysVisible:
@@ -81,9 +79,9 @@ upgrade.light:
 	Tooltip:
 		Name: Light Factory Upgrade
 	Buildable:
-		BuildPaletteOrder: 40
-		Prerequisites: light.atreides_or_ordos
-		Queue: Upgrade
+		BuildPaletteOrder: 999
+		Prerequisites: ~light.atreides_or_ordos
+		Queue: Vehicle
 		BuildLimit: 1
 		BuildDuration: 250
 		BuildDurationModifier: 40
