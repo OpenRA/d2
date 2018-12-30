@@ -37,6 +37,14 @@ starport:
 	ProductionAirdrop:
 		Produces: Starport
 		ActorType: frigate
+	ProductionBar:
+		ProductionType: Starport
+	ProductionQueue:
+		Type: Starport
+		Group: Starport
+		LowPowerSlowdown: 1
+		BlockedAudio: NoRoom
+		BuildDurationModifier: 212
 	WithTilesetBody:
 		SkipFrames: 0
 	RenderSprites:
@@ -44,10 +52,6 @@ starport:
 		PlayerPalette: player
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
-	ProductionBar:
-	PrimaryBuilding:
-		PrimaryCondition: primary
-		ProductionQueues: Starport
 	ProvidesPrerequisite@atreides:
 		Prerequisite: starport.atreides
 		Factions: atreides
@@ -69,9 +73,3 @@ starport:
 	Power:
 		Amount: -50
 	ProvidesPrerequisite@buildingname:
-	WithTextDecoration@primary:
-		RequiresSelection: true
-		Text: PRIMARY
-		ReferencePoint: Top
-		ZOffset: 256
-		RequiresCondition: primary

@@ -35,10 +35,15 @@ wor:
 		SpawnOffset: 512,480,0
 		ExitCell: 1,2
 	Production:
-		Produces: Infantry
-	PrimaryBuilding:
-		PrimaryCondition: primary
+		Produces: Trooper
 	ProductionBar:
+		ProductionType: Trooper
+	ProductionQueue:
+		Type: Trooper
+		Group: Trooper
+		LowPowerSlowdown: 3
+		BlockedAudio: NoRoom
+		BuildDurationModifier: 250
 	ProvidesPrerequisite@atreides:
 		Prerequisite: wor.atreides
 		Factions: atreides
@@ -71,9 +76,8 @@ upgrade.wor:
 	Tooltip:
 		Name: WOR Upgrade
 	Buildable:
-		BuildPaletteOrder: 30
-		Prerequisites: wor
-		Queue: Upgrade
+		BuildPaletteOrder: 999
+		Queue: Trooper
 		BuildLimit: 1
 		BuildDuration: 250
 		BuildDurationModifier: 40

@@ -14,11 +14,15 @@ high_tech_factory:
 	Tooltip:
 		Name: High Tech Factory
 	ProductionFromMapEdge:
-		Produces: Aircraft, Upgrade
+		Produces: Aircraft
 	ProductionBar:
-	PrimaryBuilding:
-		PrimaryCondition: primary
-		ProductionQueues: Aircraft
+		ProductionType: Aircraft
+	ProductionQueue:
+		Type: Aircraft
+		Group: Aircraft
+		LowPowerSlowdown: 3
+		BlockedAudio: NoRoom
+		BuildDurationModifier: 312
 	Exit:
 		SpawnOffset: 0,0,728
 		ExitCell: 0,0
@@ -53,12 +57,6 @@ high_tech_factory:
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.hightech
 		Condition: stardecoration
-	WithTextDecoration@primary:
-		RequiresSelection: true
-		Text: PRIMARY
-		ReferencePoint: Top
-		ZOffset: 256
-		RequiresCondition: primary
 
 upgrade.hightech:
 	AlwaysVisible:
@@ -67,9 +65,9 @@ upgrade.hightech:
 	Tooltip:
 		Name: High Tech Factory Upgrade
 	Buildable:
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 999
 		Prerequisites: ~aircraft.atreides_or_ordos, ~techlevel.high
-		Queue: Upgrade
+		Queue: Aircraft
 		BuildLimit: 1
 		BuildDuration: 250
 		BuildDurationModifier: 40

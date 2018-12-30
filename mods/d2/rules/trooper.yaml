@@ -2,11 +2,10 @@ trooper:
 	Inherits: ^Infantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
-		Queue: Infantry
+		Queue: Trooper
 		BuildPaletteOrder: 20
 		BuildDuration: 700
 		BuildDurationModifier: 40
-		Prerequisites: ~wor
 		Description: Anti-tank/Anti-aircraft infantry\n  Strong vs Tanks, Aircraft\n  Weak vs Infantry, Artillery
 	Valued:
 		Cost: 100

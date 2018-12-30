@@ -33,9 +33,14 @@ heavy_factory:
 		ExitCell: 0,2
 	Production:
 		Produces: Armor
-	PrimaryBuilding:
-		PrimaryCondition: primary
 	ProductionBar:
+		ProductionType: Armor
+	ProductionQueue:
+		Type: Armor
+		Group: Armor
+		LowPowerSlowdown: 3
+		BlockedAudio: NoRoom
+		BuildDurationModifier: 250
 	ProvidesPrerequisite@atreides:
 		Prerequisite: heavy.atreides
 		Factions: atreides
@@ -66,12 +71,6 @@ heavy_factory:
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.heavy
 		Condition: stardecoration
-	WithTextDecoration@primary:
-		RequiresSelection: true
-		Text: PRIMARY
-		ReferencePoint: Top
-		ZOffset: 256
-		RequiresCondition: primary
 
 upgrade.heavy:
 	AlwaysVisible:
@@ -79,9 +78,8 @@ upgrade.heavy:
 	Tooltip:
 		Name: Heavy Factory Upgrade
 	Buildable:
-		BuildPaletteOrder: 50
-		Prerequisites: heavy_factory
-		Queue: Upgrade
+		BuildPaletteOrder: 999
+		Queue: Armor
 		BuildLimit: 1
 		BuildDuration: 250
 		BuildDurationModifier: 40
