@@ -1,6 +1,8 @@
 Metadata:
 	Title: d2 mod
 	Version: release-20181215
+	Website: https://github.com/OpenRA/d2
+	WebIcon32: https://raw.githubusercontent.com/OpenRA/d2/master/mods/d2/icon.png
 
 PackageFormats: PakFile, D2kSoundResources
 
