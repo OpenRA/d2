@@ -12,6 +12,7 @@
 using System.Linq;
 using OpenRA.Traits;
 using OpenRA.Mods.Common.Traits;
+using OpenRA.Mods.Common.Activities;
 
 namespace OpenRA.Mods.D2.Traits
 {
@@ -40,7 +41,7 @@ namespace OpenRA.Mods.D2.Traits
 		[Sync] CPos cachedLocation;
 		[Sync] bool cachedDisabled;
 		[Sync] bool cachedTraitDisabled;
-		[Sync] bool cachedIdle;
+		[Sync] bool cachedIdleRange;
 
 		protected abstract void AddCellsToPlayerShroud(Actor self, Player player, PPos[] uv);
 		protected abstract void RemoveCellsFromPlayerShroud(Actor self, Player player);
@@ -52,10 +53,24 @@ namespace OpenRA.Mods.D2.Traits
 			this.info = info;
 		}
 
+		bool IsIdleRange(Actor self)
+		{
+			if (self.CurrentActivity == null)
+				return true;
+
+			if (self.CurrentActivity as Attack != null)
+				return true;
+
+			if (self.CurrentActivity as HarvestResource != null)
+				return true;
+
+			return false;
+		}
+
 		PPos[] ProjectedCells(Actor self)
 		{
 			var map = self.World.Map;
-			var range = self.IsIdle ? Range : info.MovingRange;
+			var range = IsIdleRange(self) ? Range : info.MovingRange;
 			if (range == WDist.Zero)
 				return NoCells;
 
@@ -82,15 +97,15 @@ namespace OpenRA.Mods.D2.Traits
 			var projectedLocation = self.World.Map.CellContaining(projectedPos);
 			var disabled = IsDisabled(self);
 			var traitDisabled = IsTraitDisabled;
-			var idle = self.IsIdle;
+			var idle = IsIdleRange(self);
 
-			if (cachedLocation == projectedLocation && traitDisabled == cachedTraitDisabled && cachedDisabled == disabled && cachedIdle == idle)
+			if (cachedLocation == projectedLocation && traitDisabled == cachedTraitDisabled && cachedDisabled == disabled && cachedIdleRange == idle)
 				return;
 
 			cachedLocation = projectedLocation;
 			cachedDisabled = disabled;
 			cachedTraitDisabled = traitDisabled;
-			cachedIdle = idle;
+			cachedIdleRange = idle;
 
 			var cells = ProjectedCells(self);
 			foreach (var p in self.World.Players)
@@ -107,7 +122,7 @@ namespace OpenRA.Mods.D2.Traits
 			cachedLocation = self.World.Map.CellContaining(projectedPos);
 			cachedDisabled = IsDisabled(self);
 			cachedTraitDisabled = IsTraitDisabled;
-			cachedIdle = self.IsIdle;
+			cachedIdleRange = IsIdleRange(self);
 			var cells = ProjectedCells(self);
 
 			foreach (var p in self.World.Players)
