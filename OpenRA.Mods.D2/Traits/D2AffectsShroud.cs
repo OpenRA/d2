@@ -55,16 +55,23 @@ namespace OpenRA.Mods.D2.Traits
 
 		bool IsIdleRange(Actor self)
 		{
-			if (self.CurrentActivity == null)
-				return true;
+			/*
+			 * Can't use isIdle because some activities like Harvest should not use IdleRange
+			 * And can't use IMove.isMoving because it is changed on each turn during one move
+			 * Check that CurrentActivity is any activity from Activities/Move directory
+			 */
 
-			if (self.CurrentActivity as Attack != null)
-				return true;
+			if (self.CurrentActivity as AttackMoveActivity != null
+				|| self.CurrentActivity as Drag != null
+				|| self.CurrentActivity as Follow != null
+				|| self.CurrentActivity as Move != null
+				|| self.CurrentActivity as MoveAdjacentTo != null
+				|| self.CurrentActivity as MoveWithinRange != null)
+			{
+				return false;
+			}
 
-			if (self.CurrentActivity as HarvestResource != null)
-				return true;
-
-			return false;
+			return true;
 		}
 
 		PPos[] ProjectedCells(Actor self)
