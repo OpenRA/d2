@@ -53,6 +53,7 @@
     <Compile Include="Traits\World\D2TerrainLayer.cs" />
     <Compile Include="Traits\PaletteEffects\D2WindtrapPaletteEffect.cs" />
     <Compile Include="Traits\World\D2ShroudRenderer.cs" />
+    <Compile Include="D2UnpackContent.cs" />
     <Compile Include="D2LoadScreen.cs" />
     <Compile Include="Traits\Buildings\D2Building.cs" />
     <Compile Include="Traits\Buildings\D2Concrete.cs" />
