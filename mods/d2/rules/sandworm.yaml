@@ -16,10 +16,6 @@ sandworm:
 	Targetable:
 		TargetTypes: Ground, Creep
 	WithSpriteBody:
-	AmbientSound:
-		SoundFiles: WRMSIGN1.WAV
-		Interval: 160
-		RequiresCondition: !attacking
 	WithAttackOverlay@mouth:
 		Sequence: mouth
 	HiddenUnderFog:
@@ -29,6 +25,7 @@ sandworm:
 		AttackRequiresEnteringCell: true
 		IgnoresVisibility: true
 		AttackingCondition: attacking
+		WormAttackSound: WORMET3P.VOC
 	Armament:
 		Weapon: WormJaw
 	Sandworm:
