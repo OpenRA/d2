@@ -26,6 +26,23 @@ namespace OpenRA.Mods.D2
 			if (info.ContainsKey("UnpackFiles"))
 				files = info["UnpackFiles"].Split(',');
 
+			if (files.Length == 0)
+				return 0;
+
+			string path = Platform.ResolvePath(Platform.SupportDir);
+
+			string contentPath = Path.Combine(path, "Content");
+			if (!Directory.Exists(contentPath))
+				Directory.CreateDirectory(contentPath);
+
+			string d2Path = Path.Combine(contentPath, "d2");
+			if (!Directory.Exists(d2Path))
+				Directory.CreateDirectory(d2Path);
+
+			string unpackedPath = Path.Combine(d2Path, "Unpacked");
+			if (!Directory.Exists(unpackedPath))
+				Directory.CreateDirectory(unpackedPath);
+
 			foreach (string s in files)
 			{
 				string originalFileName;
@@ -47,20 +64,6 @@ namespace OpenRA.Mods.D2
 				{
 					using (var stream = modData.DefaultFileSystem.Open(originalFileName))
 					{
-						string path = Platform.ResolvePath(Platform.SupportDir);
-
-						string contentPath = Path.Combine(path, "Content");
-						if (!Directory.Exists(contentPath))
-							Directory.CreateDirectory(contentPath);
-
-						string d2Path = Path.Combine(contentPath, "d2");
-						if (!Directory.Exists(d2Path))
-							Directory.CreateDirectory(d2Path);
-
-						string unpackedPath = Path.Combine(d2Path, "Unpacked");
-						if (!Directory.Exists(unpackedPath))
-							Directory.CreateDirectory(unpackedPath);
-
 						string newFileName = Path.Combine(unpackedPath, fileName);
 						if (!File.Exists(newFileName))
 						{
@@ -68,7 +71,7 @@ namespace OpenRA.Mods.D2
  							{
 								stream.CopyTo(fs);
 								unpackedFilesCount += 1;
-								Console.WriteLine("Successful unpack file: {0}", fileName);
+								Console.WriteLine("Successfully unpacked file: {0}", fileName);
 							}
 						}
 					}
@@ -81,6 +84,5 @@ namespace OpenRA.Mods.D2
 
 			return unpackedFilesCount;
 		}
-
 	}
 }
