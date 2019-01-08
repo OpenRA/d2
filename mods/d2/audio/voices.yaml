@@ -24,7 +24,7 @@ InfantryVoice:
 #		Guard: I_GUARD
 
 FremenVoice:
-	DefaultVariant: .AUD
+	DefaultVariant: .VOC
 	Voices:
 		Select: REPORT1, REPORT2, REPORT3
 		Action: MOVEOUT, OVEROUT, AFFIRM
@@ -32,7 +32,7 @@ FremenVoice:
 #		Guard: I_GUARD
 
 SaboteurVoice:
-	DefaultVariant: .AUD
+	DefaultVariant: .VOC
 	Voices:
 		Select: REPORT1, REPORT2, REPORT3
 		Action: MOVEOUT, OVEROUT, AFFIRM

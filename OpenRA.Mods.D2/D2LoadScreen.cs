@@ -15,6 +15,7 @@ using System.Drawing;
 using System.IO;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.LoadScreens;
+using OpenRA.Mods.D2;
 using OpenRA.Mods.D2.SpriteLoaders;
 using OpenRA.Widgets;
 
@@ -37,6 +38,16 @@ namespace OpenRA.Mods.D2
 		public override void Init(ModData modData, Dictionary<string, string> info)
 		{
 			base.Init(modData, info);
+
+			/*
+			 * Unpack files needed, because in some PAK files, some VOC files can have prefix 'Z'
+			 * Unpacking files will unpack such files and rename. so no modifications in yaml needed.
+			 */
+			if (D2UnpackContent.UnpackFiles(modData, info) > 0)
+			{
+				// Some files unpacked. need to reload mod packages
+				modData.ModFiles.LoadFromManifest(modData.Manifest);
+			}
 
 			// Avoid standard loading mechanisms so we
 			// can display the loadscreen as early as possible

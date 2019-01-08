@@ -5,14 +5,15 @@ Metadata:
 PackageFormats: PakFile, D2kSoundResources
 
 Packages:
+	~^Content/d2/Unpacked
+	~^Content/d2
+	~^Content/d2k/v2
 	.
 	$d2: d2
 	$d2k: d2k
 	$ra: ra
 	$cnc: cnc
 	./mods/common: common
-	~^Content/d2
-	~^Content/d2k/v2
 	~DUNE.PAK
 	~VOC.PAK
 	~ATRE.PAK
@@ -254,6 +255,7 @@ LoadScreen: D2LoadScreen
 	Image: BIGPLAN.CPS
 	Palette: IBM.PAL
 	Text: Loading DOS emulator..., Looking for CRT..., Rewinding floppy disks..., Recount the bytes..., Initialize Upper memory..., Combine bits into bytes..., Looking for additional 64Kbytes...
+	UnpackFiles: ZREPORT1.VOC:REPORT1.VOC, ZREPORT2.VOC:REPORT2.VOC, ZREPORT3.VOC:REPORT3.VOC, ZMOVEOUT.VOC:MOVEOUT.VOC, ZOVEROUT.VOC:OVEROUT.VOC, ZAFFIRM.VOC:AFFIRM.VOC
 
 ServerTraits:
 	LobbyCommands
