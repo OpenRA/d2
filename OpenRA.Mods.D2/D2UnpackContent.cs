@@ -21,7 +21,7 @@ namespace OpenRA.Mods.D2
 		public static int UnpackFiles(ModData modData, Dictionary<string, string> info)
 		{
 			string[] files = {};
-			int unpackedFilesCount = 0;
+			var unpackedFilesCount = 0;
 
 			if (info.ContainsKey("UnpackFiles"))
 				files = info["UnpackFiles"].Split(',');
@@ -29,24 +29,24 @@ namespace OpenRA.Mods.D2
 			if (files.Length == 0)
 				return 0;
 
-			string path = Platform.ResolvePath(Platform.SupportDir);
+			var path = Platform.ResolvePath(Platform.SupportDir);
 
-			string contentPath = Path.Combine(path, "Content");
+			var contentPath = Path.Combine(path, "Content");
 			if (!Directory.Exists(contentPath))
 				Directory.CreateDirectory(contentPath);
 
-			string d2Path = Path.Combine(contentPath, "d2");
+			var d2Path = Path.Combine(contentPath, "d2");
 			if (!Directory.Exists(d2Path))
 				Directory.CreateDirectory(d2Path);
 
-			string unpackedPath = Path.Combine(d2Path, "Unpacked");
+			var unpackedPath = Path.Combine(d2Path, "Unpacked");
 			if (!Directory.Exists(unpackedPath))
 				Directory.CreateDirectory(unpackedPath);
 
-			foreach (string s in files)
+			foreach (var s in files)
 			{
-				string originalFileName;
-				string fileName;
+				var originalFileName = s.Trim();
+				var fileName = originalFileName;
 
 				var explicitSplit = s.IndexOf(':');
 				if (explicitSplit > 0)
@@ -54,31 +54,28 @@ namespace OpenRA.Mods.D2
 					originalFileName = s.Substring(0, explicitSplit).Trim();
 					fileName = s.Substring(explicitSplit + 1).Trim();
 				}
-				else
-				{
-					originalFileName = s.Trim();
-					fileName = originalFileName;
-				}
 
 				try
 				{
-					using (var stream = modData.DefaultFileSystem.Open(originalFileName))
+					if (modData.DefaultFileSystem.Exists(originalFileName))
 					{
-						string newFileName = Path.Combine(unpackedPath, fileName);
-						if (!File.Exists(newFileName))
+						using (var stream = modData.DefaultFileSystem.Open(originalFileName))
 						{
-							using (FileStream fs = new FileStream(newFileName, FileMode.CreateNew, FileAccess.Write))
- 							{
-								stream.CopyTo(fs);
-								unpackedFilesCount += 1;
-								Console.WriteLine("Successfully unpacked file: {0}", fileName);
+							var newFileName = Path.Combine(unpackedPath, fileName);
+							if (!File.Exists(newFileName))
+							{
+								using (FileStream fs = new FileStream(newFileName, FileMode.CreateNew, FileAccess.Write))
+ 								{
+									stream.CopyTo(fs);
+									unpackedFilesCount += 1;
+									Console.WriteLine("Successfully unpacked file: {0}", fileName);
+								}
 							}
 						}
 					}
 				}
-				catch (Exception ex)
+				catch (Exception)
 				{
-					// Console.WriteLine(ex.Message);
 				}
 			}
 
