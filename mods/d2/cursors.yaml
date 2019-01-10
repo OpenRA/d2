@@ -249,10 +249,6 @@ Cursors:
 			Start: 0
 			X: -8
 			Y: -8
-		move-rough:
-			Start: 0
-			X: -8
-			Y: -8
 		powerdown-blocked:
 			Start: 5
 			X: 0
