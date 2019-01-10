@@ -62,7 +62,7 @@ palace:
 		Icon: deathhand
 		PauseOnCondition: disabled
 		Prerequisites: ~techlevel.superweapons, ~palace.nuke
-		ChargeTime: 7500
+		ChargeInterval: 7500
 		Description: Death Hand
 		LongDesc: Launches an atomic missile at a target location
 		BeginChargeSpeechNotification: DeathHandMissilePrepping
