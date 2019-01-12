@@ -1,10 +1,10 @@
 ^Defense:
 	Inherits: ^Building
-	WithSpriteTurret:
+	D2WithSpriteTurret:
 	AttackTurreted:
 	-Capturable:
 	-WithTilesetBody:
-	WithWallSpriteBody:
+	D2WithWallSpriteBody:
 	LineBuildNode:
 		Types: turret
 	MustBeDestroyed:

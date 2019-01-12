@@ -50,7 +50,7 @@ starport:
 	RenderSprites:
 		Image: starport
 		PlayerPalette: player
-	WithIdleOverlay@FLAG:
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	ProvidesPrerequisite@atreides:
 		Prerequisite: starport.atreides

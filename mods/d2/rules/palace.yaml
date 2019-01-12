@@ -32,7 +32,7 @@ palace:
 	RenderSprites:
 		Image: palace
 		PlayerPalette: player
-	WithIdleOverlay@FLAG:
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	Power:
 		Amount: -80

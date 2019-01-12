@@ -26,7 +26,7 @@ refinery:
 		Type: heavy
 	RevealsShroud:
 		Range: 4c0
-	Refinery:
+	D2Refinery:
 		DockAngle: 120
 		DockOffset: 2,1
 		TickRate: 20
@@ -40,17 +40,14 @@ refinery:
 		DeliveryOffset: 2,1
 		DeliveringActor: carryall.reinforce
 		Facing: 120
-	WithSpriteBody:
 	WithTilesetBody:
 		SkipFrames: 1,2,5
-	RenderSprites:
-		Image: refinery
 	Power:
 		Amount: -30
-	WithIdleOverlay@FLAG:
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
-	WithIdleOverlay@DOCK1:
+	D2WithIdleOverlay@DOCK1:
 		Sequence: idle-dock-top
-	WithIdleOverlay@DOCK2:
+	D2WithIdleOverlay@DOCK2:
 		Sequence: idle-dock-bottom
 	ProvidesPrerequisite@buildingname:

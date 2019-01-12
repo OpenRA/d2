@@ -5,6 +5,7 @@
 		TerrainTypes: Rock
 		BuildSounds: CHUNG.WAV
 		AllowInvalidPlacement: true
+	D2BuildingPlacement:
 	RequiresBuildableArea:
 		AreaTypes: building
 		Adjacent: 1
@@ -29,7 +30,7 @@ concretea:
 	LaysTerrain:
 		Template: 126
 		TerrainTypes: Rock
-	WithSpriteBody:
+	WithTilesetBody:
 	RenderSprites:
 		Image: concretea
 	Valued:

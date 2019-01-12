@@ -31,7 +31,7 @@ silo:
 		PipColor: green
 		PipCount: 5
 		Capacity: 2000
-	WithIdleOverlay@FLAG:
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	Power:
 		Amount: -5

@@ -20,7 +20,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.D2.Traits
 {
-	public class WithTilesetBodyInfo : ITraitInfo, Requires<BuildingInfo>, IRenderActorPreviewSpritesInfo, Requires<RenderSpritesInfo>
+	public class WithTilesetBodyInfo : ITraitInfo, Requires<BuildingInfo>, Requires<RenderSpritesInfo>
 	{
 		[SequenceReference] public readonly string Sequence = "idle-tileset";
 		[PaletteReference] public readonly string Palette = null;
@@ -28,35 +28,6 @@ namespace OpenRA.Mods.D2.Traits
 		public readonly int[] SkipFrames;
 
 		public object Create(ActorInitializer init) { return new WithTilesetBody(init.Self, this); }
-
-		public IEnumerable<IActorPreview> RenderPreviewSprites(ActorPreviewInitializer init, RenderSpritesInfo rs, string image, int facings, PaletteReference p)
-		{
-			if (Palette != null)
-				p = init.WorldRenderer.Palette(Palette);
-
-			var bi = init.Actor.TraitInfo<BuildingInfo>();
-
-			var cols = bi.Dimensions.X;
-			var rows = bi.Dimensions.Y;
-
-			for (var index = 0; index < (cols * rows); index++)
-			{
-				if (SkipFrames == null || !SkipFrames.Contains(index)) {
-					var y = index / cols;
-					var x = index % cols;
-
-					var anim = new Animation(init.World, image);
-					Func<WVec> offset = () => new WVec(x * 1024 - 512, y * 1024 - 512, 0);
-					Func<int> zOffset = () => 0;
-
-					var frameIndex = index;
-					anim.PlayFetchIndex(Sequence, () => frameIndex);
-					anim.IsDecoration = true;
-
-					yield return new SpriteActorPreview(anim, offset, zOffset, p, rs.Scale);
-				}
-			}
-		}
 	}
 
 	public class WithTilesetBody

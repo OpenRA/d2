@@ -30,7 +30,7 @@ wind_trap:
 	RenderSprites:
 		Image: wind_trap
 		PlayerPalette: wind
-	WithIdleOverlay@FLAG:
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	Power:
 		Amount: 100

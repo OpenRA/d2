@@ -2,6 +2,10 @@ concretea:
 	idle: ICON.ICN
 		Start: 126
 		Offset: 0,0
+	idle-tileset: ICON.ICN
+		Frames: 126
+		Length 1
+		Offset: 0,0
 	icon: SHAPES.SHP
 		Start: 53
 		Offset: 0,0

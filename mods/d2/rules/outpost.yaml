@@ -34,15 +34,17 @@ outpost:
 		PlayerPalette: player
 	RenderSprites:
 		Image: outpost
-	WithIdleOverlay@DISH:
+	D2WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
 		RequiresCondition: !severe-damaged
-        GrantConditionOnDamageState@STOPDISH:
+		GrantConditionOnDamageState@STOPDISH:
 		Condition: severe-damaged
 		ValidDamageState: Medium, Heavy, Critical
-	WithIdleOverlay@FLAG:
+		EnabledByDefault: false
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
+		EnabledByDefault: false
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:

@@ -23,6 +23,7 @@ wall:
 	D2Building:
 		BuildSounds: CHUNG.WAV
 		TerrainTypes: Rock, Concrete
+	D2BuildingPlacement:
 	RequiresBuildableArea:
 		AreaTypes: building
 		Adjacent: 1
@@ -40,7 +41,7 @@ wall:
 		Height: 512
 	Targetable:
 		TargetTypes: Ground, Wall
-	WithWallSpriteBody:
+	D2WithWallSpriteBody:
 	Guardable:
 	Explodes:
 		Weapon: WallExplode

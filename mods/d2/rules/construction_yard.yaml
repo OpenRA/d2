@@ -45,7 +45,7 @@ construction_yard:
 	RenderSprites:
 		Image: conyard
 		PlayerPalette: player
-	WithIdleOverlay@FLAG:
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@Atreides:
