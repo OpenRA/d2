@@ -52,7 +52,7 @@ namespace OpenRA.Mods.D2.Graphics
 		public void Render(WorldRenderer wr)
 		{
 			var tl = new WPos(pos.X + decorationBounds.Left, pos.Y + decorationBounds.Top, 0);
-			var br = new WPos(pos.X + decorationBounds.Width, pos.Y + decorationBounds.Height, 0);
+			var br = new WPos(pos.X + decorationBounds.Width - 1, pos.Y + decorationBounds.Height - 1, 0);
 			var tlOffset = wr.Screen3DPxPosition(tl);
 			var brOffset = wr.Screen3DPxPosition(br);
 			var width = 1.0f;// / wr.Viewport.Zoom;
