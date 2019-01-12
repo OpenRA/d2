@@ -44,19 +44,41 @@ namespace OpenRA.Mods.D2.Traits
 
 			var bi = ai.TraitInfoOrDefault<D2BuildingInfo>();
 
-			var width = bi.Dimensions.X * 1024;
-			var height = bi.Dimensions.Y * 1024;
+			var cols = bi.Dimensions.X;
+			var rows = bi.Dimensions.Y;
+
+			var width = cols * 1024;
+			var height = rows * 1024;
 			var halfWidth = width / 2;
 			var halfHeight = height / 2;
 
-			var bounds = new Rectangle(-halfWidth, -halfHeight, width - halfWidth, height - halfHeight);
+			var bounds = new Rectangle(-halfWidth, -halfHeight, width - halfWidth - 1, height - halfHeight - 1);
 			var topLeft = new WPos(centerPosition.X - width / 2 + 512, centerPosition.Y - height / 2 + 512, 0);
-			var isCloseEnough = bi.IsCloseEnoughToBase(w, w.LocalPlayer, ai, w.Map.CellContaining(topLeft));
+			var topLeftCell = w.Map.CellContaining(topLeft);
+			var isCloseEnough = bi.IsCloseEnoughToBase(w, w.LocalPlayer, ai, topLeftCell);
+			var isBuildable = true;
+
+			for (var y = 0; y < rows; y ++)
+			{
+				for (var x = 0; x < cols; x++)
+				{
+					var cellPos = new CPos(topLeftCell.X + x, topLeftCell.Y + y);
+					if (!w.IsCellBuildable(cellPos, ai, bi))
+					{
+						isBuildable = false;
+						break;
+					}
+				}
+				if (!isBuildable)
+				{
+					break;
+				}
+			}
 
 			var colorComponent = (int)Math.Round(127 + 127 * t);
 			var color = Color.FromArgb(255, colorComponent, colorComponent, colorComponent);
 
-			return new IRenderable[] { new D2BuildingPlacementRenderable(centerPosition, bounds, color, !isCloseEnough) };
+			return new IRenderable[] { new D2BuildingPlacementRenderable(centerPosition, bounds, color, !isCloseEnough || !isBuildable) };
 		}
 	}
 
