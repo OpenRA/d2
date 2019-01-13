@@ -10,6 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dune 2 Lua scripts", "Dune 2 Lua scripts", "{B35D533F-BEB6-4674-A466-324EEFD97259}"
 	ProjectSection(SolutionItems) = preProject
 		mods\d2\maps\scena001\scena001.lua = mods\d2\maps\scena001\scena001.lua
+		mods\d2\maps\scena002\scena002.lua = mods\d2\maps\scena002\scena002.lua
+		mods\d2\maps\scena002\scena002-AI.lua = mods\d2\maps\scena002\scena002-AI.lua
 	EndProjectSection
 EndProject
 Global

@@ -1,0 +1,56 @@
+Player:
+	PlayerResources:
+		DefaultCash: 1000
+
+World:
+	LuaScript:
+		Scripts: campaign-global.lua, scena002.lua, scena002-AI.lua
+	MapOptions:
+		TechLevel: low
+	ScriptLobbyDropdown@difficulty:
+		ID: difficulty
+		Label: Difficulty
+		Values:
+			easy: Easy
+			normal: Normal
+			hard: Hard
+		Default: easy
+	MissionData:
+		Briefing: Destroy the Ordos forces
+		StartVideo: INTRO2.WSA
+
+upgrade.conyard:
+	Buildable:
+		Prerequisites: ~disabled
+
+upgrade.barracks:
+	Buildable:
+		Prerequisites: ~disabled
+
+upgrade.light:
+	Buildable:
+		Prerequisites: ~disabled
+
+upgrade.heavy:
+	Buildable:
+		Prerequisites: ~disabled
+
+concreteb:
+	Buildable:
+		Prerequisites: ~disabled
+
+wor:
+	Buildable:
+		Prerequisites: ~disabled
+
+heavy_factory:
+	Buildable:
+		Prerequisites: ~disabled
+
+gun_turret:
+	Buildable:
+		Prerequisites: ~disabled
+
+wall:
+	Buildable:
+		Prerequisites: ~disabled
