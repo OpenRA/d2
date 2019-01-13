@@ -15,11 +15,11 @@ ToHarvest =
 }
 
 Tick = function()
-	if ordos.HasNoRequiredUnits() then
+	if ordos.HasNoRequiredUnits() and not player.IsObjectiveCompleted(KillOrdos) then
 		player.MarkCompletedObjective(KillOrdos)
 	end
 
-	if player.Resources > SpiceToHarvest - 1 then
+	if player.Resources > SpiceToHarvest - 1 and not player.IsObjectiveCompleted(GatherSpice) then
 		player.MarkCompletedObjective(GatherSpice)
 	end
 
@@ -37,6 +37,8 @@ WorldLoaded = function()
 	GatherSpice = player.AddPrimaryObjective("Harvest Spice and produce " .. tostring(SpiceToHarvest) .. " Credits.")
 	KillOrdos = player.AddSecondaryObjective("Eliminate all Ordos units in the area.")
 
+	Camera.Position = AConyard.CenterPosition
+
 	local checkResourceCapacity = function()
 		Trigger.AfterDelay(0, function()
 			if player.ResourceCapacity < SpiceToHarvest then
@@ -50,7 +52,7 @@ WorldLoaded = function()
 		end)
 	end
 
-	Trigger.OnRemovedFromWorld(AConYard, function()
+	Trigger.OnRemovedFromWorld(AConyard, function()
 
 		-- Mission already failed, no need to check the other conditions as well
 		if checkResourceCapacity() then
