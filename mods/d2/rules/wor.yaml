@@ -41,7 +41,7 @@ wor:
 	ProductionQueue:
 		Type: Trooper
 		Group: Trooper
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		BlockedAudio: NoRoom
 		BuildDurationModifier: 250
 	ProvidesPrerequisite@atreides:

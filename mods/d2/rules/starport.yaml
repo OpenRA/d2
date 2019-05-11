@@ -42,7 +42,6 @@ starport:
 	ProductionQueue:
 		Type: Starport
 		Group: Starport
-		LowPowerSlowdown: 1
 		BlockedAudio: NoRoom
 		BuildDurationModifier: 212
 	WithTilesetBody:

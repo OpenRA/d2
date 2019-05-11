@@ -1,6 +1,6 @@
 Metadata:
 	Title: d2 mod
-	Version: release-20181215
+	Version: release-20190314
 
 PackageFormats: PakFile, D2kSoundResources
 
@@ -11,8 +11,6 @@ Packages:
 	.
 	$d2: d2
 	$d2k: d2k
-	$ra: ra
-	$cnc: cnc
 	./mods/common: common
 	~DUNE.PAK
 	~VOC.PAK
@@ -34,7 +32,7 @@ Packages:
 
 MapFolders:
 	d2|maps: System
-	~^maps/d2/release-20180307: User
+	~^maps/d2/release-20190314: User
 
 Rules:
 	d2|rules/misc.yaml

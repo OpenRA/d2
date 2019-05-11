@@ -55,13 +55,14 @@
 		VoiceSet: InfantryVoice
 	Captures:
 		CaptureTypes: building, husk
+	CaptureManager:
 	RevealOnFire:
 	RevealOnDeath:
 		Duration: 100
 	HitShape:
 		Type: Circle
 			Radius: 256
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Infantry
 
 ^Infantry_squad:

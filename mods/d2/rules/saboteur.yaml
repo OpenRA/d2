@@ -6,7 +6,7 @@ saboteur:
 		Prerequisites: ~disabled
 		Description: Sneaky infantry, armed with explosives\n  Strong vs Buildings\n  Weak vs Everything\n  Special Ability: destroy buildings
 	Valued:
-		Cost: 300	## actually 0, but spawns from support power at Palace
+		Cost: 300 ## actually 0, but spawns from support power at Palace
 	Tooltip:
 		Name: Saboteur
 	Health:
@@ -23,7 +23,7 @@ saboteur:
 		CloakSound: STEALTH1.WAV
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Move, Damage, Heal
 		IsPlayerPalette: true
-		RequiresCondition: !cloak-force-disabled
+		PauseOnCondition: cloak-force-disabled
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical

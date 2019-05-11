@@ -41,7 +41,7 @@ barracks:
 	ProductionQueue:
 		Type: Infantry
 		Group: Infantry
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		BlockedAudio: NoRoom
 		BuildDurationModifier: 250
 	ProvidesPrerequisite@atreides:

@@ -28,7 +28,7 @@
 	GivesBuildableArea:
 		AreaTypes: building
 	Capturable:
-		CaptureThreshold: 100
+		Types: building
 	SoundOnDamageTransition:
 		DamagedSounds: EXPLSML1.WAV
 		DestroyedSounds: EXPLHG1.WAV
@@ -61,6 +61,7 @@
 	RevealOnDeath:
 		Duration: 100
 		Radius: 4c768
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Building
 	CommandBarBlacklist:
+	CaptureManager:

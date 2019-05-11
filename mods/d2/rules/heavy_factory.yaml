@@ -38,7 +38,7 @@ heavy_factory:
 	ProductionQueue:
 		Type: Armor
 		Group: Armor
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		BlockedAudio: NoRoom
 		BuildDurationModifier: 250
 	ProvidesPrerequisite@atreides:

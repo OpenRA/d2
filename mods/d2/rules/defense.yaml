@@ -15,6 +15,6 @@
 	RevealOnFire:
 	Targetable:
 		TargetTypes: Ground, C4, Structure, Defence
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Defense
 	-CommandBarBlacklist:

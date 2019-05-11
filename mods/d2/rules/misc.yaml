@@ -9,7 +9,7 @@ mpspawn:
 	WithSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 1
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: System
 
 waypoint:
@@ -23,7 +23,7 @@ waypoint:
 	WithSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 1
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: System
 
 camera:
@@ -40,7 +40,7 @@ camera:
 	RevealsShroud:
 		Range: 6c768
 		Type: CenterPosition
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: System
 
 wormspawner:
@@ -55,5 +55,5 @@ wormspawner:
 	BodyOrientation:
 		QuantizedFacings: 1
 	ActorSpawner:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: System

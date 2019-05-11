@@ -17,6 +17,7 @@ using OpenRA.Graphics;
 using OpenRA.Mods.Common.LoadScreens;
 using OpenRA.Mods.D2;
 using OpenRA.Mods.D2.SpriteLoaders;
+using OpenRA.Primitives;
 using OpenRA.Widgets;
 
 namespace OpenRA.Mods.D2
@@ -78,7 +79,9 @@ namespace OpenRA.Mods.D2
 				using (var stream = modData.DefaultFileSystem.Open(info["Image"]))
 				{
 					CpsD2Loader loader = new CpsD2Loader();
-					if (!loader.TryParseSprite(stream, out frames))
+					TypeDictionary metadata;
+					
+					if (!loader.TryParseSprite(stream, out frames, out metadata))
 						return;
 				}
 

@@ -16,6 +16,7 @@ using System.Linq;
 using OpenRA.Graphics;
 using OpenRA.FileFormats;
 using OpenRA.Mods.D2.SpriteLoaders;
+using OpenRA.Primitives;
 
 namespace OpenRA.Mods.D2.FileFormats
 {
@@ -40,20 +41,24 @@ namespace OpenRA.Mods.D2.FileFormats
 
 		public WsaReader(Stream stream)
 		{
-			Read(stream);
+			TypeDictionary metadata;
+
+			Read(stream, out metadata);
 			Reset();
 		}
 
-		public void Read(Stream stream)
+		public void Read(Stream stream, out TypeDictionary metadata)
 		{
 			ISpriteFrame[] videoFrames;
 			ISpriteFrame prev = null;
 			WsaLoader wsaLoader = new WsaLoader();
 
+			metadata = null;
+
 			if (frames != null)
 				prev = frames[frames.Length-1];
 
-			wsaLoader.TryParseSpriteWithPrevFrame(stream, prev, out videoFrames);
+			wsaLoader.TryParseSpriteWithPrevFrame(stream, prev, out videoFrames, out metadata);
 
 			if (frames == null) {
 				frames = videoFrames;

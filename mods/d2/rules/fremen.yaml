@@ -11,7 +11,7 @@ fremen:
 	Mobile:
 		Speed: 43
 	Valued:
-		Cost: 200	## actually 0, but spawns from support power at Palace
+		Cost: 200 ## actually 0, but spawns from support power at Palace
 	Health:
 		HP: 700
 	AutoTarget:
@@ -31,7 +31,7 @@ fremen:
 		CloakSound: STEALTH1.WAV
 		UncloakSound: STEALTH2.WAV
 		IsPlayerPalette: true
-		RequiresCondition: !cloak-force-disabled
+		PauseOnCondition: cloak-force-disabled
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical

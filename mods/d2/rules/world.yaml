@@ -8,6 +8,7 @@
 		DefeatMusic: score
 	TerrainGeometryOverlay:
 	DebugVisualizations:
+	TerrainRenderer:
 	D2ShroudRenderer:
 		ShroudVariants: shrouda
 		FogVariants: foga
@@ -253,6 +254,7 @@ World:
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
 	SpawnMPUnits:
+		DropdownDisplayOrder: 1
 	PathFinder:
 	ValidateOrder:
 	DebugPauseState:

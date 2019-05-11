@@ -23,7 +23,6 @@ sandworm:
 		UseLocation: true
 	AttackSwallow:
 		AttackRequiresEnteringCell: true
-		IgnoresVisibility: true
 		AttackingCondition: attacking
 		WormAttackSound: WORMET3P.VOC
 	Armament:
