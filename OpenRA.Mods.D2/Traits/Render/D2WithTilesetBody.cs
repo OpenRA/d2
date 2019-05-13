@@ -20,17 +20,23 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.D2.Traits
 {
-	public class WithTilesetBodyInfo : ITraitInfo, Requires<BuildingInfo>, IRenderActorPreviewSpritesInfo, Requires<RenderSpritesInfo>
+	public class D2WithTilesetBodyInfo : ITraitInfo, Requires<BuildingInfo>, IRenderActorPreviewSpritesInfo, Requires<RenderSpritesInfo>
 	{
 		[SequenceReference] public readonly string Sequence = "idle-tileset";
 		[PaletteReference] public readonly string Palette = null;
 		[Desc("skip drawing sprite frame because it always under idle-top animation")]
 		public readonly int[] SkipFrames;
 
-		public object Create(ActorInitializer init) { return new WithTilesetBody(init.Self, this); }
+		[Desc("Preview by default disabled in game and enabled in editor.")]
+		[SequenceReference] public readonly bool previewDisabled = true;
+
+		public object Create(ActorInitializer init) { return new D2WithTilesetBody(init.Self, this); }
 
 		public IEnumerable<IActorPreview> RenderPreviewSprites(ActorPreviewInitializer init, RenderSpritesInfo rs, string image, int facings, PaletteReference p)
 		{
+			if (previewDisabled && init.World.Type == WorldType.Regular)
+				yield break;
+
 			if (Palette != null)
 				p = init.WorldRenderer.Palette(Palette);
 
@@ -41,7 +47,8 @@ namespace OpenRA.Mods.D2.Traits
 
 			for (var index = 0; index < (cols * rows); index++)
 			{
-				if (SkipFrames == null || !SkipFrames.Contains(index)) {
+				if (SkipFrames == null || !SkipFrames.Contains(index))
+				{
 					var y = index / cols;
 					var x = index % cols;
 
@@ -59,9 +66,9 @@ namespace OpenRA.Mods.D2.Traits
 		}
 	}
 
-	public class WithTilesetBody
+	public class D2WithTilesetBody
 	{
-		public WithTilesetBody(Actor self, WithTilesetBodyInfo info)
+		public D2WithTilesetBody(Actor self, D2WithTilesetBodyInfo info)
 		{
 			var rs = self.Trait<RenderSprites>();
 			var bi = self.Info.TraitInfo<BuildingInfo>();
@@ -71,7 +78,8 @@ namespace OpenRA.Mods.D2.Traits
 
 			for (var index = 0; index < (cols * rows); index++)
 			{
-				if (info.SkipFrames == null || !info.SkipFrames.Contains(index)) {
+				if (info.SkipFrames == null || !info.SkipFrames.Contains(index))
+				{
 					var y = index / cols;
 					var x = index % cols;
 

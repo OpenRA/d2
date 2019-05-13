@@ -40,12 +40,12 @@ construction_yard:
 	BaseBuilding:
 	Power:
 		Amount: 0
-	WithTilesetBody:
+	D2WithTilesetBody:
 		SkipFrames: 0
 	RenderSprites:
 		Image: conyard
 		PlayerPalette: player
-	WithIdleOverlay@FLAG:
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@Atreides:

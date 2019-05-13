@@ -58,9 +58,9 @@ barracks:
 	RenderSprites:
 		Image: barracks
 		PlayerPalette: player
-	WithTilesetBody:
+	D2WithTilesetBody:
 		SkipFrames: 3
-	WithIdleOverlay@FLAG:
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@har_conyard_or_barracks:

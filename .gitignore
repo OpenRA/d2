@@ -1,3 +1,4 @@
+.vs
 user.config
 engine
 bin
@@ -16,3 +17,4 @@ DOCUMENTATION.md
 Lua-API.md
 StyleCopViolations.xml
 .DS_Store
+*.csproj.user

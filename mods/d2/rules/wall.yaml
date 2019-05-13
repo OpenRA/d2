@@ -40,7 +40,8 @@ wall:
 		Height: 512
 	Targetable:
 		TargetTypes: Ground, Wall
-	WithWallSpriteBody:
+	D2WithWallSpriteBody:
+	D2BuildingPlacement:
 	Guardable:
 	Explodes:
 		Weapon: WallExplode

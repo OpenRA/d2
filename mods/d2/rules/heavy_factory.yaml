@@ -53,7 +53,7 @@ heavy_factory:
 	ProvidesPrerequisite@missiletank:
 		Prerequisite: heavy.missiletank
 		Factions: atreides, harkonnen
-	WithTilesetBody:
+	D2WithTilesetBody:
 		SkipFrames: 0
 	RenderSprites:
 		Image: heavy
@@ -61,7 +61,7 @@ heavy_factory:
 		Sequence: production-welding-1
 	WithProductionOverlay@WELDING2:
 		Sequence: production-welding-2
-	WithIdleOverlay@FLAG:
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	Power:
 		Amount: -35

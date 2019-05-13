@@ -29,15 +29,17 @@ outpost:
 		Range: 9c768
 	ProvidesRadar:
 		RequiresCondition: !disabled
-	WithTilesetBody:
+	D2WithTilesetBody:
 		SkipFrames: 1,2
 		PlayerPalette: player
 	RenderSprites:
 		Image: outpost
-	WithIdleOverlay@DISH:
+	D2WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	D2WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
-	WithIdleOverlay@FLAG:
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	Power:
 		Amount: -30

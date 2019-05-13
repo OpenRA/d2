@@ -25,12 +25,12 @@ wind_trap:
 		Type: building
 	RevealsShroud:
 		Range: 2c0
-	WithTilesetBody:
+	D2WithTilesetBody:
 		SkipFrames: 3
 	RenderSprites:
 		Image: wind_trap
 		PlayerPalette: wind
-	WithIdleOverlay@FLAG:
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	Power:
 		Amount: 100

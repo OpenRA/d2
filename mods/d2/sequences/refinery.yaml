@@ -1,8 +1,5 @@
 refinery:
-	idle: ICON.ICN
-		Start: 332
-		Offset: -16,-8
-		ZOffset: -2047
+	idle: transparent.shp
 	idle-tileset: ICON.ICN
 		Frames: 332, 333, 334, 337, 338, 339
 		Length: 6

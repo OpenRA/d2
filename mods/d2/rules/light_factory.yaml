@@ -26,12 +26,12 @@ light_factory:
 		Type: building
 	RevealsShroud:
 		Range: 3c0
-	WithTilesetBody:
+	D2WithTilesetBody:
 		SkipFrames: 1
 	RenderSprites:
 		Image: light
 		PlayerPalette: player
-	WithIdleOverlay@FLAG:
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	WithProductionOverlay@WELDING:
 		Sequence: production-welding

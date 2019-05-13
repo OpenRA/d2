@@ -12,6 +12,7 @@
 		Name: Concrete
 		GenericName: Structure
 	RenderSprites:
+	D2BuildingPlacement:
 	KillsSelf:
 		RemoveInstead: true
 	D2Concrete:
@@ -29,7 +30,7 @@ concretea:
 	LaysTerrain:
 		Template: 126
 		TerrainTypes: Rock
-	WithSpriteBody:
+	D2WithTilesetBody:
 	RenderSprites:
 		Image: concretea
 	Valued:
@@ -47,7 +48,7 @@ concreteb:
 	LaysTerrain:
 		Template: 127
 		TerrainTypes: Rock
-	WithTilesetBody:
+	D2WithTilesetBody:
 	RenderSprites:
 		Image: concreteb
 	Valued:

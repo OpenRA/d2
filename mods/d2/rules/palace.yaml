@@ -27,12 +27,12 @@ palace:
 		Type: heavy
 	RevealsShroud:
 		Range: 4c768
-	WithTilesetBody:
+	D2WithTilesetBody:
 		SkipFrames: 0
 	RenderSprites:
 		Image: palace
 		PlayerPalette: player
-	WithIdleOverlay@FLAG:
+	D2WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	Power:
 		Amount: -80
