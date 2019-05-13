@@ -37,10 +37,6 @@ outpost:
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled
-		RequiresCondition: !severe-damaged
-	GrantConditionOnDamageState@STOPDISH:
-		Condition: severe-damaged
-		ValidDamageState: Medium, Heavy, Critical
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	Power:
