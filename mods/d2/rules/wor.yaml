@@ -6,7 +6,7 @@ wor:
 		BuildPaletteOrder: 100
 		BuildDuration: 1300
 		BuildDurationModifier: 40
-		Description: Trains heavy infantry
+		Description: Trains heavy infantry\n  Cannot be captured.
 	Selectable:
 		Bounds: 32,32
 	Valued:
@@ -68,6 +68,9 @@ wor:
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.wor
 		Condition: stardecoration
+	-Capturable:
+	-CaptureNotification:
+	-CaptureManager:
 
 upgrade.wor:
 	AlwaysVisible:
