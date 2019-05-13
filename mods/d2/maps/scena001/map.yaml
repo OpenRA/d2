@@ -47,7 +47,7 @@ Actors:
 	Actor0: spicebloom
 		Owner: Neutral
 		Location: 26,22
-	AConYard: construction_yard
+	AConyard: construction_yard
 		Owner: Atreides
 		Location: 15,10
 	Actor4: light_inf
