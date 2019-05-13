@@ -10,6 +10,7 @@ carryall.reinforce:
 		Type: light
 	Aircraft:
 		CruiseAltitude: 192
+		CruisingCondition: cruising
 		InitialFacing: 0
 		Speed: 144 # 112 * ~1.3 for balance reasons
 		TurnSpeed: 4
@@ -19,6 +20,7 @@ carryall.reinforce:
 		AirborneCondition: airborne
 		CanHover: True
 		VTOL: true
+		IdleTurnSpeed: 2
 	Targetable@GROUND:
 		TargetTypes: Ground, Vehicle
 		RequiresCondition: !airborne
@@ -27,7 +29,7 @@ carryall.reinforce:
 		RequiresCondition: airborne
 	SpawnActorOnDeath:
 		Actor: carryall.husk
-		RequiredCondition: airbone
+		RequiresCondition: airborne
 		OwnerType: InternalName
 		EffectiveOwnerFromOwner: true
 	Carryall:
@@ -52,6 +54,16 @@ carryall:
 		LoadingDelay: 10
 		UnloadingDelay: 15
 		LocalOffset: 0, 0, -128
+	Aircraft:
+		MinAirborneAltitude: 40
+	RevealsShroud@ligting_low
+		Range: 2c512
+		Type: GroundPosition
+		RequiresCondition: !airborne
+	RevealsShroud@lifting_high:
+		Range: 1c256
+		Type: GroundPosition
+		RequiresCondition: !cruising
 	Buildable:
 		Queue: Aircraft
 		BuildPaletteOrder: 120

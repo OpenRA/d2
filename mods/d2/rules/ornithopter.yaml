@@ -2,10 +2,10 @@ ornithopter:
 	Inherits: ^Plane
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	AutoTargetPriority@DEFAULT:
-		ValidTargets: Infantry, Vehicle, Water, Defense
+		ValidTargets: Infantry, Vehicle, Defense
 		InvalidTargets: NoAutoTarget, Creep
 	AutoTargetPriority@ATTACKANYTHING:
-		ValidTargets: Infantry, Vehicle, Water, Structure, Defense
+		ValidTargets: Infantry, Vehicle, Structure, Defense
 		InvalidTargets: NoAutoTarget, Creep
 	AutoTarget:
 		ScanRadius: 1000
@@ -15,8 +15,8 @@ ornithopter:
 		BuildPaletteOrder: 130
 		Prerequisites: research_centre, upgrade.hightech, ~aircraft.atreides_or_ordos, ~techlevel.high
 		Description: Light aircraft armed with missiles.\nAutomatically attacks nearby targets, can't be manually controlled.
-	AttackHeli:
-		IgnoresVisibility: true
+	AttackAircraft:
+		TargetFrozenActors: true
 	Armament:
 		Weapon: OrniMissile
 	Valued:
@@ -26,14 +26,18 @@ ornithopter:
 	Armor:
 		Type: light
 	Aircraft:
+		CruiseAltitude: 192
+		CruisingCondition: cruising
+		InitialFacing: 0
 		Speed: 224 # 189 * ~1.2 for balance reasons
 		TurnSpeed: 5
-		Repulsable: True
-		CanHover: True
-		CruiseAltitude: 192
-		VTOL: true
-	AmmoPool:
-		Ammo: 5
+		LandableTerrainTypes: Sand, Spice, SpiceSand, Dune, Concrete
+		Repulsable: False
+		LandWhenIdle: False
+		AirborneCondition: airborne
+		CanHover: False
+		VTOL: False
+		IdleTurnSpeed: 2
 	Tooltip:
 		Name: Ornithopter
 	SpawnActorOnDeath:

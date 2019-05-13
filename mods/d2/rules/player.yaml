@@ -9,17 +9,25 @@ Player:
 	Inherits: ^BasePlayer
 	TechTree:
 	PlaceBuilding:
+		NewOptionsNotification: NewOptions
+		CannotPlaceNotification: BuildingCannotPlaceAudio
 	SupportPowerManager:
 	ScriptTriggers:
 	MissionObjectives:
+		WinNotification: Win
+		LoseNotification: Lose
+		LeaveNotification: Leave
 	ConquestVictoryConditions:
 	PowerManager:
 		AdviceInterval: 650
+		SpeechNotification: LowPower
 	AllyRepair:
 	PlayerResources:
 		SelectableCash: 1000, 1500, 2000
 		DefaultCash: 1500
 		InsufficientFundsNotification: InsufficientFunds
+		CashTickUpNotification: CashTickUp
+		CashTickDownNotification: CashTickDown
 	DeveloperMode:
 		CheckboxDisplayOrder: 5
 	BaseAttackNotifier:
@@ -71,3 +79,5 @@ Player:
 	GrantConditionOnPrerequisiteManager:
 	ResourceStorageWarning:
 		AdviceInterval: 26
+	#PlayerExperience:
+	ConditionManager:

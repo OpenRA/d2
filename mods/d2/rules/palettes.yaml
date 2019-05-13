@@ -7,6 +7,7 @@
 		Name: d2
 		Filename: IBM.PAL
 		ShadowIndex: 1
+		CursorPalette: true
 	PaletteFromFile@chrome:
 		Name: chrome
 		Filename: IBM.PAL

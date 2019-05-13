@@ -1,5 +1,5 @@
 harvester:
-	Inherits: ^Vehicle
+	Inherits: ^Tank
 	Buildable:
 		Queue: Armor
 		Prerequisites: refinery
@@ -23,6 +23,7 @@ harvester:
 		BaleUnloadDelay: 5
 		SearchFromProcRadius: 30
 		SearchFromOrderRadius: 15
+	CarryableHarvester:
 	Health:
 		HP: 150
 	Armor:

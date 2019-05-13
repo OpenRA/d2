@@ -49,5 +49,5 @@ wall:
 		Type: Rectangle
 			TopLeft: -512, -512
 			BottomRight: 512, 512
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Defense

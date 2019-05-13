@@ -47,7 +47,7 @@ light_factory:
 	ProductionQueue:
 		Type: Vehicle
 		Group: Vehicle
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		BlockedAudio: NoRoom
 		BuildDurationModifier: 250
 	ProvidesPrerequisite@atreides:

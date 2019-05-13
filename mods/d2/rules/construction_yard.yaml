@@ -28,7 +28,7 @@ construction_yard:
 	ProductionQueue:
 		Type: Building
 		Group: Building
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: BuildingReady
 		BuildDurationModifier: 250

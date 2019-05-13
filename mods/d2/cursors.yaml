@@ -1,10 +1,5 @@
-ShadowIndex: 1
-
-Palettes:
-	mouse: IBM.PAL
-
 Cursors:
-	MOUSE.SHP: mouse
+	MOUSE.SHP: d2
 		scroll-t:
 			Start: 4
 			X: -8

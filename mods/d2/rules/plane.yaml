@@ -5,6 +5,8 @@
 	Tooltip:
 		GenericName: Unit
 	Huntable:
+	OwnerLostAction:
+		Action: Kill
 	AppearsOnRadar:
 		UseLocation: true
 	HiddenUnderFog:
@@ -15,6 +17,5 @@
 	WithFacingSpriteBody:
 	WithShadow:
 	HitShape:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Aircraft
-
