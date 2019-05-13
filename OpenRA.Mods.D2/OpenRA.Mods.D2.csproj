@@ -53,10 +53,7 @@
     <Compile Include="Traits\Buildings\D2Concrete.cs" />
     <Compile Include="Traits\Buildings\D2ConcreteOwners.cs" />
     <Compile Include="Traits\PaletteEffects\D2WindtrapPaletteEffect.cs" />
-    <Compile Include="Traits\Render\D2WithIdleOverlay.cs" />
-    <Compile Include="Traits\Render\D2WithSpriteTurret.cs" />
     <Compile Include="Traits\Render\D2WithTilesetBody.cs" />
-    <Compile Include="Traits\Render\D2WithWallSpriteBody.cs" />
     <Compile Include="Traits\World\D2EditorResourceLayer.cs" />
     <Compile Include="Traits\World\D2ResourceLayer.cs" />
     <Compile Include="Traits\World\D2ShroudRenderer.cs" />

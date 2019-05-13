@@ -39,7 +39,7 @@ repair_pad:
 		SkipFrames: 1
 	RenderSprites:
 		Image: repair_pad
-	D2WithIdleOverlay@FLAG:
+	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	WithRepairOverlay@ACTIVE1:
 		Sequence: active-1

@@ -31,7 +31,7 @@ light_factory:
 	RenderSprites:
 		Image: light
 		PlayerPalette: player
-	D2WithIdleOverlay@FLAG:
+	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	WithProductionOverlay@WELDING:
 		Sequence: production-welding

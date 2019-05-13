@@ -81,9 +81,16 @@ namespace OpenRA.Mods.D2.Traits
 		void Tick()
 		{
 			t += step;
-			if (t >= 1.0f || t <= 0) step = -step;
-			if (t > 1.0f) t = 1.0f;
-			if (t < 0.0f) t = 0.0f;
+
+			if (t >= 1.0f || t <= 0)
+				step = -step;
+
+			if (t > 1.0f)
+				t = 1.0f;
+
+			if (t < 0.0f) {
+				t = 0.0f;
+			}
 		}
 
 		public IEnumerable<IRenderable> Render(WorldRenderer wr, World w, ActorInfo ai, WPos centerPosition)

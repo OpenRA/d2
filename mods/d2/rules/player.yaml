@@ -11,6 +11,7 @@ Player:
 	PlaceBuilding:
 		NewOptionsNotification: NewOptions
 		CannotPlaceNotification: BuildingCannotPlaceAudio
+		RenderActorPreview: False
 	SupportPowerManager:
 	ScriptTriggers:
 	MissionObjectives:

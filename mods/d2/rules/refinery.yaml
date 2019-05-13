@@ -47,10 +47,10 @@ refinery:
 		Image: refinery
 	Power:
 		Amount: -30
-	D2WithIdleOverlay@FLAG:
+	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
-	D2WithIdleOverlay@DOCK1:
+	WithIdleOverlay@DOCK1:
 		Sequence: idle-dock-top
-	D2WithIdleOverlay@DOCK2:
+	WithIdleOverlay@DOCK2:
 		Sequence: idle-dock-bottom
 	ProvidesPrerequisite@buildingname:

@@ -60,9 +60,9 @@ wor:
 		PlayerPalette: player
 	D2WithTilesetBody:
 		SkipFrames: 0, 2
-	D2WithIdleOverlay@FLAG:
+	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
-	D2WithIdleOverlay@TOP-FLAG:
+	WithIdleOverlay@TOP-FLAG:
 		Sequence: idle-top-flag
 	ProvidesPrerequisite@buildingname:
 	GrantConditionOnPrerequisite:

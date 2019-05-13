@@ -60,7 +60,7 @@ barracks:
 		PlayerPalette: player
 	D2WithTilesetBody:
 		SkipFrames: 3
-	D2WithIdleOverlay@FLAG:
+	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@har_conyard_or_barracks:

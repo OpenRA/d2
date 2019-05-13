@@ -30,7 +30,7 @@ research_centre:
 		SkipFrames: 3
 	RenderSprites:
 		Image: research
-	D2WithIdleOverlay@FLAG:
+	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	Power:
 		Amount: -40

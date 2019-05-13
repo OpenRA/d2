@@ -41,7 +41,7 @@ high_tech_factory:
 		Range: 3c0
 	D2WithTilesetBody:
 		SkipFrames: 3
-	D2WithIdleOverlay@FLAG:
+	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	RenderSprites:
 		Image: hightech

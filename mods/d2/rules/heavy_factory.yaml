@@ -61,7 +61,7 @@ heavy_factory:
 		Sequence: production-welding-1
 	WithProductionOverlay@WELDING2:
 		Sequence: production-welding-2
-	D2WithIdleOverlay@FLAG:
+	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
 	Power:
 		Amount: -35
