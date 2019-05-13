@@ -6,7 +6,7 @@ research_centre:
 		BuildPaletteOrder: 150
 		BuildDuration: 1500
 		BuildDurationModifier: 40
-		Description: Unlocks experimental tanks
+		Description: Unlocks experimental tanks\n  Cannot be captured.
 	Selectable:
 		Bounds: 32,32
 	Valued:
@@ -37,3 +37,6 @@ research_centre:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 32,32
+	-Capturable:
+	-CaptureNotification:
+	-CaptureManager:

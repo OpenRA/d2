@@ -6,7 +6,7 @@ barracks:
 		BuildPaletteOrder: 100
 		BuildDuration: 900
 		BuildDurationModifier: 40
-		Description: Trains infantry
+		Description: Trains infantry\n  Cannot be captured.
 	Selectable:
 		Bounds: 32,32
 	Valued:
@@ -70,6 +70,9 @@ barracks:
 		Condition: stardecoration
 	RevealOnDeath:
 		Radius: 3c768
+	-Capturable:
+	-CaptureNotification:
+	-CaptureManager:
 
 upgrade.barracks:
 	AlwaysVisible:

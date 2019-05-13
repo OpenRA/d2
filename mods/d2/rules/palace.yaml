@@ -7,7 +7,7 @@ palace:
 		BuildPaletteOrder: 170
 		BuildDuration: 1620
 		BuildDurationModifier: 40
-		Description: Unlocks elite infantry and weapons
+		Description: Unlocks elite infantry and weapons\n  Cannot be captured.
 	Selectable:
 		Bounds: 48,48
 	Valued:
@@ -126,3 +126,6 @@ palace:
 	SupportPowerChargeBar:
 		RequiresCondition: atreides || harkonnen || ordos
 	ProvidesPrerequisite@buildingname:
+	-Capturable:
+	-CaptureNotification:
+	-CaptureManager:

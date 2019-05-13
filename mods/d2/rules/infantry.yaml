@@ -54,7 +54,9 @@
 	Voiced:
 		VoiceSet: InfantryVoice
 	Captures:
-		CaptureTypes: building, husk
+		CaptureTypes: building
+		SabotageThreshold: 25
+		SabotageHPRemoval: 10
 	CaptureManager:
 	RevealOnFire:
 	RevealOnDeath:
@@ -72,3 +74,5 @@
 			Radius: 512
 	Mobile:
 		Locomotor: squad
+	Captures:
+		SabotageHPRemoval: 30

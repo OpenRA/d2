@@ -29,6 +29,8 @@
 		AreaTypes: building
 	Capturable:
 		Types: building
+	CaptureNotification:
+	CaptureManager:
 	SoundOnDamageTransition:
 		DamagedSounds: EXPLSML1.WAV
 		DestroyedSounds: EXPLHG1.WAV
@@ -43,7 +45,6 @@
 	MustBeDestroyed:
 		RequiredForShortGame: true
 	FrozenUnderFog:
-	CaptureNotification:
 	ActorLostNotification:
 		Notification: BuildingLost
 	ShakeOnDeath:
@@ -64,4 +65,3 @@
 	MapEditorData:
 		Categories: Building
 	CommandBarBlacklist:
-	CaptureManager:

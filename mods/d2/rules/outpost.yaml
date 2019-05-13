@@ -7,7 +7,7 @@ outpost:
 		BuildPaletteOrder: 50
 		BuildDuration: 1000
 		BuildDurationModifier: 40
-		Description: Provides a radar map of the battlefield\n  Requires power to operate
+		Description: Provides a radar map of the battlefield\n  Requires power to operate\n  Cannot be captured.
 	Selectable:
 		Bounds: 32,32
 	Valued:
@@ -46,3 +46,6 @@ outpost:
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:
+	-Capturable:
+	-CaptureNotification:
+	-CaptureManager:
