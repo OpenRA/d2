@@ -120,7 +120,7 @@ BuildingExplode:
 
 WallExplode:
 	Warhead@1Eff: CreateEffect
-		Explosions: wall_explosion
+		Explosions: building
 		ImpactSounds: EXPLHG1.WAV
 		VictimScanRadius: 0
 
