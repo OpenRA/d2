@@ -28,8 +28,7 @@ silo:
 		Image: silo
 		PlayerPalette: player
 	StoresResources:
-		PipColor: green
-		PipCount: 5
+		PipCount: 0
 		Capacity: 2000
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
