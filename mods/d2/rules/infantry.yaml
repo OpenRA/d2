@@ -33,9 +33,6 @@
 			BulletDeath: 4
 		CrushedSequence: die-crushed
 	AttackMove:
-	Passenger:
-		CargoType: Infantry
-		PipType: Green
 	HiddenUnderFog:
 	ActorLostNotification:
 	Crushable:
