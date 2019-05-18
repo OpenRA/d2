@@ -32,11 +32,6 @@
 	AutoCarryable:
 		CarriedCondition: notmobile
 		ReservedCondition: carryall-reserved
-	WithDecoration@CARRYALL:
-		Image: pips
-		Sequence: pickup-indicator
-		Offset: -12, -12
-		RequiresCondition: carryall-reserved
 	RevealOnFire:
 	RevealOnDeath:
 		Duration: 100

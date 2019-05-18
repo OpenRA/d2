@@ -17,7 +17,8 @@ frigate:
 	-AppearsOnRadar:
 	Cargo:
 		MaxWeight: 20
-		PipCount: 10
+		PipCount: 0
+	FlyAwayOnIdle:
 	RejectsOrders:
 	Buildable:
 		Description: Supply spacecraft
