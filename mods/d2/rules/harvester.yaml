@@ -16,7 +16,7 @@ harvester:
 		Class: harvester
 		Priority: 7
 	Harvester:
-		PipCount: 7
+		PipCount: 0
 		Capacity: 28
 		HarvestFacings: 8
 		Resources: Spice

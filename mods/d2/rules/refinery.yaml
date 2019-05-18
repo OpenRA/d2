@@ -32,8 +32,7 @@ refinery:
 		TickRate: 20
 		ShowTicks: false
 	StoresResources:
-		PipColor: green
-		PipCount: 10
+		PipCount: 0
 		Capacity: 2000
 	FreeActorWithDelivery:
 		Actor: harvester
