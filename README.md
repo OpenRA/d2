@@ -46,6 +46,12 @@ as published by the Free Software Foundation, either version 3 of the License, o
 For more information, see [COPYING](https://github.com/OpenRA/d2/blob/bleed/COPYING).
 
 
+## Authors
+d2 mod for OpenRA [AUTHORS](https://github.com/OpenRA/d2/blob/master/mods/d2/AUTHORS)
+
+Special thanks to [OpenRA AUTHORS](https://github.com/OpenRA/OpenRA/blob/bleed/AUTHORS)
+
+
 -------------------------------------------------------------------------------------------------------------------------
 
 More information can be found here: [wiki](https://github.com/OpenRA/d2/wiki)

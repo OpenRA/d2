@@ -2,6 +2,10 @@ Metadata:
 	Title: d2 mod
 	Version: release-20190314
 
+ModCredits:
+	ModTabTitle: d2 mod
+	ModCreditsFile: d2|AUTHORS
+
 PackageFormats: PakFile, D2kSoundResources
 
 Packages:
