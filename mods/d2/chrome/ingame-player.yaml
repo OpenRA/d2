@@ -504,3 +504,75 @@ Container@PLAYER_WIDGETS:
 									Y: 5
 									ImageCollection: scrollbar
 									ImageName: down_arrow
+		Container@ACTOR_INFO:
+			Logic: D2IngameActorInfoDisplayLogic
+			X: WINDOW_RIGHT - 226 - 218
+			Y: 14
+			Width: 218
+			Height: 256
+			ClickThrough: false
+			Children:
+				D2Panel@PANEL:
+					X: 0
+					Y: 12
+					Width: 218
+					Height: 256
+				Label@NAME:
+					X: 4
+					Y: 10
+					Width: 218
+					Height: 32
+				D2Sprite@ICON:
+					X: 20
+					Y: 42
+					Width: 64
+					Height: 48
+				D2ProgressBar@HEALTH:
+					X: 128
+					Y: 42
+					Width: 72
+					Height: 40
+					Visible: false
+				Label@DMG:
+					X: 128
+					Y: 88
+					Width: 72
+					Height: 16
+					Visible: false
+				Label@TITLE:
+					X: 4
+					Y: 164
+					Width: 218
+					Height: 16
+					Visible: false
+				D2Line@SEPARATOR:
+					X: 32
+					Y: 186
+					Width: 154
+					Height: 0
+					Visible: false
+				Label@LINE1A:
+					X: 20
+					Y: 188
+					Width: 88
+					Height: 16
+					Visible: false
+				Label@LINE1B:
+					X: 110
+					Y: 188
+					Width: 88
+					Height: 16
+					Visible: false
+				Label@LINE2A:
+					X: 20
+					Y: 208
+					Width: 88
+					Height: 16
+					Visible: false
+				Label@LINE2B:
+					X: 110
+					Y: 208
+					Width: 88
+					Height: 16
+					Visible: false
+
