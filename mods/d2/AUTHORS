@@ -11,6 +11,36 @@ Also thanks to (in alphabetical order):
 See Contributors at: https://github.com/OpenRA/d2/graphs/contributors
 
 Special Thanks to OpenRA AUTHORS: https://github.com/OpenRA/OpenRA/blob/bleed/AUTHORS
+The OpenRA developers are:
+    * Chris Forbes (chrisf)
+    * Igor Popov (ihptru)
+    * Lukas Franke (abcdefg30)
+    * Oliver Brakmann (obrakmann)
+    * Paul Chote (pchote)
+    * Reaperrr
+    * Tom Roostan (RoosterDragon)
+
+Previous OpenRA developers included:
+    * Alli Witheford (alzeih)
+    * Caleb Anderson (RobotCaleb)
+    * Curtis Shmyr (hamb)
+    * Daniel Hernandez (Mancano)
+    * Matthias Mailänder (Mailaender)
+    * Megan Bowra-Dean (beedee)
+    * Mike Bundy (kehaar)
+    * Pavel Penev (penev92)
+    * Robert Pepperell (ytinasni)
+    * ScottNZ
+
+Thanks to AUTHORS of Dune Dynasty: https://sourceforge.net/projects/dunedynasty/
+    * David Wang <dswang@users.sourceforge.net>
+
+Thanks to AUTHORS of The OpenDUNE team: http://www.opendune.org/
+    * Albert Hofkamp (Alberth)
+    * Loic Guilloux (glx)
+    * Patric Stout (TrueBrain)
+    * Steven Noorbergen (Xaroth)
+    * Thomas Bernard
 
 Using GNU FreeFont distributed under the GNU GPL
 terms.
@@ -47,6 +77,10 @@ Krueger and distributed under the GNU GPL terms.
 
 Using rix0rrr.BeaconLib developed by Rico Huijbers
 distributed under MIT License.
+
+Graphics, Sound and other data:
+All graphics and sounds and maps from the Dune II pak files
+(which are not part of d2 mod) loaded during the start of the game.
 
 Finally, special thanks goes to the original teams
 at Westwood Studios and EA for creating the classic

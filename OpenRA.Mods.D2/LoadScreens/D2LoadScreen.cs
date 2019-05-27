@@ -16,6 +16,7 @@ using System.IO;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.LoadScreens;
 using OpenRA.Mods.D2;
+using OpenRA.Mods.D2.ImportData;
 using OpenRA.Mods.D2.SpriteLoaders;
 using OpenRA.Primitives;
 using OpenRA.Widgets;
@@ -36,19 +37,42 @@ namespace OpenRA.Mods.D2
 		HardwarePalette hardwarePalette;
 		PaletteReference pr;
 
+		ModData modData;
+		Dictionary<string, string> info;
+
+		void ImportOriginalMaps()
+		{
+			D2ImportOriginalMaps.ImportOriginalMaps(modData, info);
+
+			/* run only once */
+			Game.OnShellmapLoaded -= ImportOriginalMaps;
+		}
+
 		public override void Init(ModData modData, Dictionary<string, string> info)
 		{
 			base.Init(modData, info);
 
+			this.modData = modData;
+			this.info = info;
+
 			/*
 			 * Unpack files needed, because in some PAK files, some VOC files can have prefix 'Z'
 			 * Unpacking files will unpack such files and rename. so no modifications in yaml needed.
+			 * LoadScreen.Init, possibly not the best place to do this, but need to do that early, before
+			 * data will be used. and do this in LoadScreen.Init just works fine.
 			 */
 			if (D2UnpackContent.UnpackFiles(modData, info) > 0)
 			{
 				// Some files unpacked. need to reload mod packages
 				modData.ModFiles.LoadFromManifest(modData.Manifest);
 			}
+
+			/*
+			 * Like for unpack files, OpenRA engine do not have proper place for import maps.
+			 * And can't import in LoadScreen.Init, because engine not ready.
+			 * but Game.OnShellmapLoaded just works.
+			 */
+			Game.OnShellmapLoaded += ImportOriginalMaps;
 
 			// Avoid standard loading mechanisms so we
 			// can display the loadscreen as early as possible
