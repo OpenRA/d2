@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using System.IO;
 using OpenRA;
 
-namespace OpenRA.Mods.D2
+namespace OpenRA.Mods.D2.ImportData
 {
 	public class D2UnpackContent
 	{
