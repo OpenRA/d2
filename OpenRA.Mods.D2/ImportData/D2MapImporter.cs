@@ -157,10 +157,43 @@ namespace OpenRA.Mods.D2.ImportData
 			},
 		};
 
-		public static UInt16 PackXY(UInt16 x, UInt16 y)
-		{
-			return (UInt16)((y << 6) | x);
-		}
+		readonly int[] stepX = {
+			0,    3,     6,    9,    12,   15,   18,   21,   24,   27,   30,   33,   36,   39,   42,   45,
+			48,   51,    54,   57,   59,   62,   65,   67,   70,   73,   75,   78,   80,   82,   85,   87,
+			89,   91,    94,   96,   98,   100,  101,  103,  105,  107,  108,  110,  111,  113,  114,  116,
+			117,  118,   119,  120,  121,  122,  123,  123,  124,  125,  125,  126,  126,  126,  126,  126,
+			127,  126,   126,  126,  126,  126,  125,  125,  124,  123,  123,  122,  121,  120,  119,  118,
+			117,  116,   114,  113,  112,  110,  108,  107,  105,  103,  102,  100,  98,   96,   94,   91,
+			89,   87,    85,   82,   80,   78,   75,   73,   70,   67,   65,   62,   59,   57,   54,   51,
+			48,   45,    42,   39,   36,   33,   30,   27,   24,   21,   18,   15,   12,   9,    6,    3,
+			0,    -3,   -6,   -9,   -12,  -15,  -18,  -21,  -24,  -27,  -30,  -33,  -36,  -39,  -42,  -45,
+			-48,  -51,  -54,  -57,  -59,  -62,  -65,  -67,  -70,  -73,  -75,  -78,  -80,  -82,  -85,  -87,
+			-89,  -91,  -94,  -96,  -98,  -100, -102, -103, -105, -107, -108, -110, -111, -113, -114, -116,
+			-117, -118, -119, -120, -121, -122, -123, -123, -124, -125, -125, -126, -126, -126, -126, -126,
+			-126, -126, -126, -126, -126, -126, -125, -125, -124, -123, -123, -122, -121, -120, -119, -118,
+			-117, -116, -114, -113, -112, -110, -108, -107, -105, -103, -102, -100,  -98, -96,  -94,  -91,
+			-89,  -87,  -85,  -82,  -80,  -78,  -75,  -73,  -70,  -67,  -65,  -62,  -59,  -57,  -54,  -51,
+			-48,  -45,  -42,  -39,  -36,  -33,  -30,  -27,  -24,  -21,  -18,  -15,  -12,  -9,   -6,   -3
+		};
+
+		readonly int[] stepY = {
+			127,   126,  126,  126,  126,  126,  125,  125,  124,  123,  123,  122,  121,  120,  119,  118,
+			117,   116,  114,  113,  112,  110,  108,  107,  105,  103,  102,  100,  98,   96,   94,   91,
+			89,    87,   85,   82,   80,   78,   75,   73,   70,   67,   65,   62,   59,   57,   54,   51,
+			48,    45,   42,   39,   36,   33,   30,   27,   24,   21,   18,   15,   12,   9,    6,    3,
+			0,    -3,   -6,   -9,   -12,  -15,  -18,  -21,  -24,  -27,  -30,  -33,  -36,  -39,  -42,  -45,
+			-48,  -51,  -54,  -57,  -59,  -62,  -65,  -67,  -70,  -73,  -75,  -78,  -80,  -82,  -85,  -87,
+			-89,  -91,  -94,  -96,  -98,  -100, -102, -103, -105, -107, -108, -110, -111, -113, -114, -116,
+			-117, -118, -119, -120, -121, -122, -123, -123, -124, -125, -125, -126, -126, -126, -126, -126,
+			-126, -126, -126, -126, -126, -126, -125, -125, -124, -123, -123, -122, -121, -120, -119, -118,
+			-117, -116, -114, -113, -112, -110, -108, -107, -105, -103, -102, -100, -98,  -96,  -94,  -91,
+			-89,  -87,  -85,  -82,  -80,  -78,  -75,  -73,  -70,  -67,  -65,  -62,  -59,  -57,  -54,  -51,
+			-48,  -45,  -42,  -39,  -36,  -33,  -30,  -27,  -24,  -21,  -18,  -15,  -12,  -9,   -6,   -3,
+			0,     3,    6,    9,    12,   15,   18,   21,   24,   27,   30,   33,   36,   39,   42,   45,
+			48,    51,   54,   57,   59,   62,   65,   67,   70,   73,   75,   78,   80,   82,   85,   87,
+			89,    91,   94,   96,   98,   100,  101,  103,  105,  107,  108,  110,  111,  113,  114,  116,
+			117,   118,  119,  120,  121,  122,  123,  123,  124,  125,  125,  126,  126,  126,  126,  126
+		};
 
 		/* Initialises every fourth x/y tile in the map. */
 		void MakeRoughLandscape()
@@ -320,6 +353,205 @@ namespace OpenRA.Mods.D2.ImportData
 			}
 		}
 
+		/* Adding Spice related functions */
+		public static UInt16 PackXY(UInt16 x, UInt16 y)
+		{
+			return (UInt16)((y << 6) | x);
+		}
+
+		public static UInt16 PackedX(UInt16 packed)
+		{
+			return (UInt16)(packed & 0x3F);
+		}
+
+		public static UInt16 PackedY(UInt16 packed)
+		{
+			return (UInt16)((packed >> 6) & 0x3F);
+		}
+
+		/* x and y multiplied by 16 */
+		struct TilePos
+		{
+			public int X;
+			public int Y;
+
+			public TilePos(int x, int y)
+			{
+				this.X = x;
+				this.Y = y;
+			}
+		}
+
+		TilePos MoveByRandom(TilePos pos, int distance)
+		{
+			if (distance == 0)
+				return pos;
+
+			var newDistance = seed.Random();
+			while (newDistance > distance)
+				newDistance /= 2;
+
+			var orient256 = seed.Random();
+			var x = pos.X + ((stepX[orient256] * newDistance * 16) / 128);
+			var y = pos.Y - ((stepY[orient256] * newDistance * 16) / 128);
+
+			/* Out of map size check: 64 * 256 = 16384 */
+			if (x > 16384 || y > 16384)
+				return pos;
+
+			x = (x & 0xff00) | 0x80;
+			y = (y & 0xff00) | 0x80;
+
+			return new TilePos(x, y);
+		}
+
+		bool IsOutOfMap(CPos pos)
+		{
+			return (pos.X < 0 || pos.X >= map.MapSize.X || pos.Y < 0 || pos.Y >= map.MapSize.Y);
+		}
+
+		/* Creates a spice field of the given radius at the given location. */
+		void CreateSpiceField(CPos pos, int radius, bool centerIsThickSpice)
+		{
+			var radius2 = radius * radius;
+
+			for (var offsetX = -radius; offsetX <= radius; offsetX++)
+			{
+				var offsetX2 = offsetX * offsetX;
+
+				for (var offsetY = -radius; offsetY <= radius; offsetY++)
+				{
+					var offsetY2 = offsetY * offsetY;
+
+					var coord = new CPos(pos.X + offsetX, pos.Y + offsetY);
+
+					if (!IsOutOfMap(coord))
+					{
+						var packed = PackXY((ushort)coord.X, (ushort)coord.Y);
+						var tile = m[packed];
+
+						if (CanBecomeSpice(tile))
+						{
+							if (offsetX2 + offsetY2 < radius2)
+							{
+								if (centerIsThickSpice && (offsetX == 0) && (offsetY == 0))
+								{
+									map.Resources[coord] = new ResourceTile(1, 2);
+								}
+								else
+								{
+									if (map.Resources[coord].Index == 2)
+									{
+										map.Resources[coord] = new ResourceTile(1, 2);
+									}
+									else
+									{
+										if (tile == D2MapUtils.SandTile)
+										{
+											map.Resources[coord] = new ResourceTile(1, 1);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		public static bool CanBecomeSpice(ushort tileType)
+		{
+			return (tileType == D2MapUtils.SandTile || tileType == D2MapUtils.DuneTile);
+		}
+
+		/* Adds spice fields to the map. */
+		void AddSpice(uint minSpiceFields, uint maxSpiceFields)
+		{
+			const uint maxCount = 65535;
+			var count = 0;
+			var i = 0L;
+			
+			/* ENHANCEMENT: spice field controls. */
+			if ((minSpiceFields == 0) && (maxSpiceFields == 0))
+			{
+				i = seed.Random() & 0x2F;
+			}
+			else
+			{
+				var a = Math.Min(minSpiceFields, 255);
+				var b = Math.Min(maxSpiceFields, 255);
+				minSpiceFields = Math.Min(a, b);
+				maxSpiceFields = Math.Max(a, b);
+				var range = (maxSpiceFields - minSpiceFields + 1);
+
+				i = (int)(seed.Random()) * range / 256 + minSpiceFields;
+			}
+
+			while (i-- != 0)
+			{
+				UInt16 y = 0;
+				UInt16 x = 0;
+
+				while (true)
+				{
+					y = (UInt16)(seed.Random() & 0x3F);
+					x = (UInt16)(seed.Random() & 0x3F);
+					
+					var tile = m[PackXY(x, y)];
+
+					if (CanBecomeSpice(tile))
+					{
+						break;
+					}
+
+					/* ENHANCEMENT: ensure termination. */
+					count++;
+					if (count > maxCount)
+					{
+						return;
+					}
+				}
+
+				var x1 = ((x & 0x3F) << 8) | 0x80;
+				var y1 = ((y & 0x3F) << 8) | 0x80;
+
+				var j = (UInt16)seed.Random() & 0x1F;
+
+				while (j-- != 0)
+				{
+					CPos coord;
+
+					while (true)
+					{
+						var dist = seed.Random() & 0x3F;
+
+						var pos = MoveByRandom(new TilePos(x1, y1), dist);
+
+						var x2 = (pos.X >> 8) & 0x3F;
+						var y2 = (pos.Y >> 8) & 0x3F;
+
+						coord = new CPos(x2, y2);
+
+						if (!IsOutOfMap(coord))
+						{
+							break;
+						}
+					}
+
+					var tile = m[PackXY((ushort)coord.X, (ushort)coord.Y)];
+
+					if (map.Resources[coord].Type == 1)
+					{
+						CreateSpiceField(coord, 2, true);
+					}
+					else
+					{
+						CreateSpiceField(coord, 1, true);
+					}
+				}
+			}
+		}
+
 		/* Smooths the boundaries between different landscape types. */
 		void Smooth()
 		{
@@ -366,6 +598,9 @@ namespace OpenRA.Mods.D2.ImportData
 			/* Filter each tile to determine its final type. */
 			DetermineLandscapeTypes();
 
+			/* Add some spice. */
+			AddSpice(minSpiceFields, maxSpiceFields);
+
 			/* Make everything smoother and use the right sprite indexes. */
 			Smooth();
 
@@ -386,12 +621,6 @@ namespace OpenRA.Mods.D2.ImportData
 			CreateLandscape(seedValue, 0, 0);
 
 			/*
-				// Spice
-				if (tileSpecialInfo == 1)
-					map.Resources[locationOnMap] = new ResourceTile(1, 1);
-				if (tileSpecialInfo == 2)
-					map.Resources[locationOnMap] = new ResourceTile(1, 2);
-
 				// Actors
 				if (ActorDataByActorCode.ContainsKey(tileSpecialInfo))
 				{
