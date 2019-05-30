@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AudioLoaders\D2VocLoader.cs" />
+    <Compile Include="MapUtils\D2MapUtils.cs" />
     <Compile Include="SpriteLoaders\IcnD2Loader.cs" />
     <Compile Include="SpriteLoaders\CpsD2Loader.cs" />
     <Compile Include="SpriteLoaders\WsaLoader.cs" />
