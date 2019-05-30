@@ -51,6 +51,7 @@
     <Compile Include="ImportData\D2UnpackContent.cs" />
     <Compile Include="LoadScreens\D2LoadScreen.cs" />
     <Compile Include="MathExtention\D2MathExtention.cs" />
+    <Compile Include="MapUtils\D2MapUtils.cs" />
     <Compile Include="SpriteLoaders\IcnD2Loader.cs" />
     <Compile Include="SpriteLoaders\CpsD2Loader.cs" />
     <Compile Include="SpriteLoaders\WsaLoader.cs" />
