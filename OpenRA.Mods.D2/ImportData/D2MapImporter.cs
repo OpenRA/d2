@@ -19,6 +19,7 @@ using System.Drawing;
 using System.IO;
 using OpenRA.Mods.Common.FileFormats;
 using OpenRA.Mods.D2.MathExtention;
+using OpenRA.Mods.D2.MapUtils;
 
 namespace OpenRA.Mods.D2.ImportData
 {
@@ -36,11 +37,6 @@ namespace OpenRA.Mods.D2.ImportData
 
 		UInt16[] m;
 		D2MapSeed seed;
-		public const UInt16 SandTile = 0;
-		public const UInt16 ConcreteTile = 126;
-		public const UInt16 RockTile = 143;
-		public const UInt16 DuneTile = 159;
-		public const UInt16 RoughTile = 175;
 
 		D2MapImporter(string filename, string tileset, Ruleset rules)
 		{
@@ -237,21 +233,15 @@ namespace OpenRA.Mods.D2.ImportData
 						var x2 = (UInt16)(i * 4 + offsetTable[index, k, 2]);
 						var y2 = (UInt16)(j * 4 + offsetTable[index, k, 3]);
 
-						Console.WriteLine("x1={0} y1={1} x2={2} y2={3}", x1, y1, x2, y2);
-
 						var packed1 = PackXY(x1, y1);
 						var packed2 = PackXY(x2, y2);
 						var packed = (UInt16)((packed1 + packed2) / 2);
-
-						Console.WriteLine("packed1={0} packed2={1} packed={2}", packed1, packed2, packed);
 
 						if (packed >= 64 * 64)
 							continue;
 
 						packed1 = PackXY((UInt16)(x1 & 0x3F), y1);
 						packed2 = PackXY((UInt16)(x2 & 0x3F), y2);
-
-						Console.WriteLine("packed1={0} packed2={1}", packed1, packed2);
 
 						if (packed1 >= 64 * 64)
 							throw new IndexOutOfRangeException("packed index is out of map bounds");
@@ -321,12 +311,42 @@ namespace OpenRA.Mods.D2.ImportData
 			{
 				var spriteID = m[i];
 				var lst =
-					(spriteID >  spriteID1 + 4) ? RoughTile
-					: (spriteID >= spriteID1) ? RockTile
-					: (spriteID <= spriteID2) ? DuneTile
-					: SandTile;
+					(spriteID >  spriteID1 + 4) ? D2MapUtils.RoughTile
+					: (spriteID >= spriteID1) ? D2MapUtils.RockTile
+					: (spriteID <= spriteID2) ? D2MapUtils.DuneTile
+					: D2MapUtils.SandTile;
 
 				m[i] = lst;
+			}
+		}
+
+		/* Smooths the boundaries between different landscape types. */
+		void Smooth()
+		{
+			for (UInt16 y = 0; y < 64; y++)
+			{
+				for (UInt16 x = 0; x < 64; x++)
+				{
+					var index = y * 64 + x;
+					var tile = m[index];
+
+					if (tile == D2MapUtils.RockTile || tile == D2MapUtils.DuneTile || tile == D2MapUtils.RoughTile)
+					{
+						m[index] = D2MapUtils.SmoothTileTypeForPos(m, 64, 64, x, y);
+					}
+				}
+			}
+		}
+
+		void FillTiles()
+		{
+			for (UInt16 y = 0; y < 64; y++)
+			{
+				for (UInt16 x = 0; x < 64; x++)
+				{
+					var tile = m[PackXY(x, y)];
+					map.Tiles[new CPos(x, y)] = new TerrainTile(tile, 0);
+				}
 			}
 		}
 
@@ -345,6 +365,12 @@ namespace OpenRA.Mods.D2.ImportData
 
 			/* Filter each tile to determine its final type. */
 			DetermineLandscapeTypes();
+
+			/* Make everything smoother and use the right sprite indexes. */
+			Smooth();
+
+			/* Fill Map.Tiles */
+			FillTiles();
 		}
 
 		/*
@@ -359,37 +385,7 @@ namespace OpenRA.Mods.D2.ImportData
 
 			CreateLandscape(seedValue, 0, 0);
 
-			for (UInt16 y = 0; y <  64; y++)
-			{
-				for (UInt16 x = 0; x < 64; x++)
-				{
-					map.Tiles[new CPos(x,y)] = new TerrainTile(m[PackXY(x, y)], 0);
-				}
-			}
-
 			/*
-			 * Concrete = 126
-			 * Rock = 143 
-			 * Sand = 159
-			 * Rough = 175
-			 */
-			
-			//map.Tiles[new CPos(31, 30)] = new TerrainTile(126, 0);
-			//map.Tiles[new CPos(30, 30)] = new TerrainTile(143, 0);
-			//map.Tiles[new CPos(30, 31)] = new TerrainTile(159, 0);
-			//map.Tiles[new CPos(31, 31)] = new TerrainTile(175, 0);
-
-			/*
-			while (stream.Position < stream.Length)
-			{
-				var tileInfo = stream.ReadUInt16();
-				var tileSpecialInfo = stream.ReadUInt16();
-				var tile = GetTile(tileInfo);
-
-				var locationOnMap = GetCurrentTilePositionOnMap();
-
-				map.Tiles[locationOnMap] = tile;
-
 				// Spice
 				if (tileSpecialInfo == 1)
 					map.Resources[locationOnMap] = new ResourceTile(1, 1);
@@ -417,128 +413,5 @@ namespace OpenRA.Mods.D2.ImportData
 			}
 			*/
 		}
-
-		/*
-		CPos GetCurrentTilePositionOnMap()
-		{
-			var tileIndex = (int)stream.Position / 4 - 2;
-
-			var x = (tileIndex % mapSize.Width) + MapCordonWidth;
-			var y = (tileIndex / mapSize.Width) + MapCordonWidth;
-
-			return new CPos(x, y);
-		}
-
-		TerrainTile GetTile(int tileIndex)
-		{
-			// Some tiles are duplicates of other tiles, just on a different tileset
-			if (tilesetName.ToLower() == "bloxbgbs.r8")
-			{
-				if (tileIndex == 355)
-					return new TerrainTile(441, 0);
-
-				if (tileIndex == 375)
-					return new TerrainTile(442, 0);
-			}
-
-			if (tilesetName.ToLower() == "bloxtree.r8")
-			{
-				var indices = new[] { 683, 684, 685, 706, 703, 704, 705, 726, 723, 724, 725, 746, 743, 744, 745, 747 };
-				for (var i = 0; i < 16; i++)
-					if (tileIndex == indices[i])
-						return new TerrainTile(474, (byte)i);
-
-				indices = new[] { 369, 370, 389, 390 };
-				for (var i = 0; i < 4; i++)
-					if (tileIndex == indices[i])
-						return new TerrainTile(117, (byte)i);
-
-				indices = new[] { 661, 662, 681, 682 };
-				for (var i = 0; i < 4; i++)
-					if (tileIndex == indices[i])
-						return new TerrainTile(251, (byte)i);
-
-				if (tileIndex == 322)
-					return new TerrainTile(215, 0);
-			}
-
-			if (tilesetName.ToLower() == "bloxwast.r8")
-			{
-				if (tileIndex == 342)
-					return new TerrainTile(250, 0);
-
-				if (tileIndex == 383)
-					return new TerrainTile(121, 1);
-
-				if (tileIndex == 384)
-					return new TerrainTile(1046, 0);
-
-				if (tileIndex == 579)
-					return new TerrainTile(80, 0);
-
-				if (tileIndex == 597)
-					return new TerrainTile(80, 0);
-
-				if (tileIndex == 598)
-					return new TerrainTile(470, 0);
-
-				if (tileIndex == 599)
-					return new TerrainTile(470, 1);
-
-				if (tileIndex == 608)
-					return new TerrainTile(58, 0);
-
-				if (tileIndex == 627)
-					return new TerrainTile(248, 0);
-
-				if (tileIndex == 628)
-					return new TerrainTile(248, 1);
-
-				if (tileIndex == 719)
-					return new TerrainTile(275, 0);
-
-				var indices = new[] { 340, 341, 360, 361 };
-				for (var i = 0; i < 4; i++)
-					if (tileIndex == indices[i])
-						return new TerrainTile(308, (byte)i);
-
-				indices = new[] { 660, 661, 662, 680, 681, 682 };
-				for (var i = 0; i < 6; i++)
-					if (tileIndex == indices[i])
-						return new TerrainTile(443, (byte)i);
-
-				indices = new[] { 609, 610, 629, 630 };
-				for (var i = 0; i < 4; i++)
-					if (tileIndex == indices[i])
-						return new TerrainTile(251, (byte)i);
-			}
-
-			// Get the first tileset template that contains the Frame ID of the original map's tile with the requested index
-			var template = tileSetsFromYaml.FirstOrDefault(x => x.Frames.Contains(tileIndex));
-
-			// HACK: The arrakis.yaml tileset file seems to be missing some tiles, so just get a replacement for them
-			// Also used for duplicate tiles that are taken from only tileset
-			if (template == null)
-			{
-				// Just get a template that contains a tile with the same ID as requested
-				var templates = tileSet.Templates.Where(t => t.Value.Frames != null && t.Value.Frames.Contains(tileIndex));
-				if (templates.Any())
-					template = templates.First().Value;
-			}
-
-			if (template == null)
-			{
-				var pos = GetCurrentTilePositionOnMap();
-				Console.WriteLine("Tile with index {0} could not be found in the tileset YAML file!".F(tileIndex));
-				Console.WriteLine("Defaulting to a \"clear\" tile for coordinates ({0}, {1})!".F(pos.X, pos.Y));
-				return clearTile;
-			}
-
-			var templateIndex = template.Id;
-			var frameIndex = Array.IndexOf(template.Frames, tileIndex);
-
-			return new TerrainTile(templateIndex, (byte)((frameIndex == -1) ? 0 : frameIndex));
-		}
-		*/
 	}
 }
