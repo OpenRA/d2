@@ -54,7 +54,12 @@ namespace OpenRA.Mods.D2.ImportData
 					iniFile = new IniFile(stream);
 
 					Initialize(filename);
+
+					/* Fill map using seed value from ini file */
 					FillMap();
+
+					/* Add Additional spice fields from "Fields" value from ini file */
+					AddAdditionalSpiceFields();
 				}
 			}
 			catch (Exception e)
@@ -432,7 +437,8 @@ namespace OpenRA.Mods.D2.ImportData
 
 						if (CanBecomeSpice(tile))
 						{
-							if (offsetX2 + offsetY2 < radius2)
+							if (((radius > 2) && (offsetX2 + offsetY2 <= radius2))
+								|| (offsetX2 + offsetY2 < radius2))
 							{
 								if (centerIsThickSpice && (offsetX == 0) && (offsetY == 0))
 								{
@@ -641,6 +647,25 @@ namespace OpenRA.Mods.D2.ImportData
 				}
 			}
 			*/
+		}
+
+		void AddAdditionalSpiceFields()
+		{
+			var fieldStr = iniFile.GetSection("MAP").GetValue("Field", "");
+			var fields = fieldStr.Split(',');
+			foreach (var field in fields)
+			{
+				var str = field.Trim();
+				UInt16 fieldPacked = 0;
+				UInt16.TryParse(str, out fieldPacked);
+
+				var x = PackedX(fieldPacked);
+				var y = PackedY(fieldPacked);
+
+				CPos pos = new CPos(x, y);
+
+				CreateSpiceField(pos, 5, true);
+			}
 		}
 	}
 }
