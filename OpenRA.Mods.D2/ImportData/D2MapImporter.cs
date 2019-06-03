@@ -63,6 +63,12 @@ namespace OpenRA.Mods.D2.ImportData
 
 					/* Add Spice Bloom from ini file */
 					AddBloom();
+
+					/* Add Spawn Points using "Const Yard" structures from ini file */
+					AddSpawnPoints();
+
+					/* Create Players using playerCount updated in AddSpawnPoints() */
+					CreateMapPlayers();
 				}
 			}
 			catch (Exception e)
@@ -121,13 +127,10 @@ namespace OpenRA.Mods.D2.ImportData
 				br = new PPos(41, 41);
 			}
 			map.SetBounds(tl, br);
+		}
 
-			// Get all templates from the tileset YAML file that have at least one frame and an Image property corresponding to the requested tileset
-			// Each frame is a tile from the Dune 2000 tileset files, with the Frame ID being the index of the tile in the original file
-			//tileSetsFromYaml = tileSet.Templates.Where(t => t.Value.Frames != null
-			//	&& t.Value.Images[0].ToLower() == tilesetName.ToLower()).Select(ts => ts.Value).ToList();
-
-			playerCount = 2;
+		void CreateMapPlayers()
+		{
 			var players = new MapPlayers(map.Rules, playerCount);
 			map.PlayerDefinitions = players.ToMiniYaml();
 		}
@@ -351,17 +354,18 @@ namespace OpenRA.Mods.D2.ImportData
 			for (var i = 0; i < 64 * 64; i++)
 			{
 				var spriteID = m[i];
-				var lst =
+				var tileType =
 					(spriteID >  spriteID1 + 4) ? D2MapUtils.RoughTile
 					: (spriteID >= spriteID1) ? D2MapUtils.RockTile
 					: (spriteID <= spriteID2) ? D2MapUtils.DuneTile
 					: D2MapUtils.SandTile;
 
-				m[i] = lst;
+				m[i] = tileType;
 			}
 		}
 
 		/* Adding Spice related functions */
+
 		public static UInt16 PackXY(UInt16 x, UInt16 y)
 		{
 			return (UInt16)((y << 6) | x);
@@ -628,28 +632,6 @@ namespace OpenRA.Mods.D2.ImportData
 			UInt32.TryParse(seedStr, out seedValue);
 
 			CreateLandscape(seedValue, 0, 0);
-
-			/*
-				// Actors
-				if (ActorDataByActorCode.ContainsKey(tileSpecialInfo))
-				{
-					var kvp = ActorDataByActorCode[tileSpecialInfo];
-					if (!rules.Actors.ContainsKey(kvp.First.ToLower()))
-						throw new InvalidOperationException("Actor with name {0} could not be found in the rules YAML file!".F(kvp.First));
-
-					var a = new ActorReference(kvp.First)
-					{
-						new LocationInit(locationOnMap),
-						new OwnerInit(kvp.Second)
-					};
-
-					map.ActorDefinitions.Add(new MiniYamlNode("Actor" + map.ActorDefinitions.Count, a.Save()));
-
-					if (kvp.First == "mpspawn")
-						playerCount++;
-				}
-			}
-			*/
 		}
 
 		void AddAdditionalSpiceFields()
@@ -671,6 +653,8 @@ namespace OpenRA.Mods.D2.ImportData
 			}
 		}
 
+		/* Adding Spice Blooms related functions */
+
 		void CreateSpiceBloom(CPos pos)
 		{
 			var a = new ActorReference("spicebloom.spawnpoint")
@@ -679,7 +663,7 @@ namespace OpenRA.Mods.D2.ImportData
 				new OwnerInit("Neutral")
 			};
 
-			map.ActorDefinitions.Add(new MiniYamlNode("Actor" + map.ActorDefinitions.Count, a.Save()));
+			map.ActorDefinitions.Add(new MiniYamlNode("SpiceBloom" + map.ActorDefinitions.Count, a.Save()));
 		}
 
 		void AddBloom()
@@ -695,9 +679,50 @@ namespace OpenRA.Mods.D2.ImportData
 				var x = PackedX(bloomPacked);
 				var y = PackedY(bloomPacked);
 
-				CPos pos = new CPos(x, y);
+				CreateSpiceBloom(new CPos(x, y));
+			}
+		}
 
-				CreateSpiceBloom(pos);
+		/* Add Spawn Points related functions */
+
+		void CreateSpawnPoint(CPos pos)
+		{
+			var a = new ActorReference("mpspawn")
+			{
+				new LocationInit(pos),
+				new OwnerInit("Neutral")
+			};
+
+			map.ActorDefinitions.Add(new MiniYamlNode("SpawnPoint" + map.ActorDefinitions.Count, a.Save()));
+		}
+
+		/* Add spawn points using const yards from ini file */
+		void AddSpawnPoints()
+		{
+			/* Example of structure record in ini file: ID015=Atreides,Const Yard,256,2655 */
+
+			var structures = iniFile.GetSection("STRUCTURES");
+
+			foreach (var structure in structures)
+			{
+				var value = structure.Value;
+				var substrs = value.Split(',');
+				if (substrs.Length >= 4)
+				{
+					var structureType = substrs[1];
+					if (structureType.ToLower() == "const yard")
+					{
+						var positionStr = substrs[3].Trim();
+						UInt16 packed = 0;
+						UInt16.TryParse(positionStr, out packed);
+
+						var x = PackedX(packed);
+						var y = PackedY(packed);
+
+						CreateSpawnPoint(new CPos(x, y));
+						playerCount ++;
+					}
+				}
 			}
 		}
 	}
