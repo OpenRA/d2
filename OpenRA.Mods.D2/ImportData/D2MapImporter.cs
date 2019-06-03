@@ -60,6 +60,9 @@ namespace OpenRA.Mods.D2.ImportData
 
 					/* Add Additional spice fields from "Fields" value from ini file */
 					AddAdditionalSpiceFields();
+
+					/* Add Spice Bloom from ini file */
+					AddBloom();
 				}
 			}
 			catch (Exception e)
@@ -665,6 +668,36 @@ namespace OpenRA.Mods.D2.ImportData
 				CPos pos = new CPos(x, y);
 
 				CreateSpiceField(pos, 5, true);
+			}
+		}
+
+		void CreateSpiceBloom(CPos pos)
+		{
+			var a = new ActorReference("spicebloom.spawnpoint")
+			{
+				new LocationInit(pos),
+				new OwnerInit("Neutral")
+			};
+
+			map.ActorDefinitions.Add(new MiniYamlNode("Actor" + map.ActorDefinitions.Count, a.Save()));
+		}
+
+		void AddBloom()
+		{
+			var bloomStr = iniFile.GetSection("MAP").GetValue("Bloom", "");
+			var blooms = bloomStr.Split(',');
+			foreach (var bloom in blooms)
+			{
+				var str = bloom.Trim();
+				UInt16 bloomPacked = 0;
+				UInt16.TryParse(str, out bloomPacked);
+
+				var x = PackedX(bloomPacked);
+				var y = PackedY(bloomPacked);
+
+				CPos pos = new CPos(x, y);
+
+				CreateSpiceBloom(pos);
 			}
 		}
 	}
