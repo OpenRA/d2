@@ -14,11 +14,12 @@ Before run `d2 mod`, Download the Original Game and copy following files:
  - `ORDOS.PAK`
  - `INTRO.PAK`
  - `FINALE.PAK`
+ - `SCENARIO.PAK`
 
 Paste those files into `d2` directory. If this directory doesn't exist, create it:
  - `Documents/OpenRA/Content/d2` (Windows)
  - `~/Library/Application Support/OpenRA/Content/d2` (macOS)
- - `~/.openra/Content/d2` or `~/OpenRA/Content/d2` (Linux)
+ - `~/.openra/Content/d2` (Linux)
 
 The key scripts from [OpenRAModSDK](https://github.com/OpenRA/OpenRAModSDK) are:
 
@@ -33,11 +34,8 @@ The key scripts from [OpenRAModSDK](https://github.com/OpenRA/OpenRAModSDK) are:
 To launch `d2 mod` from the development environment you must first compile it by running `make.cmd` (Windows),
 or opening a terminal in the SDK directory and running `make` (Linux / macOS).
 
-Currently `d2 mod` uses some data from `d2k mod`. You will need to launch OpenRA d2k mod once and download all nesessary data.
-You can use `launch-d2k.cmd` (Windows) or `launch-d2k.sh` (Linux / macOS) to do this.
-Launch, download data and exit. 
-
 Now you can run `d2 mod` using `launch-game.cmd` (Windows) or `launch-game.sh` (Linux / macOS).
+Currently `d2 mod` uses some data from `d2k mod`. You will be prompt to download d2k content on first run.
 
 
 ## License
