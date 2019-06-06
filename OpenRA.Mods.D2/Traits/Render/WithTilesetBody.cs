@@ -22,8 +22,12 @@ namespace OpenRA.Mods.D2.Traits
 {
 	public class WithTilesetBodyInfo : ITraitInfo, Requires<BuildingInfo>, IRenderActorPreviewSpritesInfo, Requires<RenderSpritesInfo>
 	{
-		[SequenceReference] public readonly string Sequence = "idle-tileset";
-		[PaletteReference] public readonly string Palette = null;
+		[SequenceReference]
+		public readonly string Sequence = "idle-tileset";
+
+		[PaletteReference]
+		public readonly string Palette = null;
+
 		[Desc("skip drawing sprite frame because it always under idle-top animation")]
 		public readonly int[] SkipFrames;
 

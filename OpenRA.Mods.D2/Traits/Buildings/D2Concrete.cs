@@ -9,12 +9,11 @@
  */
 #endregion
 
-using System;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.D2.Traits
 {
-	public class D2ConcreteInfo: ITraitInfo
+	public class D2ConcreteInfo : ITraitInfo
 	{
 		public virtual object Create(ActorInitializer init) { return new D2Concrete(init.Self); }
 	}

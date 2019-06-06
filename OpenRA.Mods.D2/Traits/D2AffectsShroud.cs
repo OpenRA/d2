@@ -10,9 +10,9 @@
 #endregion
 
 using System.Linq;
-using OpenRA.Traits;
-using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Activities;
+using OpenRA.Mods.Common.Traits;
+using OpenRA.Traits;
 
 namespace OpenRA.Mods.D2.Traits
 {
@@ -38,10 +38,17 @@ namespace OpenRA.Mods.D2.Traits
 
 		D2AffectsShroudInfo info;
 
-		[Sync] CPos cachedLocation;
-		[Sync] bool cachedDisabled;
-		[Sync] bool cachedTraitDisabled;
-		[Sync] bool cachedIdleRange;
+		[Sync]
+		CPos cachedLocation;
+
+		[Sync]
+		bool cachedDisabled;
+
+		[Sync]
+		bool cachedTraitDisabled;
+
+		[Sync]
+		bool cachedIdleRange;
 
 		protected abstract void AddCellsToPlayerShroud(Actor self, Player player, PPos[] uv);
 		protected abstract void RemoveCellsFromPlayerShroud(Actor self, Player player);

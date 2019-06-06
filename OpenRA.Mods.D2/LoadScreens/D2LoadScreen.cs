@@ -11,15 +11,11 @@
 
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.LoadScreens;
-using OpenRA.Mods.D2;
 using OpenRA.Mods.D2.ImportData;
 using OpenRA.Mods.D2.SpriteLoaders;
 using OpenRA.Primitives;
-using OpenRA.Widgets;
 
 namespace OpenRA.Mods.D2
 {
@@ -104,7 +100,7 @@ namespace OpenRA.Mods.D2
 				{
 					CpsD2Loader loader = new CpsD2Loader();
 					TypeDictionary metadata;
-					
+
 					if (!loader.TryParseSprite(stream, out frames, out metadata))
 						return;
 				}

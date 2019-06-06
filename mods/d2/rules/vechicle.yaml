@@ -7,7 +7,7 @@
 	Mobile:
 		Locomotor: vehicle
 		TurnSpeed: 5
-		RequiresCondition: !notmobile
+		PauseOnCondition: notmobile
 	SelectionDecorations:
 	Selectable:
 		Bounds: 16,16
@@ -19,7 +19,7 @@
 	HiddenUnderFog:
 	ActorLostNotification:
 	Repairable:
-		RepairBuildings: repair_pad
+		RepairActors: repair_pad
 	Guard:
 		Voice: Guard
 	Guardable:

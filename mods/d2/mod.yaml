@@ -195,9 +195,9 @@ ChromeLayout:
 	common|chrome/ingame-infoobjectives.yaml
 	d2k|chrome/ingame-infostats.yaml
 	common|chrome/ingame-observer.yaml
-	common|chrome/ingame-observerstats.yaml
 	common|chrome/ingame-perf.yaml
 	common|chrome/ingame-debug.yaml
+	common|chrome/ingame-debuginfo.yaml
 	common|chrome/ingame-infochat.yaml
 	d2k|chrome/mainmenu.yaml
 	common|chrome/settings.yaml

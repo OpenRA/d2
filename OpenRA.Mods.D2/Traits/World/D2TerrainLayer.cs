@@ -24,7 +24,8 @@ namespace OpenRA.Mods.Common.Traits
 		[Desc("Sprite sequence name")]
 		public readonly string Sequence = "sides";
 
-		[PaletteReference] public readonly string Palette = TileSet.TerrainPaletteInternalName;
+		[PaletteReference]
+		public readonly string Palette = TileSet.TerrainPaletteInternalName;
 
 		public object Create(ActorInitializer init) { return new D2TerrainLayer(init.Self, this); }
 	}
@@ -111,13 +112,14 @@ namespace OpenRA.Mods.Common.Traits
 			}
 		}
 
-		public void Render(WorldRenderer wr)
+		void IRenderOverlay.Render(WorldRenderer wr)
 		{
 			render.Draw(wr.Viewport);
 		}
 
 		bool disposed;
-		public void Disposing(Actor self)
+
+		void INotifyActorDisposing.Disposing(Actor self)
 		{
 			if (disposed)
 				return;

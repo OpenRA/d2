@@ -15,9 +15,6 @@
 #endregion
 
 using System;
-using System.Drawing;
-using System.IO;
-using OpenRA.Mods.Common.FileFormats;
 
 namespace OpenRA.Mods.D2.MathExtention
 {
@@ -29,7 +26,7 @@ namespace OpenRA.Mods.D2.MathExtention
 			{
 				return min;
 			}
-			else if(val.CompareTo(max) > 0)
+			else if (val.CompareTo(max) > 0)
 			{
 				return max;
 			}

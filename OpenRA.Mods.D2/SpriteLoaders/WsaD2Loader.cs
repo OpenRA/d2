@@ -10,10 +10,7 @@
 #endregion
 
 using System;
-using System.Drawing;
 using System.IO;
-using OpenRA;
-using OpenRA.FileFormats;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.FileFormats;
 using OpenRA.Primitives;
@@ -76,8 +73,10 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 
 			s.Position = start;
 
-			//if (offsets[numTiles] < s.Length)
-			//	return false;
+			/*
+			if (offsets[numTiles] < s.Length)
+				return false;
+			*/
 
 			if (offsets[0] == 0)
 			{

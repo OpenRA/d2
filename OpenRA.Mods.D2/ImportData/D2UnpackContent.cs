@@ -12,7 +12,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using OpenRA;
 
 namespace OpenRA.Mods.D2.ImportData
 {
@@ -20,7 +19,7 @@ namespace OpenRA.Mods.D2.ImportData
 	{
 		public static int UnpackFiles(ModData modData, Dictionary<string, string> info)
 		{
-			string[] files = {};
+			string[] files = { };
 			var unpackedFilesCount = 0;
 
 			if (info.ContainsKey("UnpackFiles"))

@@ -9,8 +9,6 @@
  */
 #endregion
 
-using System.Collections.Generic;
-using System.Linq;
 using OpenRA.Graphics;
 using OpenRA.Traits;
 
@@ -49,7 +47,7 @@ namespace OpenRA.Mods.D2.Traits
 			step = info.RotationStep;
 		}
 
-		public void Tick(Actor self)
+		void ITick.Tick(Actor self)
 		{
 			t += step;
 			if (t >= info.RotationRange || t <= 0) step = -step;
@@ -61,7 +59,7 @@ namespace OpenRA.Mods.D2.Traits
 
 			foreach (var kvp in palettes)
 			{
-				if ( kvp.Key.StartsWith(info.PaletteName) )
+				if (kvp.Key.StartsWith(info.PaletteName))
 				{
 					var palette = kvp.Value;
 					palette[info.RotationIndex] = palette[info.RotationBase + rotate];

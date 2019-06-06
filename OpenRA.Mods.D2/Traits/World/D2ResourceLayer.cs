@@ -13,7 +13,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using OpenRA.Mods.Common.Traits;
-using OpenRA.Traits;
 
 namespace OpenRA.Mods.D2.Traits
 {
@@ -25,7 +24,8 @@ namespace OpenRA.Mods.D2.Traits
 
 	public class D2ResourceLayer : ResourceLayer
 	{
-		[Flags] public enum ClearSides : byte
+		[Flags]
+		public enum ClearSides : byte
 		{
 			None = 0x0,
 			Left = 0x1,

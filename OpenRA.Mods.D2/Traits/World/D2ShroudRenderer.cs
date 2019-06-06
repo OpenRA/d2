@@ -21,11 +21,18 @@ namespace OpenRA.Mods.Common.Traits
 	public class D2ShroudRendererInfo : ITraitInfo
 	{
 		public readonly string Sequence = "shroud";
-		[SequenceReference("Sequence")] public readonly string[] ShroudVariants = new[] { "shroud" };
-		[SequenceReference("Sequence")] public readonly string[] FogVariants = new[] { "fog" };
 
-		[PaletteReference] public readonly string ShroudPalette = "shroud";
-		[PaletteReference] public readonly string FogPalette = "fog";
+		[SequenceReference("Sequence")]
+		public readonly string[] ShroudVariants = new[] { "shroud" };
+
+		[SequenceReference("Sequence")]
+		public readonly string[] FogVariants = new[] { "fog" };
+
+		[PaletteReference]
+		public readonly string ShroudPalette = "shroud";
+
+		[PaletteReference]
+		public readonly string FogPalette = "fog";
 
 		[Desc("Bitfield of shroud directions for each frame. Lower four bits are",
 			"corners clockwise from TL; upper four are edges clockwise from top")]
@@ -35,11 +42,15 @@ namespace OpenRA.Mods.Common.Traits
 		public readonly bool ShroudOnMapBorders = false;
 
 		[Desc("Override for source art that doesn't define a fully shrouded tile")]
-		[SequenceReference("Sequence")] public readonly string OverrideFullShroud = null;
+		[SequenceReference("Sequence")]
+		public readonly string OverrideFullShroud = null;
+
 		public readonly int OverrideShroudIndex = 15;
 
 		[Desc("Override for source art that doesn't define a fully fogged tile")]
-		[SequenceReference("Sequence")] public readonly string OverrideFullFog = null;
+		[SequenceReference("Sequence")]
+		public readonly string OverrideFullFog = null;
+
 		public readonly int OverrideFogIndex = 15;
 
 		public readonly BlendMode ShroudBlend = BlendMode.Alpha;
@@ -204,15 +215,15 @@ namespace OpenRA.Mods.Common.Traits
 			if (!info.ShroudOnMapBorders)
 			{
 				var mpos = cell.ToMPos(map);
-				if ( edge == Edges.Top && mpos.V <= 1 ) edge = Edges.None;
-				if ( edge == Edges.Left && mpos.U <= 1 ) edge = Edges.None;
-				if ( edge == Edges.Bottom && mpos.V >= map.Tiles.Size.Height - 2 ) edge = Edges.None;
-				if ( edge == Edges.Right && mpos.U >= map.Tiles.Size.Width - 2 ) edge = Edges.None;
+				if (edge == Edges.Top && mpos.V <= 1) edge = Edges.None;
+				if (edge == Edges.Left && mpos.U <= 1) edge = Edges.None;
+				if (edge == Edges.Bottom && mpos.V >= map.Tiles.Size.Height - 2) edge = Edges.None;
+				if (edge == Edges.Right && mpos.U >= map.Tiles.Size.Width - 2) edge = Edges.None;
 
-				if ( edge == Edges.TopLeft && mpos.V <= 1 && mpos.U <= 1) edge = Edges.None;
-				if ( edge == Edges.TopRight && mpos.V <= 1 && mpos.U >= map.Tiles.Size.Width - 2) edge = Edges.None;
-				if ( edge == Edges.BottomLeft && mpos.V >= map.Tiles.Size.Height - 2 && mpos.U <= 1) edge = Edges.None;
-				if ( edge == Edges.BottomRight && mpos.V >= map.Tiles.Size.Height - 2 && mpos.U >= map.Tiles.Size.Width - 2) edge = Edges.None;
+				if (edge == Edges.TopLeft && mpos.V <= 1 && mpos.U <= 1) edge = Edges.None;
+				if (edge == Edges.TopRight && mpos.V <= 1 && mpos.U >= map.Tiles.Size.Width - 2) edge = Edges.None;
+				if (edge == Edges.BottomLeft && mpos.V >= map.Tiles.Size.Height - 2 && mpos.U <= 1) edge = Edges.None;
+				if (edge == Edges.BottomRight && mpos.V >= map.Tiles.Size.Height - 2 && mpos.U >= map.Tiles.Size.Width - 2) edge = Edges.None;
 			}
 
 			return edge;
@@ -297,7 +308,8 @@ namespace OpenRA.Mods.Common.Traits
 		}
 
 		bool disposed;
-		public void Disposing(Actor self)
+
+		void INotifyActorDisposing.Disposing(Actor self)
 		{
 			if (disposed)
 				return;
