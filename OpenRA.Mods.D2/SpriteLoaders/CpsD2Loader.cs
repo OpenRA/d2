@@ -9,13 +9,10 @@
  */
 #endregion
 
-using System.Drawing;
 using System.IO;
-using OpenRA;
-using OpenRA.Primitives;
-using OpenRA.FileFormats;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.FileFormats;
+using OpenRA.Primitives;
 
 namespace OpenRA.Mods.D2.SpriteLoaders
 {

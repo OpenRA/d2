@@ -9,10 +9,7 @@
  */
 #endregion
 
-using System.Drawing;
 using System.IO;
-using OpenRA;
-using OpenRA.FileFormats;
 using OpenRA.Graphics;
 using OpenRA.Primitives;
 

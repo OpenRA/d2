@@ -14,26 +14,24 @@
  */
 #endregion
 
-using System;
-
 namespace OpenRA.Mods.D2.ImportData
 {
 	public class D2MapSeed
 	{
 		byte[] seed = new byte[4];
 
-		public UInt32 Seed
+		public uint Seed
 		{
 			get
 			{
-				return (UInt32)(seed[0]) 
-					+ (UInt32)(seed[1] << 8)
-					+ (UInt32)(seed[2] << 16)
-					+ (UInt32)(seed[3] << 24);
+				return (uint)(seed[0])
+					+ (uint)(seed[1] << 8)
+					+ (uint)(seed[2] << 16)
+					+ (uint)(seed[3] << 24);
 			}
 		}
 
-		public D2MapSeed(UInt32 seed)
+		public D2MapSeed(uint seed)
 		{
 			this.seed[0] = (byte)(seed & 0xFF);
 			this.seed[1] = (byte)((seed >> 8) & 0xFF);

@@ -18,8 +18,8 @@ using System;
 using System.Drawing;
 using System.IO;
 using OpenRA.Mods.Common.FileFormats;
-using OpenRA.Mods.D2.MathExtention;
 using OpenRA.Mods.D2.MapUtils;
+using OpenRA.Mods.D2.MathExtention;
 
 namespace OpenRA.Mods.D2.ImportData
 {
@@ -35,7 +35,7 @@ namespace OpenRA.Mods.D2.ImportData
 		TileSet tileset;
 		int playerCount;
 
-		UInt16[] m;
+		ushort[] m;
 		D2MapSeed seed;
 
 		D2MapImporter(string filename, string tileset, Ruleset rules)
@@ -101,10 +101,10 @@ namespace OpenRA.Mods.D2.ImportData
 
 			var mapScaleValue = iniFile.GetSection("BASIC").GetValue("MapScale", "0");
 			var mapScale = 0;
-			Int32.TryParse(mapScaleValue, out mapScale);
+			int.TryParse(mapScaleValue, out mapScale);
 
 			mapSize = new Size(64, 64);
-			m = new UInt16[64 * 64];
+			m = new ushort[64 * 64];
 
 			tileset = Game.ModData.DefaultTileSets["arrakis2"];
 
@@ -141,7 +141,7 @@ namespace OpenRA.Mods.D2.ImportData
 
 		// some offsets
 		readonly sbyte[] around = {
-			 0,
+			0,
 			-1,  1,   -16, 16,
 			-17, 17,  -15, 15,
 			-2,  2,   -32, 32,
@@ -149,22 +149,22 @@ namespace OpenRA.Mods.D2.ImportData
 			-30, 30,  -34, 34
 		};
 
-		readonly UInt16[,,] offsetTable = {
+		readonly ushort[,,] offsetTable = {
 			{
-				{0, 0, 4, 0}, {4, 0, 4, 4}, {0, 0, 0, 4}, {0, 4, 4, 4},
-				{0, 0, 0, 2}, {0, 2, 0, 4}, {0, 0, 2, 0}, {2, 0, 4, 0},
-				{4, 0, 4, 2}, {4, 2, 4, 4}, {0, 4, 2, 4}, {2, 4, 4, 4},
-				{0, 0, 4, 4}, {2, 0, 2, 2}, {0, 0, 2, 2}, {4, 0, 2, 2},
-				{0, 2, 2, 2}, {2, 2, 4, 2}, {2, 2, 0, 4}, {2, 2, 4, 4},
-				{2, 2, 2, 4},
+				{ 0, 0, 4, 0 }, { 4, 0, 4, 4 }, { 0, 0, 0, 4 }, { 0, 4, 4, 4 },
+				{ 0, 0, 0, 2 }, { 0, 2, 0, 4 }, { 0, 0, 2, 0 }, { 2, 0, 4, 0 },
+				{ 4, 0, 4, 2 }, { 4, 2, 4, 4 }, { 0, 4, 2, 4 }, { 2, 4, 4, 4 },
+				{ 0, 0, 4, 4 }, { 2, 0, 2, 2 }, { 0, 0, 2, 2 }, { 4, 0, 2, 2 },
+				{ 0, 2, 2, 2 }, { 2, 2, 4, 2 }, { 2, 2, 0, 4 }, { 2, 2, 4, 4 },
+				{ 2, 2, 2, 4 },
 			},
 			{
-				{0, 0, 4, 0}, {4, 0, 4, 4}, {0, 0, 0, 4}, {0, 4, 4, 4},
-				{0, 0, 0, 2}, {0, 2, 0, 4}, {0, 0, 2, 0}, {2, 0, 4, 0},
-				{4, 0, 4, 2}, {4, 2, 4, 4}, {0, 4, 2, 4}, {2, 4, 4, 4},
-				{4, 0, 0, 4}, {2, 0, 2, 2}, {0, 0, 2, 2}, {4, 0, 2, 2},
-				{0, 2, 2, 2}, {2, 2, 4, 2}, {2, 2, 0, 4}, {2, 2, 4, 4},
-				{2, 2, 2, 4},
+				{ 0, 0, 4, 0 }, { 4, 0, 4, 4 }, { 0, 0, 0, 4 }, { 0, 4, 4, 4 },
+				{ 0, 0, 0, 2 }, { 0, 2, 0, 4 }, { 0, 0, 2, 0 }, { 2, 0, 4, 0 },
+				{ 4, 0, 4, 2 }, { 4, 2, 4, 4 }, { 0, 4, 2, 4 }, { 2, 4, 4, 4 },
+				{ 4, 0, 0, 4 }, { 2, 0, 2, 2 }, { 0, 0, 2, 2 }, { 4, 0, 2, 2 },
+				{ 0, 2, 2, 2 }, { 2, 2, 4, 2 }, { 2, 2, 0, 4 }, { 2, 2, 4, 4 },
+				{ 2, 2, 2, 4 },
 			},
 		};
 
@@ -210,7 +210,7 @@ namespace OpenRA.Mods.D2.ImportData
 		void MakeRoughLandscape()
 		{
 			byte[] memory = new byte[273];
-			UInt16 i = 0;
+			ushort i = 0;
 
 			for (i = 0; i < 272; i++)
 			{
@@ -223,7 +223,7 @@ namespace OpenRA.Mods.D2.ImportData
 
 			memory[272] = 0;
 
-			i = (UInt16)((seed.Random() & 0xF) + 1);
+			i = (ushort)((seed.Random() & 0xF) + 1);
 			while (i-- != 0)
 			{
 				var b = seed.Random();
@@ -235,7 +235,7 @@ namespace OpenRA.Mods.D2.ImportData
 				}
 			}
 
-			i = (UInt16)((seed.Random() & 0x3) + 1);
+			i = (ushort)((seed.Random() & 0x3) + 1);
 			while (i-- != 0)
 			{
 				var b = seed.Random();
@@ -247,18 +247,18 @@ namespace OpenRA.Mods.D2.ImportData
 				}
 			}
 
-			for (UInt16 y = 0; y < 16; y++)
+			for (ushort y = 0; y < 16; y++)
 			{
-				for (UInt16 x = 0; x < 16; x++)
+				for (ushort x = 0; x < 16; x++)
 				{
-					var packed = PackXY((UInt16)(x * 4), (UInt16)(y * 4));
+					var packed = PackXY((ushort)(x * 4), (ushort)(y * 4));
 					m[packed] = memory[y * 16 + x];
 				}
 			}
 		}
 
 		/* Fills in the gaps in the rough landscape. */
- 		void AverageRoughLandscape()
+		void AverageRoughLandscape()
 		{
 			/* For each 5x5 grid with the 4 corner tiles initialised, this
 			 * function takes tiles (x1,y1), (x2,y2) as described by
@@ -272,20 +272,20 @@ namespace OpenRA.Mods.D2.ImportData
 					for (var k = 0; k < 21; k++)
 					{
 						var index = (i + 1) % 2;
-						var x1 = (UInt16)(i * 4 + offsetTable[index, k, 0]);
-						var y1 = (UInt16)(j * 4 + offsetTable[index, k, 1]);
-						var x2 = (UInt16)(i * 4 + offsetTable[index, k, 2]);
-						var y2 = (UInt16)(j * 4 + offsetTable[index, k, 3]);
+						var x1 = (ushort)(i * 4 + offsetTable[index, k, 0]);
+						var y1 = (ushort)(j * 4 + offsetTable[index, k, 1]);
+						var x2 = (ushort)(i * 4 + offsetTable[index, k, 2]);
+						var y2 = (ushort)(j * 4 + offsetTable[index, k, 3]);
 
 						var packed1 = PackXY(x1, y1);
 						var packed2 = PackXY(x2, y2);
-						var packed = (UInt16)((packed1 + packed2) / 2);
+						var packed = (ushort)((packed1 + packed2) / 2);
 
 						if (packed >= 64 * 64)
 							continue;
 
-						packed1 = PackXY((UInt16)(x1 & 0x3F), y1);
-						packed2 = PackXY((UInt16)(x2 & 0x3F), y2);
+						packed1 = PackXY((ushort)(x1 & 0x3F), y1);
+						packed2 = PackXY((ushort)(x2 & 0x3F), y2);
 
 						if (packed1 >= 64 * 64)
 							throw new IndexOutOfRangeException("packed index is out of map bounds");
@@ -297,7 +297,7 @@ namespace OpenRA.Mods.D2.ImportData
 						 */
 						var sprite2 = (packed2 < 64 * 64) ? m[packed2] : 0;
 
-						m[packed] = (UInt16)((sprite1 + sprite2 + 1) / 2);
+						m[packed] = (ushort)((sprite1 + sprite2 + 1) / 2);
 					}
 				}
 			}
@@ -306,8 +306,8 @@ namespace OpenRA.Mods.D2.ImportData
 		/* Average a tile and its immediate neighbours. */
 		void Average()
 		{
-			UInt16[] currRow = new UInt16[64];
-			UInt16[] prevRow = new UInt16[64];
+			ushort[] currRow = new ushort[64];
+			ushort[] prevRow = new ushort[64];
 
 			for (var j = 0; j < 64; j++)
 			{
@@ -316,24 +316,24 @@ namespace OpenRA.Mods.D2.ImportData
 
 				for (var i = 0; i < 64; i++)
 				{
-					currRow[i] = (UInt16)(m[d + i]);
+					currRow[i] = (ushort)(m[d + i]);
 				}
 
 				for (var i = 0; i < 64; i++)
 				{
-					UInt16 sum = 0;
+					ushort sum = 0;
 
-					sum += (i == 0  || j == 0)  ? currRow[i] : prevRow[i - 1];
-					sum += (           j == 0)  ? currRow[i] : prevRow[i];
-					sum += (i == 63 || j == 0)  ? currRow[i] : prevRow[i + 1];
-					sum += (i == 0)             ? currRow[i] : currRow[i - 1];
-					sum +=                        currRow[i];
-					sum += (i == 63)            ? currRow[i] : currRow[i + 1];
-					sum += (i == 0  || j == 63) ? currRow[i] : (UInt16)(m[d + i + 63]);
-					sum += (           j == 63) ? currRow[i] : (UInt16)(m[d + i + 64]);
-					sum += (i == 63 || j == 63) ? currRow[i] : (UInt16)(m[d + i + 65]);
+					sum += (i == 0 || j == 0) ? currRow[i] : prevRow[i - 1];
+					sum += (j == 0) ? currRow[i] : prevRow[i];
+					sum += (i == 63 || j == 0) ? currRow[i] : prevRow[i + 1];
+					sum += (i == 0) ? currRow[i] : currRow[i - 1];
+					sum += currRow[i];
+					sum += (i == 63) ? currRow[i] : currRow[i + 1];
+					sum += (i == 0 || j == 63) ? currRow[i] : (ushort)(m[d + i + 63]);
+					sum += (j == 63) ? currRow[i] : (ushort)(m[d + i + 64]);
+					sum += (i == 63 || j == 63) ? currRow[i] : (ushort)(m[d + i + 65]);
 
-					m[d + i] = (UInt16)(sum / 9);
+					m[d + i] = (ushort)(sum / 9);
 				}
 			}
 		}
@@ -341,13 +341,13 @@ namespace OpenRA.Mods.D2.ImportData
 		/* Converts random values into landscape types. */
 		void DetermineLandscapeTypes()
 		{
-			var spriteID1 = (UInt16)(seed.Random() & 0xF);
+			var spriteID1 = (ushort)(seed.Random() & 0xF);
 			if (spriteID1 < 0x8)
 				spriteID1 = 0x8;
 			if (spriteID1 > 0xC)
 				spriteID1 = 0xC;
 
-			var spriteID2 = (UInt16)(seed.Random() & 0x3) - 1;
+			var spriteID2 = (ushort)(seed.Random() & 0x3) - 1;
 			if (spriteID2 > spriteID1 - 3)
 				spriteID2 = spriteID1 - 3;
 
@@ -355,7 +355,7 @@ namespace OpenRA.Mods.D2.ImportData
 			{
 				var spriteID = m[i];
 				var tileType =
-					(spriteID >  spriteID1 + 4) ? D2MapUtils.RoughTile
+					(spriteID > spriteID1 + 4) ? D2MapUtils.RoughTile
 					: (spriteID >= spriteID1) ? D2MapUtils.RockTile
 					: (spriteID <= spriteID2) ? D2MapUtils.DuneTile
 					: D2MapUtils.SandTile;
@@ -366,19 +366,19 @@ namespace OpenRA.Mods.D2.ImportData
 
 		/* Adding Spice related functions */
 
-		public static UInt16 PackXY(UInt16 x, UInt16 y)
+		public static ushort PackXY(ushort x, ushort y)
 		{
-			return (UInt16)((y << 6) | x);
+			return (ushort)((y << 6) | x);
 		}
 
-		public static UInt16 PackedX(UInt16 packed)
+		public static ushort PackedX(ushort packed)
 		{
-			return (UInt16)(packed & 0x3F);
+			return (ushort)(packed & 0x3F);
 		}
 
-		public static UInt16 PackedY(UInt16 packed)
+		public static ushort PackedY(ushort packed)
 		{
-			return (UInt16)((packed >> 6) & 0x3F);
+			return (ushort)((packed >> 6) & 0x3F);
 		}
 
 		/* x and y multiplied by 16 */
@@ -483,7 +483,7 @@ namespace OpenRA.Mods.D2.ImportData
 			const uint maxCount = 65535;
 			var count = 0;
 			var i = 0L;
-			
+
 			/* ENHANCEMENT: spice field controls. */
 			if ((minSpiceFields == 0) && (maxSpiceFields == 0))
 			{
@@ -502,14 +502,14 @@ namespace OpenRA.Mods.D2.ImportData
 
 			while (i-- != 0)
 			{
-				UInt16 y = 0;
-				UInt16 x = 0;
+				ushort y = 0;
+				ushort x = 0;
 
 				while (true)
 				{
-					y = (UInt16)(seed.Random() & 0x3F);
-					x = (UInt16)(seed.Random() & 0x3F);
-					
+					y = (ushort)(seed.Random() & 0x3F);
+					x = (ushort)(seed.Random() & 0x3F);
+
 					var tile = m[PackXY(x, y)];
 
 					if (CanBecomeSpice(tile))
@@ -528,7 +528,7 @@ namespace OpenRA.Mods.D2.ImportData
 				var x1 = ((x & 0x3F) << 8) | 0x80;
 				var y1 = ((y & 0x3F) << 8) | 0x80;
 
-				var j = (UInt16)seed.Random() & 0x1F;
+				var j = (ushort)seed.Random() & 0x1F;
 
 				while (j-- != 0)
 				{
@@ -568,9 +568,9 @@ namespace OpenRA.Mods.D2.ImportData
 		/* Smooths the boundaries between different landscape types. */
 		void Smooth()
 		{
-			for (UInt16 y = 0; y < 64; y++)
+			for (ushort y = 0; y < 64; y++)
 			{
-				for (UInt16 x = 0; x < 64; x++)
+				for (ushort x = 0; x < 64; x++)
 				{
 					var index = y * 64 + x;
 					var tile = m[index];
@@ -585,9 +585,9 @@ namespace OpenRA.Mods.D2.ImportData
 
 		void FillTiles()
 		{
-			for (UInt16 y = 0; y < 64; y++)
+			for (ushort y = 0; y < 64; y++)
 			{
-				for (UInt16 x = 0; x < 64; x++)
+				for (ushort x = 0; x < 64; x++)
 				{
 					var tile = m[PackXY(x, y)];
 					map.Tiles[new CPos(x, y)] = new TerrainTile(tile, 0);
@@ -595,7 +595,7 @@ namespace OpenRA.Mods.D2.ImportData
 			}
 		}
 
-		void CreateLandscape(UInt32 seed, uint minSpiceFields, uint maxSpiceFields)
+		void CreateLandscape(uint seed, uint minSpiceFields, uint maxSpiceFields)
 		{
 			this.seed = new D2MapSeed(seed);
 
@@ -629,7 +629,7 @@ namespace OpenRA.Mods.D2.ImportData
 		{
 			var seedStr = iniFile.GetSection("MAP").GetValue("Seed", "0");
 			var seedValue = 0U;
-			UInt32.TryParse(seedStr, out seedValue);
+			uint.TryParse(seedStr, out seedValue);
 
 			CreateLandscape(seedValue, 0, 0);
 		}
@@ -641,8 +641,8 @@ namespace OpenRA.Mods.D2.ImportData
 			foreach (var field in fields)
 			{
 				var str = field.Trim();
-				UInt16 fieldPacked = 0;
-				UInt16.TryParse(str, out fieldPacked);
+				ushort fieldPacked = 0;
+				ushort.TryParse(str, out fieldPacked);
 
 				var x = PackedX(fieldPacked);
 				var y = PackedY(fieldPacked);
@@ -673,8 +673,8 @@ namespace OpenRA.Mods.D2.ImportData
 			foreach (var bloom in blooms)
 			{
 				var str = bloom.Trim();
-				UInt16 bloomPacked = 0;
-				UInt16.TryParse(str, out bloomPacked);
+				ushort bloomPacked = 0;
+				ushort.TryParse(str, out bloomPacked);
 
 				var x = PackedX(bloomPacked);
 				var y = PackedY(bloomPacked);
@@ -713,14 +713,14 @@ namespace OpenRA.Mods.D2.ImportData
 					if (structureType.ToLower() == "const yard")
 					{
 						var positionStr = substrs[3].Trim();
-						UInt16 packed = 0;
-						UInt16.TryParse(positionStr, out packed);
+						ushort packed = 0;
+						ushort.TryParse(positionStr, out packed);
 
 						var x = PackedX(packed);
 						var y = PackedY(packed);
 
 						CreateSpawnPoint(new CPos(x, y));
-						playerCount ++;
+						playerCount++;
 					}
 				}
 			}

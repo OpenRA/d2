@@ -12,9 +12,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using OpenRA;
 using OpenRA.FileSystem;
-using OpenRA.Mods.D2.UtilityCommands;
 
 namespace OpenRA.Mods.D2.ImportData
 {
@@ -22,7 +20,7 @@ namespace OpenRA.Mods.D2.ImportData
 	{
 		public static int ImportOriginalMaps(ModData modData, Dictionary<string, string> info)
 		{
-			string[] files = {};
+			string[] files = { };
 			var unpackedFilesCount = 0;
 
 			if (info.ContainsKey("OriginalMaps"))
@@ -49,7 +47,6 @@ namespace OpenRA.Mods.D2.ImportData
 			{
 				var filename = s.Trim();
 				var mapFilename = Path.Combine(originalPath, Path.GetFileNameWithoutExtension(filename) + ".oramap");
-							
 				try
 				{
 					if (!File.Exists(mapFilename))

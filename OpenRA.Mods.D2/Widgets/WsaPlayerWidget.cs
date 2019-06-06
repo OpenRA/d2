@@ -10,9 +10,7 @@
 #endregion
 
 using System;
-using System.Drawing;
 using OpenRA.Graphics;
-using OpenRA.Mods.D2.SpriteLoaders;
 using OpenRA.Mods.D2.FileFormats;
 using OpenRA.Widgets;
 
@@ -86,7 +84,6 @@ namespace OpenRA.Mods.D2.Widgets
 
 			// Round size to integer pixels. Round up to be consistent with the scale calculation.
 			videoSize = new float2((int)Math.Ceiling(video.Width * scale), (int)Math.Ceiling(video.Height * AspectRatio * scale));
-
 		}
 
 		public override void Draw()
@@ -95,13 +92,12 @@ namespace OpenRA.Mods.D2.Widgets
 				return;
 
 			var sheetBuilder = new SheetBuilder(SheetType.Indexed, 512);
-			var videoSprite  = sheetBuilder.Add(video.Frame);
-
+			var videoSprite = sheetBuilder.Add(video.Frame);
 
 			Game.Renderer.EnableScissor(RenderBounds);
 			Game.Renderer.RgbaColorRenderer.FillRect(
 				new float2(RenderBounds.Left, RenderBounds.Top),
-				new float2(RenderBounds.Right, RenderBounds.Bottom), Color.Black);
+				new float2(RenderBounds.Right, RenderBounds.Bottom), OpenRA.Primitives.Color.Black);
 			Game.Renderer.DisableScissor();
 
 			Game.Renderer.SpriteRenderer.DrawSprite(videoSprite, videoOrigin, pr, videoSize);

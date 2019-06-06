@@ -9,12 +9,9 @@
  */
 #endregion
 
-using System;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using OpenRA.Graphics;
-using OpenRA.FileFormats;
 using OpenRA.Mods.D2.SpriteLoaders;
 using OpenRA.Primitives;
 
@@ -29,7 +26,7 @@ namespace OpenRA.Mods.D2.FileFormats
 
 		public int Length { get { return frames == null ? 0 : frames.Length; } }
 		public int CurrentFrame { get { return currentFrame; } }
-		public ISpriteFrame Frame { get { return currentSpriteFrame(); } }
+		public ISpriteFrame Frame { get { return CurrentSpriteFrame(); } }
 		public int Width { get { return width; } }
 		public int Height { get { return height; } }
 
@@ -56,7 +53,7 @@ namespace OpenRA.Mods.D2.FileFormats
 			metadata = null;
 
 			if (frames != null)
-				prev = frames[frames.Length-1];
+				prev = frames[frames.Length - 1];
 
 			wsaLoader.TryParseSpriteWithPrevFrame(stream, prev, out videoFrames, out metadata);
 
@@ -86,7 +83,7 @@ namespace OpenRA.Mods.D2.FileFormats
 				currentFrame = 0;
 		}
 
-		ISpriteFrame currentSpriteFrame()
+		ISpriteFrame CurrentSpriteFrame()
 		{
 			if (frames != null && currentFrame < frames.Length)
 				return frames[currentFrame];

@@ -1,107 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{3B845E07-4689-47BC-90F4-27217B0A2DF6}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>OpenRA.Mods.D2</RootNamespace>
-    <AssemblyName>OpenRA.Mods.D2</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <PlatformTarget>x86</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <OutputPath>bin\Debug\</OutputPath>
+    <TargetFramework>net461</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
     <Optimize>true</Optimize>
+    <LangVersion>5</LangVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <OutputPath>../mods/d2</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <CodeAnalysisRuleSet>../engine/OpenRA.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
+    <!-- Work around an issue where Rider does not detect files in the project root using the default glob -->
+    <Compile Include="**/*.cs" Exclude="$(DefaultItemExcludes)" />
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
     <Reference Include="Eluant">
-      <HintPath>..\engine\thirdparty\download\Eluant.dll</HintPath>
+      <HintPath>../engine/thirdparty/download/Eluant.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AudioLoaders\D2VocLoader.cs" />
-    <Compile Include="FileFormats\WsaReader.cs" />
-    <Compile Include="ImportData\D2ImportOriginalMaps.cs" />
-    <Compile Include="ImportData\D2MapImporter.cs" />
-    <Compile Include="ImportData\D2MapSeed.cs" />
-    <Compile Include="ImportData\D2UnpackContent.cs" />
-    <Compile Include="LoadScreens\D2LoadScreen.cs" />
-    <Compile Include="MathExtention\D2MathExtention.cs" />
-    <Compile Include="MapUtils\D2MapUtils.cs" />
-    <Compile Include="SpriteLoaders\IcnD2Loader.cs" />
-    <Compile Include="SpriteLoaders\CpsD2Loader.cs" />
-    <Compile Include="SpriteLoaders\WsaLoader.cs" />
-    <Compile Include="Traits\Render\WithTilesetBody.cs" />
-    <Compile Include="Traits\World\D2ResourceLayer.cs" />
-    <Compile Include="Traits\World\D2EditorResourceLayer.cs" />
-    <Compile Include="Traits\World\D2TerrainLayer.cs" />
-    <Compile Include="Traits\PaletteEffects\D2WindtrapPaletteEffect.cs" />
-    <Compile Include="Traits\World\D2ShroudRenderer.cs" />
-    <Compile Include="Traits\Buildings\D2Building.cs" />
-    <Compile Include="Traits\Buildings\D2Concrete.cs" />
-    <Compile Include="Traits\Buildings\D2ConcreteOwners.cs" />
-    <Compile Include="Traits\D2AffectsShroud.cs" />
-    <Compile Include="Traits\D2RevealsShroud.cs" />
-    <Compile Include="UtilityCommands\D2ImportMapD2Command.cs" />
-    <Compile Include="Widgets\WsaPlayerWidget.cs" />
-    <Compile Include="Widgets\Logic\D2AssetBrowserLogic.cs" />
-    <Compile Include="Widgets\Logic\D2MissionBrowserLogic.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Widgets\Logic\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\engine\OpenRA.Mods.Common\OpenRA.Mods.Common.csproj">
-      <Project>{FE6C8CC0-2F07-442A-B29F-17617B3B7FC6}</Project>
-      <Name>OpenRA.Mods.Common</Name>
+    <ProjectReference Include="../engine/OpenRA.Game/OpenRA.Game.csproj">
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\engine\OpenRA.Game\OpenRA.Game.csproj">
-      <Project>{0DFB103F-2962-400F-8C6D-E2C28CCBA633}</Project>
-      <Name>OpenRA.Game</Name>
+    <ProjectReference Include="../engine/OpenRA.Mods.Common/OpenRA.Mods.Common.csproj">
       <Private>False</Private>
     </ProjectReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
+    <AdditionalFiles Include="../engine/stylecop.json" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Target Name="AfterBuild">
-    <MakeDir Directories="$(SolutionDir)mods/d2/" />
-    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SolutionDir)mods/d2/" />
-    <!--
-        We need to copy OpenRA.Mods.Cnc.pdb (not `.dll.pdb`). This is only necessary on Windows.
-        Mono outputs a `.dll.mdb` so we can just append `.mdb` directly.
-    -->
-    <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(SolutionDir)mods/d2/" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
-    <Copy SourceFiles="$(TargetPath).mdb" DestinationFolder="$(SolutionDir)mods/d2/" Condition="Exists('$(TargetPath).mdb')" />
-    <!-- Uncomment these lines when debugging or adding to this target
-    <Message Text="DEBUG OS:                     $(OS)"/>
-    <Message Text="DEBUG SolutionDir:            $(SolutionDir)"/>
-    <Message Text="DEBUG TargetPath:             $(TargetPath)"/>
-    <Message Text="DEBUG TargetDir:              $(TargetDir)"/>
-    <Message Text="DEBUG TargetName:             $(TargetName)"/>
-	-->
+  <Target Name="DisableAnalyzers" BeforeTargets="CoreCompile" Condition="'$(Configuration)'=='Release'">
+    <!-- Disable code style analysis on Release builds to improve compile-time performance -->
+    <ItemGroup Condition="'$(Configuration)'=='Release'">
+      <Analyzer Remove="@(Analyzer)" />
+    </ItemGroup>
   </Target>
 </Project>

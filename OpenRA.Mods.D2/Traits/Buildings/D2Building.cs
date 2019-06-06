@@ -12,15 +12,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using OpenRA.Graphics;
 using OpenRA.Mods.Common.Traits;
-using OpenRA.Mods.Common.Traits.Render;
-using OpenRA.Primitives;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.D2.Traits
 {
-
 	public class D2BuildingInfo : BuildingInfo
 	{
 		[Desc("All cells should be explored")]
@@ -36,7 +32,6 @@ namespace OpenRA.Mods.D2.Traits
 		public readonly bool AnyCellShouldBeVisible = false;
 
 		public override object Create(ActorInitializer init) { return new Building(init, this); }
-
 
 		public override bool IsCloseEnoughToBase(World world, Player p, ActorInfo ai, CPos topLeft)
 		{
@@ -101,7 +96,7 @@ namespace OpenRA.Mods.D2.Traits
 				{
 					var pos = new CPos(x, y);
 
-					if(shroud.IsExplored(pos) && shroud.IsVisible(pos))
+					if (shroud.IsExplored(pos) && shroud.IsVisible(pos))
 					{
 						var ownerAtPos = co.GetOwnerAt(pos);
 
@@ -118,6 +113,5 @@ namespace OpenRA.Mods.D2.Traits
 					.Any(b => Math.Abs(a.X - b.X) <= adjacent
 						&& Math.Abs(a.Y - b.Y) <= adjacent));
 		}
-
 	}
 }
