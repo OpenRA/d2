@@ -23,6 +23,7 @@ wall:
 	D2Building:
 		BuildSounds: CHUNG.WAV
 		TerrainTypes: Rock, Concrete
+	D2PlaceBuildingPreview:
 	RequiresBuildableArea:
 		AreaTypes: building
 		Adjacent: 1

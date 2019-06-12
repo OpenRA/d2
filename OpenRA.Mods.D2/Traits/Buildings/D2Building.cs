@@ -26,10 +26,10 @@ namespace OpenRA.Mods.D2.Traits
 		public readonly bool AnyCellShouldBeExplored = false;
 
 		[Desc("All cells should be not hidden by fog")]
-		public readonly bool AllCellsShouldBeVisible = true;
+		public readonly bool AllCellsShouldBeVisible = false;
 
 		[Desc("Any cell should be not hidden by fog")]
-		public readonly bool AnyCellShouldBeVisible = false;
+		public readonly bool AnyCellShouldBeVisible = true;
 
 		public override object Create(ActorInitializer init) { return new Building(init, this); }
 

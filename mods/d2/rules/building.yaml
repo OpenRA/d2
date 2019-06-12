@@ -22,6 +22,7 @@
 		Footprint: xx xx
 		TerrainTypes: Rock, Concrete
 		BuildSounds: BUILD1.WAV
+	D2PlaceBuildingPreview:
 	RequiresBuildableArea:
 		AreaTypes: building
 		Adjacent: 1

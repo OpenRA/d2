@@ -5,6 +5,7 @@
 		TerrainTypes: Rock
 		BuildSounds: CHUNG.WAV
 		AllowInvalidPlacement: true
+	D2PlaceBuildingPreview:
 	RequiresBuildableArea:
 		AreaTypes: building
 		Adjacent: 1
@@ -44,6 +45,8 @@ concreteb:
 	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
+	D2PlaceBuildingPreview:
+		StrictBuildableChecks: false
 	LaysTerrain:
 		Template: 127
 		TerrainTypes: Rock
