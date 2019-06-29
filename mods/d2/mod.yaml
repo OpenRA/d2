@@ -303,7 +303,7 @@ Missions:
 
 SupportsMapsFrom: d2
 
-SoundFormats: D2Voc, Aud, Wav
+SoundFormats: Voc, Aud, Wav
 
 SpriteFormats: R8, ShpD2, IcnD2, ShpTD, CpsD2, Wsa
 
