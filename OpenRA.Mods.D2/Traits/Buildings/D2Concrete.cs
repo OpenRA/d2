@@ -20,6 +20,6 @@ namespace OpenRA.Mods.D2.Traits
 
 	public class D2Concrete
 	{
-		public D2Concrete(Actor selfo) { }
+		public D2Concrete(Actor self) { }
 	}
 }
