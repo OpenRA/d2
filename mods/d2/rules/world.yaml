@@ -3,7 +3,11 @@
 	AlwaysVisible:
 	ScreenMap:
 	ActorMap:
-	Selection:
+	D2Selection:
+		CheckboxEnabled: True
+		CheckboxLocked: False
+		CheckboxVisible: True
+		CheckboxDisplayOrder: 1
 	MusicPlaylist:
 		VictoryMusic: score
 		DefeatMusic: score
@@ -165,7 +169,7 @@ World:
 	MapCreeps:
 		CheckboxLabel: Worms
 		CheckboxDescription: Worms roam the map and devour unprepared forces
-		CheckboxDisplayOrder: 1
+		CheckboxDisplayOrder: 5
 	SpawnMapActors:
 	MapBuildRadius:
 		AllyBuildRadiusCheckboxDisplayOrder: 4
