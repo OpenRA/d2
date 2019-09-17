@@ -13,11 +13,11 @@ frigate:
 		Repulsable: False
 		MaximumPitch: 20
 		CruiseAltitude: 192
+		IdleBehavior: LeaveMap
 	-AppearsOnRadar:
 	Cargo:
 		MaxWeight: 20
 		PipCount: 10
-	FlyAwayOnIdle:
 	RejectsOrders:
 	Buildable:
 		Description: Supply spacecraft

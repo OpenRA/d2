@@ -33,11 +33,11 @@ ornithopter:
 		TurnSpeed: 5
 		LandableTerrainTypes: Sand, Spice, SpiceSand, Dune, Concrete
 		Repulsable: False
-		LandWhenIdle: False
 		AirborneCondition: airborne
 		CanHover: False
 		VTOL: False
 		IdleTurnSpeed: 2
+		CanSlide: False
 	Tooltip:
 		Name: Ornithopter
 	SpawnActorOnDeath:

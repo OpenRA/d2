@@ -22,7 +22,7 @@ harvester:
 		Resources: Spice
 		BaleUnloadDelay: 5
 		SearchFromProcRadius: 30
-		SearchFromOrderRadius: 15
+		SearchFromHarvesterRadius: 15
 	CarryableHarvester:
 	Health:
 		HP: 150
