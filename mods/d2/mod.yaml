@@ -228,6 +228,7 @@ ChromeLayout:
 	d2|chrome/missionbrowser.yaml
 	common|chrome/gamesave-browser.yaml
 	common|chrome/gamesave-loading.yaml
+
 Weapons:
 	d2|weapons/smallguns.yaml
 	d2|weapons/largeguns.yaml
