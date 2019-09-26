@@ -226,6 +226,8 @@ ChromeLayout:
 	d2|chrome/ingame-player.yaml
 	d2|chrome/assetbrowser.yaml
 	d2|chrome/missionbrowser.yaml
+	common|chrome/gamesave-browser.yaml
+	common|chrome/gamesave-loading.yaml
 
 Weapons:
 	d2|weapons/smallguns.yaml
@@ -273,30 +275,38 @@ ChromeMetrics:
 	d2|metrics.yaml
 
 Fonts:
-	Regular:
-		Font: common|FreeSans.ttf
-		Size:14
-	Bold:
-		Font: common|FreeSansBold.ttf
-		Size:14
-	Title:
-		Font: d2k|Dune2k.ttf
-		Size:32
-	MediumBold:
-		Font: common|FreeSansBold.ttf
-		Size:18
-	BigBold:
-		Font: common|FreeSansBold.ttf
-		Size:24
-	Small:
-		Font: common|FreeSans.ttf
-		Size:12
 	Tiny:
 		Font: common|FreeSans.ttf
-		Size:10
+		Size: 10
+		Ascender: 8
 	TinyBold:
 		Font: common|FreeSansBold.ttf
-		Size:10
+		Size: 10
+		Ascender: 8
+	Small:
+		Font: common|FreeSans.ttf
+		Size: 12
+		Ascender: 9
+	Regular:
+		Font: common|FreeSans.ttf
+		Size: 14
+		Ascender: 11
+	Bold:
+		Font: common|FreeSansBold.ttf
+		Size: 14
+		Ascender: 11
+	MediumBold:
+		Font: common|FreeSansBold.ttf
+		Size: 18
+		Ascender: 14
+	BigBold:
+		Font: common|FreeSansBold.ttf
+		Size: 24
+		Ascender: 18
+	Title:
+		Font: d2k|Dune2k.ttf
+		Size: 32
+		Ascender: 23
 
 Missions:
 	d2|missions.yaml
