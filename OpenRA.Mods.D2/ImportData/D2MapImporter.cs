@@ -16,10 +16,10 @@
 
 using System;
 using System.IO;
-using OpenRA.Primitives;
 using OpenRA.Mods.Common.FileFormats;
 using OpenRA.Mods.D2.MapUtils;
 using OpenRA.Mods.D2.MathExtention;
+using OpenRA.Primitives;
 
 namespace OpenRA.Mods.D2.ImportData
 {
