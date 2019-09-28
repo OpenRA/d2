@@ -68,23 +68,24 @@ namespace OpenRA.Mods.D2.Traits
 				{
 					var pos = new CPos(x, y);
 
-					if (!shroud.IsExplored(pos)) {
-						if (AllCellsShouldBeExplored) {
+					if (!shroud.IsExplored(pos))
+					{
+						if (AllCellsShouldBeExplored)
 							return false;
-						}
-					} else {
+					}
+					else
 						hasExploredCells = true;
-					}
 
-					if (!shroud.IsVisible(pos)) {
-						if (AllCellsShouldBeVisible) {
+					if (!shroud.IsVisible(pos))
+					{
+						if (AllCellsShouldBeVisible)
 							return false;
-						}
-					} else {
-						hasVisibleCells = true;
 					}
+					else
+						hasVisibleCells = true;
 				}
 			}
+
 			if (AnyCellShouldBeExplored && !hasExploredCells)
 				return false;
 			if (AnyCellShouldBeVisible && !hasVisibleCells)
@@ -100,9 +101,8 @@ namespace OpenRA.Mods.D2.Traits
 					{
 						var ownerAtPos = co.GetOwnerAt(pos);
 
-						if (ownerAtPos != null && (ownerAtPos == p || (allyBuildEnabled && ownerAtPos.Stances[p] == Stance.Ally))) {
+						if (ownerAtPos != null && (ownerAtPos == p || (allyBuildEnabled && ownerAtPos.Stances[p] == Stance.Ally)))
 							nearnessCandidates.Add(pos);
-						}
 					}
 				}
 			}

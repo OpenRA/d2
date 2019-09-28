@@ -82,9 +82,7 @@ namespace OpenRA.Mods.D2
 			if (info.ContainsKey("Palette"))
 			{
 				using (var stream = modData.DefaultFileSystem.Open(info["Palette"]))
-				{
 					palette = new ImmutablePalette(stream, new int[] { });
-				}
 
 				hardwarePalette = new HardwarePalette();
 				hardwarePalette.AddPalette("loadscreen", palette, false);

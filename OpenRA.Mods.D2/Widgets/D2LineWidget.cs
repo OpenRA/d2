@@ -10,8 +10,8 @@
 #endregion
 
 using System;
-using OpenRA.Widgets;
 using OpenRA.Primitives;
+using OpenRA.Widgets;
 
 namespace OpenRA.Mods.D2.Widgets
 {

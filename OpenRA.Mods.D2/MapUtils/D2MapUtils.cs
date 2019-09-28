@@ -112,9 +112,7 @@ namespace OpenRA.Mods.D2.MapUtils
 				}
 
 				if (clear != ClearSides.None)
-				{
 					return RockSides[SpriteMap[clear]];
-				}
 			}
 
 			if (tile == DuneTile)
@@ -126,9 +124,7 @@ namespace OpenRA.Mods.D2.MapUtils
 					var leftIndex = index - 1;
 					var leftTile = m[leftIndex];
 					if (!(leftTile >= 144 && leftTile <= 159))
-					{
 						clear |= ClearSides.Left;
-					}
 				}
 
 				if (y > 0)
@@ -136,9 +132,7 @@ namespace OpenRA.Mods.D2.MapUtils
 					var topIndex = index - width;
 					var topTile = m[topIndex];
 					if (!(topTile >= 144 && topTile <= 159))
-					{
 						clear |= ClearSides.Top;
-					}
 				}
 
 				if (x < width - 1)
@@ -146,9 +140,7 @@ namespace OpenRA.Mods.D2.MapUtils
 					var rightIndex = index + 1;
 					var rightTile = m[rightIndex];
 					if (!(rightTile >= 144 && rightTile <= 159))
-					{
 						clear |= ClearSides.Right;
-					}
 				}
 
 				if (y < height - 1)
@@ -156,15 +148,11 @@ namespace OpenRA.Mods.D2.MapUtils
 					var bottomIndex = index + width;
 					var bottomTile = m[bottomIndex];
 					if (!(bottomTile >= 144 && bottomTile <= 159))
-					{
 						clear |= ClearSides.Bottom;
-					}
 				}
 
 				if (clear != ClearSides.None)
-				{
 					return DuneSides[SpriteMap[clear]];
-				}
 			}
 
 			if (tile == RoughTile)
@@ -176,9 +164,7 @@ namespace OpenRA.Mods.D2.MapUtils
 					var leftIndex = index - 1;
 					var leftTile = m[leftIndex];
 					if (!(leftTile >= 160 && leftTile <= 175))
-					{
 						clear |= ClearSides.Left;
-					}
 				}
 
 				if (y > 0)
@@ -186,9 +172,7 @@ namespace OpenRA.Mods.D2.MapUtils
 					var topIndex = index - width;
 					var topTile = m[topIndex];
 					if (!(topTile >= 160 && topTile <= 175))
-					{
 						clear |= ClearSides.Top;
-					}
 				}
 
 				if (x < width - 1)
@@ -196,9 +180,7 @@ namespace OpenRA.Mods.D2.MapUtils
 					var rightIndex = index + 1;
 					var rightTile = m[rightIndex];
 					if (!(rightTile >= 160 && rightTile <= 175))
-					{
 						clear |= ClearSides.Right;
-					}
 				}
 
 				if (y < height - 1)
@@ -206,15 +188,11 @@ namespace OpenRA.Mods.D2.MapUtils
 					var bottomIndex = index + width;
 					var bottomTile = m[bottomIndex];
 					if (!(bottomTile >= 160 && bottomTile <= 175))
-					{
 						clear |= ClearSides.Bottom;
-					}
 				}
 
 				if (clear != ClearSides.None)
-				{
 					return RoughSides[SpriteMap[clear]];
-				}
 			}
 
 			return tile;
@@ -273,9 +251,7 @@ namespace OpenRA.Mods.D2.MapUtils
 				}
 
 				if (clear != ClearSides.None)
-				{
 					return SpriteMap[clear];
-				}
 			}
 
 			if (tile == DuneTile)
@@ -287,9 +263,7 @@ namespace OpenRA.Mods.D2.MapUtils
 					var leftPos = new MPos(pos.U - 1, pos.V);
 					var leftTile = tiles[leftPos];
 					if (!(leftTile.Type >= 144 && leftTile.Type <= 159))
-					{
 						clear |= ClearSides.Left;
-					}
 				}
 
 				if (pos.V > 0)
@@ -297,9 +271,7 @@ namespace OpenRA.Mods.D2.MapUtils
 					var topPos = new MPos(pos.U, pos.V - 1);
 					var topTile = tiles[topPos];
 					if (!(topTile.Type >= 144 && topTile.Type <= 159))
-					{
 						clear |= ClearSides.Top;
-					}
 				}
 
 				if (pos.U < tiles.Size.Width - 1)
@@ -307,9 +279,7 @@ namespace OpenRA.Mods.D2.MapUtils
 					var rightPos = new MPos(pos.U + 1, pos.V);
 					var rightTile = tiles[rightPos];
 					if (!(rightTile.Type >= 144 && rightTile.Type <= 159))
-					{
 						clear |= ClearSides.Right;
-					}
 				}
 
 				if (pos.V < tiles.Size.Height - 1)
@@ -317,15 +287,11 @@ namespace OpenRA.Mods.D2.MapUtils
 					var bottomPos = new MPos(pos.U, pos.V + 1);
 					var bottomTile = tiles[bottomPos];
 					if (!(bottomTile.Type >= 144 && bottomTile.Type <= 159))
-					{
 						clear |= ClearSides.Bottom;
-					}
 				}
 
 				if (clear != ClearSides.None)
-				{
 					return SpriteMap[clear];
-				}
 			}
 
 			if (tile == RoughTile)
@@ -337,9 +303,7 @@ namespace OpenRA.Mods.D2.MapUtils
 					var leftPos = new MPos(pos.U - 1, pos.V);
 					var leftTile = tiles[leftPos];
 					if (!(leftTile.Type >= 160 && leftTile.Type <= 175))
-					{
 						clear |= ClearSides.Left;
-					}
 				}
 
 				if (pos.V > 0)
@@ -347,9 +311,7 @@ namespace OpenRA.Mods.D2.MapUtils
 					var topPos = new MPos(pos.U, pos.V - 1);
 					var topTile = tiles[topPos];
 					if (!(topTile.Type >= 160 && topTile.Type <= 175))
-					{
 						clear |= ClearSides.Top;
-					}
 				}
 
 				if (pos.U < tiles.Size.Width - 1)
@@ -357,9 +319,7 @@ namespace OpenRA.Mods.D2.MapUtils
 					var rightPos = new MPos(pos.U + 1, pos.V);
 					var rightTile = tiles[rightPos];
 					if (!(rightTile.Type >= 160 && rightTile.Type <= 175))
-					{
 						clear |= ClearSides.Right;
-					}
 				}
 
 				if (pos.V < tiles.Size.Height - 1)
@@ -367,15 +327,11 @@ namespace OpenRA.Mods.D2.MapUtils
 					var bottomPos = new MPos(pos.U, pos.V + 1);
 					var bottomTile = tiles[bottomPos];
 					if (!(bottomTile.Type >= 160 && bottomTile.Type <= 175))
-					{
 						clear |= ClearSides.Bottom;
-					}
 				}
 
 				if (clear != ClearSides.None)
-				{
 					return SpriteMap[clear];
-				}
 			}
 
 			return SpriteMap[ClearSides.None];

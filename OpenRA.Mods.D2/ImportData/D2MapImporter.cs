@@ -126,6 +126,7 @@ namespace OpenRA.Mods.D2.ImportData
 				tl = new PPos(21, 21);
 				br = new PPos(41, 41);
 			}
+
 			map.SetBounds(tl, br);
 		}
 
@@ -140,7 +141,9 @@ namespace OpenRA.Mods.D2.ImportData
 		 */
 
 		// some offsets
-		readonly sbyte[] around = {
+		readonly
+		sbyte[] around =
+		{
 			0,
 			-1,  1,   -16, 16,
 			-17, 17,  -15, 15,
@@ -149,26 +152,58 @@ namespace OpenRA.Mods.D2.ImportData
 			-30, 30,  -34, 34
 		};
 
-		readonly ushort[,,] offsetTable = {
+		readonly ushort[,,] offsetTable =
+		{
 			{
-				{ 0, 0, 4, 0 }, { 4, 0, 4, 4 }, { 0, 0, 0, 4 }, { 0, 4, 4, 4 },
-				{ 0, 0, 0, 2 }, { 0, 2, 0, 4 }, { 0, 0, 2, 0 }, { 2, 0, 4, 0 },
-				{ 4, 0, 4, 2 }, { 4, 2, 4, 4 }, { 0, 4, 2, 4 }, { 2, 4, 4, 4 },
-				{ 0, 0, 4, 4 }, { 2, 0, 2, 2 }, { 0, 0, 2, 2 }, { 4, 0, 2, 2 },
-				{ 0, 2, 2, 2 }, { 2, 2, 4, 2 }, { 2, 2, 0, 4 }, { 2, 2, 4, 4 },
-				{ 2, 2, 2, 4 },
+				{ 0, 0, 4, 0 },
+				{ 4, 0, 4, 4 },
+				{ 0, 0, 0, 4 },
+				{ 0, 4, 4, 4 },
+				{ 0, 0, 0, 2 },
+				{ 0, 2, 0, 4 },
+				{ 0, 0, 2, 0 },
+				{ 2, 0, 4, 0 },
+				{ 4, 0, 4, 2 },
+				{ 4, 2, 4, 4 },
+				{ 0, 4, 2, 4 },
+				{ 2, 4, 4, 4 },
+				{ 0, 0, 4, 4 },
+				{ 2, 0, 2, 2 },
+				{ 0, 0, 2, 2 },
+				{ 4, 0, 2, 2 },
+				{ 0, 2, 2, 2 },
+				{ 2, 2, 4, 2 },
+				{ 2, 2, 0, 4 },
+				{ 2, 2, 4, 4 },
+				{ 2, 2, 2, 4 }
 			},
 			{
-				{ 0, 0, 4, 0 }, { 4, 0, 4, 4 }, { 0, 0, 0, 4 }, { 0, 4, 4, 4 },
-				{ 0, 0, 0, 2 }, { 0, 2, 0, 4 }, { 0, 0, 2, 0 }, { 2, 0, 4, 0 },
-				{ 4, 0, 4, 2 }, { 4, 2, 4, 4 }, { 0, 4, 2, 4 }, { 2, 4, 4, 4 },
-				{ 4, 0, 0, 4 }, { 2, 0, 2, 2 }, { 0, 0, 2, 2 }, { 4, 0, 2, 2 },
-				{ 0, 2, 2, 2 }, { 2, 2, 4, 2 }, { 2, 2, 0, 4 }, { 2, 2, 4, 4 },
-				{ 2, 2, 2, 4 },
-			},
+				{ 0, 0, 4, 0 },
+				{ 4, 0, 4, 4 },
+				{ 0, 0, 0, 4 },
+				{ 0, 4, 4, 4 },
+				{ 0, 0, 0, 2 },
+				{ 0, 2, 0, 4 },
+				{ 0, 0, 2, 0 },
+				{ 2, 0, 4, 0 },
+				{ 4, 0, 4, 2 },
+				{ 4, 2, 4, 4 },
+				{ 0, 4, 2, 4 },
+				{ 2, 4, 4, 4 },
+				{ 4, 0, 0, 4 },
+				{ 2, 0, 2, 2 },
+				{ 0, 0, 2, 2 },
+				{ 4, 0, 2, 2 },
+				{ 0, 2, 2, 2 },
+				{ 2, 2, 4, 2 },
+				{ 2, 2, 0, 4 },
+				{ 2, 2, 4, 4 },
+				{ 2, 2, 2, 4 }
+			}
 		};
 
-		readonly int[] stepX = {
+		readonly int[] stepX =
+		{
 			0,    3,     6,    9,    12,   15,   18,   21,   24,   27,   30,   33,   36,   39,   42,   45,
 			48,   51,    54,   57,   59,   62,   65,   67,   70,   73,   75,   78,   80,   82,   85,   87,
 			89,   91,    94,   96,   98,   100,  101,  103,  105,  107,  108,  110,  111,  113,  114,  116,
@@ -187,7 +222,8 @@ namespace OpenRA.Mods.D2.ImportData
 			-48,  -45,  -42,  -39,  -36,  -33,  -30,  -27,  -24,  -21,  -18,  -15,  -12,  -9,   -6,   -3
 		};
 
-		readonly int[] stepY = {
+		readonly int[] stepY =
+		{
 			127,   126,  126,  126,  126,  126,  125,  125,  124,  123,  123,  122,  121,  120,  119,  118,
 			117,   116,  114,  113,  112,  110,  108,  107,  105,  103,  102,  100,  98,   96,   94,   91,
 			89,    87,   85,   82,   80,   78,   75,   73,   70,   67,   65,   62,   59,   57,   54,   51,
@@ -216,9 +252,7 @@ namespace OpenRA.Mods.D2.ImportData
 			{
 				memory[i] = (byte)(seed.Random() & 0xF);
 				if (memory[i] > 0xA)
-				{
 					memory[i] = 0xA;
-				}
 			}
 
 			memory[272] = 0;
@@ -315,9 +349,7 @@ namespace OpenRA.Mods.D2.ImportData
 				Array.Copy(currRow, prevRow, currRow.Length);
 
 				for (var i = 0; i < 64; i++)
-				{
 					currRow[i] = (ushort)(m[d + i]);
-				}
 
 				for (var i = 0; i < 64; i++)
 				{
@@ -389,8 +421,8 @@ namespace OpenRA.Mods.D2.ImportData
 
 			public TilePos(int x, int y)
 			{
-				this.X = x;
-				this.Y = y;
+				X = x;
+				Y = y;
 			}
 		}
 
@@ -448,21 +480,15 @@ namespace OpenRA.Mods.D2.ImportData
 								|| (offsetX2 + offsetY2 < radius2))
 							{
 								if (centerIsThickSpice && (offsetX == 0) && (offsetY == 0))
-								{
 									map.Resources[coord] = new ResourceTile(1, 2);
-								}
 								else
 								{
 									if (map.Resources[coord].Index == 2)
-									{
 										map.Resources[coord] = new ResourceTile(1, 2);
-									}
 									else
 									{
 										if (tile == D2MapUtils.SandTile)
-										{
 											map.Resources[coord] = new ResourceTile(1, 1);
-										}
 									}
 								}
 							}
@@ -486,9 +512,7 @@ namespace OpenRA.Mods.D2.ImportData
 
 			/* ENHANCEMENT: spice field controls. */
 			if ((minSpiceFields == 0) && (maxSpiceFields == 0))
-			{
 				i = seed.Random() & 0x2F;
-			}
 			else
 			{
 				var a = Math.Min(minSpiceFields, 255);
@@ -513,16 +537,12 @@ namespace OpenRA.Mods.D2.ImportData
 					var tile = m[PackXY(x, y)];
 
 					if (CanBecomeSpice(tile))
-					{
 						break;
-					}
 
 					/* ENHANCEMENT: ensure termination. */
 					count++;
 					if (count > maxCount)
-					{
 						return;
-					}
 				}
 
 				var x1 = ((x & 0x3F) << 8) | 0x80;
@@ -546,21 +566,15 @@ namespace OpenRA.Mods.D2.ImportData
 						coord = new CPos(x2, y2);
 
 						if (!IsOutOfMap(coord))
-						{
 							break;
-						}
 					}
 
 					var tile = m[PackXY((ushort)coord.X, (ushort)coord.Y)];
 
 					if (map.Resources[coord].Type == 1)
-					{
 						CreateSpiceField(coord, 2, true);
-					}
 					else
-					{
 						CreateSpiceField(coord, 1, true);
-					}
 				}
 			}
 		}
@@ -576,9 +590,7 @@ namespace OpenRA.Mods.D2.ImportData
 					var tile = m[index];
 
 					if (tile == D2MapUtils.RockTile || tile == D2MapUtils.DuneTile || tile == D2MapUtils.RoughTile)
-					{
 						m[index] = D2MapUtils.SmoothTileTypeForPos(m, 64, 64, x, y);
-					}
 				}
 			}
 		}

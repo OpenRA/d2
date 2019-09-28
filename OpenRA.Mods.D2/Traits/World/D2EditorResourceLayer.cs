@@ -80,9 +80,7 @@ namespace OpenRA.Mods.D2.Traits
 
 			// Empty tile
 			if (tile.Type == null)
-			{
 				return false;
-			}
 
 			var density = ResourceDensityAt(c);
 
