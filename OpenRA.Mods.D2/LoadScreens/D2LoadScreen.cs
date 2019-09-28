@@ -57,11 +57,9 @@ namespace OpenRA.Mods.D2
 			 * LoadScreen.Init, possibly not the best place to do this, but need to do that early, before
 			 * data will be used. and do this in LoadScreen.Init just works fine.
 			 */
+			// if some files unpacked. need to reload mod packages
 			if (D2UnpackContent.UnpackFiles(modData, info) > 0)
-			{
-				// Some files unpacked. need to reload mod packages
 				modData.ModFiles.LoadFromManifest(modData.Manifest);
-			}
 
 			/*
 			 * Like for unpack files, OpenRA engine do not have proper place for import maps.
@@ -82,9 +80,7 @@ namespace OpenRA.Mods.D2
 			if (info.ContainsKey("Palette"))
 			{
 				using (var stream = modData.DefaultFileSystem.Open(info["Palette"]))
-				{
 					palette = new ImmutablePalette(stream, new int[] { });
-				}
 
 				hardwarePalette = new HardwarePalette();
 				hardwarePalette.AddPalette("loadscreen", palette, false);

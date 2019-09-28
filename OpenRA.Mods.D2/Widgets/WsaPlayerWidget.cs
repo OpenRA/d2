@@ -54,9 +54,7 @@ namespace OpenRA.Mods.D2.Widgets
 		void LoadPalette()
 		{
 			using (var stream = Game.ModData.DefaultFileSystem.Open("IBM.PAL"))
-			{
 				palette = new ImmutablePalette(stream, new int[] { });
-			}
 
 			hardwarePalette = new HardwarePalette();
 			hardwarePalette.AddPalette("chrome", palette, false);

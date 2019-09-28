@@ -88,9 +88,7 @@ namespace OpenRA.Mods.D2.Traits
 				t = 1.0f;
 
 			if (t < 0.0f)
-			{
 				t = 0.0f;
-			}
 		}
 
 		protected bool IsCloseEnoughAndBuildable(World w, ActorInfo ai, CPos topLeft)
@@ -108,29 +106,21 @@ namespace OpenRA.Mods.D2.Traits
 					{
 						isAnyBuildable = true;
 						if (!info.StrictBuildableChecks)
-						{
 							break;
-						}
 					}
 					else
 					{
 						isAllBuildable = false;
 						if (info.StrictBuildableChecks)
-						{
 							break;
-						}
 					}
 				}
 
 				if (isAnyBuildable && !info.StrictBuildableChecks)
-				{
 					break;
-				}
 
 				if (!isAllBuildable && info.StrictBuildableChecks)
-				{
 					break;
-				}
 			}
 
 			if (info.StrictBuildableChecks)
