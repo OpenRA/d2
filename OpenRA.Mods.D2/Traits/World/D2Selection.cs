@@ -20,29 +20,29 @@ namespace OpenRA.Mods.D2.Traits
 		[Translate]
 		[Desc("Descriptive label for the selection checkbox in the lobby.")]
 		public readonly string CheckboxLabel = "Single Selection";
-	
+
 		[Translate]
 		[Desc("Tooltip description for the selection checkbox in the lobby.")]
 		public readonly string CheckboxDescription = "Allow to select only one unit at a time";
-	
+
 		[Desc("Default value of the selection checkbox in the lobby.")]
 		public readonly bool CheckboxEnabled = false;
-	
+
 		[Desc("Prevent the selection enabled state from being changed in the lobby.")]
 		public readonly bool CheckboxLocked = false;
-	
+
 		[Desc("Whether to display the selection checkbox in the lobby.")]
 		public readonly bool CheckboxVisible = true;
-	
+
 		[Desc("Display order for the selection checkbox in the lobby.")]
 		public readonly int CheckboxDisplayOrder = 0;
-	
+
 		IEnumerable<LobbyOption> ILobbyOptions.LobbyOptions(Ruleset rules)
 		{
 			yield return new LobbyBooleanOption("singleselection", CheckboxLabel, CheckboxDescription,
 				CheckboxVisible, CheckboxDisplayOrder, CheckboxEnabled, CheckboxLocked);
 		}
-	
+
 		public object Create(ActorInitializer init) { return new D2Selection(init.World, this); }
 	}
 
@@ -50,12 +50,13 @@ namespace OpenRA.Mods.D2.Traits
 	{
 		readonly D2SelectionInfo info;
 		readonly World world;
-	
+
 		bool initialized = false;
 		bool singleSelection = true;
 		public bool SingleSelection { get { return singleSelection; } }
-		
-		public D2Selection(World world, D2SelectionInfo info) : base(new SelectionInfo())
+
+		public D2Selection(World world, D2SelectionInfo info)
+			: base(new SelectionInfo())
 		{
 			this.world = world;
 			this.info = info;
@@ -77,7 +78,7 @@ namespace OpenRA.Mods.D2.Traits
 
 			if (SingleSelection)
 				Clear();
-			
+
 			base.Add(a);
 		}
 

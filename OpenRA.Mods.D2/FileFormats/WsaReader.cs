@@ -57,17 +57,21 @@ namespace OpenRA.Mods.D2.FileFormats
 
 			wsaLoader.TryParseSpriteWithPrevFrame(stream, prev, out videoFrames, out metadata);
 
-			if (frames == null) {
+			if (frames == null)
+			{
 				frames = videoFrames;
 
-				if (Length > 0) {
+				if (Length > 0)
+				{
 					var frame = frames[0];
 					width = frame.Size.Width;
 					height = frame.Size.Height;
 				}
 			}
 			else
+			{
 				frames = frames.Concat(videoFrames).ToArray();
+			}
 		}
 
 		public void Reset()

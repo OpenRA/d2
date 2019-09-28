@@ -11,11 +11,11 @@
 
 using System.Linq;
 using OpenRA.Graphics;
-using OpenRA.Traits;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Traits.Render;
 using OpenRA.Mods.Common.Widgets;
 using OpenRA.Primitives;
+using OpenRA.Traits;
 using OpenRA.Widgets;
 
 namespace OpenRA.Mods.D2.Widgets.Logic
@@ -112,6 +112,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				line2b.Font = "MediumBold";
 			}
 		}
+
 		public override void Tick()
 		{
 			base.Tick();
@@ -192,7 +193,6 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				}
 			}
 		}
-
 
 		void UpdateStateIfNecessary()
 		{

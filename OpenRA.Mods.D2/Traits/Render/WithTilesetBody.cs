@@ -45,7 +45,8 @@ namespace OpenRA.Mods.D2.Traits
 
 			for (var index = 0; index < (cols * rows); index++)
 			{
-				if (SkipFrames == null || !SkipFrames.Contains(index)) {
+				if (SkipFrames == null || !SkipFrames.Contains(index))
+				{
 					var y = index / cols;
 					var x = index % cols;
 
@@ -75,7 +76,8 @@ namespace OpenRA.Mods.D2.Traits
 
 			for (var index = 0; index < (cols * rows); index++)
 			{
-				if (info.SkipFrames == null || !info.SkipFrames.Contains(index)) {
+				if (info.SkipFrames == null || !info.SkipFrames.Contains(index))
+				{
 					var y = index / cols;
 					var x = index % cols;
 

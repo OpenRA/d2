@@ -9,9 +9,9 @@
  */
 #endregion
 
-using OpenRA.Primitives;
-using OpenRA.Mods.Common.Widgets;
 using System.Collections.Generic;
+using OpenRA.Mods.Common.Widgets;
+using OpenRA.Primitives;
 
 namespace OpenRA.Mods.D2.Widgets
 {
@@ -46,7 +46,7 @@ namespace OpenRA.Mods.D2.Widgets
 		{
 			WidgetUtils.FillRectWithColor(new Rectangle(bounds.Left, bounds.Top, size, bounds.Height - size), highlightColor);
 			WidgetUtils.FillRectWithColor(new Rectangle(bounds.Left, bounds.Top, bounds.Width - size, size), highlightColor);
-			
+
 			WidgetUtils.FillRectWithColor(new Rectangle(bounds.Left + size, bounds.Bottom - size, bounds.Width - size, size), shadowColor);
 			WidgetUtils.FillRectWithColor(new Rectangle(bounds.Right - size, bounds.Top + size, size, bounds.Height - size), shadowColor);
 		}

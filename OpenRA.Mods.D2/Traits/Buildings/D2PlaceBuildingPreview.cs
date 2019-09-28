@@ -47,13 +47,13 @@ namespace OpenRA.Mods.D2.Traits
 		protected readonly D2PlaceBuildingPreviewInfo info;
 		protected readonly ActorInfo ai;
 		protected readonly D2BuildingInfo bi;
-		
+
 		protected readonly int cols;
 		protected readonly int rows;
 		protected readonly Rectangle bounds;
 
 		protected float t = 0.0f;
-	
+
 		public D2PlaceBuildingPreviewPreview(WorldRenderer wr, ActorInfo ai, D2PlaceBuildingPreviewInfo info, TypeDictionary init)
 			: base(wr, ai, info, init)
 		{
@@ -87,7 +87,8 @@ namespace OpenRA.Mods.D2.Traits
 			if (t > 1.0f)
 				t = 1.0f;
 
-			if (t < 0.0f) {
+			if (t < 0.0f)
+			{
 				t = 0.0f;
 			}
 		}
@@ -120,10 +121,12 @@ namespace OpenRA.Mods.D2.Traits
 						}
 					}
 				}
+
 				if (isAnyBuildable && !info.StrictBuildableChecks)
 				{
 					break;
 				}
+
 				if (!isAllBuildable && info.StrictBuildableChecks)
 				{
 					break;

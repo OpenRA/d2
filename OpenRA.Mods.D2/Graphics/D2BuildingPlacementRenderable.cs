@@ -61,7 +61,7 @@ namespace OpenRA.Mods.D2.Graphics
 			}
 		}
 
-		public void RenderDebugGeometry(WorldRenderer wr) { } 
+		public void RenderDebugGeometry(WorldRenderer wr) { }
 
 		public Rectangle ScreenBounds(WorldRenderer wr)
 		{
