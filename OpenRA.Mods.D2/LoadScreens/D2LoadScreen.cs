@@ -59,7 +59,7 @@ namespace OpenRA.Mods.D2
 			 */
 			if (D2UnpackContent.UnpackFiles(modData, info) > 0)
 			{
-				// if some files unpacked. need to reload mod packages
+				// Some files unpacked. need to reload mod packages
 				modData.ModFiles.LoadFromManifest(modData.Manifest);
 			}
 
