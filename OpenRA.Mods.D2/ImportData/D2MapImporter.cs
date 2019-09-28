@@ -15,8 +15,8 @@
 #endregion
 
 using System;
-using System.Drawing;
 using System.IO;
+using OpenRA.Primitives;
 using OpenRA.Mods.Common.FileFormats;
 using OpenRA.Mods.D2.MapUtils;
 using OpenRA.Mods.D2.MathExtention;
