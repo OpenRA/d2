@@ -69,9 +69,7 @@ namespace OpenRA.Mods.D2.FileFormats
 				}
 			}
 			else
-			{
 				frames = frames.Concat(videoFrames).ToArray();
-			}
 		}
 
 		public void Reset()
