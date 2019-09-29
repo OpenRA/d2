@@ -24,10 +24,7 @@ before_deploy:
  - sudo dpkg -i nsis-common_3.03-2_all.deb
  - sudo dpkg -i nsis_3.03-2_amd64.deb
  - mkdir build
- - make check
- - make check-scripts
- - make check-packaging-scripts
- - cd build && ../packaging/package-all.sh ${TRAVIS_TAG} ${PWD} && cd ..
+ - make check-packaging-scripts && cd build && ../packaging/package-all.sh ${TRAVIS_TAG} ${PWD} && cd ..
 
 deploy:
   provider: releases
