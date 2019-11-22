@@ -1,6 +1,6 @@
 Metadata:
 	Title: d2 mod
-	Version: release-20190314
+	Version: {DEV_VERSION}
 
 ModCredits:
 	ModTabTitle: d2 mod
@@ -38,7 +38,7 @@ Packages:
 MapFolders:
 	d2|maps: System
 	~^maps/d2/original: System
-	~^maps/d2/release-20190314: User
+	~^maps/d2/{DEV_VERSION}: User
 
 Rules:
 	d2|rules/misc.yaml

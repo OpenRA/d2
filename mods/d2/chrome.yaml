@@ -1,3 +1,16 @@
+screen: SCREEN.CPS
+	topbar-left: 0,0,185,40
+	topbar: 185,0,15,40
+	topbar-right: 190,0,130,40
+	vertical-top: 241, 40, 12, 18
+	vertical-line-1: 241, 58, 12, 26
+	vertical-middle: 241, 118, 12, 23
+	vertical-line-2: 241, 142, 12, 26
+	vertical-bottom: 241, 182, 12, 18
+	horizontal-left: 254, 127, 5, 6
+	horizontal-line: 260, 127, 55, 6
+	horizontal-right: 316, 127, 5, 6
+
 sidebar: chrome.png
 	background-top: 0,0,226,295
 	background-iconrow: 0,295,226,48
