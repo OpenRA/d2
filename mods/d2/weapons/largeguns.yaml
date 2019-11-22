@@ -5,7 +5,7 @@
 	Projectile: Bullet
 		Speed: 875
 		Blockable: false
-		Shadow: no
+		Shadow: false
 		Inaccuracy: 380
 		Image: 120mm
 	Warhead@1Dam: SpreadDamage
@@ -63,7 +63,7 @@ DevBullet:
 	Projectile: Bullet
 		Speed: 192
 		Blockable: false
-		Shadow: yes
+		Shadow: true
 		LaunchAngle: 62
 		Inaccuracy: 768
 		#ContrailLength: 20
