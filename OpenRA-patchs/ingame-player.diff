@@ -1,0 +1,339 @@
+		Container@TOP_BAR:
+			X: 0
+			Y: 0
+			Width: WINDOW_RIGHT
+			Height: 39
+			Children:
+				D2Image@TOPBAR_BACKGROUND_LEFT:
+					X: 0
+					Y: 0
+					Width: 185
+					Height: 39
+					ImageCollection: screen
+					ImageName: topbar-left
+					ClickThrough: false
+				D2Image@TOPBAR_BACKGROUND:
+					X: 185
+					Y: 0
+					Width: WINDOW_RIGHT - 130 - 185
+					Height: 39
+					ImageCollection: screen
+					ImageName: topbar
+					FillBackground: true
+					ClickThrough: false
+				D2Image@TOPBAR_BACKGROUND_RIGHT:
+					X: WINDOW_RIGHT - 130
+					Y: 0
+					Width: 130
+					Height: 39
+					ImageCollection: screen
+					ImageName: topbar-right
+					ClickThrough: false
+				Container@TOPBAR_BUTTONS:
+					Logic: MenuButtonsChromeLogic
+					X: 0
+					Y: 0
+					Children:
+						MenuButton@OPTIONS_BUTTON:
+							Key: escape
+							X: 103
+							Y: 1
+							Width: 78
+							Height: 15
+							Background:
+							TooltipText: Options
+							TooltipContainer: TOOLTIP_CONTAINER
+							DisableWorldSounds: true
+							VisualHeight: 0
+						Label@GAME_TIMER:
+							Logic: GameTimerLogic
+							X: WINDOW_RIGHT - 350
+							Y: 0
+							Width: 50
+							Height: 22
+							Align: Center
+							Font: TinyBold
+						LabelWithTooltip@CASH:
+							Logic: IngameCashCounterLogic
+							X: WINDOW_RIGHT - 300
+							Y: 0
+							Width: 50
+							Height: 22
+							Font: Bold
+							Text: {0}
+							TooltipContainer: TOOLTIP_CONTAINER
+							TooltipTemplate: SIMPLE_TOOLTIP
+						LabelWithTooltip@POWER:
+							Logic: IngamePowerCounterLogic
+							X: WINDOW_RIGHT - 250
+							Y: 0
+							Width: 50
+							Height: 22
+							Align: Right
+							Font: Bold
+							Text: {0}
+							TooltipContainer: TOOLTIP_CONTAINER
+							TooltipTemplate: SIMPLE_TOOLTIP
+							Children:
+								Image@POWER_ICON:
+									X: PARENT_RIGHT + 0
+									Y: 5
+									ImageCollection: power-icons
+									ImageName: power-normal
+		Container@SIDEBAR:
+			X: WINDOW_RIGHT - 218
+			Y: 40
+			Width: 218
+			Height: WINDOW_BOTTOM - 40
+			ClickThrough: false
+			Children:
+				Container@ACTOR_INFO:
+					Logic: D2IngameActorInfoDisplayLogic
+					X: 0
+					Y: 0
+					Width: 218
+					Height: 256
+					ClickThrough: false
+					Children:
+						D2Panel@PANEL:
+							X: 0
+							Y: 0
+							Width: 218
+							Height: 256
+						Label@NAME:
+							X: 4
+							Y: 2
+							Width: 218
+							Height: 32
+						D2Sprite@ICON:
+							X: 20
+							Y: 32
+							Width: 64
+							Height: 48
+						D2ProgressBar@HEALTH:
+							X: 128
+							Y: 32
+							Width: 72
+							Height: 40
+							Visible: false
+						Label@DMG:
+							X: 128
+							Y: 78
+							Width: 72
+							Height: 16
+							Visible: false
+						Label@TITLE:
+							X: 4
+							Y: 154
+							Width: 218
+							Height: 16
+							Visible: false
+						D2Line@SEPARATOR:
+							X: 32
+							Y: 176
+							Width: 154
+							Height: 0
+							Visible: false
+						Label@LINE1A:
+							X: 20
+							Y: 178
+							Width: 88
+							Height: 16
+							Visible: false
+						Label@LINE1B:
+							X: 110
+							Y: 178
+							Width: 88
+							Height: 16
+							Visible: false
+						Label@LINE2A:
+							X: 20
+							Y: 198
+							Width: 88
+							Height: 16
+							Visible: false
+						Label@LINE2B:
+							X: 110
+							Y: 198
+							Width: 88
+							Height: 16
+							Visible: false
+				Container@HORIZONTAL_LINE_1:
+					X: 0
+					Y: 257
+					Width: 218
+					Height: 6
+					ClickThrough: false
+					Children:
+						D2Image@HORIZONTAL_LINE_1_RIGHT:
+							X: 0
+							Y: 0
+							Width: 5
+							Height: 6
+							ImageCollection: screen
+							ImageName: horizontal-left
+							ClickThrough: false
+						D2Image@HORIZONTAL_LINE_1:
+							X: 5
+							Y: 0
+							Width: 218 - 10
+							Height: 6
+							ImageCollection: screen
+							ImageName: horizontal-line
+							FillBackground: true
+							ClickThrough: false
+						D2Image@HORIZONTAL_LINE_1_LEFT:
+							X: 218 - 5
+							Y: 0
+							Width: 5
+							Height: 6
+							ImageCollection: screen
+							ImageName: horizontal-right
+							ClickThrough: false
+				Container@RADAR:
+					Logic: IngameRadarDisplayLogic
+					X: 0
+					Y: 263
+					Children:
+						LogicTicker@RADAR_TICKER:
+						Image@INSIGNIA:
+							Logic: AddFactionSuffixLogic
+							X: 63
+							Y: 88
+							ImageCollection: radar
+							ImageName: insignia
+						ColorBlock@RADAR_FADETOBLACK:
+							X: 12
+							Y: 34
+							Width: 202
+							Height: 202
+						Radar@RADAR_MINIMAP:
+							WorldInteractionController: INTERACTION_CONTROLLER
+							X: 12
+							Y: 34
+							Width: 202
+							Height: 202
+							Children:
+						WsaPlayer@PLAYER:
+							X: 12
+							Y: 32
+							Width: 202
+							Height: 202
+							Skippable: false
+		Container@VERTICAL_LINE:
+			X: WINDOW_RIGHT - 218 - 14
+			Y: 40
+			Width: 14
+			Height: WINDOW_BOTTOM - 40
+			ClickThrough: false
+			Children:
+				D2Image@VERTICAL_LINE_TOP:
+					X: 1
+					Y: 1
+					Width: 12
+					Height: 18
+					ImageCollection: screen
+					ImageName: vertical-top
+					ClickThrough: false
+				D2Image@VERTICAL_LINE_1:
+					X: 1
+					Y: 18
+					Width: 12
+					Height: 256 - 5 - 18 - 3
+					ImageCollection: screen
+					ImageName: vertical-line-1
+					FillBackground: true
+					ClickThrough: false
+				D2Image@VERTICAL_LINE_MIDDLE:
+					X: 1
+					Y: 256 - 5 - 3
+					Width: 12
+					Height: 23
+					ImageCollection: screen
+					ImageName: vertical-middle
+					ClickThrough: false
+				D2Image@VERTICAL_LINE_2:
+					X: 1
+					Y: 256 - 5 + 23 - 3
+					Width: 12
+					Height: WINDOW_BOTTOM - 18 - 40 - 256 + 5 - 23
+					ImageCollection: screen
+					ImageName: vertical-line-2
+					FillBackground: true
+					ClickThrough: false
+				D2Image@VERTIACAL_LINE_BOTTOM:
+					X: 1
+					Y: WINDOW_BOTTOM - 18 - 40
+					Width: 12
+					Height: 18
+					ImageCollection: screen
+					ImageName: vertical-bottom
+					ClickThrough: false
+		Container@SIDEBAR_PRODUCTION:
+			Logic: ClassicProductionLogic
+			X: WINDOW_RIGHT - 218 - 14 - 218 - 14
+			Y: 40
+			Width: 218
+			Height: 256
+			Children:
+				Container@PALETTE_BACKGROUND:
+					Children:
+						Image@ROW_TEMPLATE:
+							Width: 218
+							Height: 48
+							ClickThrough: false
+							ImageCollection: sidebar
+							ImageName: background-iconrow
+						Image@BOTTOM_CAP:
+							Width: 218
+							Height: 13
+							ClickThrough: false
+							ImageCollection: sidebar
+							ImageName: background-bottom
+				LogicTicker@PRODUCTION_TICKER:
+				ProductionPalette@PRODUCTION_PALETTE:
+					X: 39
+					Y: 1
+					TooltipContainer: TOOLTIP_CONTAINER
+					ReadyText: READY
+					HoldText: ON HOLD
+					IconSize: 58, 48
+					IconMargin: 2, 0
+					IconSpriteOffset: 0, 0
+					MinimumRows: 5
+					MaximumRows: 6
+					HotkeyPrefix: Production
+					HotkeyCount: 24
+				Container@PRODUCTION_TYPES:
+					X: 6
+					Y: 2
+					Width: 25
+					Height: 256
+					Children:
+						Button@SCROLL_UP_BUTTON:
+							Width: 25
+							Height: 25
+							VisualHeight: 0
+							Background: sidebar-button
+							TooltipText: Scroll up
+							TooltipContainer: TOOLTIP_CONTAINER
+							Children:
+								Image@ICON:
+									X: 5
+									Y: 5
+									ImageCollection: scrollbar
+									ImageName: up_arrow
+						Button@SCROLL_DOWN_BUTTON:
+							Y: 29
+							Width: 25
+							Height: 25
+							VisualHeight: 0
+							Background: sidebar-button
+							TooltipText: Scroll down
+							TooltipContainer: TOOLTIP_CONTAINER
+							Children:
+								Image@ICON:
+									X: 5
+									Y: 5
+									ImageCollection: scrollbar
+									ImageName: down_arrow
