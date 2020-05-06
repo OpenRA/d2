@@ -84,10 +84,14 @@ namespace OpenRA.Mods.D2.Widgets
 			if (paletteName == null || paletteName.Length == 0)
 				paletteName = "player" + world.LocalPlayer.InternalName;
 
+			/* TODO: add palette to images ? */
+			/*
 			var hardwarePalette = new HardwarePalette();
 			var palette = worldRenderer.Palette(paletteName).Palette;
+			var sprite = ChromeProvider.GetImage(collection, name, palette );
+			*/
 
-			var sprite = ChromeProvider.GetImage(collection, name, palette);
+			var sprite = ChromeProvider.GetImage(collection, name);
 			if (sprite == null)
 				throw new ArgumentException("Sprite {0}/{1} was not found.".F(collection, name));
 
