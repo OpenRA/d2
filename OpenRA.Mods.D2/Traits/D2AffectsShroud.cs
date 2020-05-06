@@ -97,7 +97,7 @@ namespace OpenRA.Mods.D2.Traits
 			if (Info.Type == VisibilityType.GroundPosition)
 				pos -= new WVec(WDist.Zero, WDist.Zero, self.World.Map.DistanceAboveTerrain(pos));
 
-			return Shroud.ProjectedCellsInRange(map, pos, range, Info.MaxHeightDelta)
+			return Shroud.ProjectedCellsInRange(map, pos, range, range, Info.MaxHeightDelta)
 				.ToArray();
 		}
 

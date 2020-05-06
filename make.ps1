@@ -5,6 +5,11 @@
 ###############################################################
 function All-Command
 {
+	If (!(Test-Path "*.sln"))
+	{
+		return
+	}
+
 	if ((CheckForDotnet) -eq 1)
 	{
 		return
@@ -117,6 +122,12 @@ function Test-Command
 
 function Check-Command
 {
+	If (!(Test-Path "*.sln"))
+	{
+		Write-Host "No custom solution file found. Skipping static code checks." -ForegroundColor Cyan
+		return
+	}
+
 	Write-Host "Compiling in debug configuration..." -ForegroundColor Cyan
 	dotnet build /p:Configuration=Debug /nologo
 	if ($lastexitcode -ne 0)
@@ -167,7 +178,7 @@ function Docs-Command
 
 function CheckForUtility
 {
-	if (Test-Path OpenRA.Utility.exe)
+	if (Test-Path $utilityPath)
 	{
 		return 0
 	}
@@ -294,7 +305,13 @@ if ($command -eq "all" -or $command -eq "clean")
 {
 	$templateDir = $pwd.Path
 	$versionFile = $env:ENGINE_DIRECTORY + "/VERSION"
-	if ((Test-Path $versionFile) -and [System.IO.File]::OpenText($versionFile).ReadLine() -eq $env:ENGINE_VERSION)
+	$currentEngine = ""
+	if (Test-Path $versionFile)
+	{
+		$currentEngine = [System.IO.File]::OpenText($versionFile).ReadLine()
+	}
+
+	if ($currentEngine -ne "" -and $currentEngine -eq $env:ENGINE_VERSION)
 	{
 		cd $env:ENGINE_DIRECTORY
 		Invoke-Expression ".\make.cmd $command"
@@ -313,7 +330,7 @@ if ($command -eq "all" -or $command -eq "clean")
 
 		if (Test-Path $env:ENGINE_DIRECTORY)
 		{
-			if ((Test-Path $versionFile) -and [System.IO.File]::OpenText($versionFile).ReadLine() -ne "")
+			if ($currentEngine -ne "")
 			{
 				echo "Deleting engine version $currentEngine."
 			}
@@ -345,13 +362,13 @@ if ($command -eq "all" -or $command -eq "clean")
 
 		Add-Type -assembly "system.io.compression.filesystem"
 		[io.compression.zipfile]::ExtractToDirectory($dlPath, $env:AUTOMATIC_ENGINE_EXTRACT_DIRECTORY)
-		rm $dlPath
+		#rm $dlPath
 
 		$extractedDir = Get-ChildItem $env:AUTOMATIC_ENGINE_EXTRACT_DIRECTORY -Recurse | ?{ $_.PSIsContainer } | Select-Object -First 1
 		Move-Item $extractedDir.FullName -Destination $templateDir
 		Rename-Item $extractedDir.Name (Split-Path -leaf $env:ENGINE_DIRECTORY)
 
-		rm $env:AUTOMATIC_ENGINE_EXTRACT_DIRECTORY -r
+		#rm $env:AUTOMATIC_ENGINE_EXTRACT_DIRECTORY -r
 
 		cd $env:ENGINE_DIRECTORY
 		Invoke-Expression ".\make.cmd version $env:ENGINE_VERSION"
