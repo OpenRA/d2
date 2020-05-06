@@ -54,5 +54,6 @@ ornithopter.husk:
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 224
+		InitialFacing: 192
 	RenderSprites:
 		Image: ornithopter

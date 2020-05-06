@@ -14,7 +14,7 @@
 	TerrainGeometryOverlay:
 	DebugVisualizations:
 	TerrainRenderer:
-	D2ShroudRenderer:
+	ShroudRenderer:
 		ShroudVariants: shrouda
 		FogVariants: foga
 		OverrideFullShroud: shroudfull
@@ -127,7 +127,6 @@
 	ResourceType@Spice:
 		Type: Spice
 		Name: Spice
-		PipColor: green
 		ResourceType: 1
 		Palette: d2
 		TerrainType: Spice
@@ -155,7 +154,7 @@ World:
 	WarheadDebugOverlay:
 	D2TerrainLayer:
 	BuildableTerrainLayer:
-	D2ResourceLayer:
+	ResourceLayer:
 	ResourceClaimLayer:
 	CustomTerrainDebugOverlay:
 	SmudgeLayer@Rock:
@@ -269,10 +268,12 @@ World:
 		PanelName: SKIRMISH_STATS
 	LoadWidgetAtGameStart:
 	TimeLimitManager:
+	ResourceRenderer:
+		RenderTypes:
 
 EditorWorld:
 	Inherits: ^BaseWorld
 	EditorActorLayer:
-	D2EditorResourceLayer:
+	EditorResourceLayer:
 	EditorSelectionLayer:
 	LoadWidgetAtGameStart:

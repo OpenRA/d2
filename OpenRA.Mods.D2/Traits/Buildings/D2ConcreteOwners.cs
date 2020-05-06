@@ -16,9 +16,9 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.D2.Traits
 {
 	[Desc("A dictionary of concrete placed on the map. Attach this to the world actor.")]
-	public class D2ConcreteOwnersInfo : ITraitInfo
+	public class D2ConcreteOwnersInfo : TraitInfo
 	{
-		public object Create(ActorInitializer init) { return new D2ConcreteOwners(init.World); }
+		public override object Create(ActorInitializer init) { return new D2ConcreteOwners(init.World); }
 	}
 
 	public class D2ConcreteOwners

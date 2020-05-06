@@ -34,7 +34,7 @@ repair_pad:
 		HpPerStep: 80
 		FinishRepairingNotification: UnitRepaired
 	RallyPoint:
-		Offset: 1,3
+		Path: 1,3
 	WithTilesetBody:
 		SkipFrames: 1
 	RenderSprites:

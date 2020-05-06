@@ -9,7 +9,6 @@ spicebloom.spawnpoint:
 	WithSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 1
-	ConditionManager:
 	GrantConditionOnTerrain:
 		Condition: clearsand
 		TerrainTypes: SpiceSand

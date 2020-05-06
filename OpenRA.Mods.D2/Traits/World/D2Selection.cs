@@ -15,7 +15,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.D2.Traits
 {
-	public class D2SelectionInfo : ITraitInfo, ILobbyOptions
+	public class D2SelectionInfo : TraitInfo, ILobbyOptions
 	{
 		[Translate]
 		[Desc("Descriptive label for the selection checkbox in the lobby.")]
@@ -43,7 +43,7 @@ namespace OpenRA.Mods.D2.Traits
 				CheckboxVisible, CheckboxDisplayOrder, CheckboxEnabled, CheckboxLocked);
 		}
 
-		public object Create(ActorInitializer init) { return new D2Selection(init.World, this); }
+		public override object Create(ActorInitializer init) { return new D2Selection(init.World, this); }
 	}
 
 	public class D2Selection : Selection

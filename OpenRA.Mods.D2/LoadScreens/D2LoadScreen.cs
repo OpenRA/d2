@@ -40,7 +40,7 @@ namespace OpenRA.Mods.D2
 		{
 			D2ImportOriginalMaps.ImportOriginalMaps(modData, info);
 
-			/* run only once */
+			// run only once
 			Game.OnShellmapLoaded -= ImportOriginalMaps;
 		}
 
@@ -70,8 +70,7 @@ namespace OpenRA.Mods.D2
 			 */
 			Game.OnShellmapLoaded += ImportOriginalMaps;
 
-			// Avoid standard loading mechanisms so we
-			// can display the loadscreen as early as possible
+			// Avoid standard loading mechanisms so it possible to display the loadscreen as early as possible
 			r = Game.Renderer;
 			if (r == null)
 				return;
@@ -129,7 +128,8 @@ namespace OpenRA.Mods.D2
 			var text = messages.Random(Game.CosmeticRandom);
 			var textSize = r.Fonts["Bold"].Measure(text);
 
-			r.BeginFrame(int2.Zero, 1f);
+			// Render blank screen
+			r.BeginUI();
 
 			if (logo != null)
 				r.SpriteRenderer.DrawSprite(logo, logoPos, pr, logo.Size);

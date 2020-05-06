@@ -15,7 +15,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.D2.Traits
 {
 	[Desc("Palette effect used for windtrap \"animations\".")]
-	class D2WindtrapPaletteEffectInfo : ITraitInfo
+	class D2WindtrapPaletteEffectInfo : TraitInfo
 	{
 		[Desc("Palette for effect.")]
 		public string PaletteName = "player";
@@ -32,7 +32,7 @@ namespace OpenRA.Mods.D2.Traits
 		[Desc("Step towards next color index per tick.")]
 		public readonly float RotationStep = .2f;
 
-		public object Create(ActorInitializer init) { return new D2WindtrapPaletteEffect(init.World, this); }
+		public override object Create(ActorInitializer init) { return new D2WindtrapPaletteEffect(init.World, this); }
 	}
 
 	class D2WindtrapPaletteEffect : ITick, IPaletteModifier

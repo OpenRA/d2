@@ -19,7 +19,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.Common.Traits
 {
 	[Desc("Used to render terrain with round borders. Based on SmudgeLayer.cs")]
-	class D2TerrainLayerInfo : ITraitInfo
+	class D2TerrainLayerInfo : TraitInfo
 	{
 		[Desc("Sprite sequence name")]
 		public readonly string Sequence = "sides";
@@ -27,7 +27,7 @@ namespace OpenRA.Mods.Common.Traits
 		[PaletteReference]
 		public readonly string Palette = TileSet.TerrainPaletteInternalName;
 
-		public object Create(ActorInitializer init) { return new D2TerrainLayer(init.Self, this); }
+		public override object Create(ActorInitializer init) { return new D2TerrainLayer(init.Self, this); }
 	}
 
 	class D2TerrainLayer : IRenderOverlay, IWorldLoaded, INotifyActorDisposing

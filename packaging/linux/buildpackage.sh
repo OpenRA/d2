@@ -26,6 +26,7 @@ fi
 
 PACKAGING_DIR=$(python -c "import os; print(os.path.dirname(os.path.realpath('$0')))")
 TEMPLATE_ROOT="${PACKAGING_DIR}/../../"
+ARTWORK_DIR="${PACKAGING_DIR}/../artwork/"
 
 # shellcheck source=mod.config
 . "${TEMPLATE_ROOT}/mod.config"
@@ -78,7 +79,7 @@ pushd "${ENGINE_DIRECTORY}" > /dev/null
 make clean
 
 # linux-dependencies target will trigger the lua detection script, which we don't want during packaging
-make cli-dependencies geoip-dependencies
+make cli-dependencies
 sed "s/@LIBLUA51@/liblua5.1.so.0/" thirdparty/Eluant.dll.config.in > Eluant.dll.config
 
 make core
@@ -144,9 +145,9 @@ if [ -f "${PACKAGING_DIR}/mod_scalable.svg" ]; then
 fi
 
 for i in 16x16 32x32 48x48 64x64 128x128 256x256 512x512 1024x1024; do
-  if [ -f "${PACKAGING_DIR}/mod_${i}.png" ]; then
-    install -Dm644 "${PACKAGING_DIR}/mod_${i}.png" "${BUILTDIR}/usr/share/icons/hicolor/${i}/apps/openra-${MOD_ID}.png"
-    install -m644 "${PACKAGING_DIR}/mod_${i}.png" "${BUILTDIR}/openra-${MOD_ID}.png"
+  if [ -f "${ARTWORK_DIR}/icon_${i}.png" ]; then
+    install -Dm644 "${ARTWORK_DIR}/icon_${i}.png" "${BUILTDIR}/usr/share/icons/hicolor/${i}/apps/openra-${MOD_ID}.png"
+    install -m644 "${ARTWORK_DIR}/icon_${i}.png" "${BUILTDIR}/openra-${MOD_ID}.png"
   fi
 done
 

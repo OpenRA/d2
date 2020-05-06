@@ -12,7 +12,7 @@ concreteb:
 		Offset: -8,-8
 	idle-tileset: ICON.ICN
 		Frames: 126, 126, 126, 126
-		Length 4
+		Length 4:
 		Offset: 0,0
 	icon: SHAPES.SHP
 		Start: 71

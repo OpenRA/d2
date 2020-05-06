@@ -20,7 +20,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.D2.Traits
 {
-	public class WithTilesetBodyInfo : ITraitInfo, Requires<BuildingInfo>, IRenderActorPreviewSpritesInfo, Requires<RenderSpritesInfo>
+	public class WithTilesetBodyInfo : TraitInfo, Requires<BuildingInfo>, IRenderActorPreviewSpritesInfo, Requires<RenderSpritesInfo>
 	{
 		[SequenceReference]
 		public readonly string Sequence = "idle-tileset";
@@ -31,7 +31,7 @@ namespace OpenRA.Mods.D2.Traits
 		[Desc("skip drawing sprite frame because it always under idle-top animation")]
 		public readonly int[] SkipFrames;
 
-		public object Create(ActorInitializer init) { return new WithTilesetBody(init.Self, this); }
+		public override object Create(ActorInitializer init) { return new WithTilesetBody(init.Self, this); }
 
 		public IEnumerable<IActorPreview> RenderPreviewSprites(ActorPreviewInitializer init, RenderSpritesInfo rs, string image, int facings, PaletteReference p)
 		{

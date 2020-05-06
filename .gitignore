@@ -12,7 +12,9 @@ mods/*/*.pdb
 /*.pdb
 /*.mdb
 /*.exe
+*/*.user
 DOCUMENTATION.md
 Lua-API.md
 StyleCopViolations.xml
 .DS_Store
+.vs

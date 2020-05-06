@@ -79,26 +79,25 @@ namespace OpenRA.Mods.D2.Widgets
 		{
 			var name = GetImageName();
 			var collection = GetImageCollection();
+			var sprite = ChromeProvider.GetImage(collection, name);
+			if (sprite == null)
+				throw new ArgumentException("Sprite {0}/{1} was not found.".F(collection, name));
+
 			var paletteName = GetPaletteName();
 
 			if (paletteName == null || paletteName.Length == 0)
 				paletteName = "player" + world.LocalPlayer.InternalName;
 
-			var hardwarePalette = new HardwarePalette();
-			var palette = worldRenderer.Palette(paletteName).Palette;
-
-			var sprite = ChromeProvider.GetImage(collection, name, palette);
-			if (sprite == null)
-				throw new ArgumentException("Sprite {0}/{1} was not found.".F(collection, name));
+			var palette = worldRenderer.Palette(paletteName);
 
 			if (FillBackground)
 			{
 				for (var y = 0; y < Bounds.Height; y += sprite.Bounds.Height)
 					for (var x = 0; x < Bounds.Width; x += sprite.Bounds.Width)
-						WidgetUtils.DrawRGBA(sprite, RenderOrigin + new int2(x, y));
+						D2WidgetUtils.DrawSprite(sprite, RenderOrigin + new int2(x, y), palette);
 			}
 			else
-				WidgetUtils.DrawRGBA(sprite, RenderOrigin);
+				D2WidgetUtils.DrawSprite(sprite, RenderOrigin, palette);
 		}
 
 		public override bool HandleMouseInput(MouseInput mi)

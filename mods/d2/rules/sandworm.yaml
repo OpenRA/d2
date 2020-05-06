@@ -43,7 +43,6 @@ sandworm:
 		TerrainTypes: Sand, Dune, Spice
 		MovingInterval: 3
 		RequiresCondition: !attacking
-	ConditionManager:
 	RevealOnFire:
 		Duration: 50
 		Radius: 2c512

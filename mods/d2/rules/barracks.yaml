@@ -27,7 +27,7 @@ barracks:
 	RevealsShroud:
 		Range: 2c0
 	RallyPoint:
-		Offset: 1,2
+		Path: 1,2
 	Exit@1:
 		SpawnOffset: 352,576,0
 		ExitCell: 0,2

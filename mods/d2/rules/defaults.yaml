@@ -3,7 +3,6 @@
 	UpdatesPlayerStatistics:
 	CombatDebugOverlay:
 	ScriptTriggers:
-	ConditionManager:
 	RenderDebugState:
 
 ^SpriteActor:
