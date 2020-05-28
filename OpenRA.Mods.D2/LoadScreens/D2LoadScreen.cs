@@ -53,14 +53,13 @@ namespace OpenRA.Mods.D2
 		public override void Init(ModData modData, Dictionary<string, string> info)
 		{
 			base.Init(modData, info);
-
 			Game.OnQuit += Done;
-
-			// Can't find better place for initialization
-			D2ChromeProvider.Initialize(modData);
 
 			this.modData = modData;
 			this.info = info;
+
+			// Can't find better place for initialization
+			D2ChromeProvider.Initialize(modData);
 
 			/*
 			 * Unpack files needed, because in some PAK files, some VOC files can have prefix 'Z'

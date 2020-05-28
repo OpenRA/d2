@@ -18,11 +18,6 @@ namespace OpenRA.Mods.D2.Widgets
 {
 	public static class D2WidgetUtils
 	{
-		public static void DrawSprite(Sprite s, float2 pos, PaletteReference p)
-		{
-			Game.Renderer.SpriteRenderer.DrawSprite(s, pos, p);
-		}
-
 		public static void DrawLine(float2 start, float2 end, float width, Color color)
 		{
 			// Offset to the edges of the pixels
