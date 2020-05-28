@@ -1,5 +1,5 @@
 screen:
-	Image: SCREEN.CPS
+	SpriteImage: SCREEN.CPS
 	Regions:
 		topbar-left: 0, 0, 185, 40
 		topbar: 185, 0, 15, 40

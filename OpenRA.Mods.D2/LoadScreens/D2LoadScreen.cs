@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.LoadScreens;
+using OpenRA.Mods.D2.Graphics;
 using OpenRA.Mods.D2.ImportData;
 using OpenRA.Mods.D2.SpriteLoaders;
 using OpenRA.Primitives;
@@ -44,9 +45,19 @@ namespace OpenRA.Mods.D2
 			Game.OnShellmapLoaded -= ImportOriginalMaps;
 		}
 
+		void Done()
+		{
+			D2ChromeProvider.Deinitialize();
+		}
+
 		public override void Init(ModData modData, Dictionary<string, string> info)
 		{
 			base.Init(modData, info);
+
+			Game.OnQuit += Done;
+
+			// Can't find better place for initialization
+			D2ChromeProvider.Initialize(modData);
 
 			this.modData = modData;
 			this.info = info;
@@ -135,6 +146,7 @@ namespace OpenRA.Mods.D2
 				r.SpriteRenderer.DrawSprite(logo, logoPos, pr, logo.Size);
 
 			r.Fonts["Bold"].DrawText(text, new float2(r.Resolution.Width - textSize.X - 20, r.Resolution.Height - textSize.Y - 20), Color.White);
+
 			r.EndFrame(new NullInputHandler());
 		}
 
