@@ -36,10 +36,7 @@ namespace OpenRA.Mods.D2.Graphics
 		static Dictionary<string, D2Collection> collections;
 		static Dictionary<D2Collection, Sheet> cachedCollectionSheets;
 		static Dictionary<string, Sheet> cachedSheets;
-
-		// coplex dictionary for collectionName + imageName + paletteName
-		static Dictionary<string, Dictionary<string, Dictionary<string, Sprite>>> cachedSprites;
-		static Dictionary<string, Sprite[]> cachedPanelSprites;
+		static Dictionary<string, Sprite> cachedSprites;
 
 		static IReadOnlyFileSystem fileSystem;
 
@@ -54,8 +51,7 @@ namespace OpenRA.Mods.D2.Graphics
 
 			cachedCollectionSheets = new Dictionary<D2Collection, Sheet>();
 			cachedSheets = new Dictionary<string, Sheet>();
-			cachedSprites = new Dictionary<string, Dictionary<string, Dictionary<string, Sprite>>>();
-			cachedPanelSprites = new Dictionary<string, Sprite[]>();
+			cachedSprites = new Dictionary<string, Sprite>();
 
 			var chrome = MiniYaml.Merge(modData.Manifest.Chrome
 				.Select(s => MiniYaml.FromStream(fileSystem.Open(s), s)));
@@ -76,7 +72,6 @@ namespace OpenRA.Mods.D2.Graphics
 			cachedCollectionSheets = null;
 			cachedSheets = null;
 			cachedSprites = null;
-			cachedPanelSprites = null;
 		}
 
 		static void LoadCollection(string name, MiniYaml yaml)
@@ -158,7 +153,8 @@ namespace OpenRA.Mods.D2.Graphics
 			if (!cachedCollectionSheets.TryGetValue(c, out sheet))
 			{
 				var imageName = c.SpriteImage;
-				var cacheName = p.Name == null ? imageName : imageName + "|" + p.Name;
+				var paletteName = p == null ? "null" : p.Name;
+				var cacheName = imageName + "|" + paletteName;
 
 				// Inner cache makes sure we share sheets between collections
 				if (!cachedSheets.TryGetValue(cacheName, out sheet))
@@ -186,13 +182,11 @@ namespace OpenRA.Mods.D2.Graphics
 				return null;
 
 			// Cached sprite
-			Dictionary<string, Dictionary<string, Sprite>> cachedCollection = null;
-			Dictionary<string, Sprite> cachedPalettes = null;
+			var paletteName = p == null ? "null" : p.Name;
+			var cacheName = collectionName + "|" + imageName + "|" + paletteName;
 			Sprite sprite = null;
-			if (cachedSprites.TryGetValue(collectionName, out cachedCollection))
-				if (cachedCollection.TryGetValue(imageName, out cachedPalettes))
-					if (cachedPalettes.TryGetValue(p.Name, out sprite))
-						return sprite;
+			if (cachedSprites.TryGetValue(cacheName, out sprite))
+				return sprite;
 
 			D2Collection collection;
 			if (!collections.TryGetValue(collectionName, out collection))
@@ -209,20 +203,8 @@ namespace OpenRA.Mods.D2.Graphics
 			if (sheet == null)
 				return null;
 
-			if (cachedCollection == null)
-			{
-				cachedCollection = new Dictionary<string, Dictionary<string, Sprite>>();
-				cachedSprites.Add(collectionName, cachedCollection);
-			}
-
-			if (cachedPalettes == null)
-			{
-				cachedPalettes = new Dictionary<string, Sprite>();
-				cachedCollection.Add(imageName, cachedPalettes);
-			}
-
 			var image = new Sprite(sheet, mi, TextureChannel.RGBA, 1f);
-			cachedPalettes.Add(p.Name, image);
+			cachedSprites.Add(cacheName, image);
 
 			return image;
 		}
