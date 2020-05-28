@@ -4,6 +4,6 @@
 		GenericName: Unit
 	WithShadow:
 	FallsToEarth:
-		Spins: False
 		Moves: True
 		Explosion: UnitExplodeLarge
+		MaximumSpinSpeed: 0

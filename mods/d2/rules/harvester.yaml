@@ -16,7 +16,6 @@ harvester:
 		Class: harvester
 		Priority: 7
 	Harvester:
-		PipCount: 7
 		Capacity: 28
 		HarvestFacings: 8
 		Resources: Spice
@@ -52,3 +51,7 @@ harvester:
 		Delay: 3
 		HealIfBelow: 50
 	-RevealOnFire:
+	WithHarvesterPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 7

@@ -35,7 +35,7 @@
 	AttackMove:
 	Passenger:
 		CargoType: Infantry
-		PipType: Green
+		CustomPipType: green
 	HiddenUnderFog:
 	ActorLostNotification:
 	Crushable:

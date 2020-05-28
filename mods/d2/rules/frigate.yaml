@@ -14,10 +14,14 @@ frigate:
 		MaximumPitch: 20
 		CruiseAltitude: 192
 		IdleBehavior: LeaveMap
+		InitialFacing: 192
 	-AppearsOnRadar:
 	Cargo:
 		MaxWeight: 20
-		PipCount: 10
 	RejectsOrders:
 	Buildable:
 		Description: Supply spacecraft
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 10

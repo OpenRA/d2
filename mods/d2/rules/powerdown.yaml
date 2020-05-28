@@ -21,7 +21,7 @@
 		Sequence: offline
 		Palette: chrome
 		RequiresCondition: powerdown
-		ReferencePoint: Center
+		Position: Center
 	PowerMultiplier@POWERDOWN:
 		RequiresCondition: powerdown
 		Modifier: 0

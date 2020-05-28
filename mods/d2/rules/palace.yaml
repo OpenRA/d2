@@ -54,8 +54,7 @@ palace:
 	WithTextDecoration@primary:
 		RequiresSelection: true
 		Text: PRIMARY
-		ReferencePoint: Top
-		ZOffset: 256
+		Position: Top
 		RequiresCondition: primary && (atreides || ordos)
 	NukePower:
 		Cursor: nuke
@@ -76,6 +75,7 @@ palace:
 		CameraRange: 10c0
 		ArrowSequence: arrow
 		CircleSequence: circles
+		ScreenShakeWarhead:
 	ProduceActorPower@fremen:
 		Description: Recruit Fremen
 		LongDesc: Elite infantry unit armed with assault rifles and rockets\n  Strong vs Infantry, Vehicles\n  Weak vs Artillery\n  Special Ability: Invisibility

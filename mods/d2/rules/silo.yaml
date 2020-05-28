@@ -28,8 +28,6 @@ silo:
 		Image: silo
 		PlayerPalette: player
 	StoresResources:
-		PipColor: green
-		PipCount: 5
 		Capacity: 2000
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag
@@ -39,3 +37,7 @@ silo:
 		RequiredForShortGame: false
 	RevealOnDeath:
 		Radius: 2c768
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 5

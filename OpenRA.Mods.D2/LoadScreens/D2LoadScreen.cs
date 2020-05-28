@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.LoadScreens;
+using OpenRA.Mods.D2.Graphics;
 using OpenRA.Mods.D2.ImportData;
 using OpenRA.Mods.D2.SpriteLoaders;
 using OpenRA.Primitives;
@@ -40,16 +41,25 @@ namespace OpenRA.Mods.D2
 		{
 			D2ImportOriginalMaps.ImportOriginalMaps(modData, info);
 
-			/* run only once */
+			// run only once
 			Game.OnShellmapLoaded -= ImportOriginalMaps;
+		}
+
+		void Done()
+		{
+			D2ChromeProvider.Deinitialize();
 		}
 
 		public override void Init(ModData modData, Dictionary<string, string> info)
 		{
 			base.Init(modData, info);
+			Game.OnQuit += Done;
 
 			this.modData = modData;
 			this.info = info;
+
+			// Can't find better place for initialization
+			D2ChromeProvider.Initialize(modData);
 
 			/*
 			 * Unpack files needed, because in some PAK files, some VOC files can have prefix 'Z'
@@ -70,8 +80,7 @@ namespace OpenRA.Mods.D2
 			 */
 			Game.OnShellmapLoaded += ImportOriginalMaps;
 
-			// Avoid standard loading mechanisms so we
-			// can display the loadscreen as early as possible
+			// Avoid standard loading mechanisms so it possible to display the loadscreen as early as possible
 			r = Game.Renderer;
 			if (r == null)
 				return;
@@ -129,12 +138,14 @@ namespace OpenRA.Mods.D2
 			var text = messages.Random(Game.CosmeticRandom);
 			var textSize = r.Fonts["Bold"].Measure(text);
 
-			r.BeginFrame(int2.Zero, 1f);
+			// Render blank screen
+			r.BeginUI();
 
 			if (logo != null)
 				r.SpriteRenderer.DrawSprite(logo, logoPos, pr, logo.Size);
 
 			r.Fonts["Bold"].DrawText(text, new float2(r.Resolution.Width - textSize.X - 20, r.Resolution.Height - textSize.Y - 20), Color.White);
+
 			r.EndFrame(new NullInputHandler());
 		}
 

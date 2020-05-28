@@ -1,6 +1,6 @@
 Metadata:
 	Title: d2 mod
-	Version: release-20200202
+	Version: 937c759
 
 ModCredits:
 	ModTabTitle: d2 mod
@@ -38,7 +38,7 @@ Packages:
 MapFolders:
 	d2|maps: System
 	~^maps/d2/original: System
-	~^maps/d2/release-20200202: User
+	~^maps/d2/937c759: User
 
 Rules:
 	d2|rules/misc.yaml
@@ -180,7 +180,6 @@ Chrome:
 
 Assemblies:
 	common|OpenRA.Mods.Common.dll
-	common|OpenRA.Mods.Cnc.dll
 	d2k|OpenRA.Mods.D2k.dll
 	d2|OpenRA.Mods.D2.dll
 
@@ -200,6 +199,7 @@ ChromeLayout:
 	common|chrome/ingame-debuginfo.yaml
 	common|chrome/ingame-infochat.yaml
 	d2k|chrome/mainmenu.yaml
+    common|chrome/mainmenu-prompts.yaml
 	common|chrome/settings.yaml
 	common|chrome/credits.yaml
 	common|chrome/lobby.yaml
@@ -381,3 +381,4 @@ ModContent:
 		d2k|installer/d2k-e.yaml
 		d2k|installer/downloads.yaml
 		d2k|installer/gruntmods.yaml
+   

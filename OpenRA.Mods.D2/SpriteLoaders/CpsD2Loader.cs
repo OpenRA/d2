@@ -11,7 +11,7 @@
 
 using System.IO;
 using OpenRA.Graphics;
-using OpenRA.Mods.Common.FileFormats;
+using OpenRA.Mods.D2.FileFormats;
 using OpenRA.Primitives;
 
 namespace OpenRA.Mods.D2.SpriteLoaders
@@ -27,6 +27,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 
 		class CpsD2Tile : ISpriteFrame
 		{
+			public SpriteFrameType Type { get { return SpriteFrameType.Indexed; } }
 			public Size Size { get; private set; }
 			public Size FrameSize { get { return Size; } }
 			public float2 Offset { get { return float2.Zero; } }

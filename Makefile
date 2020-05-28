@@ -67,7 +67,7 @@ check-sdk-scripts:
 	fi
 
 check-packaging-scripts:
-	@if [ ! -x "packaging/package-all.sh" ] || [ ! -x "packaging/linux/buildpackage.sh" ] || [ ! -x "packaging/osx/buildpackage.sh" ] || [ ! -x "packaging/windows/buildpackage.sh" ]; then \
+	@if [ ! -x "packaging/package-all.sh" ] || [ ! -x "packaging/linux/buildpackage.sh" ] || [ ! -x "packaging/macos/buildpackage.sh" ] || [ ! -x "packaging/windows/buildpackage.sh" ]; then \
 		echo "Required SDK scripts are not executable:"; \
 		if [ ! -x "packaging/package-all.sh" ]; then \
 			echo "   packaging/package-all.sh"; \
@@ -75,8 +75,8 @@ check-packaging-scripts:
 		if [ ! -x "packaging/linux/buildpackage.sh" ]; then \
 			echo "   packaging/linux/buildpackage.sh"; \
 		fi; \
-		if [ ! -x "packaging/osx/buildpackage.sh" ]; then \
-			echo "   packaging/osx/buildpackage.sh"; \
+		if [ ! -x "packaging/macos/buildpackage.sh" ]; then \
+			echo "   packaging/macos/buildpackage.sh"; \
 		fi; \
 		if [ ! -x "packaging/windows/buildpackage.sh" ]; then \
 			echo "   packaging/windows/buildpackage.sh"; \
@@ -104,7 +104,7 @@ check-variables:
 
 engine-dependencies: check-variables check-sdk-scripts
 	@./fetch-engine.sh || (printf "Unable to continue without engine files\n"; exit 1)
-	@cd $(ENGINE_DIRECTORY) && make dependencies WIN32=$(WIN32)
+	@cd $(ENGINE_DIRECTORY) && make all && make install-dependencies WIN32=$(WIN32)
 
 engine: check-variables check-sdk-scripts
 	@./fetch-engine.sh || (printf "Unable to continue without engine files\n"; exit 1)

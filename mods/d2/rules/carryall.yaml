@@ -56,6 +56,7 @@ carryall:
 		LocalOffset: 0, 0, -128
 	Aircraft:
 		MinAirborneAltitude: 40
+		InitialFacing: 192
 	RevealsShroud@ligting_low:
 		Range: 2c512
 		Type: GroundPosition

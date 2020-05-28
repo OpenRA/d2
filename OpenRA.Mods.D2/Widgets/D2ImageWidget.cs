@@ -12,6 +12,7 @@
 using System;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.Widgets;
+using OpenRA.Mods.D2.Graphics;
 using OpenRA.Widgets;
 
 namespace OpenRA.Mods.D2.Widgets
@@ -83,15 +84,12 @@ namespace OpenRA.Mods.D2.Widgets
 
 			if (paletteName == null || paletteName.Length == 0)
 				paletteName = "player" + world.LocalPlayer.InternalName;
+			PaletteReference p = null;
+			if (paletteName != null)
+				p = worldRenderer.Palette(paletteName);
 
-			/* TODO: add palette to images ? */
-			/*
-			var hardwarePalette = new HardwarePalette();
-			var palette = worldRenderer.Palette(paletteName).Palette;
-			var sprite = ChromeProvider.GetImage(collection, name, palette );
-			*/
+			var sprite = D2ChromeProvider.GetImage(collection, name, p);
 
-			var sprite = ChromeProvider.GetImage(collection, name);
 			if (sprite == null)
 				throw new ArgumentException("Sprite {0}/{1} was not found.".F(collection, name));
 
