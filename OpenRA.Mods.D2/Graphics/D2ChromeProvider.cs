@@ -30,6 +30,7 @@ namespace OpenRA.Mods.D2.Graphics
 		}
 
 		public static IReadOnlyDictionary<string, D2Collection> Collections { get; private set; }
+
 		static Dictionary<string, D2Collection> collections;
 		static Dictionary<D2Collection, Sheet> cachedCollectionSheets;
 		static Dictionary<string, Sheet> cachedSheets;
