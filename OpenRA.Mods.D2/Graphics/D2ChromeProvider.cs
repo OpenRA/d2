@@ -37,7 +37,6 @@ namespace OpenRA.Mods.D2.Graphics
 		static Dictionary<D2Collection, Sheet> cachedCollectionSheets;
 		static Dictionary<string, Sheet> cachedSheets;
 		static Dictionary<string, Sprite> cachedSprites;
-
 		static IReadOnlyFileSystem fileSystem;
 
 		public static void Initialize(ModData modData)
@@ -72,6 +71,39 @@ namespace OpenRA.Mods.D2.Graphics
 			cachedCollectionSheets = null;
 			cachedSheets = null;
 			cachedSprites = null;
+		}
+
+		public static Sprite GetImage(string collectionName, string imageName, PaletteReference p)
+		{
+			if (string.IsNullOrEmpty(collectionName) || string.IsNullOrEmpty(imageName))
+				return null;
+
+			// Cached sprite
+			var paletteName = p == null ? "null" : p.Name;
+			var cacheName = collectionName + "|" + imageName + "|" + paletteName;
+			Sprite sprite = null;
+			if (cachedSprites.TryGetValue(cacheName, out sprite))
+				return sprite;
+
+			D2Collection collection;
+			if (!collections.TryGetValue(collectionName, out collection))
+			{
+				Log.Write("debug", "Could not find collection '{0}'", collectionName);
+				return null;
+			}
+
+			Rectangle mi;
+			if (!collection.Regions.TryGetValue(imageName, out mi))
+				return null;
+
+			var sheet = SheetForCollection(collection, p);
+			if (sheet == null)
+				return null;
+
+			var image = new Sprite(sheet, mi, TextureChannel.RGBA, 1f);
+			cachedSprites.Add(cacheName, image);
+
+			return image;
 		}
 
 		static void LoadCollection(string name, MiniYaml yaml)
@@ -140,7 +172,6 @@ namespace OpenRA.Mods.D2.Graphics
 
 		static ISpriteFrame LoadSpriteFrame(string imageName)
 		{
-			// TODO: cache SpriteFrame to not load again?
 			using (var stream = fileSystem.Open(imageName))
 				return LoadSpriteFrame(stream);
 		}
@@ -174,39 +205,6 @@ namespace OpenRA.Mods.D2.Graphics
 			}
 
 			return sheet;
-		}
-
-		public static Sprite GetImage(string collectionName, string imageName, PaletteReference p)
-		{
-			if (string.IsNullOrEmpty(collectionName) || string.IsNullOrEmpty(imageName))
-				return null;
-
-			// Cached sprite
-			var paletteName = p == null ? "null" : p.Name;
-			var cacheName = collectionName + "|" + imageName + "|" + paletteName;
-			Sprite sprite = null;
-			if (cachedSprites.TryGetValue(cacheName, out sprite))
-				return sprite;
-
-			D2Collection collection;
-			if (!collections.TryGetValue(collectionName, out collection))
-			{
-				Log.Write("debug", "Could not find collection '{0}'", collectionName);
-				return null;
-			}
-
-			Rectangle mi;
-			if (!collection.Regions.TryGetValue(imageName, out mi))
-				return null;
-
-			var sheet = SheetForCollection(collection, p);
-			if (sheet == null)
-				return null;
-
-			var image = new Sprite(sheet, mi, TextureChannel.RGBA, 1f);
-			cachedSprites.Add(cacheName, image);
-
-			return image;
 		}
 	}
 }
