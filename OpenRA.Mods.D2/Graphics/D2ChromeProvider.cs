@@ -28,8 +28,6 @@ namespace OpenRA.Mods.D2.Graphics
 			public readonly string SpriteImage = null;
 			public readonly string Palette = null;
 
-			public readonly int[] PanelRegion = null;
-			public readonly PanelSides PanelSides = PanelSides.All;
 			public readonly Dictionary<string, Rectangle> Regions = new Dictionary<string, Rectangle>();
 		}
 
