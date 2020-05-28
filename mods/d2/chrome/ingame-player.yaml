@@ -235,88 +235,6 @@ Container@PLAYER_WIDGETS:
 							Y: 5
 							ImageCollection: stance-icons
 							ImageName: hold-fire
-		Container@TOP_BAR:
-			X: 0
-			Y: 0
-			Width: WINDOW_RIGHT
-			Height: 39
-			Children:
-				D2Image@TOPBAR_BACKGROUND_LEFT:
-					X: 0
-					Y: 0
-					Width: 185
-					Height: 39
-					ImageCollection: screen
-					ImageName: topbar-left
-					ClickThrough: false
-				D2Image@TOPBAR_BACKGROUND:
-					X: 185
-					Y: 0
-					Width: WINDOW_RIGHT - 130 - 185
-					Height: 39
-					ImageCollection: screen
-					ImageName: topbar
-					FillBackground: true
-					ClickThrough: false
-				D2Image@TOPBAR_BACKGROUND_RIGHT:
-					X: WINDOW_RIGHT - 130
-					Y: 0
-					Width: 130
-					Height: 39
-					ImageCollection: screen
-					ImageName: topbar-right
-					ClickThrough: false
-				Container@TOPBAR_BUTTONS:
-					Logic: MenuButtonsChromeLogic
-					X: 0
-					Y: 0
-					Children:
-						MenuButton@OPTIONS_BUTTON:
-							Key: escape
-							X: 103
-							Y: 1
-							Width: 78
-							Height: 15
-							Background:
-							TooltipText: Options
-							TooltipContainer: TOOLTIP_CONTAINER
-							DisableWorldSounds: true
-							VisualHeight: 0
-						Label@GAME_TIMER:
-							Logic: GameTimerLogic
-							X: WINDOW_RIGHT - 350
-							Y: 0
-							Width: 50
-							Height: 22
-							Align: Center
-							Font: TinyBold
-						LabelWithTooltip@CASH:
-							Logic: IngameCashCounterLogic
-							X: WINDOW_RIGHT - 300
-							Y: 0
-							Width: 50
-							Height: 22
-							Font: Bold
-							Text: {0}
-							TooltipContainer: TOOLTIP_CONTAINER
-							TooltipTemplate: SIMPLE_TOOLTIP
-						LabelWithTooltip@POWER:
-							Logic: IngamePowerCounterLogic
-							X: WINDOW_RIGHT - 250
-							Y: 0
-							Width: 50
-							Height: 22
-							Align: Right
-							Font: Bold
-							Text: {0}
-							TooltipContainer: TOOLTIP_CONTAINER
-							TooltipTemplate: SIMPLE_TOOLTIP
-							Children:
-								Image@POWER_ICON:
-									X: PARENT_RIGHT + 0
-									Y: 5
-									ImageCollection: power-icons
-									ImageName: power-normal
 		Container@SIDEBAR:
 			X: WINDOW_RIGHT - 218
 			Y: 40
@@ -395,38 +313,6 @@ Container@PLAYER_WIDGETS:
 							Width: 88
 							Height: 16
 							Visible: false
-				Container@HORIZONTAL_LINE_1:
-					X: 0
-					Y: 257
-					Width: 218
-					Height: 6
-					ClickThrough: false
-					Children:
-						D2Image@HORIZONTAL_LINE_1_RIGHT:
-							X: 0
-							Y: 0
-							Width: 5
-							Height: 6
-							ImageCollection: screen
-							ImageName: horizontal-left
-							ClickThrough: false
-						D2Image@HORIZONTAL_LINE_1:
-							X: 5
-							Y: 0
-							Width: 218 - 10
-							Height: 6
-							ImageCollection: screen
-							ImageName: horizontal-line
-							FillBackground: true
-							ClickThrough: false
-						D2Image@HORIZONTAL_LINE_1_LEFT:
-							X: 218 - 5
-							Y: 0
-							Width: 5
-							Height: 6
-							ImageCollection: screen
-							ImageName: horizontal-right
-							ClickThrough: false
 				Container@RADAR:
 					Logic: IngameRadarDisplayLogic
 					X: 0
@@ -457,55 +343,6 @@ Container@PLAYER_WIDGETS:
 							Width: 202
 							Height: 202
 							Skippable: false
-		Container@VERTICAL_LINE:
-			X: WINDOW_RIGHT - 218 - 14
-			Y: 40
-			Width: 14
-			Height: WINDOW_BOTTOM - 40
-			ClickThrough: false
-			Children:
-				D2Image@VERTICAL_LINE_TOP:
-					X: 1
-					Y: 1
-					Width: 12
-					Height: 18
-					ImageCollection: screen
-					ImageName: vertical-top
-					ClickThrough: false
-				D2Image@VERTICAL_LINE_1:
-					X: 1
-					Y: 18
-					Width: 12
-					Height: 256 - 5 - 18 - 3
-					ImageCollection: screen
-					ImageName: vertical-line-1
-					FillBackground: true
-					ClickThrough: false
-				D2Image@VERTICAL_LINE_MIDDLE:
-					X: 1
-					Y: 256 - 5 - 3
-					Width: 12
-					Height: 23
-					ImageCollection: screen
-					ImageName: vertical-middle
-					ClickThrough: false
-				D2Image@VERTICAL_LINE_2:
-					X: 1
-					Y: 256 - 5 + 23 - 3
-					Width: 12
-					Height: WINDOW_BOTTOM - 18 - 40 - 256 + 5 - 23
-					ImageCollection: screen
-					ImageName: vertical-line-2
-					FillBackground: true
-					ClickThrough: false
-				D2Image@VERTIACAL_LINE_BOTTOM:
-					X: 1
-					Y: WINDOW_BOTTOM - 18 - 40
-					Width: 12
-					Height: 18
-					ImageCollection: screen
-					ImageName: vertical-bottom
-					ClickThrough: false
 		Container@SIDEBAR_PRODUCTION:
 			Logic: ClassicProductionLogic
 			X: WINDOW_RIGHT - 218 - 14 - 218 - 14

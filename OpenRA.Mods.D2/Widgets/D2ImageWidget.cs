@@ -89,6 +89,7 @@ namespace OpenRA.Mods.D2.Widgets
 				p = worldRenderer.Palette(paletteName);
 
 			var sprite = D2ChromeProvider.GetImage(collection, name, p);
+
 			if (sprite == null)
 				throw new ArgumentException("Sprite {0}/{1} was not found.".F(collection, name));
 

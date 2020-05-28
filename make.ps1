@@ -365,13 +365,13 @@ if ($command -eq "all" -or $command -eq "clean")
 
 		Add-Type -assembly "system.io.compression.filesystem"
 		[io.compression.zipfile]::ExtractToDirectory($dlPath, $env:AUTOMATIC_ENGINE_EXTRACT_DIRECTORY)
-		rm $dlPath
+		#rm $dlPath
 
 		$extractedDir = Get-ChildItem $env:AUTOMATIC_ENGINE_EXTRACT_DIRECTORY -Recurse | ?{ $_.PSIsContainer } | Select-Object -First 1
 		Move-Item $extractedDir.FullName -Destination $templateDir
 		Rename-Item $extractedDir.Name (Split-Path -leaf $env:ENGINE_DIRECTORY)
 
-		rm $env:AUTOMATIC_ENGINE_EXTRACT_DIRECTORY -r
+		#rm $env:AUTOMATIC_ENGINE_EXTRACT_DIRECTORY -r
 
 		cd $env:ENGINE_DIRECTORY
 		Invoke-Expression ".\make.cmd version $env:ENGINE_VERSION"
