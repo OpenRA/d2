@@ -155,6 +155,8 @@ World:
 	D2TerrainLayer:
 	BuildableTerrainLayer:
 	ResourceLayer:
+	D2ResourceRenderer:
+		RenderTypes: Spice
 	ResourceClaimLayer:
 	CustomTerrainDebugOverlay:
 	SmudgeLayer@Rock:
