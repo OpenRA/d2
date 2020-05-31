@@ -51,7 +51,7 @@ harvester:
 		Facings: -8
 		Tick: 160
 		ZOffset: 1
-		BlendMode: None
+		BlendMode: Alpha
 	dock: UNITS.SHP
 		Start: 14
 		Offset: 0,-8

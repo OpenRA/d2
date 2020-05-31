@@ -4,5 +4,5 @@ vtrail:
 		Length: 1
 		Facings: -8
 		Tick: 12000
-		BlendMode: None
+		BlendMode: Alpha
 		ZOffset: -1023
