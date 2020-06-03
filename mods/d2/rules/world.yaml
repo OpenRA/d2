@@ -14,13 +14,12 @@
 	TerrainGeometryOverlay:
 	DebugVisualizations:
 	TerrainRenderer:
-	ShroudRenderer:
-		ShroudVariants: shrouda
-		FogVariants: foga
-		OverrideFullShroud: shroudfull
-		OverrideFullFog: fogfull
+	D2ShroudRenderer:
+		ShroudName: fog
+		FogName: fog
 		ShroudBlend: Alpha
 		FogPalette: effect50alpha
+		ShroudOnMapBorders: true
 	Locomotor@FOOT:
 		Name: foot
 		Crushes: crate, spicebloom
