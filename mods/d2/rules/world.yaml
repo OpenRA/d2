@@ -269,8 +269,6 @@ World:
 		PanelName: SKIRMISH_STATS
 	LoadWidgetAtGameStart:
 	TimeLimitManager:
-	ResourceRenderer:
-		RenderTypes:
 
 EditorWorld:
 	Inherits: ^BaseWorld
