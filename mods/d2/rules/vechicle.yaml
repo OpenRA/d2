@@ -42,8 +42,8 @@
 		Duration: 100
 		Radius: 2c512
 	WithDamageOverlay:
-	LeavesTrails:
-		Image: vtrail
+	D2LeavesTracks:
+		Image: track
 		Palette: d2
 		Type: Cell
 		TerrainTypes: Sand, Dune, Spice
