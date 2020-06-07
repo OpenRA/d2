@@ -66,7 +66,6 @@ namespace OpenRA.Mods.D2.Traits.Render
 		CPos previosSpawnCell = new CPos(-1, -1);
 		int previousSpawnFacing;
 
-
 		public D2LeavesTracks(Actor self, D2LeavesTracksInfo info)
 			: base(info)
 		{
