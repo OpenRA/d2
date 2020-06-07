@@ -9,6 +9,7 @@
  */
 #endregion
 
+using System;
 using System.Collections.Generic;
 using OpenRA.Mods.Common.Effects;
 using OpenRA.Mods.Common.Traits;
@@ -62,13 +63,17 @@ namespace OpenRA.Mods.D2.Traits.Render
 		int cachedFacing;
 		int cachedInterval;
 
+		WPos cachedPosition;
+		CPos previosSpawnCell = new CPos(-1, -1);
+		int previousSpawnFacing;
+
+
 		public D2LeavesTracks(Actor self, D2LeavesTracksInfo info)
 			: base(info)
 		{
 			cachedInterval = Info.StartDelay;
 		}
 
-		WPos cachedPosition;
 		protected override void Created(Actor self)
 		{
 			body = self.Trait<BodyOrientation>();
@@ -107,15 +112,23 @@ namespace OpenRA.Mods.D2.Traits.Render
 
 				var type = self.World.Map.GetTerrainInfo(spawnCell).Type;
 
-				var spawnPosition = Info.SpawnAtLastPosition ? cachedPosition : self.CenterPosition;
-
-				var pos = self.World.Map.CenterOfCell(spawnCell);
-
-				var spawnFacing = Info.SpawnAtLastPosition ? cachedFacing : (facing != null ? facing.Facing : 0);
-
 				if ((Info.TerrainTypes.Count == 0 || Info.TerrainTypes.Contains(type)) && !string.IsNullOrEmpty(Info.Image))
+				{
+					int spawnFacing;
+
+					if (previosSpawnCell.Equals(spawnCell))
+						spawnFacing = previousSpawnFacing;
+					else
+						spawnFacing = Info.SpawnAtLastPosition ? cachedFacing : (facing != null ? facing.Facing : 0);
+
+					var spawnPosition = Info.SpawnAtLastPosition ? cachedPosition : self.CenterPosition;
+					var pos = self.World.Map.CenterOfCell(spawnCell);
+
 					self.World.AddFrameEndTask(w => w.Add(new SpriteEffect(pos, WAngle.FromFacing(spawnFacing), self.World, Info.Image,
 						Info.Sequence, Info.Palette, Info.VisibleThroughFog)));
+					previosSpawnCell = spawnCell;
+					previousSpawnFacing = spawnFacing;
+				}
 
 				cachedPosition = self.CenterPosition;
 				cachedFacing = facing != null ? facing.Facing : 0;
