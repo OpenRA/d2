@@ -63,7 +63,8 @@ namespace OpenRA.Mods.D2.Traits.Render
 		int cachedInterval;
 
 		WPos cachedPosition;
-		CPos previosSpawnCell = new CPos(-1, -1);
+		bool previouslySpawned = false;
+		CPos previosSpawnCell;
 		int previousSpawnFacing;
 
 		public D2LeavesTracks(Actor self, D2LeavesTracksInfo info)
@@ -114,7 +115,7 @@ namespace OpenRA.Mods.D2.Traits.Render
 				{
 					int spawnFacing;
 
-					if (previosSpawnCell.Equals(spawnCell))
+					if (previouslySpawned && previosSpawnCell.Equals(spawnCell))
 						spawnFacing = previousSpawnFacing;
 					else
 						spawnFacing = Info.SpawnAtLastPosition ? cachedFacing : (facing != null ? facing.Facing : 0);
@@ -124,6 +125,8 @@ namespace OpenRA.Mods.D2.Traits.Render
 
 					self.World.AddFrameEndTask(w => w.Add(new SpriteEffect(pos, WAngle.FromFacing(spawnFacing), self.World, Info.Image,
 						Info.Sequence, Info.Palette, Info.VisibleThroughFog)));
+
+					previouslySpawned = true;
 					previosSpawnCell = spawnCell;
 					previousSpawnFacing = spawnFacing;
 				}

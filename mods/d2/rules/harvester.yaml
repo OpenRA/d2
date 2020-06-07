@@ -55,8 +55,3 @@ harvester:
 		Position: BottomLeft
 		RequiresSelection: true
 		PipCount: 7
-	D2LeavesTracks:
-		Image: track
-		Palette: d2
-		Type: Cell
-		TerrainTypes: Sand, Dune
