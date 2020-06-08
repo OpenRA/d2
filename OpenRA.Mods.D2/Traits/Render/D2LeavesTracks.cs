@@ -33,24 +33,12 @@ namespace OpenRA.Mods.D2.Traits.Render
 		[Desc("Should the trail be visible through fog.")]
 		public readonly bool VisibleThroughFog = false;
 
-		[Desc("Display a trail while stationary.")]
-		public readonly bool TrailWhileStationary = false;
-
-		[Desc("Delay between trail updates when stationary.")]
-		public readonly int StationaryInterval = 0;
-
-		[Desc("Display a trail while moving.")]
-		public readonly bool TrailWhileMoving = true;
-
-		[Desc("Delay between trail updates when moving.")]
-		public readonly int MovingInterval = 0;
+		[Desc("Delay between trail updates.")]
+		public readonly int UpdateInterval = 100;
 
 		[Desc("Delay before first trail.",
 			"Use negative values for falling back to the *Interval values.")]
 		public readonly int StartDelay = 0;
-
-		[Desc("Should the trail spawn relative to last position or current position?")]
-		public readonly bool SpawnAtLastPosition = true;
 
 		public override object Create(ActorInitializer init) { return new D2LeavesTracks(init.Self, this); }
 	}
@@ -62,10 +50,15 @@ namespace OpenRA.Mods.D2.Traits.Render
 		int cachedFacing;
 		int cachedInterval;
 
-		WPos cachedPosition;
-		bool previouslySpawned = false;
+		CPos cachedCell;
+
+		bool previouslySpawned;
 		CPos previosSpawnCell;
 		int previousSpawnFacing;
+
+		int ticks;
+		bool wasStationary;
+		bool isMoving;
 
 		public D2LeavesTracks(Actor self, D2LeavesTracksInfo info)
 			: base(info)
@@ -78,23 +71,23 @@ namespace OpenRA.Mods.D2.Traits.Render
 			body = self.Trait<BodyOrientation>();
 			facing = self.TraitOrDefault<IFacing>();
 			cachedFacing = facing != null ? facing.Facing : 0;
-			cachedPosition = self.CenterPosition;
+			cachedCell = self.World.Map.CellContaining(self.CenterPosition);
+
+			previouslySpawned = false;
 
 			base.Created(self);
 		}
 
-		int ticks;
-		bool wasStationary;
-		bool isMoving;
-
 		void ITick.Tick(Actor self)
 		{
-			if (IsTraitDisabled)
+			if (IsTraitDisabled || string.IsNullOrEmpty(Info.Image))
 				return;
 
 			wasStationary = !isMoving;
-			isMoving = self.CenterPosition != cachedPosition;
-			if ((isMoving && !Info.TrailWhileMoving) || (!isMoving && !Info.TrailWhileStationary))
+			var currentCell = self.World.Map.CellContaining(self.CenterPosition);
+			isMoving = currentCell != cachedCell;
+
+			if (!isMoving)
 				return;
 
 			if (isMoving == wasStationary && (Info.StartDelay > -1))
@@ -105,43 +98,30 @@ namespace OpenRA.Mods.D2.Traits.Render
 
 			if (++ticks >= cachedInterval)
 			{
-				var spawnCell = Info.SpawnAtLastPosition ? self.World.Map.CellContaining(cachedPosition) : self.World.Map.CellContaining(self.CenterPosition);
-				if (!self.World.Map.Contains(spawnCell))
-					return;
-
-				var type = self.World.Map.GetTerrainInfo(spawnCell).Type;
-
-				if ((Info.TerrainTypes.Count == 0 || Info.TerrainTypes.Contains(type)) && !string.IsNullOrEmpty(Info.Image))
+				if (self.World.Map.Contains(cachedCell) && (Info.TerrainTypes.Count == 0 || Info.TerrainTypes.Contains(self.World.Map.GetTerrainInfo(cachedCell).Type)))
 				{
-					int spawnFacing;
-
-					if (previouslySpawned && previosSpawnCell.Equals(spawnCell))
-						spawnFacing = previousSpawnFacing;
-					else
-						spawnFacing = Info.SpawnAtLastPosition ? cachedFacing : (facing != null ? facing.Facing : 0);
-
-					var spawnPosition = Info.SpawnAtLastPosition ? cachedPosition : self.CenterPosition;
-					var pos = self.World.Map.CenterOfCell(spawnCell);
+					int spawnFacing = previouslySpawned && previosSpawnCell.Equals(cachedCell) ? previousSpawnFacing : cachedFacing;
+					var pos = self.World.Map.CenterOfCell(cachedCell);
 
 					self.World.AddFrameEndTask(w => w.Add(new SpriteEffect(pos, WAngle.FromFacing(spawnFacing), self.World, Info.Image,
 						Info.Sequence, Info.Palette, Info.VisibleThroughFog)));
 
 					previouslySpawned = true;
-					previosSpawnCell = spawnCell;
+					previosSpawnCell = cachedCell;
 					previousSpawnFacing = spawnFacing;
 				}
 
-				cachedPosition = self.CenterPosition;
+				cachedCell = currentCell;
 				cachedFacing = facing != null ? facing.Facing : 0;
 				ticks = 0;
 
-				cachedInterval = isMoving ? Info.MovingInterval : Info.StationaryInterval;
+				cachedInterval = Info.UpdateInterval;
 			}
 		}
 
 		protected override void TraitEnabled(Actor self)
 		{
-			cachedPosition = self.CenterPosition;
+			cachedCell = self.World.Map.CellContaining(self.CenterPosition);
 		}
 	}
 }
