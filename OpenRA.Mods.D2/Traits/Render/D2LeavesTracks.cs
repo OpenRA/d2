@@ -49,9 +49,6 @@ namespace OpenRA.Mods.D2.Traits.Render
 			"Use negative values for falling back to the *Interval values.")]
 		public readonly int StartDelay = 0;
 
-		[Desc("Should the trail spawn relative to last position or current position?")]
-		public readonly bool SpawnAtLastPosition = true;
-
 		public override object Create(ActorInitializer init) { return new D2LeavesTracks(init.Self, this); }
 	}
 
@@ -63,9 +60,14 @@ namespace OpenRA.Mods.D2.Traits.Render
 		int cachedInterval;
 
 		WPos cachedPosition;
-		bool previouslySpawned = false;
+
+		bool previouslySpawned;
 		CPos previosSpawnCell;
 		int previousSpawnFacing;
+
+		int ticks;
+		bool wasStationary;
+		bool isMoving;
 
 		public D2LeavesTracks(Actor self, D2LeavesTracksInfo info)
 			: base(info)
@@ -80,12 +82,10 @@ namespace OpenRA.Mods.D2.Traits.Render
 			cachedFacing = facing != null ? facing.Facing : 0;
 			cachedPosition = self.CenterPosition;
 
+			previouslySpawned = false;
+
 			base.Created(self);
 		}
-
-		int ticks;
-		bool wasStationary;
-		bool isMoving;
 
 		void ITick.Tick(Actor self)
 		{
@@ -94,6 +94,7 @@ namespace OpenRA.Mods.D2.Traits.Render
 
 			wasStationary = !isMoving;
 			isMoving = self.CenterPosition != cachedPosition;
+
 			if ((isMoving && !Info.TrailWhileMoving) || (!isMoving && !Info.TrailWhileStationary))
 				return;
 
@@ -105,7 +106,7 @@ namespace OpenRA.Mods.D2.Traits.Render
 
 			if (++ticks >= cachedInterval)
 			{
-				var spawnCell = Info.SpawnAtLastPosition ? self.World.Map.CellContaining(cachedPosition) : self.World.Map.CellContaining(self.CenterPosition);
+				var spawnCell = self.World.Map.CellContaining(cachedPosition);
 				if (!self.World.Map.Contains(spawnCell))
 					return;
 
@@ -113,14 +114,9 @@ namespace OpenRA.Mods.D2.Traits.Render
 
 				if ((Info.TerrainTypes.Count == 0 || Info.TerrainTypes.Contains(type)) && !string.IsNullOrEmpty(Info.Image))
 				{
-					int spawnFacing;
+					int spawnFacing = previouslySpawned && previosSpawnCell.Equals(spawnCell) ? previousSpawnFacing : cachedFacing;
 
-					if (previouslySpawned && previosSpawnCell.Equals(spawnCell))
-						spawnFacing = previousSpawnFacing;
-					else
-						spawnFacing = Info.SpawnAtLastPosition ? cachedFacing : (facing != null ? facing.Facing : 0);
-
-					var spawnPosition = Info.SpawnAtLastPosition ? cachedPosition : self.CenterPosition;
+					var spawnPosition = cachedPosition;
 					var pos = self.World.Map.CenterOfCell(spawnCell);
 
 					self.World.AddFrameEndTask(w => w.Add(new SpriteEffect(pos, WAngle.FromFacing(spawnFacing), self.World, Info.Image,
