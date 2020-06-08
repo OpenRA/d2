@@ -98,9 +98,7 @@ namespace OpenRA.Mods.D2.Traits.Render
 
 			if (++ticks >= cachedInterval)
 			{
-				var type = self.World.Map.GetTerrainInfo(cachedCell).Type;
-
-				if ((Info.TerrainTypes.Count == 0 || Info.TerrainTypes.Contains(type)) && self.World.Map.Contains(cachedCell))
+				if (self.World.Map.Contains(cachedCell) && (Info.TerrainTypes.Count == 0 || Info.TerrainTypes.Contains(self.World.Map.GetTerrainInfo(cachedCell).Type)))
 				{
 					int spawnFacing = previouslySpawned && previosSpawnCell.Equals(cachedCell) ? previousSpawnFacing : cachedFacing;
 					var pos = self.World.Map.CenterOfCell(cachedCell);
