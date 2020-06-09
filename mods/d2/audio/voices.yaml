@@ -1,19 +1,17 @@
-# requires Dune 2 data copied to $PlatformSupportDir/Content/d2
-
 GenericVoice:
 	DefaultVariant: .VOC
 	Voices:
 		Select: REPORT1, REPORT2, REPORT3
 		Action: AFFIRM
 		Die: VSCREAM1, VSCREAM2, VSCREAM3, VSCREAM4, VSCREAM5
-#		Guard: I_GUARD
+		Guard:
 
 VehicleVoice:
 	DefaultVariant: .VOC
 	Voices:
 		Select: REPORT1, REPORT2, REPORT3
 		Action: AFFIRM
-#		Guard: I_GUARD
+		Guard:
 
 InfantryVoice:
 	DefaultVariant: .VOC
@@ -21,7 +19,7 @@ InfantryVoice:
 		Select: REPORT1, REPORT2, REPORT3
 		Action: MOVEOUT, OVEROUT, AFFIRM
 		Die: VSCREAM1, VSCREAM2, VSCREAM3, VSCREAM4, VSCREAM5
-#		Guard: I_GUARD
+		Guard: OVEROUT, AFFIRM
 
 FremenVoice:
 	DefaultVariant: .VOC
@@ -29,7 +27,7 @@ FremenVoice:
 		Select: REPORT1, REPORT2, REPORT3
 		Action: MOVEOUT, OVEROUT, AFFIRM
 		Die: VSCREAM1, VSCREAM2, VSCREAM3, VSCREAM4, VSCREAM5
-#		Guard: I_GUARD
+		Guard: OVEROUT, AFFIRM
 
 SaboteurVoice:
 	DefaultVariant: .VOC
@@ -37,4 +35,4 @@ SaboteurVoice:
 		Select: REPORT1, REPORT2, REPORT3
 		Action: MOVEOUT, OVEROUT, AFFIRM
 		Die: VSCREAM1, VSCREAM2, VSCREAM3, VSCREAM4, VSCREAM5
-#		Guard: I_GUARD
+		Guard: OVEROUT, AFFIRM

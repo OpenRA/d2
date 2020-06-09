@@ -1,5 +1,3 @@
-# requires Dune 2 data copied to $PlatformSupportDir/Content/d2
-
 Speech:
 	DefaultVariant: .VOC
 	Prefixes:
