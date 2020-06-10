@@ -1,7 +1,7 @@
 GenericVoice:
 	DefaultVariant: .VOC
 	Voices:
-		Select: REPORT1, REPORT2, REPORT3
+		Select: REPORT2
 		Action: AFFIRM
 		Die: VSCREAM1, VSCREAM2, VSCREAM3, VSCREAM4, VSCREAM5
 		Guard:
@@ -9,30 +9,30 @@ GenericVoice:
 VehicleVoice:
 	DefaultVariant: .VOC
 	Voices:
-		Select: REPORT1, REPORT2, REPORT3
-		Action: AFFIRM
+		Select: REPORT2
+		Action: REPORT3, AFFIRM
 		Guard:
 
 InfantryVoice:
 	DefaultVariant: .VOC
 	Voices:
-		Select: REPORT1, REPORT2, REPORT3
-		Action: MOVEOUT, OVEROUT, AFFIRM
+		Select: REPORT1
+		Action: OVEROUT, MOVEOUT
 		Die: VSCREAM1, VSCREAM2, VSCREAM3, VSCREAM4, VSCREAM5
-		Guard: OVEROUT, AFFIRM
+		Guard: OVEROUT
 
 FremenVoice:
 	DefaultVariant: .VOC
 	Voices:
-		Select: REPORT1, REPORT2, REPORT3
-		Action: MOVEOUT, OVEROUT, AFFIRM
+		Select: REPORT1
+		Action: OVEROUT, MOVEOUT
 		Die: VSCREAM1, VSCREAM2, VSCREAM3, VSCREAM4, VSCREAM5
-		Guard: OVEROUT, AFFIRM
+		Guard: OVEROUT
 
 SaboteurVoice:
 	DefaultVariant: .VOC
 	Voices:
-		Select: REPORT1, REPORT2, REPORT3
-		Action: MOVEOUT, OVEROUT, AFFIRM
+		Select: REPORT1
+		Action: OVEROUT, MOVEOUT
 		Die: VSCREAM1, VSCREAM2, VSCREAM3, VSCREAM4, VSCREAM5
-		Guard: OVEROUT, AFFIRM
+		Guard: OVEROUT
