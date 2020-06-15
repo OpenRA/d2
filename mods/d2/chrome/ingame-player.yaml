@@ -163,35 +163,35 @@ Container@PLAYER_WIDGETS:
 							Visible: false
 						ColorBlock@COMMAND_BAR_BACKGROUND:
 							X: 3
-							Y: 109
+							Y: 108
 							Width: 212
-							Height: 141
+							Height: 146
 							Color: 000000
 						D2Button@ATTACK:
-							X: 4
+							X: 5
 							Y: 110
-							Width: 210
+							Width: 208
 							Height: 34
 							VisualHeight: 0
 							Text: ATTACK
 						D2Button@MOVE:
-							X: 4
-							Y: 145
-							Width: 210
+							X: 5
+							Y: 146
+							Width: 208
 							Height: 34
 							VisualHeight: 0
 							Text: MOVE
 						D2Button@RETREAT:
-							X: 4
-							Y: 180
-							Width: 210
+							X: 5
+							Y: 182
+							Width: 208
 							Height: 34
 							VisualHeight: 0
 							Text: RETREAT
 						D2Button@GUARD:
-							X: 4
-							Y: 215
-							Width: 210
+							X: 5
+							Y: 218
+							Width: 208
 							Height: 34
 							VisualHeight: 0
 							Text: GUARD
