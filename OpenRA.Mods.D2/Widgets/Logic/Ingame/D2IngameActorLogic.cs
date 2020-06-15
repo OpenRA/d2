@@ -16,6 +16,7 @@ using OpenRA.Mods.Common.Orders;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Traits.Render;
 using OpenRA.Mods.Common.Widgets;
+using OpenRA.Orders;
 using OpenRA.Primitives;
 using OpenRA.Traits;
 using OpenRA.Widgets;
@@ -118,15 +119,15 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			attackButton = widget.GetOrNull<D2ButtonWidget>("ATTACK");
 			if (attackButton != null)
 			{
+				attackButton.IsHighlighted = () => IsForceModifiersActive(Modifiers.Ctrl)
+					&& !(world.OrderGenerator is AttackMoveOrderGenerator);
+
 				Action<bool> toggle = allowCancel =>
 				{
 					if (attackButton.IsHighlighted())
-					{
-						if (allowCancel)
-							world.CancelInputMode();
-					}
+						world.CancelInputMode();
 					else
-						world.OrderGenerator = new AttackMoveOrderGenerator(selectedActors, Game.Settings.Game.MouseButtonPreference.Action);
+						world.OrderGenerator = new ForceModifiersOrderGenerator(Modifiers.Ctrl, true);
 				};
 
 				attackButton.OnClick = () => toggle(true);
@@ -139,6 +140,19 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			base.Tick();
 
 			UpdateStateIfNecessary();
+		}
+
+		bool IsForceModifiersActive(Modifiers modifiers)
+		{
+			var fmog = world.OrderGenerator as ForceModifiersOrderGenerator;
+			if (fmog != null && fmog.Modifiers.HasFlag(modifiers))
+				return true;
+
+			var uog = world.OrderGenerator as UnitOrderGenerator;
+			if (uog != null && Game.GetModifierKeys().HasFlag(modifiers))
+				return true;
+
+			return false;
 		}
 
 		void HideExtraInfo()
