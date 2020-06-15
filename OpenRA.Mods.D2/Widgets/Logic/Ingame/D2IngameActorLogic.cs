@@ -1,6 +1,6 @@
 #region Copyright & License Information
 /*
- * Copyright 2007-2019 The d2 mod Developers (see AUTHORS)
+ * Copyright 2007-2020 The d2 mod Developers (see AUTHORS)
  * This file is part of OpenRA, which is free software. It is made
  * available to you under the terms of the GNU General Public License
  * as published by the Free Software Foundation, either version 3 of
@@ -9,8 +9,10 @@
  */
 #endregion
 
+using System;
 using System.Linq;
 using OpenRA.Graphics;
+using OpenRA.Mods.Common.Orders;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Traits.Render;
 using OpenRA.Mods.Common.Widgets;
@@ -20,7 +22,7 @@ using OpenRA.Widgets;
 
 namespace OpenRA.Mods.D2.Widgets.Logic
 {
-	public class D2IngameActorInfoDisplayLogic : ChromeLogic
+	public class D2IngameActorLogic : ChromeLogic
 	{
 		readonly World world;
 		readonly WorldRenderer worldRenderer;
@@ -37,12 +39,13 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		readonly LabelWidget line1b;
 		readonly LabelWidget line2a;
 		readonly LabelWidget line2b;
+		readonly D2ButtonWidget attackButton;
 
 		int selectionHash;
 		Actor[] selectedActors = { };
 
 		[ObjectCreator.UseCtor]
-		public D2IngameActorInfoDisplayLogic(Widget widget, World world, WorldRenderer worldRenderer)
+		public D2IngameActorLogic(Widget widget, World world, WorldRenderer worldRenderer)
 		{
 			this.world = world;
 			this.worldRenderer = worldRenderer;
@@ -110,6 +113,24 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				line2b.Align = TextAlign.Right;
 				line2b.TextColor = textColor;
 				line2b.Font = "MediumBold";
+			}
+
+			attackButton = widget.GetOrNull<D2ButtonWidget>("ATTACK");
+			if (attackButton != null)
+			{
+				Action<bool> toggle = allowCancel =>
+				{
+					if (attackButton.IsHighlighted())
+					{
+						if (allowCancel)
+							world.CancelInputMode();
+					}
+					else
+						world.OrderGenerator = new AttackMoveOrderGenerator(selectedActors, Game.Settings.Game.MouseButtonPreference.Action);
+				};
+
+				attackButton.OnClick = () => toggle(true);
+				attackButton.OnKeyPress = _ => toggle(false);
 			}
 		}
 

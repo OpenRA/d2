@@ -1,7 +1,5 @@
 Container@PLAYER_WIDGETS:
 	Children:
-		LogicKeyListener@CONTROLGROUP_KEYHANDLER:
-			Logic: ControlGroupLogic
 		LogicTicker@SIDEBAR_TICKER:
 		Container@TOP_BAR:
 			X: 0
@@ -93,7 +91,7 @@ Container@PLAYER_WIDGETS:
 			ClickThrough: false
 			Children:
 				Container@ACTOR_INFO:
-					Logic: D2IngameActorInfoDisplayLogic
+					Logic: D2IngameActorLogic
 					X: 0
 					Y: 0
 					Width: 218
@@ -169,13 +167,14 @@ Container@PLAYER_WIDGETS:
 							Width: 212
 							Height: 143
 							Color: 000000
-						Button@ATTACK:
+						D2Button@ATTACK:
 							X: 6
 							Y: 112
 							Width: 206
 							Height: 32
 							VisualHeight: 0
-							DisableKeySound: true
+							Key: AttackMove
+							Text: ATTACK
 				Container@HORIZONTAL_LINE_1:
 					X: 0
 					Y: 257

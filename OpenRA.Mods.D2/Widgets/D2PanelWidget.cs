@@ -30,10 +30,10 @@ namespace OpenRA.Mods.D2.Widgets
 			GetColor = () => Color.FromArgb(186, 190, 150);
 		}
 
-		protected D2PanelWidget(D2PanelWidget widget)
-			: base(widget)
+		protected D2PanelWidget(D2PanelWidget other)
+			: base(other)
 		{
-			GetColor = widget.GetColor;
+			GetColor = other.GetColor;
 		}
 
 		public override Widget Clone()

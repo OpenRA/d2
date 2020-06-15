@@ -51,12 +51,12 @@ namespace OpenRA.Mods.D2.Widgets
 			WidgetUtils.FillRectWithColor(new Rectangle(bounds.Right - size, bounds.Top + size, size, bounds.Height - size), shadowColor);
 		}
 
-		public static void DrawPanelBorder(Rectangle bounds, int size)
+		public static void DrawPanelBorder(Rectangle bounds, int size, bool inverse = false)
 		{
 			var highlightColor = Color.FromArgb(251, 255, 203);
 			var shadowColor = Color.FromArgb(103, 103, 79);
 
-			DrawColoredPanelBorder(bounds, size, highlightColor, shadowColor);
+			DrawColoredPanelBorder(bounds, size, inverse ? shadowColor : highlightColor, inverse ? highlightColor : shadowColor);
 		}
 
 		public static void DrawColoredTriangle(int2 a, int size, Color normalColor, Color highlightColor, Color shadowColor)
