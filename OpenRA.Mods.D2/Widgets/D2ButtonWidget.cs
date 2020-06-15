@@ -37,53 +37,6 @@ namespace OpenRA.Mods.D2.Widgets
 
 		public override Widget Clone() { return new D2ButtonWidget(this); }
 
-		public override bool HandleMouseInput(MouseInput mi)
-		{
-			if (mi.Button != MouseButton.Right && mi.Button != MouseButton.Left)
-				return false;
-
-			if (mi.Event == MouseInputEvent.Down && !TakeMouseFocus(mi))
-				return false;
-
-			var disabled = IsDisabled();
-			if (HasMouseFocus && mi.Event == MouseInputEvent.Up && mi.MultiTapCount == 2)
-			{
-				if (!disabled)
-				{
-					OnDoubleClick();
-					return YieldMouseFocus(mi);
-				}
-			}
-			else if (HasMouseFocus && mi.Event == MouseInputEvent.Up)
-			{
-				// Only fire the onMouseUp event if we successfully lost focus, and were pressed
-				if (Depressed && !disabled)
-					OnMouseUp(mi);
-
-				return YieldMouseFocus(mi);
-			}
-
-			if (mi.Event == MouseInputEvent.Down)
-			{
-				// OnMouseDown returns false if the button shouldn't be pressed
-				if (!disabled)
-				{
-					OnMouseDown(mi);
-					Depressed = true;
-					Game.Sound.PlayNotification(ModRules, null, "Sounds", ClickSound, null);
-				}
-				else
-				{
-					YieldMouseFocus(mi);
-					Game.Sound.PlayNotification(ModRules, null, "Sounds", ClickDisabledSound, null);
-				}
-			}
-			else if (mi.Event == MouseInputEvent.Move && HasMouseFocus)
-				Depressed = RenderBounds.Contains(mi.Location);
-
-			return Depressed;
-		}
-
 		public override void DrawBackground(Rectangle rect, bool disabled, bool pressed, bool hover, bool highlighted)
 		{
 			D2DrawBackground(GetBackgroundColor(), BarMargin, rect, disabled, pressed, hover, highlighted);
