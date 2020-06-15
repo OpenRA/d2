@@ -42,7 +42,9 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		readonly LabelWidget line2b;
 		readonly D2ButtonWidget attackButton;
 		readonly D2ButtonWidget moveButton;
+		readonly D2ButtonWidget retreatButton;
 		readonly D2ButtonWidget guardButton;
+		readonly ColorBlockWidget buttonsBackground;
 
 		int selectionHash;
 		Actor[] selectedActors = { };
@@ -118,9 +120,14 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				line2b.Font = "MediumBold";
 			}
 
+			buttonsBackground = widget.GetOrNull<ColorBlockWidget>("BUTTONS_BACKGROUND");
+			if (buttonsBackground != null)
+				buttonsBackground.Visible = false;
+
 			attackButton = widget.GetOrNull<D2ButtonWidget>("ATTACK");
 			if (attackButton != null)
 			{
+				attackButton.Visible = false;
 				attackButton.IsHighlighted = () => IsForceModifiersActive(Modifiers.Ctrl)
 					&& !(world.OrderGenerator is AttackMoveOrderGenerator);
 
@@ -139,6 +146,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			moveButton = widget.GetOrNull<D2ButtonWidget>("MOVE");
 			if (moveButton != null)
 			{
+				moveButton.Visible = false;
 				moveButton.IsHighlighted = () => !moveButton.IsDisabled() && IsForceModifiersActive(Modifiers.Alt);
 				Action<bool> toggle = allowCancel =>
 				{
@@ -152,9 +160,14 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				moveButton.OnKeyPress = _ => toggle(false);
 			}
 
+			retreatButton = widget.GetOrNull<D2ButtonWidget>("RETREAT");
+			if (retreatButton != null)
+				retreatButton.Visible = false;
+
 			guardButton = widget.GetOrNull<D2ButtonWidget>("GUARD");
 			if (guardButton != null)
 			{
+				guardButton.Visible = false;
 				guardButton.IsHighlighted = () => world.OrderGenerator is GuardOrderGenerator;
 
 				Action<bool> toggle = allowCancel =>
@@ -205,6 +218,18 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			line1b.Visible = false;
 			line2a.Visible = false;
 			line2b.Visible = false;
+		}
+
+		void UpdateCommandButtons(bool visible)
+		{
+			if (attackButton == null || moveButton == null || guardButton == null || retreatButton == null || buttonsBackground == null)
+				return;
+
+			buttonsBackground.Visible = visible;
+			attackButton.Visible = visible;
+			moveButton.Visible = visible;
+			retreatButton.Visible = visible;
+			guardButton.Visible = visible;
 		}
 
 		void UpdateSpiceInfo(Actor actor)
@@ -328,6 +353,12 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				HideExtraInfo();
 				UpdateSpiceInfo(actor);
 				UpdatePowerInfo(actor);
+
+				var mobile = actor.Info.TraitInfoOrDefault<MobileInfo>();
+				if (mobile != null)
+					UpdateCommandButtons(true);
+				else
+					UpdateCommandButtons(false);
 			}
 			else
 			{
@@ -341,6 +372,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 					dmgLabel.Visible = false;
 
 				HideExtraInfo();
+				UpdateCommandButtons(false);
 			}
 
 			selectionHash = world.Selection.Hash;

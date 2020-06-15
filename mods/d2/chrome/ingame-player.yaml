@@ -161,7 +161,7 @@ Container@PLAYER_WIDGETS:
 							Width: 88
 							Height: 16
 							Visible: false
-						ColorBlock@COMMAND_BAR_BACKGROUND:
+						ColorBlock@BUTTONS_BACKGROUND:
 							X: 3
 							Y: 108
 							Width: 212
