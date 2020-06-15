@@ -1,6 +1,6 @@
 #region Copyright & License Information
 /*
- * Copyright 2007-2019 The d2 mod Developers (see AUTHORS)
+ * Copyright 2007-2020 The d2 mod Developers (see AUTHORS)
  * This file is part of OpenRA, which is free software. It is made
  * available to you under the terms of the GNU General Public License
  * as published by the Free Software Foundation, either version 3 of
@@ -9,18 +9,21 @@
  */
 #endregion
 
+using System;
 using System.Linq;
 using OpenRA.Graphics;
+using OpenRA.Mods.Common.Orders;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Traits.Render;
 using OpenRA.Mods.Common.Widgets;
+using OpenRA.Orders;
 using OpenRA.Primitives;
 using OpenRA.Traits;
 using OpenRA.Widgets;
 
 namespace OpenRA.Mods.D2.Widgets.Logic
 {
-	public class D2IngameActorInfoDisplayLogic : ChromeLogic
+	public class D2IngameActorLogic : ChromeLogic
 	{
 		readonly World world;
 		readonly WorldRenderer worldRenderer;
@@ -37,12 +40,17 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		readonly LabelWidget line1b;
 		readonly LabelWidget line2a;
 		readonly LabelWidget line2b;
+		readonly D2ButtonWidget attackButton;
+		readonly D2ButtonWidget moveButton;
+		readonly D2ButtonWidget retreatButton;
+		readonly D2ButtonWidget guardButton;
+		readonly ColorBlockWidget buttonsBackground;
 
 		int selectionHash;
 		Actor[] selectedActors = { };
 
 		[ObjectCreator.UseCtor]
-		public D2IngameActorInfoDisplayLogic(Widget widget, World world, WorldRenderer worldRenderer)
+		public D2IngameActorLogic(Widget widget, World world, WorldRenderer worldRenderer)
 		{
 			this.world = world;
 			this.worldRenderer = worldRenderer;
@@ -111,6 +119,81 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				line2b.TextColor = textColor;
 				line2b.Font = "MediumBold";
 			}
+
+			buttonsBackground = widget.GetOrNull<ColorBlockWidget>("BUTTONS_BACKGROUND");
+			if (buttonsBackground != null)
+				buttonsBackground.Visible = false;
+
+			attackButton = widget.GetOrNull<D2ButtonWidget>("ATTACK");
+			if (attackButton != null)
+			{
+				attackButton.Visible = false;
+				attackButton.IsHighlighted = () => IsForceModifiersActive(Modifiers.Ctrl)
+					&& !(world.OrderGenerator is AttackMoveOrderGenerator);
+
+				Action<bool> toggle = allowCancel =>
+				{
+					if (attackButton.IsHighlighted())
+						world.CancelInputMode();
+					else
+						world.OrderGenerator = new ForceModifiersOrderGenerator(Modifiers.Ctrl, true);
+				};
+
+				attackButton.OnClick = () => toggle(true);
+				attackButton.OnKeyPress = _ => toggle(false);
+			}
+
+			moveButton = widget.GetOrNull<D2ButtonWidget>("MOVE");
+			if (moveButton != null)
+			{
+				moveButton.Visible = false;
+				moveButton.IsHighlighted = () => !moveButton.IsDisabled() && IsForceModifiersActive(Modifiers.Alt);
+				Action<bool> toggle = allowCancel =>
+				{
+					if (moveButton.IsHighlighted())
+						world.CancelInputMode();
+					else
+						world.OrderGenerator = new ForceModifiersOrderGenerator(Modifiers.Alt, true);
+				};
+
+				moveButton.OnClick = () => toggle(true);
+				moveButton.OnKeyPress = _ => toggle(false);
+			}
+
+			retreatButton = widget.GetOrNull<D2ButtonWidget>("RETREAT");
+			if (retreatButton != null)
+			{
+				retreatButton.Visible = false;
+
+				retreatButton.OnClick = () =>
+				{
+					PerformKeyboardOrderOnSelection(a => new Order("Stop", a, false));
+				};
+
+				retreatButton.OnKeyPress = ki => { retreatButton.OnClick(); };
+			}
+
+			guardButton = widget.GetOrNull<D2ButtonWidget>("GUARD");
+			if (guardButton != null)
+			{
+				guardButton.Visible = false;
+				guardButton.IsHighlighted = () => world.OrderGenerator is GuardOrderGenerator;
+
+				Action<bool> toggle = allowCancel =>
+				{
+					if (guardButton.IsHighlighted())
+					{
+						if (allowCancel)
+							world.CancelInputMode();
+					}
+					else
+						world.OrderGenerator = new GuardOrderGenerator(selectedActors,
+							"Guard", "guard", Game.Settings.Game.MouseButtonPreference.Action);
+				};
+
+				guardButton.OnClick = () => toggle(true);
+				guardButton.OnKeyPress = _ => toggle(false);
+			}
 		}
 
 		public override void Tick()
@@ -118,6 +201,33 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			base.Tick();
 
 			UpdateStateIfNecessary();
+		}
+
+		bool IsForceModifiersActive(Modifiers modifiers)
+		{
+			var fmog = world.OrderGenerator as ForceModifiersOrderGenerator;
+			if (fmog != null && fmog.Modifiers.HasFlag(modifiers))
+				return true;
+
+			var uog = world.OrderGenerator as UnitOrderGenerator;
+			if (uog != null && Game.GetModifierKeys().HasFlag(modifiers))
+				return true;
+
+			return false;
+		}
+
+		void PerformKeyboardOrderOnSelection(Func<Actor, Order> f)
+		{
+			UpdateStateIfNecessary();
+
+			var orders = selectedActors
+				.Select(f)
+				.ToArray();
+
+			foreach (var o in orders)
+				world.IssueOrder(o);
+
+			world.PlayVoiceForOrders(orders);
 		}
 
 		void HideExtraInfo()
@@ -131,6 +241,18 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			line1b.Visible = false;
 			line2a.Visible = false;
 			line2b.Visible = false;
+		}
+
+		void UpdateCommandButtons(bool visible)
+		{
+			if (attackButton == null || moveButton == null || guardButton == null || retreatButton == null || buttonsBackground == null)
+				return;
+
+			buttonsBackground.Visible = visible;
+			attackButton.Visible = visible;
+			moveButton.Visible = visible;
+			retreatButton.Visible = visible;
+			guardButton.Visible = visible;
 		}
 
 		void UpdateSpiceInfo(Actor actor)
@@ -254,6 +376,12 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				HideExtraInfo();
 				UpdateSpiceInfo(actor);
 				UpdatePowerInfo(actor);
+
+				var mobile = actor.Info.TraitInfoOrDefault<MobileInfo>();
+				if (mobile != null)
+					UpdateCommandButtons(true);
+				else
+					UpdateCommandButtons(false);
 			}
 			else
 			{
@@ -267,6 +395,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 					dmgLabel.Visible = false;
 
 				HideExtraInfo();
+				UpdateCommandButtons(false);
 			}
 
 			selectionHash = world.Selection.Hash;
