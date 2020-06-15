@@ -162,7 +162,16 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 
 			retreatButton = widget.GetOrNull<D2ButtonWidget>("RETREAT");
 			if (retreatButton != null)
+			{
 				retreatButton.Visible = false;
+
+				retreatButton.OnClick = () =>
+				{
+					PerformKeyboardOrderOnSelection(a => new Order("Stop", a, false));
+				};
+
+				retreatButton.OnKeyPress = ki => { retreatButton.OnClick(); };
+			}
 
 			guardButton = widget.GetOrNull<D2ButtonWidget>("GUARD");
 			if (guardButton != null)
@@ -205,6 +214,20 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				return true;
 
 			return false;
+		}
+
+		void PerformKeyboardOrderOnSelection(Func<Actor, Order> f)
+		{
+			UpdateStateIfNecessary();
+
+			var orders = selectedActors
+				.Select(f)
+				.ToArray();
+
+			foreach (var o in orders)
+				world.IssueOrder(o);
+
+			world.PlayVoiceForOrders(orders);
 		}
 
 		void HideExtraInfo()
