@@ -41,6 +41,8 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		readonly LabelWidget line2a;
 		readonly LabelWidget line2b;
 		readonly D2ButtonWidget attackButton;
+		readonly D2ButtonWidget moveButton;
+		readonly D2ButtonWidget guardButton;
 
 		int selectionHash;
 		Actor[] selectedActors = { };
@@ -132,6 +134,43 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 
 				attackButton.OnClick = () => toggle(true);
 				attackButton.OnKeyPress = _ => toggle(false);
+			}
+
+			moveButton = widget.GetOrNull<D2ButtonWidget>("MOVE");
+			if (moveButton != null)
+			{
+				moveButton.IsHighlighted = () => !moveButton.IsDisabled() && IsForceModifiersActive(Modifiers.Alt);
+				Action<bool> toggle = allowCancel =>
+				{
+					if (moveButton.IsHighlighted())
+						world.CancelInputMode();
+					else
+						world.OrderGenerator = new ForceModifiersOrderGenerator(Modifiers.Alt, true);
+				};
+
+				moveButton.OnClick = () => toggle(true);
+				moveButton.OnKeyPress = _ => toggle(false);
+			}
+
+			guardButton = widget.GetOrNull<D2ButtonWidget>("GUARD");
+			if (guardButton != null)
+			{
+				guardButton.IsHighlighted = () => world.OrderGenerator is GuardOrderGenerator;
+
+				Action<bool> toggle = allowCancel =>
+				{
+					if (guardButton.IsHighlighted())
+					{
+						if (allowCancel)
+							world.CancelInputMode();
+					}
+					else
+						world.OrderGenerator = new GuardOrderGenerator(selectedActors,
+							"Guard", "guard", Game.Settings.Game.MouseButtonPreference.Action);
+				};
+
+				guardButton.OnClick = () => toggle(true);
+				guardButton.OnKeyPress = _ => toggle(false);
 			}
 		}
 
