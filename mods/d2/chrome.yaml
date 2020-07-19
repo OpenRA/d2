@@ -299,6 +299,14 @@ music:
 		prev: 68, 0, 16, 16
 		fastforward: 85, 0, 16, 16
 
+scrollbar:
+	Inherits: ^Glyphs
+	Regions:
+		down_arrow: 119, 0, 16, 16
+		down_pressed: 119, 0, 16, 16
+		up_arrow: 102, 0, 16, 16
+		up_pressed: 102, 0, 16, 16
+
 progressbar-bg:
 	Inherits: button-pressed
 
