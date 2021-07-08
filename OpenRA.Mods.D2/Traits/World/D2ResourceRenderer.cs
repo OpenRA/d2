@@ -177,20 +177,20 @@ namespace OpenRA.Mods.D2.Traits
 					{
 						// Max density sprites is right after normal sprites
 						index += 16;
-						UpdateSpriteLayers(cell, renderType.Variants.First().Value[index], renderType.Palette);
+						UpdateSpriteLayers(cell, renderType.Variants.First().Value, index, renderType.Palette);
 					}
 					else
 						throw new InvalidOperationException("SpriteMap does not contain an index for Max Densitty ClearSides type '{0}'".F(clear));
 				}
 				else if (SpriteMap.TryGetValue(clear, out index))
 				{
-					UpdateSpriteLayers(cell, renderType.Variants.First().Value[index], renderType.Palette);
+					UpdateSpriteLayers(cell, renderType.Variants.First().Value, index, renderType.Palette);
 				}
 				else
 					throw new InvalidOperationException("SpriteMap does not contain an index for ClearSides type '{0}'".F(clear));
 			}
 			else
-				UpdateSpriteLayers(cell, null, null);
+				UpdateSpriteLayers(cell, null, 0, null);
 		}
 	}
 }

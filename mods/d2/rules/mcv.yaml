@@ -31,7 +31,7 @@ mcv:
 		Weapon: UnitExplodeLarge
 		EmptyWeapon: UnitExplodeLarge
 	Transforms:
-		Facing: 16
+		Facing: 64
 		IntoActor: construction_yard
 		Offset: -1,-1
 		TransformSounds: BUILD1.WAV
@@ -44,8 +44,8 @@ mcv:
 		Intensity: 700
 	SelectionDecorations:
 		VisualBounds: 24,24
-	SelfHealing:
+	ChangesHealth:
 		Step: 5
 		Delay: 3
-		HealIfBelow: 50
+		StartIfBelow: 50
 	-RevealOnFire:

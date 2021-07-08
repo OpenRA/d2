@@ -18,12 +18,12 @@ combat_tank:
 		Type: heavy
 	Mobile:
 		Speed: 75
-		TurnSpeed: 5
+		TurnSpeed: 20
 	D2RevealsShroud:
 		Range: 3c0
 		MovingRange: 1c768
 	Turreted:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		RealignDelay: 0
 	Armament:
 		Weapon: 80mm

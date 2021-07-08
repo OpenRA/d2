@@ -9,12 +9,12 @@ frigate:
 		HP: 500
 	Aircraft:
 		Speed: 189 # 126 * ~1.5 for balance reasons
-		TurnSpeed: 1
+		TurnSpeed: 4
 		Repulsable: False
 		MaximumPitch: 20
 		CruiseAltitude: 192
 		IdleBehavior: LeaveMap
-		InitialFacing: 192
+		InitialFacing: 768
 	-AppearsOnRadar:
 	Cargo:
 		MaxWeight: 20

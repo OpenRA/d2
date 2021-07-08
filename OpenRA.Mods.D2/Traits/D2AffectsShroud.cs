@@ -9,6 +9,7 @@
  */
 #endregion
 
+using System.Collections.Generic;
 using System.Linq;
 using OpenRA.Mods.Common.Activities;
 using OpenRA.Mods.Common.Traits;
@@ -18,6 +19,8 @@ namespace OpenRA.Mods.D2.Traits
 {
 	public abstract class D2AffectsShroudInfo : ConditionalTraitInfo
 	{
+		public readonly WDist MinRange = WDist.Zero;
+
 		[Desc("Range applied then idle.")]
 		public readonly WDist Range = WDist.Zero;
 
@@ -35,6 +38,8 @@ namespace OpenRA.Mods.D2.Traits
 	public abstract class D2AffectsShroud : ConditionalTrait<D2AffectsShroudInfo>, ITick, ISync, INotifyAddedToWorld, INotifyRemovedFromWorld
 	{
 		static readonly PPos[] NoCells = { };
+
+		readonly HashSet<PPos> footprint;
 
 		D2AffectsShroudInfo info;
 
@@ -58,6 +63,9 @@ namespace OpenRA.Mods.D2.Traits
 			: base(info)
 		{
 			this.info = info;
+
+			if (Info.Type == VisibilityType.Footprint)
+				footprint = new HashSet<PPos>();
 		}
 
 		bool IsIdleRange(Actor self)
@@ -84,20 +92,26 @@ namespace OpenRA.Mods.D2.Traits
 		PPos[] ProjectedCells(Actor self)
 		{
 			var map = self.World.Map;
-			var range = IsIdleRange(self) ? Range : info.MovingRange;
-			if (range == WDist.Zero)
+			var minRange = Info.MinRange;
+			var maxRange = IsIdleRange(self) ? Range : info.MovingRange;
+			if (maxRange <= minRange)
 				return NoCells;
 
 			if (Info.Type == VisibilityType.Footprint)
-				return self.OccupiesSpace.OccupiedCells()
-					.SelectMany(kv => Shroud.ProjectedCellsInRange(map, kv.First, range, Info.MaxHeightDelta))
-					.Distinct().ToArray();
+			{
+				// PERF: Reuse collection to avoid allocations.
+				footprint.UnionWith(self.OccupiesSpace.OccupiedCells()
+					.SelectMany(kv => Shroud.ProjectedCellsInRange(map, map.CenterOfCell(kv.Cell), minRange, maxRange, Info.MaxHeightDelta)));
+				var cells = footprint.ToArray();
+				footprint.Clear();
+				return cells;
+			}
 
 			var pos = self.CenterPosition;
 			if (Info.Type == VisibilityType.GroundPosition)
 				pos -= new WVec(WDist.Zero, WDist.Zero, self.World.Map.DistanceAboveTerrain(pos));
 
-			return Shroud.ProjectedCellsInRange(map, pos, range, range, Info.MaxHeightDelta)
+			return Shroud.ProjectedCellsInRange(map, pos, minRange, maxRange, Info.MaxHeightDelta)
 				.ToArray();
 		}
 

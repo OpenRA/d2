@@ -11,7 +11,7 @@
 		UseLocation: true
 	HiddenUnderFog:
 		Type: GroundPosition
-		AlwaysVisibleStances: None
+		AlwaysVisibleRelationships: None
 	ActorLostNotification:
 	AttackMove:
 	WithFacingSpriteBody:

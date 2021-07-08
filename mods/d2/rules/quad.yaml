@@ -17,7 +17,7 @@ quad:
 	Armor:
 		Type: light
 	Mobile:
-		TurnSpeed: 8
+		TurnSpeed: 32
 		Speed: 96
 	D2RevealsShroud:
 		Range: 2c0

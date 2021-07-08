@@ -6,7 +6,7 @@
 	Huntable:
 	Mobile:
 		Locomotor: vehicle
-		TurnSpeed: 5
+		TurnSpeed: 20
 		PauseOnCondition: notmobile
 	SelectionDecorations:
 	Selectable:

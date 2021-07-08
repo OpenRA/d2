@@ -46,11 +46,15 @@ harvester:
 		Intensity: 700
 	SelectionDecorations:
 		VisualBounds: 24,24
-	SelfHealing:
+	ChangesHealth:
 		Step: 5
 		Delay: 3
-		HealIfBelow: 50
+		StartIfBelow: 50
 	-RevealOnFire:
+	WithHarvesterPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 7
 	WithHarvesterPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true

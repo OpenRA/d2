@@ -18,12 +18,12 @@ siege_tank:
 		Type: light
 	Mobile:
 		Speed: 43
-		TurnSpeed: 3
+		TurnSpeed: 12
 	D2RevealsShroud:
 		Range: 4c0
 		MovingRange: 1c768
 	Turreted:
-		TurnSpeed: 3
+		TurnSpeed: 12
 		Offset: 0,0,-32
 	Armament:
 		Weapon: 155mm

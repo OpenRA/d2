@@ -6,9 +6,6 @@ construction_yard:
 	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	LaysTerrain:
-		TerrainTypes: Rock
-		Template: 127
 	Selectable:
 		Bounds: 32,32
 	Health:

@@ -30,13 +30,13 @@ ornithopter:
 		CruisingCondition: cruising
 		InitialFacing: 0
 		Speed: 224 # 189 * ~1.2 for balance reasons
-		TurnSpeed: 5
+		TurnSpeed: 20
 		LandableTerrainTypes: Sand, Spice, SpiceSand, Dune, Concrete
 		Repulsable: False
 		AirborneCondition: airborne
 		CanHover: False
 		VTOL: False
-		IdleTurnSpeed: 2
+		IdleTurnSpeed: 8
 		CanSlide: False
 	Tooltip:
 		Name: Ornithopter
@@ -52,8 +52,8 @@ ornithopter.husk:
 	Tooltip:
 		Name: Ornithopter
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		Speed: 224
-		InitialFacing: 192
+		InitialFacing: 768
 	RenderSprites:
 		Image: ornithopter

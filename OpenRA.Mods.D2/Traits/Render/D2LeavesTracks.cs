@@ -47,14 +47,14 @@ namespace OpenRA.Mods.D2.Traits.Render
 	{
 		BodyOrientation body;
 		IFacing facing;
-		int cachedFacing;
+		WAngle cachedFacing;
 		int cachedInterval;
 
 		CPos cachedCell;
 
 		bool previouslySpawned;
 		CPos previosSpawnCell;
-		int previousSpawnFacing;
+		WAngle previousSpawnFacing;
 
 		int ticks;
 		bool wasStationary;
@@ -70,7 +70,7 @@ namespace OpenRA.Mods.D2.Traits.Render
 		{
 			body = self.Trait<BodyOrientation>();
 			facing = self.TraitOrDefault<IFacing>();
-			cachedFacing = facing != null ? facing.Facing : 0;
+			cachedFacing = facing != null ? facing.Facing : WAngle.Zero;
 			cachedCell = self.World.Map.CellContaining(self.CenterPosition);
 
 			previouslySpawned = false;
@@ -100,10 +100,10 @@ namespace OpenRA.Mods.D2.Traits.Render
 			{
 				if (self.World.Map.Contains(cachedCell) && (Info.TerrainTypes.Count == 0 || Info.TerrainTypes.Contains(self.World.Map.GetTerrainInfo(cachedCell).Type)))
 				{
-					int spawnFacing = previouslySpawned && previosSpawnCell.Equals(cachedCell) ? previousSpawnFacing : cachedFacing;
+					WAngle spawnFacing = previouslySpawned && previosSpawnCell.Equals(cachedCell) ? previousSpawnFacing : cachedFacing;
 					var pos = self.World.Map.CenterOfCell(cachedCell);
 
-					self.World.AddFrameEndTask(w => w.Add(new SpriteEffect(pos, WAngle.FromFacing(spawnFacing), self.World, Info.Image,
+					self.World.AddFrameEndTask(w => w.Add(new SpriteEffect(pos, spawnFacing, self.World, Info.Image,
 						Info.Sequence, Info.Palette, Info.VisibleThroughFog)));
 
 					previouslySpawned = true;
@@ -112,7 +112,7 @@ namespace OpenRA.Mods.D2.Traits.Render
 				}
 
 				cachedCell = currentCell;
-				cachedFacing = facing != null ? facing.Facing : 0;
+				cachedFacing = facing != null ? facing.Facing : WAngle.Zero;
 				ticks = 0;
 
 				cachedInterval = Info.UpdateInterval;

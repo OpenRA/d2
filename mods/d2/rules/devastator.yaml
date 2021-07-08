@@ -17,7 +17,7 @@ devastator:
 	Armor:
 		Type: heavy
 	Mobile:
-		TurnSpeed: 3
+		TurnSpeed: 12
 		Speed: 31
 		Locomotor: devastator
 		PauseOnCondition: overload || notmobile
@@ -32,7 +32,7 @@ devastator:
 		MuzzleSequence: muzzle
 	AttackFrontal:
 	Turreted:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		RealignDelay: 0
 	WithSpriteTurret:
 	WithMuzzleOverlay:
@@ -49,7 +49,7 @@ devastator:
 		Intensity: 700
 	SelectionDecorations:
 		VisualBounds: 44,38,0,0
-	SelfHealing:
+	ChangesHealth:
 		Step: 5
 		Delay: 3
-		HealIfBelow: 50
+		StartIfBelow: 50
