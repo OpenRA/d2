@@ -29,8 +29,8 @@ gun_turret:
 		QuantizedFacings: 8
 	WithMuzzleOverlay:
 	Turreted:
-		TurnSpeed: 6
-		InitialFacing: 128
+		TurnSpeed: 24
+		InitialFacing: 512
 	Armament:
 		Weapon: 110mm_Gun
 		LocalOffset: 512,0,432

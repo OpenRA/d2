@@ -57,8 +57,6 @@
 		Damage: 10
 		DamageInterval: 100
 		Terrain: Rock
-		DamageThreshold: 50
-		StartOnThreshold: true
 	#WithMakeAnimation:
 	RevealOnDeath:
 		Duration: 100

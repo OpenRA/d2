@@ -10,6 +10,7 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using OpenRA.Graphics;
@@ -75,6 +76,7 @@ namespace OpenRA.Mods.D2.Traits
 
 		readonly CellLayer<TileInfo> tileInfos;
 		readonly CellLayer<bool> cellsDirty;
+		bool anyCellDirty;
 		readonly Sprite[] fogSprites, shroudSprites;
 
 		Shroud shroud;
@@ -91,6 +93,7 @@ namespace OpenRA.Mods.D2.Traits
 			tileInfos = new CellLayer<TileInfo>(map);
 
 			cellsDirty = new CellLayer<bool>(map);
+			anyCellDirty = true;
 
 			// Load sprites
 			var sequenceProvider = map.Rules.Sequences;
@@ -209,13 +212,17 @@ namespace OpenRA.Mods.D2.Traits
 			// Dirty the full projected space so the cells outside
 			// the map bounds can be initialized as fully shrouded.
 			cellsDirty.Clear(true);
+			anyCellDirty = true;
 			var tl = new PPos(0, 0);
 			var br = new PPos(map.MapSize.X - 1, map.MapSize.Y - 1);
 			UpdateShroud(new ProjectedCellRegion(map, tl, br));
 		}
 
-		void UpdateShroud(ProjectedCellRegion region)
+		void UpdateShroud(IEnumerable<PPos> region)
 		{
+			if (!anyCellDirty)
+				return;
+
 			foreach (var puv in region)
 			{
 				var uv = (MPos)puv;
@@ -235,14 +242,16 @@ namespace OpenRA.Mods.D2.Traits
 				if (fogSprite != null)
 					fogPos += fogSprite.Offset - 0.5f * fogSprite.Size;
 
-				shroudLayer.Update(uv, shroudSprite, shroudPos);
-				fogLayer.Update(uv, fogSprite, fogPos);
+				shroudLayer.Update(uv, shroudSprite, shroudPos, true);
+				fogLayer.Update(uv, fogSprite, fogPos, true);
 			}
+
+			anyCellDirty = false;
 		}
 
 		void IRenderShroud.RenderShroud(WorldRenderer wr)
 		{
-			UpdateShroud(map.ProjectedCellBounds);
+			UpdateShroud(map.ProjectedCells);
 			fogLayer.Draw(wr.Viewport);
 			shroudLayer.Draw(wr.Viewport);
 		}
@@ -251,6 +260,7 @@ namespace OpenRA.Mods.D2.Traits
 		{
 			var uv = (MPos)puv;
 			cellsDirty[uv] = true;
+			anyCellDirty = true;
 			var cell = uv.ToCPos(map);
 			foreach (var direction in CVec.Directions)
 				if (map.Contains((PPos)(cell + direction).ToMPos(map)))

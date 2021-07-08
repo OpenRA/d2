@@ -27,9 +27,6 @@ concretea:
 	D2Building:
 		Footprint: x
 		Dimensions: 1,1
-	LaysTerrain:
-		Template: 126
-		TerrainTypes: Rock
 	WithSpriteBody:
 	RenderSprites:
 		Image: concretea
@@ -47,9 +44,6 @@ concreteb:
 		Dimensions: 2,2
 	D2PlaceBuildingPreview:
 		StrictBuildableChecks: false
-	LaysTerrain:
-		Template: 127
-		TerrainTypes: Rock
 	WithTilesetBody:
 	RenderSprites:
 		Image: concreteb

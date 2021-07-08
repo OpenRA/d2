@@ -2,4 +2,4 @@
 	Inherits: ^Vehicle
 	Mobile:
 		Locomotor: tank
-		TurnSpeed: 5
+		TurnSpeed: 20

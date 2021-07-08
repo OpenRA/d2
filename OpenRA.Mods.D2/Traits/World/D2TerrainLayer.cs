@@ -83,7 +83,7 @@ namespace OpenRA.Mods.Common.Traits
 						{
 							CPos cpos = pos.ToCPos(w.Map);
 							Sprite sprite = sideSprites["rock"][index];
-							render.Update(cpos, sprite);
+							render.Update(cpos, sprite, true);
 						}
 					}
 
@@ -94,7 +94,7 @@ namespace OpenRA.Mods.Common.Traits
 						{
 							CPos cpos = pos.ToCPos(w.Map);
 							Sprite sprite = sideSprites["dune"][index];
-							render.Update(cpos, sprite);
+							render.Update(cpos, sprite, true);
 						}
 					}
 
@@ -105,7 +105,7 @@ namespace OpenRA.Mods.Common.Traits
 						{
 							CPos cpos = pos.ToCPos(w.Map);
 							Sprite sprite = sideSprites["rough"][index];
-							render.Update(cpos, sprite);
+							render.Update(cpos, sprite, true);
 						}
 					}
 				}

@@ -17,7 +17,7 @@ sonic_tank:
 	Armor:
 		Type: light
 	Mobile:
-		TurnSpeed: 3
+		TurnSpeed: 12
 		Speed: 31
 	D2RevealsShroud:
 		Range: 4c0
@@ -27,7 +27,7 @@ sonic_tank:
 		LocalOffset: 600,0,427
 	AttackFrontal:
 	Turreted:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		RealignDelay: 0
 	WithSpriteTurret:
 	Explodes:

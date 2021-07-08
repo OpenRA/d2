@@ -6,7 +6,7 @@ Bazooka:
 		Speed: 281
 		Inaccuracy: 256
 		Image: RPG
-		HorizontalRateOfTurn: 1
+		HorizontalRateOfTurn: 4
 		#TrailImage: bazooka_trail
 		#TrailPalette: effect75alpha
 		#TrailInterval: 1
@@ -58,12 +58,12 @@ TowerMissile:
 	Projectile: Missile
 		Blockable: false
 		Shadow: true
-		HorizontalRateOfTurn: 1
+		HorizontalRateOfTurn: 4
 		RangeLimit: 6c614
 		Inaccuracy: 384
 		CruiseAltitude: 1c0
 		MinimumLaunchAngle: 64
-		VerticalRateOfTurn: 10
+		VerticalRateOfTurn: 40
 		Image: missile
 		#TrailImage: large_trail
 		#TrailInterval: 1
@@ -90,12 +90,12 @@ mtank_pri:
 	Projectile: Missile
 		Speed: 281
 		RangeLimit: 7c204
-		HorizontalRateOfTurn: 3
+		HorizontalRateOfTurn: 12
 		Blockable: false
 		Shadow: true
 		CruiseAltitude: 1c0
 		MinimumLaunchAngle: 64
-		VerticalRateOfTurn: 10
+		VerticalRateOfTurn: 40
 		Inaccuracy: 96
 		Image: missile
 		#TrailImage: large_trail
@@ -119,13 +119,13 @@ DeviatorMissile:
 	Projectile: Missile
 		Speed: 281
 		RangeLimit: 6c0
-		HorizontalRateOfTurn: 3
+		HorizontalRateOfTurn: 12
 		Blockable: false
 		Shadow: true
 		Inaccuracy: 384
 		CruiseAltitude: 1c0
 		MinimumLaunchAngle: 64
-		VerticalRateOfTurn: 10
+		VerticalRateOfTurn: 40
 		Image: MISSILE
 		#TrailImage: deviator_trail
 		#TrailPalette: deviatorgas
@@ -149,8 +149,8 @@ OrniMissile:
 		Speed: 281
 		RangeLimit: 4c0
 		Image: MISSILE
-		VerticalRateOfTurn: 10
-		HorizontalRateOfTurn: 3
+		VerticalRateOfTurn: 40
+		HorizontalRateOfTurn: 12
 		Blockable: false
 		Shadow: true
 	Warhead@1Dam: SpreadDamage

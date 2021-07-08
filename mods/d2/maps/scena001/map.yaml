@@ -54,81 +54,69 @@ Actors:
 		Owner: Atreides
 		Location: 18,9
 		SubCell: 3
-		Facing: 192
-		TurretFacing: 192
+		Facing: 768
 	Actor7: light_inf
 		Owner: Atreides
 		Location: 18,11
 		SubCell: 3
-		Facing: 128
-		TurretFacing: 128
+		Facing: 512
 	Actor8: light_inf
 		Owner: Atreides
 		Location: 16,7
 		SubCell: 3
-		Facing: 192
-		TurretFacing: 192
+		Facing: 768
 	Actor5: trike
 		Owner: Atreides
 		Location: 17,13
-		Facing: 160
+		Facing: 640
 	Actor9: trike
 		Owner: Atreides
 		Location: 14,8
-		Facing: 32
+		Facing: 128
 	Actor10: light_inf
 		Owner: Ordos
 		Location: 7,7
 		SubCell: 3
-		Facing: 192
-		TurretFacing: 192
+		Facing: 768
 	Actor11: light_inf
 		Owner: Ordos
 		Location: 10,13
 		SubCell: 3
-		Facing: 192
-		TurretFacing: 192
+		Facing: 768
 	Actor12: light_inf
 		Owner: Ordos
 		Location: 9,19
 		SubCell: 3
-		Facing: 192
-		TurretFacing: 192
+		Facing: 768
 	Actor13: light_inf
 		Owner: Ordos
 		Location: 19,20
 		SubCell: 3
-		Facing: 192
-		TurretFacing: 192
+		Facing: 768
 	Actor14: light_inf
 		Owner: Ordos
 		Location: 25,15
 		SubCell: 3
-		Facing: 192
-		TurretFacing: 192
+		Facing: 768
 	Actor15: light_inf
 		Owner: Ordos
 		Location: 28,23
 		SubCell: 3
-		Facing: 192
-		TurretFacing: 192
+		Facing: 768
 	Actor16: light_inf
 		Owner: Ordos
 		Location: 22,29
 		SubCell: 3
-		Facing: 192
-		TurretFacing: 192
+		Facing: 768
 	Actor17: light_inf
 		Owner: Ordos
 		Location: 14,25
 		SubCell: 3
-		Facing: 192
-		TurretFacing: 192
+		Facing: 768
 	Actor18: light_inf
 		Owner: Ordos
 		Location: 2,31
 		SubCell: 3
-		Facing: 192
-		TurretFacing: 192
+		Facing: 768
 
 Rules: d2|rules/campaign-rules.yaml, rules.yaml

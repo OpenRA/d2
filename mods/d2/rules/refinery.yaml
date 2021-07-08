@@ -27,7 +27,7 @@ refinery:
 	RevealsShroud:
 		Range: 4c0
 	Refinery:
-		DockAngle: 120
+		DockAngle: 480
 		DockOffset: 2,1
 		TickRate: 20
 		ShowTicks: false

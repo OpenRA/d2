@@ -101,7 +101,7 @@ namespace OpenRA.Mods.D2.Traits
 					{
 						var ownerAtPos = co.GetOwnerAt(pos);
 
-						if (ownerAtPos != null && (ownerAtPos == p || (allyBuildEnabled && ownerAtPos.Stances[p] == Stance.Ally)))
+						if (ownerAtPos != null && (ownerAtPos == p || (allyBuildEnabled && ownerAtPos.RelationshipWith(p) == PlayerRelationship.Ally)))
 							nearnessCandidates.Add(pos);
 					}
 				}

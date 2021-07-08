@@ -19,7 +19,7 @@ trike:
 	Armor:
 		Type: wood
 	Mobile:
-		TurnSpeed: 10
+		TurnSpeed: 40
 		Speed: 128
 	D2RevealsShroud:
 		Range: 2c0

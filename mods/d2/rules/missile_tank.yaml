@@ -14,7 +14,7 @@ missile_tank:
 		Cost: 450
 	Mobile:
 		Speed: 64
-		TurnSpeed: 5
+		TurnSpeed: 20
 	Health:
 		HP: 100
 	Armor:
@@ -27,7 +27,7 @@ missile_tank:
 		LocalOffset: -128,128,171, -128,-128,171
 	AttackFrontal:
 	Turreted:
-		TurnSpeed: 5
+		TurnSpeed: 20
 		RealignDelay: 0
 	WithSpriteTurret:
 	AutoTarget:

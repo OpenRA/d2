@@ -17,7 +17,7 @@ Sound:
 		Falloff: 100, 100
 		Damage: 60
 		AffectsParent: false
-		ValidStances: Neutral, Enemy
+		ValidRelationships: Neutral, Enemy
 		DamageTypes: Prone50Percent, TriggerProne, SoundDeath
 	Warhead@2Dam: SpreadDamage
 		Range: 0, 32
@@ -25,7 +25,7 @@ Sound:
 		Damage: 60
 		InvalidTargets: Sonictank # Does not affect friendly sonic tanks at all
 		AffectsParent: false
-		ValidStances: Ally
+		ValidRelationships: Ally
 		DamageTypes: Prone50Percent, TriggerProne, SoundDeath
 
 Heal:

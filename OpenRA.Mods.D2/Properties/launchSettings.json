@@ -2,8 +2,8 @@
   "profiles": {
     "OpenRA.Mods.D2": {
       "commandName": "Executable",
-      "executablePath": "..\\..\\engine\\OpenRA.Game.exe",
-      "commandLineArgs": "Engine.LaunchPath=..\\..\\engine \"Engine.ModSearchPaths=..\\..\\mods,..\\..\\engine\\mods\" Game.Mod=d2"
+      "executablePath": "..\\..\\engine\\bin\\OpenRA.exe",
+      "commandLineArgs": "Engine.EngineDir=\"..\\..\\engine\" Engine.LaunchPath=..\\..\\engine\\bin \"Engine.ModSearchPaths=..\\..\\mods,..\\..\\engine\\mods\" Game.Mod=d2"
     }
   }
 }

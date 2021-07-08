@@ -6,7 +6,7 @@ Bazooka_squad:
 		Speed: 281
 		Inaccuracy: 256
 		Image: RPG
-		HorizontalRateOfTurn: 1
+		HorizontalRateOfTurn: 4
 		#TrailImage: bazooka_trail
 		#TrailPalette: effect75alpha
 		#TrailInterval: 1
