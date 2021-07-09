@@ -2,10 +2,13 @@ construction_yard:
 	Inherits: ^Building
 	Buildable:
 		Description: Produces structures.
-	-DamagedByTerrain:
 	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
+		ConcreteTemplate: 127
+		DamageThreshold: 100
+		DamageInterval: 0
+		Damage: 0
 	Selectable:
 		Bounds: 32,32
 	Health:

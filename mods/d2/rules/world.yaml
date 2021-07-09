@@ -152,7 +152,7 @@ World:
 	DomainIndex:
 	WarheadDebugOverlay:
 	D2TerrainLayer:
-	BuildableTerrainLayer:
+	D2BuildableTerrainLayer:
 	ResourceLayer:
 	D2ResourceRenderer:
 		RenderTypes: Spice
