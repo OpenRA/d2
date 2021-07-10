@@ -1,6 +1,6 @@
 #region Copyright & License Information
 /*
- * Copyright 2007-2019 The d2 mod Developers (see AUTHORS)
+ * Copyright 2007-2021 The d2 mod Developers (see AUTHORS)
  * This file is part of OpenRA, which is free software. It is made
  * available to you under the terms of the GNU General Public License
  * as published by the Free Software Foundation, either version 3 of
@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using OpenRA.Mods.Common.Traits;
+using OpenRA.Primitives;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.D2.Traits
@@ -31,8 +32,35 @@ namespace OpenRA.Mods.D2.Traits
 		[Desc("Any cell should be not hidden by fog")]
 		public readonly bool AnyCellShouldBeVisible = true;
 
-		public override object Create(ActorInitializer init) { return new Building(init, this); }
+		[Desc("Amount of damage received per DamageInterval ticks.")]
+		public readonly int Damage = 10;
 
+		[Desc("Delay between receiving damage.")]
+		public readonly int DamageInterval = 100;
+
+		[Desc("Apply the damage using these damagetypes.")]
+		public readonly BitSet<DamageType> DamageTypes = default(BitSet<DamageType>);
+
+		[Desc("Terrain types where the actor will take damage.")]
+		public readonly string[] DamageTerrainTypes = { "Rock" };
+
+		[Desc("Percentage health below which the actor will not receive further damage.")]
+		public readonly int DamageThreshold = 50;
+
+		[Desc("Inflict damage down to the DamageThreshold when the actor gets created on damaging terrain.")]
+		public readonly bool StartOnThreshold = true;
+
+		[Desc("Place building on concrete")]
+		public readonly bool LaysOnConcrete = false;
+
+		[Desc("The terrain template to place when adding a concrete foundation. " +
+			"If the template is PickAny, then the actor footprint will be filled with this tile.")]
+		public readonly ushort ConcreteTemplate = 0;
+
+		[Desc("List of required prerequisites to place a terrain template.")]
+		public readonly string[] ConcretePrerequisites = { };
+
+		public override object Create(ActorInitializer init) { return new D2Building(init, this); }
 		public override bool IsCloseEnoughToBase(World world, Player p, ActorInfo ai, CPos topLeft)
 		{
 			if (base.IsCloseEnoughToBase(world, p, ai, topLeft))
@@ -112,6 +140,118 @@ namespace OpenRA.Mods.D2.Traits
 				.Any(a => buildingTiles
 					.Any(b => Math.Abs(a.X - b.X) <= adjacent
 						&& Math.Abs(a.Y - b.Y) <= adjacent));
+		}
+	}
+
+	/*
+	 * D2Building is based on D2kBuilding from d2k mod
+	 */
+	public class D2Building : Building, ITick, INotifyCreated
+	{
+		readonly D2BuildingInfo info;
+
+		D2BuildableTerrainLayer layer;
+		IHealth health;
+		int safeTiles;
+		int totalTiles;
+		int damageThreshold;
+		int damageTicks;
+		TechTree techTree;
+		BuildingInfluence bi;
+
+		public D2Building(ActorInitializer init, D2BuildingInfo info)
+			: base(init, info)
+		{
+			this.info = info;
+		}
+
+		void INotifyCreated.Created(Actor self)
+		{
+			health = self.TraitOrDefault<IHealth>();
+			layer = self.World.WorldActor.TraitOrDefault<D2BuildableTerrainLayer>();
+			bi = self.World.WorldActor.Trait<BuildingInfluence>();
+			techTree = self.Owner.PlayerActor.TraitOrDefault<TechTree>();
+		}
+
+		protected override void AddedToWorld(Actor self)
+		{
+			base.AddedToWorld(self);
+
+			if (info.LaysOnConcrete)
+			{
+				if (layer != null && (!info.ConcretePrerequisites.Any() || techTree == null || techTree.HasPrerequisites(info.ConcretePrerequisites)))
+				{
+					var map = self.World.Map;
+					var template = map.Rules.TileSet.Templates[info.ConcreteTemplate];
+					if (template.PickAny)
+					{
+						// Fill the footprint with random variants
+						foreach (var c in info.Tiles(self.Location))
+						{
+							// Only place on allowed terrain types
+							if (!map.Contains(c) || map.CustomTerrain[c] != byte.MaxValue || !info.TerrainTypes.Contains(map.GetTerrainInfo(c).Type))
+								continue;
+
+							// Don't place under other buildings (or their bib)
+							if (bi.GetBuildingAt(c) != self)
+								continue;
+
+							var index = Game.CosmeticRandom.Next(template.TilesCount);
+							layer.AddTile(c, new TerrainTile(template.Id, (byte)index));
+						}
+					}
+					else
+					{
+						for (var i = 0; i < template.TilesCount; i++)
+						{
+							var c = self.Location + new CVec(i % template.Size.X, i / template.Size.X);
+
+							// Only place on allowed terrain types
+							if (!map.Contains(c) || map.CustomTerrain[c] != byte.MaxValue || !info.TerrainTypes.Contains(map.GetTerrainInfo(c).Type))
+								continue;
+
+							// Don't place under other buildings (or their bib)
+							if (bi.GetBuildingAt(c) != self)
+								continue;
+
+							layer.AddTile(c, new TerrainTile(template.Id, (byte)i));
+						}
+					}
+				}
+			}
+
+			if (health == null)
+				return;
+
+			foreach (var kv in self.OccupiesSpace.OccupiedCells())
+			{
+				totalTiles++;
+				if (!info.DamageTerrainTypes.Contains(self.World.Map.GetTerrainInfo(kv.Cell).Type))
+					safeTiles++;
+			}
+
+			if (totalTiles == 0 || totalTiles == safeTiles)
+				return;
+
+			// Cast to long to avoid overflow when multiplying by the health
+			damageThreshold = (int)((info.DamageThreshold * (long)health.MaxHP + (100 - info.DamageThreshold) * safeTiles * (long)health.MaxHP / totalTiles) / 100);
+
+			if (!info.StartOnThreshold)
+				return;
+
+			// Start with maximum damage applied
+			var delta = health.HP - damageThreshold;
+			if (delta > 0)
+				self.InflictDamage(self.World.WorldActor, new Damage(delta, info.DamageTypes));
+		}
+
+		void ITick.Tick(Actor self)
+		{
+			if (info.DamageInterval == 0 || info.Damage == 0 || totalTiles == safeTiles || health.HP <= damageThreshold || --damageTicks > 0)
+				return;
+
+			self.InflictDamage(self.World.WorldActor, new Damage(info.Damage, info.DamageTypes));
+			damageTicks = info.DamageInterval;
 		}
 	}
 }

@@ -27,6 +27,8 @@ concretea:
 	D2Building:
 		Footprint: x
 		Dimensions: 1,1
+		LaysOnConcrete: true
+		ConcreteTemplate: 126
 	WithSpriteBody:
 	RenderSprites:
 		Image: concretea
@@ -42,6 +44,8 @@ concreteb:
 	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
+		LaysOnConcrete: true
+		ConcreteTemplate: 127
 	D2PlaceBuildingPreview:
 		StrictBuildableChecks: false
 	WithTilesetBody:

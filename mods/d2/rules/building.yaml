@@ -53,10 +53,6 @@
 		Range: 3c0
 	#WithCrumbleOverlay:
 	Demolishable:
-	DamagedByTerrain:
-		Damage: 10
-		DamageInterval: 100
-		Terrain: Rock
 	#WithMakeAnimation:
 	RevealOnDeath:
 		Duration: 100
