@@ -17,7 +17,7 @@ Before run `d2 mod`, Download the Original Game and copy following files:
  - `SCENARIO.PAK`
 
 Paste those files into `d2` directory. If this directory doesn't exist, create it:
- - `Documents/OpenRA/Content/d2` (Windows)
+ - `%USERPROFILE%\AppData\Roaming\OpenRA\Content\d2` (Windows)
  - `~/Library/Application Support/OpenRA/Content/d2` (macOS)
  - `~/.openra/Content/d2` (Linux)
 
