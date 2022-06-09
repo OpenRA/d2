@@ -48,15 +48,15 @@ namespace OpenRA.Mods.D2.Graphics
 		public void Render(WorldRenderer wr)
 		{
 			var rect = ScreenBounds(wr);
-			var tl = new float3(rect.Left, rect.Top, 1.0f);
-			var br = new float3(rect.Right, rect.Bottom, 1.0f);
+			var tl = new float3(rect.Left, rect.Top, 1024.0f);
+			var br = new float3(rect.Right, rect.Bottom, 1024.0f);
 			var width = 1.0f;
 			Game.Renderer.WorldRgbaColorRenderer.DrawRect(tl, br, width, color);
 			if (crossEnabled)
 			{
 				Game.Renderer.WorldRgbaColorRenderer.DrawLine(tl, br, width, color);
-				var tr = new float3(br.X, tl.Y, 1.0f);
-				var bl = new float3(tl.X, br.Y, 1.0f);
+				var tr = new float3(br.X, tl.Y, 1024.0f);
+				var bl = new float3(tl.X, br.Y, 1024.0f);
 				Game.Renderer.WorldRgbaColorRenderer.DrawLine(tr, bl, width, color);
 			}
 		}
