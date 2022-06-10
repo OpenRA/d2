@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "EditorConfig.EditorConfig",
+        "ms-dotnettools.csharp",
+        "openra.vscode-openra-lua",
+        "openra.oraide-vscode",
+    ]
+}
