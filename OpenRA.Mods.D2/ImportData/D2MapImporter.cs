@@ -17,6 +17,7 @@
 using System;
 using System.IO;
 using OpenRA.Mods.Common.FileFormats;
+using OpenRA.Mods.Common.Terrain;
 using OpenRA.Mods.D2.MapUtils;
 using OpenRA.Mods.D2.MathExtention;
 using OpenRA.Primitives;
@@ -32,7 +33,7 @@ namespace OpenRA.Mods.D2.ImportData
 
 		Map map;
 		Size mapSize;
-		TileSet tileset;
+		DefaultTerrain terrainInfo;
 		int playerCount;
 
 		ushort[] m;
@@ -106,9 +107,9 @@ namespace OpenRA.Mods.D2.ImportData
 			mapSize = new Size(64, 64);
 			m = new ushort[64 * 64];
 
-			tileset = Game.ModData.DefaultTileSets["arrakis2"];
+			terrainInfo = Game.ModData.DefaultTerrainInfo["arrakis2"] as DefaultTerrain;
 
-			map = new Map(Game.ModData, tileset, mapSize.Width, mapSize.Height)
+			map = new Map(Game.ModData, terrainInfo, mapSize.Width, mapSize.Height)
 			{
 				Title = Path.GetFileNameWithoutExtension(mapFile),
 				Author = "Westwood Studios"

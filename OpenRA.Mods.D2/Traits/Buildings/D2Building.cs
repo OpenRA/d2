@@ -11,7 +11,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using OpenRA.Mods.Common.Terrain;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Primitives;
 using OpenRA.Traits;
@@ -182,7 +184,11 @@ namespace OpenRA.Mods.D2.Traits
 				if (layer != null && (!info.ConcretePrerequisites.Any() || techTree == null || techTree.HasPrerequisites(info.ConcretePrerequisites)))
 				{
 					var map = self.World.Map;
-					var template = map.Rules.TileSet.Templates[info.ConcreteTemplate];
+
+					if (!(self.World.Map.Rules.TerrainInfo is ITemplatedTerrainInfo terrainInfo))
+						throw new InvalidDataException("D2Building requires a template-based tileset.");
+
+					var template = terrainInfo.Templates[info.ConcreteTemplate];
 					if (template.PickAny)
 					{
 						// Fill the footprint with random variants
@@ -193,7 +199,7 @@ namespace OpenRA.Mods.D2.Traits
 								continue;
 
 							// Don't place under other buildings (or their bib)
-							if (bi.GetBuildingAt(c) != self)
+							if (bi.GetBuildingsAt(c).Any(a => a != self))
 								continue;
 
 							var index = Game.CosmeticRandom.Next(template.TilesCount);
@@ -211,7 +217,7 @@ namespace OpenRA.Mods.D2.Traits
 								continue;
 
 							// Don't place under other buildings (or their bib)
-							if (bi.GetBuildingAt(c) != self)
+							if (bi.GetBuildingsAt(c).Any(a => a != self))
 								continue;
 
 							layer.AddTile(c, new TerrainTile(template.Id, (byte)i));

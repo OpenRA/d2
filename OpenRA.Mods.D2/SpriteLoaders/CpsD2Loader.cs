@@ -27,7 +27,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 
 		class CpsD2Tile : ISpriteFrame
 		{
-			public SpriteFrameType Type { get { return SpriteFrameType.Indexed; } }
+			public SpriteFrameType Type { get { return SpriteFrameType.Indexed8; } }
 			public Size Size { get; private set; }
 			public Size FrameSize { get { return Size; } }
 			public float2 Offset { get { return float2.Zero; } }
@@ -88,7 +88,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 			return tiles;
 		}
 
-		public bool TryParseSprite(Stream s, out ISpriteFrame[] frames, out TypeDictionary metadata)
+		public bool TryParseSprite(Stream s, string filename, out ISpriteFrame[] frames, out TypeDictionary metadata)
 		{
 			metadata = null;
 			if (!IsCpsD2(s))

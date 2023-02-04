@@ -37,7 +37,8 @@ namespace OpenRA.Mods.D2.Traits
 		readonly CellLayer<int> strength;
 
 		TerrainSpriteLayer render;
-		Theater theater;
+		ITiledTerrainRenderer terrainRenderer;
+		PaletteReference paletteReference;
 		bool disposed;
 
 		public D2BuildableTerrainLayer(Actor self, D2BuildableTerrainLayerInfo info)
@@ -45,12 +46,13 @@ namespace OpenRA.Mods.D2.Traits
 			this.info = info;
 			world = self.World;
 			strength = new CellLayer<int>(world.Map);
+			terrainRenderer = self.Trait<ITiledTerrainRenderer>();
 		}
 
 		public void WorldLoaded(World w, WorldRenderer wr)
 		{
-			theater = wr.Theater;
-			render = new TerrainSpriteLayer(w, wr, theater.Sheet, BlendMode.Alpha, wr.Palette(info.Palette), wr.World.Type != WorldType.Editor);
+			render = new TerrainSpriteLayer(w, wr, terrainRenderer.MissingTile, BlendMode.Alpha, wr.World.Type != WorldType.Editor);
+			paletteReference = wr.Palette(info.Palette);
 		}
 
 		public void AddTile(CPos cell, TerrainTile tile)
@@ -58,7 +60,7 @@ namespace OpenRA.Mods.D2.Traits
 			if (!strength.Contains(cell))
 				return;
 
-			world.Map.CustomTerrain[cell] = world.Map.Rules.TileSet.GetTerrainIndex(tile);
+			world.Map.CustomTerrain[cell] = world.Map.Rules.TerrainInfo.GetTerrainIndex(tile);
 			strength[cell] = info.MaxStrength;
 			dirty[cell] = tile;
 		}
@@ -98,9 +100,9 @@ namespace OpenRA.Mods.D2.Traits
 					if (tile.HasValue)
 					{
 						// Terrain tiles define their origin at the topleft
-						var s = theater.TileSprite(tile.Value);
+						var s = terrainRenderer.TileSprite(tile.Value);
 						var ss = new Sprite(s.Sheet, s.Bounds, s.ZRamp, float2.Zero, s.Channel, s.BlendMode);
-						render.Update(kv.Key, ss, false);
+						render.Update(kv.Key, ss, paletteReference);
 					}
 					else
 						render.Clear(kv.Key);

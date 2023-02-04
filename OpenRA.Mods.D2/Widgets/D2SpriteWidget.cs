@@ -50,7 +50,7 @@ namespace OpenRA.Mods.D2.Widgets
 			var f = Scale / 2.0f;
 			var center = new float2(Sprite.Size.X * f, Sprite.Size.Y * f);
 
-			WidgetUtils.DrawSHPCentered(Sprite, pos + center + Offset, Palette, Scale);
+			WidgetUtils.DrawSpriteCentered(Sprite, Palette, pos + center + Offset, Scale);
 		}
 	}
 }

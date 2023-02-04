@@ -17,11 +17,13 @@ namespace OpenRA.Mods.D2.Traits
 {
 	public class D2SelectionInfo : TraitInfo, ILobbyOptions
 	{
-		[Translate]
+		// TODO: When translation work is finished upstream.
+		// [TranslationReference]
 		[Desc("Descriptive label for the selection checkbox in the lobby.")]
 		public readonly string CheckboxLabel = "Single Selection";
 
-		[Translate]
+		// TODO: When translation work is finished upstream.
+		// [TranslationReference]
 		[Desc("Tooltip description for the selection checkbox in the lobby.")]
 		public readonly string CheckboxDescription = "Allow to select only one unit at a time";
 
@@ -37,7 +39,7 @@ namespace OpenRA.Mods.D2.Traits
 		[Desc("Display order for the selection checkbox in the lobby.")]
 		public readonly int CheckboxDisplayOrder = 0;
 
-		IEnumerable<LobbyOption> ILobbyOptions.LobbyOptions(Ruleset rules)
+		IEnumerable<LobbyOption> ILobbyOptions.LobbyOptions(MapPreview map)
 		{
 			yield return new LobbyBooleanOption("singleselection", CheckboxLabel, CheckboxDescription,
 				CheckboxVisible, CheckboxDisplayOrder, CheckboxEnabled, CheckboxLocked);
@@ -56,7 +58,6 @@ namespace OpenRA.Mods.D2.Traits
 		public bool SingleSelection { get { return singleSelection; } }
 
 		public D2Selection(World world, D2SelectionInfo info)
-			: base(new SelectionInfo())
 		{
 			this.world = world;
 			this.info = info;

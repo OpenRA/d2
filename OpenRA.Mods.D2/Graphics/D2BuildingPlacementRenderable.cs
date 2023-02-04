@@ -40,7 +40,7 @@ namespace OpenRA.Mods.D2.Graphics
 
 		public IRenderable WithPalette(PaletteReference newPalette) { return this; }
 		public IRenderable WithZOffset(int newOffset) { return this; }
-		public IRenderable OffsetBy(WVec vec) { return new D2BuildingPlacementRenderable(pos + vec, bounds, color, crossEnabled); }
+		public IRenderable OffsetBy(in WVec vec) { return new D2BuildingPlacementRenderable(pos + vec, bounds, color, crossEnabled); }
 		public IRenderable AsDecoration() { return this; }
 
 		public IFinalizedRenderable PrepareRender(WorldRenderer wr) { return this; }

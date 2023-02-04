@@ -87,54 +87,55 @@ namespace OpenRA.Mods.D2.Traits
 		public D2ResourceRenderer(Actor self, D2ResourceRendererInfo info)
 			: base(self, info) { }
 
-		bool CellContains(CPos c, ResourceType t)
+		bool CellContains(CPos cell, string resourceType)
 		{
-			return RenderContent.Contains(c) && RenderContent[c].Type == t;
+			return RenderContents.Contains(cell) && RenderContents[cell].Type == resourceType;
 		}
 
-		bool CellContainsMaxDensity(CPos c, ResourceType t)
+		bool CellContainsMaxDensity(CPos cell, string resourceType)
 		{
-			if (!RenderContent.Contains(c))
+			if (!RenderContents.Contains(cell))
 				return false;
 
-			if (FindClearSides(t, c) != ClearSides.None)
+			if (FindClearSides(resourceType, cell) != ClearSides.None)
 				return false;
 
-			var tile = RenderContent[c];
-			return tile.Density > tile.Type.Info.MaxDensity / 2;
+			var tile = RenderContents[cell];
+			var maxDensity = ResourceLayer.GetMaxDensity(tile.Type);
+			return tile.Density > maxDensity / 2;
 		}
 
-		ClearSides FindClearSides(ResourceType t, CPos p)
+		ClearSides FindClearSides(string resourceType, CPos cell)
 		{
 			var ret = ClearSides.None;
-			if (!CellContains(p + new CVec(0, -1), t))
+			if (!CellContains(cell + new CVec(0, -1), resourceType))
 				ret |= ClearSides.Top;
 
-			if (!CellContains(p + new CVec(-1, 0), t))
+			if (!CellContains(cell + new CVec(-1, 0), resourceType))
 				ret |= ClearSides.Left;
 
-			if (!CellContains(p + new CVec(1, 0), t))
+			if (!CellContains(cell + new CVec(1, 0), resourceType))
 				ret |= ClearSides.Right;
 
-			if (!CellContains(p + new CVec(0, 1), t))
+			if (!CellContains(cell + new CVec(0, 1), resourceType))
 				ret |= ClearSides.Bottom;
 
 			return ret;
 		}
 
-		ClearSides FindMaxDensityClearSides(ResourceType t, CPos p)
+		ClearSides FindMaxDensityClearSides(string resourceType, CPos cell)
 		{
 			var ret = ClearSides.None;
-			if (!CellContainsMaxDensity(p + new CVec(0, -1), t))
+			if (!CellContainsMaxDensity(cell + new CVec(0, -1), resourceType))
 				ret |= ClearSides.Top;
 
-			if (!CellContainsMaxDensity(p + new CVec(-1, 0), t))
+			if (!CellContainsMaxDensity(cell + new CVec(-1, 0), resourceType))
 				ret |= ClearSides.Left;
 
-			if (!CellContainsMaxDensity(p + new CVec(1, 0), t))
+			if (!CellContainsMaxDensity(cell + new CVec(1, 0), resourceType))
 				ret |= ClearSides.Right;
 
-			if (!CellContainsMaxDensity(p + new CVec(0, 1), t))
+			if (!CellContainsMaxDensity(cell + new CVec(0, 1), resourceType))
 				ret |= ClearSides.Bottom;
 
 			return ret;
@@ -150,8 +151,8 @@ namespace OpenRA.Mods.D2.Traits
 
 		void UpdateRenderedSpriteInner(CPos cell)
 		{
-			if (RenderContent.Contains(cell))
-				UpdateRenderedSpriteInner(cell, RenderContent[cell]);
+			if (RenderContents.Contains(cell))
+				UpdateRenderedSpriteInner(cell, RenderContents[cell]);
 		}
 
 		void UpdateRenderedSpriteInner(CPos cell, RendererCellContents content)
@@ -164,7 +165,7 @@ namespace OpenRA.Mods.D2.Traits
 				// The call chain for this method (that starts with AddDirtyCell()) guarantees
 				// that the new content type would still be suitable for this renderer,
 				// but that is a bit too fragile to rely on in case the code starts changing.
-				if (!Info.RenderTypes.Contains(renderType.Info.Type))
+				if (!Info.ResourceTypes.ContainsKey(renderType))
 					return;
 
 				var clear = FindClearSides(renderType, cell);
@@ -177,14 +178,14 @@ namespace OpenRA.Mods.D2.Traits
 					{
 						// Max density sprites is right after normal sprites
 						index += 16;
-						UpdateSpriteLayers(cell, renderType.Variants.First().Value, index, renderType.Palette);
+						UpdateSpriteLayers(cell, Variants[renderType].First().Value, index, content.Palette);
 					}
 					else
 						throw new InvalidOperationException("SpriteMap does not contain an index for Max Densitty ClearSides type '{0}'".F(clear));
 				}
 				else if (SpriteMap.TryGetValue(clear, out index))
 				{
-					UpdateSpriteLayers(cell, renderType.Variants.First().Value, index, renderType.Palette);
+					UpdateSpriteLayers(cell, Variants[renderType].First().Value, index, content.Palette);
 				}
 				else
 					throw new InvalidOperationException("SpriteMap does not contain an index for ClearSides type '{0}'".F(clear));

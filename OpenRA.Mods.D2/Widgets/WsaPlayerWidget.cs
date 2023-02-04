@@ -54,7 +54,7 @@ namespace OpenRA.Mods.D2.Widgets
 		void LoadPalette()
 		{
 			using (var stream = Game.ModData.DefaultFileSystem.Open("IBM.PAL"))
-				palette = new ImmutablePalette(stream, new int[] { });
+				palette = new ImmutablePalette(stream, new int[] { }, new int[] { });
 
 			hardwarePalette = new HardwarePalette();
 			hardwarePalette.AddPalette("chrome", palette, false);
@@ -98,7 +98,7 @@ namespace OpenRA.Mods.D2.Widgets
 				new float2(RenderBounds.Right, RenderBounds.Bottom), OpenRA.Primitives.Color.Black);
 			Game.Renderer.DisableScissor();
 
-			Game.Renderer.SpriteRenderer.DrawSprite(videoSprite, videoOrigin, pr, videoSize);
+			Game.Renderer.SpriteRenderer.DrawSprite(videoSprite, pr, videoOrigin);
 /*
 			Game.Renderer.RgbaSpriteRenderer.DrawSprite(
 				videoSprite,

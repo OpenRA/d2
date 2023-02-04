@@ -59,7 +59,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 			return b == 0x20 || b == 0x40 || b == 0x80;
 		}
 
-		public bool TryParseSprite(Stream s, out ISpriteFrame[] frames, out TypeDictionary metadata)
+		public bool TryParseSprite(Stream s, string filename, out ISpriteFrame[] frames, out TypeDictionary metadata)
 		{
 			metadata = null;
 			if (!IsShpTD(s))
@@ -79,7 +79,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 
 		class ImageHeader : ISpriteFrame
 		{
-			public SpriteFrameType Type { get { return SpriteFrameType.Indexed; } }
+			public SpriteFrameType Type { get { return SpriteFrameType.Indexed8; } }
 			public Size Size { get { return reader.Size; } }
 			public Size FrameSize { get { return reader.Size; } }
 			public float2 Offset { get { return float2.Zero; } }
@@ -136,7 +136,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 
 			stream.Position += 4;
 			var headers = new ImageHeader[imageCount];
-			Frames = headers.AsReadOnly();
+			Frames = headers;
 			for (var i = 0; i < headers.Length; i++)
 				headers[i] = new ImageHeader(stream, this);
 

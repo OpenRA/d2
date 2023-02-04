@@ -33,10 +33,12 @@ namespace OpenRA.Mods.Common.Traits
 	class D2TerrainLayer : IRenderOverlay, IWorldLoaded, INotifyActorDisposing
 	{
 		public readonly D2TerrainLayerInfo Info;
+		readonly ITiledTerrainRenderer terrainRenderer;
 		readonly Dictionary<string, Sprite[]> sideSprites = new Dictionary<string, Sprite[]>();
 		readonly World world;
 
 		TerrainSpriteLayer render;
+		PaletteReference paletteReference;
 
 		public D2TerrainLayer(Actor self, D2TerrainLayerInfo info)
 		{
@@ -51,6 +53,8 @@ namespace OpenRA.Mods.Common.Traits
 				var sprites = Exts.MakeArray(seq.Length, x => seq.GetSprite(x));
 				sideSprites.Add(t, sprites);
 			}
+
+			terrainRenderer = self.Trait<ITiledTerrainRenderer>();
 		}
 
 		public void WorldLoaded(World w, WorldRenderer wr)
@@ -66,7 +70,8 @@ namespace OpenRA.Mods.Common.Traits
 				throw new InvalidDataException("Smudges specify different blend modes. "
 					+ "Try using different smudge types for smudges that use different blend modes.");
 
-			render = new TerrainSpriteLayer(w, wr, sheet, blendMode, wr.Palette(Info.Palette), wr.World.Type != WorldType.Editor);
+			render = new TerrainSpriteLayer(w, wr, terrainRenderer.MissingTile, blendMode, wr.World.Type != WorldType.Editor);
+			paletteReference = wr.Palette(Info.Palette);
 
 			var tilesLayer = w.Map.Tiles;
 			for (var v = 0; v < tilesLayer.Size.Height; v++)
@@ -83,7 +88,7 @@ namespace OpenRA.Mods.Common.Traits
 						{
 							CPos cpos = pos.ToCPos(w.Map);
 							Sprite sprite = sideSprites["rock"][index];
-							render.Update(cpos, sprite, true);
+							render.Update(cpos, sprite, paletteReference);
 						}
 					}
 
@@ -94,7 +99,7 @@ namespace OpenRA.Mods.Common.Traits
 						{
 							CPos cpos = pos.ToCPos(w.Map);
 							Sprite sprite = sideSprites["dune"][index];
-							render.Update(cpos, sprite, true);
+							render.Update(cpos, sprite, paletteReference);
 						}
 					}
 
@@ -105,7 +110,7 @@ namespace OpenRA.Mods.Common.Traits
 						{
 							CPos cpos = pos.ToCPos(w.Map);
 							Sprite sprite = sideSprites["rough"][index];
-							render.Update(cpos, sprite, true);
+							render.Update(cpos, sprite, paletteReference);
 						}
 					}
 				}

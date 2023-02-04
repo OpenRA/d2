@@ -39,7 +39,7 @@ namespace OpenRA.Mods.D2.Traits
 
 		protected override void AddCellsToPlayerShroud(Actor self, Player p, PPos[] uv)
 		{
-			if (!info.ValidRelationships.HasStance(p.RelationshipWith(self.Owner)))
+			if (!info.ValidRelationships.HasRelationship(p.RelationshipWith(self.Owner)))
 				return;
 
 			p.Shroud.AddSource(this, type, uv);

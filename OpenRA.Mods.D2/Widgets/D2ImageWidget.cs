@@ -34,7 +34,6 @@ namespace OpenRA.Mods.D2.Widgets
 		readonly World world;
 		readonly WorldRenderer worldRenderer;
 
-		[Translate]
 		public string TooltipText;
 
 		Lazy<TooltipContainerWidget> tooltipContainer;
@@ -97,10 +96,10 @@ namespace OpenRA.Mods.D2.Widgets
 			{
 				for (var y = 0; y < Bounds.Height; y += sprite.Bounds.Height)
 					for (var x = 0; x < Bounds.Width; x += sprite.Bounds.Width)
-						WidgetUtils.DrawRGBA(sprite, RenderOrigin + new int2(x, y));
+						WidgetUtils.DrawSprite(sprite, RenderOrigin + new int2(x, y));
 			}
 			else
-				WidgetUtils.DrawRGBA(sprite, RenderOrigin);
+				WidgetUtils.DrawSprite(sprite, RenderOrigin);
 		}
 
 		public override bool HandleMouseInput(MouseInput mi)

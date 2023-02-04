@@ -227,7 +227,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			foreach (var o in orders)
 				world.IssueOrder(o);
 
-			world.PlayVoiceForOrders(orders);
+			orders.PlayVoiceForOrders();
 		}
 
 		void HideExtraInfo()
@@ -339,7 +339,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 
 				var faction = world.LocalPlayer.Faction.Name;
 				var rsi = actor.Info.TraitInfo<RenderSpritesInfo>();
-				var icon = new Animation(world, rsi.GetImage(actor.Info, world.Map.Rules.Sequences, faction));
+				var icon = new Animation(world, rsi.GetImage(actor.Info, faction));
 				var bi = actor.Info.TraitInfo<BuildableInfo>();
 				icon.Play(bi.Icon);
 

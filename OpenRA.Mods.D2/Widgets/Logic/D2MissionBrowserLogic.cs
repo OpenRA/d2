@@ -120,7 +120,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 
 					if (previews.Any())
 					{
-						CreateMissionGroup(kv.Key, previews);
+						CreateMissionGroup(kv.Key, previews, onExit);
 						allPreviews.AddRange(previews);
 					}
 				}
@@ -132,7 +132,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 
 			if (loosePreviews.Any())
 			{
-				CreateMissionGroup("Missions", loosePreviews);
+				CreateMissionGroup("Missions", loosePreviews, onExit);
 				allPreviews.AddRange(loosePreviews);
 			}
 
@@ -143,15 +143,12 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			new Thread(() =>
 			{
 				foreach (var p in allPreviews)
-				{
 					p.GetMinimap();
-					p.PreloadRules();
-				}
 			}).Start();
 
 			var startButton = widget.Get<ButtonWidget>("STARTGAME_BUTTON");
-			startButton.OnClick = StartMissionClicked;
-			startButton.IsDisabled = () => selectedMap == null || selectedMap.InvalidCustomRules;
+			startButton.OnClick = () => StartMissionClicked(onExit);
+			startButton.IsDisabled = () => selectedMap == null;
 
 			widget.Get<ButtonWidget>("BACK_BUTTON").OnClick = () =>
 			{
@@ -180,7 +177,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			base.Dispose(disposing);
 		}
 
-		void CreateMissionGroup(string title, IEnumerable<MapPreview> previews)
+		void CreateMissionGroup(string title, IEnumerable<MapPreview> previews, Action onExit)
 		{
 			var header = ScrollItemWidget.Setup(headerTemplate, () => true, () => { });
 			header.Get<LabelWidget>("LABEL").GetText = () => title;
@@ -193,7 +190,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				var item = ScrollItemWidget.Setup(template,
 					() => selectedMap != null && selectedMap.Uid == preview.Uid,
 					() => SelectMap(preview),
-					StartMissionClicked);
+					() => StartMissionClicked(onExit));
 
 				item.Get<LabelWidget>("TITLE").GetText = () => preview.Title;
 				missionList.AddChild(item);
@@ -216,7 +213,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 
 			new Thread(() =>
 			{
-				var mapDifficulty = preview.Rules.Actors["world"].TraitInfos<ScriptLobbyDropdownInfo>()
+				var mapDifficulty = preview.WorldActorInfo.TraitInfos<ScriptLobbyDropdownInfo>()
 					.FirstOrDefault(sld => sld.ID == "difficulty");
 
 				if (mapDifficulty != null)
@@ -226,7 +223,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 					difficultyDisabled = mapDifficulty.Locked;
 				}
 
-				var missionData = preview.Rules.Actors["world"].TraitInfoOrDefault<MissionDataInfo>();
+				var missionData = preview.WorldActorInfo.TraitInfoOrDefault<MissionDataInfo>();
 				if (missionData != null)
 				{
 					briefingVideo = missionData.BriefingVideo;
@@ -331,7 +328,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		{
 			if (!modData.DefaultFileSystem.Exists(video))
 			{
-				ConfirmationDialogs.ButtonPrompt(
+				ConfirmationDialogs.ButtonPrompt(modData,
 					title: "Video not installed",
 					text: "The game videos can be installed from the\n\"Manage Content\" menu in the mod chooser.",
 					cancelText: "Back",
@@ -367,13 +364,21 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			playingVideo = PlayingVideo.None;
 		}
 
-		void StartMissionClicked()
+		void StartMissionClicked(Action onExit)
 		{
 			StopVideo(videoPlayer);
 
-			if (selectedMap.InvalidCustomRules)
+			// If selected mission becomes unavailable, exit MissionBrowser to refresh
+			var map = modData.MapCache.GetUpdatedMap(selectedMap.Uid);
+			if (map == null)
+			{
+				Game.Disconnect();
+				Ui.CloseWindow();
+				onExit();
 				return;
+			}
 
+			selectedMap = modData.MapCache[map];
 			var orders = new List<Order>();
 			if (difficulty != null)
 				orders.Add(Order.Command("option difficulty {0}".F(difficulty)));
@@ -381,7 +386,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			orders.Add(Order.Command("option gamespeed {0}".F(gameSpeed)));
 			orders.Add(Order.Command("state {0}".F(Session.ClientState.Ready)));
 
-			var missionData = selectedMap.Rules.Actors["world"].TraitInfoOrDefault<MissionDataInfo>();
+			var missionData = selectedMap.WorldActorInfo.TraitInfoOrDefault<MissionDataInfo>();
 			if (missionData != null && missionData.StartVideo != null && modData.DefaultFileSystem.Exists(missionData.StartVideo))
 			{
 				var fsPlayer = fullscreenVideoPlayer.Get<WsaPlayerWidget>("PLAYER");
