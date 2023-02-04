@@ -8,7 +8,7 @@ research_centre:
 		BuildDurationModifier: 40
 		Description: Unlocks experimental tanks\n  Cannot be captured.
 	Selectable:
-		Bounds: 32,32
+		Bounds: 2048, 2048
 	Valued:
 		Cost: 500
 	Tooltip:

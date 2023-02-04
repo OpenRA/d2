@@ -26,6 +26,7 @@ deviator:
 		Weapon: DeviatorMissile
 		LocalOffset: -299,0,85
 	AttackFrontal:
+		FacingTolerance: 0
 	Turreted:
 		TurnSpeed: 20
 		RealignDelay: 0

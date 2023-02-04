@@ -10,7 +10,7 @@ construction_yard:
 		DamageInterval: 0
 		Damage: 0
 	Selectable:
-		Bounds: 32,32
+		Bounds: 2048, 2048
 	Health:
 		HP: 400
 	HitShape:

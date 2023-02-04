@@ -9,7 +9,7 @@ outpost:
 		BuildDurationModifier: 40
 		Description: Provides a radar map of the battlefield\n  Requires power to operate\n  Cannot be captured.
 	Selectable:
-		Bounds: 32,32
+		Bounds: 2048, 2048
 	Valued:
 		Cost: 400
 	Tooltip:

@@ -22,7 +22,8 @@ light_squad:
 	SpawnActorOnDeath:
 		Actor: light_inf
 	AttackFrontal:
+		FacingTolerance: 0
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 	Selectable:
-		Bounds: 16,16,0,0
+		Bounds: 1024, 1024, 0, 0

@@ -33,6 +33,7 @@ trike:
 		LocalOffset: -416,0,0
 		MuzzleSequence: muzzle
 	AttackFrontal:
+		FacingTolerance: 0
 	Explodes:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall

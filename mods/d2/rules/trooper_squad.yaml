@@ -21,9 +21,10 @@ trooper_squad:
 		Weapon: Bazooka_squad
 		LocalOffset: 128,0,256
 	AttackFrontal:
+		FacingTolerance: 0
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 	SpawnActorOnDeath:
 		Actor: trooper
 	Selectable:
-		Bounds: 16,16,0,0
+		Bounds: 1024, 1024, 0, 0

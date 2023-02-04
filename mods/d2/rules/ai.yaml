@@ -92,12 +92,15 @@ Player:
 			repair_pad: 1
 			research_centre: 1
 			upgrade.conyard: 1
+		DefenseTypes:
 	SquadManagerBotModule@cyril:
 		RequiresCondition: enable-cyril-ai
 		SquadSize: 8
 		MaxBaseRadius: 40
 		ExcludeFromSquadsTypes: mcv, harvester
 		ConstructionYardTypes: construction_yard
+		AirUnitsTypes: ornithopter
+		ProtectionTypes: mcv.starport, harvester.starport, harvester, mcv, construction_yard
 	UnitBuilderBotModule@cyril:
 		RequiresCondition: enable-cyril-ai
 		UnitQueues: Infantry, Vehicle, Armor, Starport, Aircraft
@@ -175,12 +178,15 @@ Player:
 			gun_turret: 5
 			rocket_turret: 10
 			upgrade.conyard: 1
+		DefenseTypes:
 	SquadManagerBotModule@radnor:
 		RequiresCondition: enable-radnor-ai
 		SquadSize: 6
 		MaxBaseRadius: 40
 		ExcludeFromSquadsTypes: mcv, harvester
 		ConstructionYardTypes: construction_yard
+		AirUnitsTypes: ornithopter
+		ProtectionTypes: mcv.starport, harvester.starport, harvester, mcv, construction_yard
 	UnitBuilderBotModule@radnor:
 		RequiresCondition: enable-radnor-ai
 		UnitQueues: Infantry, Vehicle, Armor, Starport, Aircraft
@@ -257,12 +263,15 @@ Player:
 			gun_turret: 4
 			rocket_turret: 12
 			upgrade.conyard: 1
+		DefenseTypes:
 	SquadManagerBotModule@ammon:
 		RequiresCondition: enable-ammon-ai
 		SquadSize: 10
 		MaxBaseRadius: 40
 		ExcludeFromSquadsTypes: mcv, harvester
 		ConstructionYardTypes: construction_yard
+		AirUnitsTypes: ornithopter
+		ProtectionTypes: mcv.starport, harvester.starport, harvester, mcv, construction_yard
 	UnitBuilderBotModule@ammon:
 		RequiresCondition: enable-ammon-ai
 		UnitQueues: Infantry, Vehicle, Armor, Starport, Aircraft

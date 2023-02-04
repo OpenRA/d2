@@ -69,7 +69,6 @@
 		BasePalette: player
 		Alpha: 0.68
 		Premultiply: false
-	PlayerHighlightPalette:
 	FlashPaletteEffect:
 	PaletteFromPlayerPaletteWithAlpha@cloak:
 		BaseName: cloak

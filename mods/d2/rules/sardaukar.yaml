@@ -23,6 +23,7 @@ sardaukar:
 	Armament@SECONDARY:
 		Weapon: M_HMG
 	AttackFrontal:
+		FacingTolerance: 0
 	Voiced:
 		VoiceSet: GenericVoice
 	Explodes:

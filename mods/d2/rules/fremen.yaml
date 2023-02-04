@@ -23,6 +23,7 @@ fremen:
 	Armament@SECONDARY:
 		Weapon: Fremen_L
 	AttackFrontal:
+		FacingTolerance: 0
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 	Cloak:

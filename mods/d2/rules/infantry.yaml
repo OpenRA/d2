@@ -14,7 +14,7 @@
 	SelectionDecorations:
 	WithSpriteControlGroupDecoration:
 	Selectable:
-		Bounds: 11,11,0,0
+		Bounds: 704, 704, 0, 0
 	Targetable:
 		TargetTypes: Ground, Infantry
 	BodyOrientation:

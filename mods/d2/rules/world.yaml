@@ -123,17 +123,6 @@
 		Name: Fremen
 		InternalName: fremen
 		Selectable: false
-	ResourceType@Spice:
-		Type: Spice
-		Name: Spice
-		ResourceType: 1
-		Palette: d2
-		TerrainType: Spice
-		Sequences: spice
-		MaxDensity: 20
-		ValuePerUnit: 25
-		AllowedTerrainTypes: Sand
-		AllowUnderActors: true
 
 World:
 	Inherits: ^BaseWorld
@@ -149,7 +138,6 @@ World:
 		ProductionPaletteWidget: PRODUCTION_PALETTE
 	ActorSpawnManager:
 		Actors: sandworm
-	DomainIndex:
 	WarheadDebugOverlay:
 	D2TerrainLayer:
 	D2BuildableTerrainLayer:
@@ -182,15 +170,15 @@ World:
 		ShortGameCheckboxDisplayOrder: 2
 		TechLevelDropdownDisplayOrder: 2
 		GameSpeedDropdownDisplayOrder: 3
-	CreateMPPlayers:
-	MPStartLocations:
+	CreateMapPlayers:
+	MapStartingLocations:
 		SeparateTeamSpawnsCheckboxDisplayOrder: 6
-	MPStartUnits@conyard:
+	StartingUnits@conyard:
 		Class: none
 		ClassName: Con. Yard Only
 		BaseActor: construction_yard
 		Factions: atreides, ordos, harkonnen
-	MPStartUnits@lightatreides:
+	StartingUnits@lightatreides:
 		Class: light
 		ClassName: Light Support
 		Factions: atreides
@@ -198,7 +186,7 @@ World:
 		SupportActors: light_inf, light_inf, light_inf, light_squad, light_squad, trike, quad
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
-	MPStartUnits@lightharkonnen:
+	StartingUnits@lightharkonnen:
 		Class: light
 		ClassName: Light Support
 		Factions: harkonnen
@@ -206,7 +194,7 @@ World:
 		SupportActors: trooper, trooper, trooper, trooper_squad, trooper_squad, quad, quad
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
-	MPStartUnits@lightordos:
+	StartingUnits@lightordos:
 		Class: light
 		ClassName: Light Support
 		Factions: ordos
@@ -214,7 +202,7 @@ World:
 		SupportActors: light_inf, light_inf, light_squad, trooper, trooper_squad, raider, quad
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
-	MPStartUnits@mediumatreides:
+	StartingUnits@mediumatreides:
 		Class: medium
 		ClassName: Medium Support
 		Factions: atreides
@@ -222,7 +210,7 @@ World:
 		SupportActors: light_inf, light_inf, light_squad, light_squad, light_squad, trike, quad, combat_tank, missile_tank, siege_tank
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
-	MPStartUnits@mediumharkonnen:
+	StartingUnits@mediumharkonnen:
 		Class: medium
 		ClassName: Medium Support
 		Factions: harkonnen
@@ -230,7 +218,7 @@ World:
 		SupportActors: trooper, trooper, trooper_squad, trooper_squad, trooper_squad, quad, quad, combat_tank, missile_tank, siege_tank
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
-	MPStartUnits@mediumordos:
+	StartingUnits@mediumordos:
 		Class: medium
 		ClassName: Medium Support
 		Factions: ordos
@@ -238,7 +226,7 @@ World:
 		SupportActors: light_inf, light_squad, light_squad, trooper, trooper_squad, raider, quad, combat_tank, missile_tank, siege_tank
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
-	MPStartUnits@heavyatreides:
+	StartingUnits@heavyatreides:
 		Class: heavy
 		ClassName: Heavy Support
 		Factions: atreides
@@ -246,7 +234,7 @@ World:
 		SupportActors: light_squad, light_squad, light_squad, light_squad, light_squad, trike, quad, combat_tank, combat_tank, missile_tank, siege_tank, sonic_tank
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
-	MPStartUnits@heavyharkonnen:
+	StartingUnits@heavyharkonnen:
 		Class: heavy
 		ClassName: Heavy Support
 		Factions: harkonnen
@@ -254,7 +242,7 @@ World:
 		SupportActors: trooper_squad, trooper_squad, trooper_squad, trooper_squad, trooper_squad, quad, quad, combat_tank, combat_tank, missile_tank, siege_tank, devastator
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
-	MPStartUnits@heavyordos:
+	StartingUnits@heavyordos:
 		Class: heavy
 		ClassName: Heavy Support
 		Factions: ordos
@@ -262,7 +250,7 @@ World:
 		SupportActors: light_squad, light_squad, light_squad, trooper_squad, trooper_squad, raider, quad, combat_tank, combat_tank, missile_tank, siege_tank, deviator
 		InnerSupportRadius: 3
 		OuterSupportRadius: 5
-	SpawnMPUnits:
+	SpawnStartingUnits:
 		DropdownDisplayOrder: 1
 	PathFinder:
 	ValidateOrder:
@@ -274,7 +262,8 @@ World:
 	LoadWidgetAtGameStart:
 	TimeLimitManager:
 	ResourceRenderer:
-		RenderTypes:
+	PathFinderOverlay:
+	HierarchicalPathFinderOverlay:
 
 EditorWorld:
 	Inherits: ^BaseWorld

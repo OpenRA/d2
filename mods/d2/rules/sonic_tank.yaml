@@ -26,6 +26,7 @@ sonic_tank:
 		Weapon: Sound
 		LocalOffset: 600,0,427
 	AttackFrontal:
+		FacingTolerance: 0
 	Turreted:
 		TurnSpeed: 20
 		RealignDelay: 0

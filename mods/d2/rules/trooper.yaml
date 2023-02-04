@@ -19,5 +19,6 @@ trooper:
 		Weapon: Bazooka
 		LocalOffset: 128,0,256
 	AttackFrontal:
+		FacingTolerance: 0
 	WithInfantryBody:
 		DefaultAttackSequence: shoot

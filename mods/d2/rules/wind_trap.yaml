@@ -7,7 +7,7 @@ wind_trap:
 		BuildDurationModifier: 40
 		Description: Provides power for other structures
 	Selectable:
-		Bounds: 32,32
+		Bounds: 2048, 2048
 	Valued:
 		Cost: 300
 	Tooltip:

@@ -8,7 +8,7 @@ high_tech_factory:
 		BuildDurationModifier: 40
 		Description: Unlocks advanced technology
 	Selectable:
-		Bounds: 48,32
+		Bounds: 3072, 2048
 	Valued:
 		Cost: 500
 	Tooltip:
