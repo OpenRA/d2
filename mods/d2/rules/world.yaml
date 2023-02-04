@@ -8,6 +8,7 @@
 		CheckboxLocked: False
 		CheckboxVisible: True
 		CheckboxDisplayOrder: 1
+	ControlGroups:
 	MusicPlaylist:
 		VictoryMusic: score
 		DefeatMusic: score
