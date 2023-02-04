@@ -124,6 +124,12 @@
 		Name: Fremen
 		InternalName: fremen
 		Selectable: false
+	D2ResourceRenderer:
+		ResourceTypes:
+			Spice:
+				Sequences: spice
+				Palette: d2
+				Name: Spice
 
 World:
 	Inherits: ^BaseWorld
@@ -143,8 +149,12 @@ World:
 	D2TerrainLayer:
 	D2BuildableTerrainLayer:
 	ResourceLayer:
-	D2ResourceRenderer:
-		RenderTypes: Spice
+		ResourceTypes:
+			Spice:
+				ResourceIndex: 1
+				TerrainType: Spice
+				AllowedTerrainTypes: Sand
+				MaxDensity: 20
 	ResourceClaimLayer:
 	CustomTerrainDebugOverlay:
 	SmudgeLayer@Rock:
@@ -262,7 +272,6 @@ World:
 		PanelName: SKIRMISH_STATS
 	LoadWidgetAtGameStart:
 	TimeLimitManager:
-	ResourceRenderer:
 	PathFinderOverlay:
 	HierarchicalPathFinderOverlay:
 
@@ -271,6 +280,12 @@ EditorWorld:
 	EditorActorLayer:
 	EditorCursorLayer:
 	EditorResourceLayer:
+		ResourceTypes:
+			Spice:
+				ResourceIndex: 1
+				TerrainType: Spice
+				AllowedTerrainTypes: Sand
+				MaxDensity: 20
 	EditorSelectionLayer:
 	LoadWidgetAtGameStart:
 	EditorActionManager:
