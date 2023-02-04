@@ -18,9 +18,10 @@
 		Filename: IBM.PAL
 		ShadowIndex: 4
 		AllowModifiers: false
-	PaletteFromFile@colorpicker:
+	ColorPickerPalette@colorpicker:
 		Name: colorpicker
-		Filename: IBM.PAL
+		BasePalette: d2
+		RemapIndex: 144, 145, 146, 147, 148, 149
 		ShadowIndex: 4
 		AllowModifiers: false
 	PaletteFromFile@shroud:

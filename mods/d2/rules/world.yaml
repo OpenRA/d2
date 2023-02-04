@@ -274,6 +274,10 @@ World:
 	TimeLimitManager:
 	PathFinderOverlay:
 	HierarchicalPathFinderOverlay:
+	ColorPickerManager:
+		PreviewActor: harvester.colorpicker
+		PresetHues: 0, 0.13, 0.18, 0.3, 0.475, 0.625, 0.82, 0.89, 0.97, 0.05, 0.23, 0.375, 0.525, 0.6, 0.75, 0.85 # Copied from D2k.
+		PresetSaturations: 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.5, 0.35, 0.4, 0.4, 0.5, 0.5, 0.4, 0.35 # Copied from D2k.
 
 EditorWorld:
 	Inherits: ^BaseWorld
