@@ -1,6 +1,6 @@
 Metadata:
 	Title: d2 mod
-	Version: release-20210321
+	Version: release-20230225
 	Website: https://www.github.com/OpenRA/d2
 	WebIcon32: https://www.openra.net/images/icons/d2k_32x32.png
 
@@ -183,19 +183,21 @@ Chrome:
 Assemblies:
 	^BinDir|OpenRA.Mods.Common.dll
 	^BinDir|OpenRA.Mods.D2k.dll
-	d2|OpenRA.Mods.D2.dll
+	^BinDir|OpenRA.Mods.D2.dll
 
 ChromeLayout:
 	common|chrome/ingame.yaml
 	common|chrome/ingame-chat.yaml
+	common|chrome/ingame-transients.yaml
 	common|chrome/ingame-fmvplayer.yaml
 	d2k|chrome/ingame-menu.yaml
 	common|chrome/ingame-info.yaml
+	common|chrome/ingame-info-lobby-options.yaml
 	common|chrome/ingame-infoscripterror.yaml
 	common|chrome/ingame-infobriefing.yaml
 	common|chrome/ingame-infoobjectives.yaml
 	d2k|chrome/ingame-infostats.yaml
-	common|chrome/ingame-observer.yaml
+	d2|chrome/ingame-observer.yaml
 	common|chrome/ingame-perf.yaml
 	common|chrome/ingame-debug.yaml
 	common|chrome/ingame-debuginfo.yaml
@@ -203,6 +205,11 @@ ChromeLayout:
 	d2k|chrome/mainmenu.yaml
 	#common|chrome/mainmenu-prompts.yaml
 	common|chrome/settings.yaml
+	common|chrome/settings-display.yaml
+	common|chrome/settings-audio.yaml
+	common|chrome/settings-input.yaml
+	common|chrome/settings-hotkeys.yaml
+	common|chrome/settings-advanced.yaml
 	common|chrome/credits.yaml
 	common|chrome/lobby.yaml
 	common|chrome/lobby-mappreview.yaml
@@ -230,6 +237,7 @@ ChromeLayout:
 	d2|chrome/missionbrowser.yaml
 	common|chrome/gamesave-browser.yaml
 	common|chrome/gamesave-loading.yaml
+	common|chrome/text-notifications.yaml
 
 Weapons:
 	d2|weapons/smallguns.yaml
@@ -249,7 +257,7 @@ Music:
 	d2|audio/music.yaml
 
 Translations:
-	d2|languages/english.yaml
+	common|languages/en.ftl
 
 Hotkeys:
 	common|hotkeys/game.yaml
@@ -257,6 +265,9 @@ Hotkeys:
 	common|hotkeys/production-common.yaml
 	common|hotkeys/supportpowers.yaml
 	common|hotkeys/viewport.yaml
+	common|hotkeys/chat.yaml
+	common|hotkeys/editor.yaml
+	common|hotkeys/control-groups.yaml
 	d2|hotkeys.yaml
 
 LoadScreen: D2LoadScreen
@@ -313,6 +324,8 @@ Fonts:
 Missions:
 	d2|missions.yaml
 
+DefaultOrderGenerator: UnitOrderGenerator
+
 SupportsMapsFrom: d2
 
 SoundFormats: Voc, Aud, Wav
@@ -323,31 +336,34 @@ SpriteSequenceFormat: DefaultSpriteSequence
 
 ModelSequenceFormat: PlaceholderModelSequence
 
-GameSpeeds:
-	slowest:
-		Name: Slowest
-		Timestep: 80
-		OrderLatency: 2
-	slower:
-		Name: Slower
-		Timestep: 50
-		OrderLatency: 3
-	default:
-		Name: Normal
-		Timestep: 40
-		OrderLatency: 3
-	fast:
-		Name: Fast
-		Timestep: 35
-		OrderLatency: 4
-	faster:
-		Name: Faster
-		Timestep: 30
-		OrderLatency: 4
-	fastest:
-		Name: Fastest
-		Timestep: 20
-		OrderLatency: 6
+VideoFormats:
 
-ColorValidator:
-	TeamColorPresets: ffc9ca, f53333, ffae00, fff830, 87f506, f872ad, da06f3, ddb8ff, def7b2, 39c46f, 200738, 280df6, 2f86f2, 76d2f8, 498221, 000000
+TerrainFormat: DefaultTerrain
+
+GameSpeeds:
+	DefaultSpeed: default
+	Speeds:
+		slowest:
+			Name: slowest
+			Timestep: 80
+			OrderLatency: 2
+		slower:
+			Name: slower
+			Timestep: 50
+			OrderLatency: 3
+		default:
+			Name: normal
+			Timestep: 40
+			OrderLatency: 3
+		fast:
+			Name: fast
+			Timestep: 35
+			OrderLatency: 4
+		faster:
+			Name: faster
+			Timestep: 30
+			OrderLatency: 4
+		fastest:
+			Name: fastest
+			Timestep: 20
+			OrderLatency: 6
