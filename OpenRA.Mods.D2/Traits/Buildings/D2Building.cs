@@ -60,7 +60,7 @@ namespace OpenRA.Mods.D2.Traits
 		public readonly ushort ConcreteTemplate = 0;
 
 		[Desc("List of required prerequisites to place a terrain template.")]
-		public readonly string[] ConcretePrerequisites = { };
+		public readonly string[] ConcretePrerequisites = Array.Empty<string>();
 
 		public override object Create(ActorInitializer init) { return new D2Building(init, this); }
 		public override bool IsCloseEnoughToBase(World world, Player p, ActorInfo ai, CPos topLeft)

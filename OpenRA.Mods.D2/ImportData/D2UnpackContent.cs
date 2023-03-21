@@ -19,7 +19,7 @@ namespace OpenRA.Mods.D2.ImportData
 	{
 		public static int UnpackFiles(ModData modData, Dictionary<string, string> info)
 		{
-			string[] files = { };
+			string[] files = Array.Empty<string>();
 			var unpackedFilesCount = 0;
 
 			if (info.ContainsKey("UnpackFiles"))

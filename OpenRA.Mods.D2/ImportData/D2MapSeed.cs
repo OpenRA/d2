@@ -18,7 +18,7 @@ namespace OpenRA.Mods.D2.ImportData
 {
 	public class D2MapSeed
 	{
-		byte[] seed = new byte[4];
+		readonly byte[] seed = new byte[4];
 
 		public uint Seed
 		{

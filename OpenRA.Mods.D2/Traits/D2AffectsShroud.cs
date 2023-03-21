@@ -37,11 +37,10 @@ namespace OpenRA.Mods.D2.Traits
 
 	public abstract class D2AffectsShroud : ConditionalTrait<D2AffectsShroudInfo>, ITick, ISync, INotifyAddedToWorld, INotifyRemovedFromWorld
 	{
-		static readonly PPos[] NoCells = { };
+		static readonly PPos[] NoCells = System.Array.Empty<PPos>();
 
 		readonly HashSet<PPos> footprint;
-
-		D2AffectsShroudInfo info;
+		readonly D2AffectsShroudInfo info;
 
 		[Sync]
 		CPos cachedLocation;

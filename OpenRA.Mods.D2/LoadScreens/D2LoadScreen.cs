@@ -22,7 +22,7 @@ namespace OpenRA.Mods.D2
 {
 	public sealed class D2LoadScreen : BlankLoadScreen
 	{
-		Stopwatch lastUpdate = Stopwatch.StartNew();
+		readonly Stopwatch lastUpdate = Stopwatch.StartNew();
 		Renderer r;
 
 		float2 logoPos;
@@ -91,7 +91,7 @@ namespace OpenRA.Mods.D2
 			if (info.ContainsKey("Palette"))
 			{
 				using (var stream = modData.DefaultFileSystem.Open(info["Palette"]))
-					palette = new ImmutablePalette(stream, new int[] { }, new int[] { });
+					palette = new ImmutablePalette(stream, System.Array.Empty<int>(), System.Array.Empty<int>());
 
 				hardwarePalette = new HardwarePalette();
 				hardwarePalette.AddPalette("loadscreen", palette, false);

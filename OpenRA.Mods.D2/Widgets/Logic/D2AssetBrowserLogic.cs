@@ -31,13 +31,11 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		readonly string[] palettes;
 		readonly World world;
 		readonly ModData modData;
-
-		Widget panel;
-
-		TextFieldWidget filenameInput;
-		SliderWidget frameSlider;
-		ScrollPanelWidget assetList;
-		ScrollItemWidget template;
+		readonly Widget panel;
+		readonly TextFieldWidget filenameInput;
+		readonly SliderWidget frameSlider;
+		readonly ScrollPanelWidget assetList;
+		readonly ScrollItemWidget template;
 
 		IReadOnlyPackage assetSource = null;
 		bool animateFrames = false;
@@ -233,7 +231,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			if (logicArgs.ContainsKey("SupportedFormats"))
 				allowedExtensions = FieldLoader.GetValue<string[]>("SupportedFormats", logicArgs["SupportedFormats"].Value);
 			else
-				allowedExtensions = new string[0];
+				allowedExtensions = Array.Empty<string>();
 
 			acceptablePackages = modData.ModFiles.MountedPackages.Where(p =>
 				p.Contents.Any(c => allowedExtensions.Contains(Path.GetExtension(c).ToLowerInvariant())));
@@ -267,7 +265,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				currentFrame = currentSprites.Length - 1;
 		}
 
-		Dictionary<string, bool> assetVisByName = new Dictionary<string, bool>();
+		readonly Dictionary<string, bool> assetVisByName = new Dictionary<string, bool>();
 
 		bool FilterAsset(string filename)
 		{

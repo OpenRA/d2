@@ -35,9 +35,9 @@ namespace OpenRA.Mods.D2.Traits
 		readonly Dictionary<CPos, TerrainTile?> dirty = new Dictionary<CPos, TerrainTile?>();
 		readonly World world;
 		readonly CellLayer<int> strength;
+		readonly ITiledTerrainRenderer terrainRenderer;
 
 		TerrainSpriteLayer render;
-		ITiledTerrainRenderer terrainRenderer;
 		PaletteReference paletteReference;
 		bool disposed;
 

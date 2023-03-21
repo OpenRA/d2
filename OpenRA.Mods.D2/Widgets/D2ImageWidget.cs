@@ -31,13 +31,12 @@ namespace OpenRA.Mods.D2.Widgets
 		public Func<string> GetImageCollection;
 		public Func<string> GetPaletteName;
 
+		public string TooltipText;
+		public Func<string> GetTooltipText;
+
 		readonly World world;
 		readonly WorldRenderer worldRenderer;
-
-		public string TooltipText;
-
-		Lazy<TooltipContainerWidget> tooltipContainer;
-		public Func<string> GetTooltipText;
+		readonly Lazy<TooltipContainerWidget> tooltipContainer;
 
 		[ObjectCreator.UseCtor]
 		public D2ImageWidget(World world, WorldRenderer worldRenderer)

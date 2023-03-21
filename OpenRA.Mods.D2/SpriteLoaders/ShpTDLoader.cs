@@ -92,8 +92,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 			public uint RefOffset;
 			public Format RefFormat;
 			public ImageHeader RefImage;
-
-			ShpTDSprite reader;
+			readonly ShpTDSprite reader;
 
 			// Used by ShpWriter
 			public ImageHeader() { }
