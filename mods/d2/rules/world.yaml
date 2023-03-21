@@ -293,3 +293,7 @@ EditorWorld:
 	EditorSelectionLayer:
 	LoadWidgetAtGameStart:
 	EditorActionManager:
+	BuildableTerrainOverlay:
+		AllowedTerrainTypes: Clear, Concrete, Rock
+		Image: buildable
+		Sequence: invalid # This uses D2k artwork so the sequence is scaled down to 50%. Rendering at scale will only work after the next engine update though.
