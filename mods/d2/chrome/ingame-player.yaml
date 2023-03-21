@@ -1,5 +1,7 @@
 Container@PLAYER_WIDGETS:
+	Logic: LoadIngameChatLogic
 	Children:
+		Container@CHAT_ROOT:
 		LogicTicker@SIDEBAR_TICKER:
 		Container@TOP_BAR:
 			X: 0
