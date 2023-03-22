@@ -68,6 +68,12 @@ barracks:
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.barracks
 		Condition: stardecoration
+	WithDecoration@upgraded:
+		Image: pips
+		Sequence: tag-upgraded
+		RequiresCondition: stardecoration
+		Offsets:
+			stardecoration: -6, -6
 	RevealOnDeath:
 		Radius: 3c768
 	-Capturable:

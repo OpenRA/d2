@@ -20,9 +20,9 @@ devastator:
 		TurnSpeed: 12
 		Speed: 31
 		Locomotor: devastator
-		PauseOnCondition: overload || notmobile
+		PauseOnCondition: notmobile # TODO: Can this overload?
 	AutoCarryable:
-		RequiresCondition: !overload
+		# RequiresCondition: !overload # TODO: Can this overload?
 	D2RevealsShroud:
 		Range: 4c0
 		MovingRange: 1c768
@@ -41,15 +41,13 @@ devastator:
 	Explodes:
 		Weapon: UnitExplodeLarge
 		EmptyWeapon: UnitExplodeLarge
-		RequiresCondition: !overload
+		#RequiresCondition: !overload # TODO: Can this overload?
 	SpawnActorOnDeath:
 		Actor: devastator.husk
 		OwnerType: InternalName
 		EffectiveOwnerFromOwner: true
 	AttractsWorms:
 		Intensity: 700
-	SelectionDecorations:
-		VisualBounds: 44,38,0,0
 	ChangesHealth:
 		Step: 5
 		Delay: 3

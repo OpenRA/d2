@@ -66,8 +66,8 @@ palace:
 		Description: Launches an atomic missile at a target location
 		BeginChargeSpeechNotification: DeathHandMissilePrepping
 		EndChargeSpeechNotification: DeathHandMissileReady
-		MissileLaunchDetected: MissileLaunchDetected
-		MissileWeapon: atomic
+		DetectedSpeechNotification: MissileLaunchDetected
+		MissileWeapon: Atomic
 		MissileDelay: 19
 		SpawnOffset: -512,1c171,0
 		DisplayBeacon: True
@@ -75,7 +75,6 @@ palace:
 		CameraRange: 10c0
 		ArrowSequence: arrow
 		CircleSequence: circles
-		ScreenShakeWarhead:
 		MissileImage: atomic
 	ProduceActorPower@fremen:
 		Name: Recruit Fremen

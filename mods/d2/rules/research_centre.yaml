@@ -35,8 +35,6 @@ research_centre:
 	Power:
 		Amount: -40
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
-		VisualBounds: 32,32
 	-Capturable:
 	-CaptureNotification:
 	-CaptureManager:

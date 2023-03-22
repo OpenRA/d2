@@ -57,7 +57,7 @@ M_HMG:
 
 Fremen_L:
 	ReloadDelay: 40
-	Delay: 5
+	BurstDelays: 5
 	Range: 3c512
 	Report: BAZOOK2.WAV
 	Projectile: Bullet
@@ -88,5 +88,5 @@ HMG_muzzle:
 	ReloadDelay: 16
 	Range: 3c0
 	Burst: 3
-	BurstDelay: 2
+	BurstDelays: 2
 	Warhead@TargetValidation: SpreadDamage

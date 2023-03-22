@@ -26,8 +26,6 @@ repair_pad:
 		Range: 3c0
 	Selectable:
 		Bounds: 3072, 2048
-	SelectionDecorations:
-		VisualBounds: 48,32
 	Reservable:
 	RepairsUnits:
 		Interval: 10

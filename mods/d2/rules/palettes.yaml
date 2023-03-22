@@ -22,7 +22,6 @@
 		Name: colorpicker
 		BasePalette: d2
 		RemapIndex: 144, 145, 146, 147, 148, 149
-		ShadowIndex: 4
 		AllowModifiers: false
 	PaletteFromFile@shroud:
 		Name: shroud

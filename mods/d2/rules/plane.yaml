@@ -13,7 +13,6 @@
 		Type: GroundPosition
 		AlwaysVisibleRelationships: None
 	ActorLostNotification:
-	AttackMove:
 	WithFacingSpriteBody:
 	WithShadow:
 	HitShape:

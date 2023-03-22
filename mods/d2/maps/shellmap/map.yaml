@@ -28,15 +28,15 @@ Players:
 		Faction: Random
 	PlayerReference@Atreides:
 		Name: Atreides
-		Faction: Atreides
+		Faction: atreides
 		Color: 5079D6
 	PlayerReference@Harkonnen:
 		Name: Harkonnen
-		Faction: Harkonnen
+		Faction: harkonnen
 		Color: D60000
 	PlayerReference@Ordos:
 		Name: Ordos
-		Faction: Ordos
+		Faction: ordos
 		Color: 4CD64C
 
 Actors:

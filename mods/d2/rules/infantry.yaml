@@ -24,7 +24,8 @@
 		DamageModifiers:
 			Prone50Percent: 50
 		DamageTriggers: TriggerProne
-		ProneOffser: 300 0 0
+		ProneOffset: 300,0,0
+		ProneSequencePrefix:
 	WithDeathAnimation:
 		DeathTypes:
 			ExplosionDeath: 1
@@ -33,6 +34,9 @@
 			BulletDeath: 4
 		CrushedSequence: die-crushed
 	AttackMove:
+		AttackMoveBlockedCursor:
+		AssaultMoveCursor:
+		AssaultMoveBlockedCursor:
 	Passenger:
 		CargoType: Infantry
 		CustomPipType: green

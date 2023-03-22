@@ -52,11 +52,15 @@ high_tech_factory:
 	ProvidesPrerequisite@buildingname:
 	Power:
 		Amount: -35
-	SelectionDecorations:
-		VisualBounds: 64,32
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.hightech
 		Condition: stardecoration
+	WithDecoration@upgraded:
+		Image: pips
+		Sequence: tag-upgraded
+		RequiresCondition: stardecoration
+		Offsets:
+			stardecoration: -6, -6
 
 upgrade.hightech:
 	AlwaysVisible:

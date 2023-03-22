@@ -31,9 +31,9 @@ outpost:
 		RequiresCondition: !disabled
 	WithTilesetBody:
 		SkipFrames: 1,2
-		PlayerPalette: player
 	RenderSprites:
 		Image: outpost
+		PlayerPalette: player
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled

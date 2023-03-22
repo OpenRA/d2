@@ -75,6 +75,10 @@ Atomic:
 	Warhead@2Eff: CreateEffect
 		Explosions: nuke
 		ImpactSounds: EXPLLG2.WAV
+	Warhead@3Shake: ShakeScreen
+		Duration: 10
+		Intensity: 3
+		Multiplier: 1,0
 
 CrateNuke:
 	Warhead@1Dam: SpreadDamage
@@ -122,7 +126,6 @@ WallExplode:
 	Warhead@1Eff: CreateEffect
 		Explosions: building
 		ImpactSounds: EXPLHG1.WAV
-		VictimScanRadius: 0
 
 Weathering:
 	ReloadDelay: 100

@@ -24,8 +24,6 @@ fremen:
 		Weapon: Fremen_L
 	AttackFrontal:
 		FacingTolerance: 0
-	WithInfantryBody:
-		DefaultAttackSequence: shoot
 	Cloak:
 		InitialDelay: 85
 		CloakDelay: 85

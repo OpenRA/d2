@@ -16,6 +16,9 @@
 	Passenger:
 		CargoType: Vehicle
 	AttackMove:
+		AttackMoveBlockedCursor:
+		AssaultMoveCursor:
+		AssaultMoveBlockedCursor:
 	HiddenUnderFog:
 	ActorLostNotification:
 	Repairable:
@@ -35,8 +38,9 @@
 	WithDecoration@CARRYALL:
 		Image: pips
 		Sequence: pickup-indicator
-		Offset: -12, -12
 		RequiresCondition: carryall-reserved
+		Offsets:
+			carryall-reserved: -12, -12
 	RevealOnFire:
 	RevealOnDeath:
 		Duration: 100
@@ -45,7 +49,6 @@
 	D2LeavesTracks:
 		Image: track
 		Palette: d2
-		Type: Cell
 		TerrainTypes: Sand, Dune, Spice
 	WithSpriteControlGroupDecoration:
 	HitShape:

@@ -7,8 +7,6 @@ Player:
 		FogCheckboxEnabled: False
 		ExploredMapCheckboxLocked: True
 		ExploredMapCheckboxEnabled: False
-	PlayerResources:
-		DefaultCashLocked: True
 
 World:
 	-SpawnStartingUnits:

@@ -71,6 +71,12 @@ light_factory:
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.light
 		Condition: stardecoration
+	WithDecoration@upgraded:
+		Image: pips
+		Sequence: tag-upgraded
+		RequiresCondition: stardecoration
+		Offsets:
+			stardecoration: -6, -6
 
 upgrade.light:
 	AlwaysVisible:

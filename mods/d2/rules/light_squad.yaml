@@ -15,7 +15,6 @@ light_squad:
 	Health:
 		HP: 50
 	Mobile:
-		SharesCell: false
 		Speed: 43
 	Armament:
 		Weapon: LMG_squad
@@ -23,7 +22,5 @@ light_squad:
 		Actor: light_inf
 	AttackFrontal:
 		FacingTolerance: 0
-	WithInfantryBody:
-		DefaultAttackSequence: shoot
 	Selectable:
 		Bounds: 1024, 1024, 0, 0

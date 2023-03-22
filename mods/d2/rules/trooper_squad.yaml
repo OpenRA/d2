@@ -15,15 +15,12 @@ trooper_squad:
 	Health:
 		HP: 110
 	Mobile:
-		SharesCell: false
 		Speed: 31
 	Armament:
 		Weapon: Bazooka_squad
 		LocalOffset: 128,0,256
 	AttackFrontal:
 		FacingTolerance: 0
-	WithInfantryBody:
-		DefaultAttackSequence: shoot
 	SpawnActorOnDeath:
 		Actor: trooper
 	Selectable:

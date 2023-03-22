@@ -10,7 +10,6 @@ carryall.reinforce:
 		Type: light
 	Aircraft:
 		CruiseAltitude: 192
-		CruisingCondition: cruising
 		InitialFacing: 0
 		Speed: 144 # 112 * ~1.3 for balance reasons
 		TurnSpeed: 16
@@ -51,12 +50,13 @@ carryall:
 	Inherits: carryall.reinforce
 	-Carryall:
 	AutoCarryall:
-		LoadingDelay: 10
-		UnloadingDelay: 15
+		BeforeLoadDelay: 10
+		BeforeUnloadDelay: 15
 		LocalOffset: 0, 0, -128
 	Aircraft:
 		MinAirborneAltitude: 40
 		InitialFacing: 768
+		CruisingCondition: cruising
 	RevealsShroud@ligting_low:
 		Range: 2c512
 		Type: GroundPosition
