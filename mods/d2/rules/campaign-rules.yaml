@@ -7,12 +7,10 @@ Player:
 		FogCheckboxEnabled: False
 		ExploredMapCheckboxLocked: True
 		ExploredMapCheckboxEnabled: False
-	PlayerResources:
-		DefaultCashLocked: True
 
 World:
-	-SpawnMPUnits:
-	-MPStartLocations:
+	-SpawnStartingUnits:
+	-MapStartingLocations:
 	ObjectivesPanel:
 		PanelName: MISSION_OBJECTIVES
 	ActorSpawnManager:

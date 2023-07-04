@@ -16,13 +16,12 @@ sardaukar:
 		HP: 1000
 	Mobile:
 		Speed: 31
-	WithInfantryBody:
-		DefaultAttackSequence: shoot
 	Armament@PRIMARY:
 		Weapon: M_LMG
 	Armament@SECONDARY:
 		Weapon: M_HMG
 	AttackFrontal:
+		FacingTolerance: 0
 	Voiced:
 		VoiceSet: GenericVoice
 	Explodes:

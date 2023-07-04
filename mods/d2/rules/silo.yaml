@@ -8,7 +8,7 @@ silo:
 		BuildDurationModifier: 40
 		Description: Stores excess harvested Spice
 	Selectable:
-		Bounds: 32,32
+		Bounds: 2048, 2048
 	Valued:
 		Cost: 150
 	Tooltip:

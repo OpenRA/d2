@@ -17,7 +17,7 @@ gun_turret:
 	RequiresBuildableArea:
 		Adjacent: 1
 	Selectable:
-		Bounds: 16,16
+		Bounds: 1024, 1024
 		Priority: 3
 	Health:
 		HP: 200

@@ -32,6 +32,7 @@ siege_tank:
 		LocalOffset: 512,0,320
 		MuzzleSequence: muzzle
 	AttackFrontal:
+		FacingTolerance: 0
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	Explodes:

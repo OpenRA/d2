@@ -1,6 +1,9 @@
 ^BasePlayer:
 	AlwaysVisible:
 	Shroud:
+	PlayerResources:
+		ResourceValues:
+			Spice: 25
 
 EditorPlayer:
 	Inherits: ^BasePlayer
@@ -19,7 +22,7 @@ Player:
 		LeaveNotification: Leave
 	ConquestVictoryConditions:
 	PowerManager:
-		AdviceInterval: 650
+		AdviceInterval: 26000
 		SpeechNotification: LowPower
 	AllyRepair:
 	PlayerResources:
@@ -78,6 +81,6 @@ Player:
 	HarvesterInsurance:
 	GrantConditionOnPrerequisiteManager:
 	ResourceStorageWarning:
-		AdviceInterval: 26
+		AdviceInterval: 26000
 	#PlayerExperience:
 	GameSaveViewportManager:

@@ -22,7 +22,7 @@ namespace OpenRA.Mods.D2
 {
 	public sealed class D2LoadScreen : BlankLoadScreen
 	{
-		Stopwatch lastUpdate = Stopwatch.StartNew();
+		readonly Stopwatch lastUpdate = Stopwatch.StartNew();
 		Renderer r;
 
 		float2 logoPos;
@@ -91,7 +91,7 @@ namespace OpenRA.Mods.D2
 			if (info.ContainsKey("Palette"))
 			{
 				using (var stream = modData.DefaultFileSystem.Open(info["Palette"]))
-					palette = new ImmutablePalette(stream, new int[] { });
+					palette = new ImmutablePalette(stream, System.Array.Empty<int>(), System.Array.Empty<int>());
 
 				hardwarePalette = new HardwarePalette();
 				hardwarePalette.AddPalette("loadscreen", palette, false);
@@ -108,7 +108,7 @@ namespace OpenRA.Mods.D2
 					CpsD2Loader loader = new CpsD2Loader();
 					TypeDictionary metadata;
 
-					if (!loader.TryParseSprite(stream, out frames, out metadata))
+					if (!loader.TryParseSprite(stream, string.Empty, out frames, out metadata))
 						return;
 				}
 
@@ -142,7 +142,7 @@ namespace OpenRA.Mods.D2
 			r.BeginUI();
 
 			if (logo != null)
-				r.SpriteRenderer.DrawSprite(logo, logoPos, pr, logo.Size);
+				r.SpriteRenderer.DrawSprite(logo, pr, logoPos);
 
 			r.Fonts["Bold"].DrawText(text, new float2(r.Resolution.Width - textSize.X - 20, r.Resolution.Height - textSize.Y - 20), Color.White);
 

@@ -15,7 +15,7 @@ starport:
 		Footprint: xxx ==x ==x
 		Dimensions: 3,3
 	Selectable:
-		Bounds: 48,48
+		Bounds: 3072, 3072
 	Health:
 		HP: 500
 	HitShape:

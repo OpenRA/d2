@@ -15,6 +15,10 @@ ornithopter:
 		BuildPaletteOrder: 130
 		Prerequisites: research_centre, upgrade.hightech, ~aircraft.atreides_or_ordos, ~techlevel.high
 		Description: Light aircraft armed with missiles.\nAutomatically attacks nearby targets, can't be manually controlled.
+	AttackMove:
+		AttackMoveBlockedCursor:
+		AssaultMoveCursor:
+		AssaultMoveBlockedCursor:
 	AttackAircraft:
 		TargetFrozenActors: true
 	Armament:
@@ -27,13 +31,11 @@ ornithopter:
 		Type: light
 	Aircraft:
 		CruiseAltitude: 192
-		CruisingCondition: cruising
 		InitialFacing: 0
 		Speed: 224 # 189 * ~1.2 for balance reasons
 		TurnSpeed: 20
 		LandableTerrainTypes: Sand, Spice, SpiceSand, Dune, Concrete
 		Repulsable: False
-		AirborneCondition: airborne
 		CanHover: False
 		VTOL: False
 		IdleTurnSpeed: 8

@@ -33,7 +33,7 @@ namespace OpenRA.Mods.D2.Traits
 
 		public override object Create(ActorInitializer init) { return new WithTilesetBody(init.Self, this); }
 
-		public IEnumerable<IActorPreview> RenderPreviewSprites(ActorPreviewInitializer init, RenderSpritesInfo rs, string image, int facings, PaletteReference p)
+		public IEnumerable<IActorPreview> RenderPreviewSprites(ActorPreviewInitializer init, string image, int facings, PaletteReference p)
 		{
 			if (Palette != null)
 				p = init.WorldRenderer.Palette(Palette);
@@ -58,7 +58,7 @@ namespace OpenRA.Mods.D2.Traits
 					anim.PlayFetchIndex(Sequence, () => frameIndex);
 					anim.IsDecoration = true;
 
-					yield return new SpriteActorPreview(anim, offset, zOffset, p, rs.Scale);
+					yield return new SpriteActorPreview(anim, offset, zOffset, p);
 				}
 			}
 		}

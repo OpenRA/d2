@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using OpenRA.Graphics;
+using OpenRA.Primitives;
 using OpenRA.Traits;
 
 /* based on ShroudRenderer */
@@ -82,6 +83,7 @@ namespace OpenRA.Mods.D2.Traits
 		Shroud shroud;
 		Func<PPos, bool> visibleUnderShroud, visibleUnderFog;
 		TerrainSpriteLayer shroudLayer, fogLayer;
+		PaletteReference shroudPaletteReference, fogPaletteReference;
 		bool disposed;
 
 		public D2ShroudRenderer(World world, D2ShroudRendererInfo info)
@@ -148,8 +150,11 @@ namespace OpenRA.Mods.D2.Traits
 			if (fogSprites.Any(s => s.BlendMode != fogBlend))
 				throw new InvalidDataException("Fog sprites must all use the same blend mode.");
 
-			shroudLayer = new TerrainSpriteLayer(w, wr, shroudSheet, shroudBlend, wr.Palette(info.ShroudPalette), false);
-			fogLayer = new TerrainSpriteLayer(w, wr, fogSheet, fogBlend, wr.Palette(info.FogPalette), false);
+			var emptySprite = new Sprite(shroudSprites[0].Sheet, Rectangle.Empty, TextureChannel.Alpha);
+			shroudLayer = new TerrainSpriteLayer(w, wr, emptySprite, shroudBlend, false);
+			fogLayer = new TerrainSpriteLayer(w, wr, emptySprite, fogBlend, false);
+			shroudPaletteReference = wr.Palette(info.ShroudPalette);
+			fogPaletteReference = wr.Palette(info.FogPalette);
 
 			WorldOnRenderPlayerChanged(world.RenderPlayer);
 		}
@@ -242,8 +247,8 @@ namespace OpenRA.Mods.D2.Traits
 				if (fogSprite != null)
 					fogPos += fogSprite.Offset - 0.5f * fogSprite.Size;
 
-				shroudLayer.Update(uv, shroudSprite, shroudPos, true);
-				fogLayer.Update(uv, fogSprite, fogPos, true);
+				shroudLayer.Update(uv, shroudSprite, shroudPaletteReference, shroudPos, 1f, 1f, true);
+				fogLayer.Update(uv, fogSprite, fogPaletteReference, fogPos, 1f, 1f, true);
 			}
 
 			anyCellDirty = false;

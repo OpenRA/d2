@@ -16,7 +16,6 @@ using OpenRA.Mods.Common.Orders;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Traits.Render;
 using OpenRA.Mods.Common.Widgets;
-using OpenRA.Orders;
 using OpenRA.Primitives;
 using OpenRA.Traits;
 using OpenRA.Widgets;
@@ -47,7 +46,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		readonly ColorBlockWidget buttonsBackground;
 
 		int selectionHash;
-		Actor[] selectedActors = { };
+		Actor[] selectedActors = Array.Empty<Actor>();
 
 		[ObjectCreator.UseCtor]
 		public D2IngameActorLogic(Widget widget, World world, WorldRenderer worldRenderer)
@@ -227,7 +226,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			foreach (var o in orders)
 				world.IssueOrder(o);
 
-			world.PlayVoiceForOrders(orders);
+			orders.PlayVoiceForOrders();
 		}
 
 		void HideExtraInfo()
@@ -339,7 +338,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 
 				var faction = world.LocalPlayer.Faction.Name;
 				var rsi = actor.Info.TraitInfo<RenderSpritesInfo>();
-				var icon = new Animation(world, rsi.GetImage(actor.Info, world.Map.Rules.Sequences, faction));
+				var icon = new Animation(world, rsi.GetImage(actor.Info, faction));
 				var bi = actor.Info.TraitInfo<BuildableInfo>();
 				icon.Play(bi.Icon);
 

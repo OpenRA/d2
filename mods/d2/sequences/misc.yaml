@@ -103,3 +103,7 @@ moveflsh:
 null:
 	idle: DATA.R8
 		Start: 3304
+
+buildable:
+	invalid: concfoot.shp
+		Scale: 0.5

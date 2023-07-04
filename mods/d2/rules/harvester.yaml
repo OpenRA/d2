@@ -1,12 +1,12 @@
 harvester:
 	Inherits: ^Tank
+	-AttackMove:
 	Buildable:
 		Queue: Armor
 		Prerequisites: refinery
 		BuildPaletteOrder: 10
 		BuildDuration: 800
 		BuildDurationModifier: 40
-		InitialActivity: FindResources
 		Description: Collects Spice for processing\n  Unarmed
 	Valued:
 		Cost: 300
@@ -29,7 +29,6 @@ harvester:
 		Type: harvester
 	Mobile:
 		Speed: 43
-		Crushes: infantry, spicebloom
 	D2RevealsShroud:
 		Range: 2c0
 		MovingRange: 1c768
@@ -44,8 +43,6 @@ harvester:
 	WithDockingAnimation:
 	AttractsWorms:
 		Intensity: 700
-	SelectionDecorations:
-		VisualBounds: 24,24
 	ChangesHealth:
 		Step: 5
 		Delay: 3

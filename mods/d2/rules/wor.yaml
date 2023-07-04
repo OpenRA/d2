@@ -8,7 +8,7 @@ wor:
 		BuildDurationModifier: 40
 		Description: Trains heavy infantry\n  Cannot be captured.
 	Selectable:
-		Bounds: 32,32
+		Bounds: 2048, 2048
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -68,6 +68,12 @@ wor:
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.wor
 		Condition: stardecoration
+	WithDecoration@upgraded:
+		Image: pips
+		Sequence: tag-upgraded
+		RequiresCondition: stardecoration
+		Offsets:
+			stardecoration: -6, -6
 	-Capturable:
 	-CaptureNotification:
 	-CaptureManager:

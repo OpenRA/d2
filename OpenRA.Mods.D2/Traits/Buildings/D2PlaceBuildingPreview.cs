@@ -31,7 +31,7 @@ namespace OpenRA.Mods.D2.Traits
 
 		protected override IPlaceBuildingPreview CreatePreview(WorldRenderer wr, ActorInfo ai, TypeDictionary init)
 		{
-			return new D2PlaceBuildingPreviewPreview(wr, ai, this, init);
+			return new D2PlaceBuildingPreviewPreview(wr, ai, this);
 		}
 
 		public override object Create(ActorInitializer init)
@@ -54,8 +54,8 @@ namespace OpenRA.Mods.D2.Traits
 
 		protected float t = 0.0f;
 
-		public D2PlaceBuildingPreviewPreview(WorldRenderer wr, ActorInfo ai, D2PlaceBuildingPreviewInfo info, TypeDictionary init)
-			: base(wr, ai, info, init)
+		public D2PlaceBuildingPreviewPreview(WorldRenderer wr, ActorInfo ai, D2PlaceBuildingPreviewInfo info)
+			: base(wr, ai, info)
 		{
 			this.info = info;
 			this.ai = ai;
@@ -131,12 +131,12 @@ namespace OpenRA.Mods.D2.Traits
 
 		protected override IEnumerable<IRenderable> RenderInner(WorldRenderer wr, CPos topLeft, Dictionary<CPos, PlaceBuildingCellType> footprint)
 		{
-			var centerPosition = wr.World.Map.CenterOfCell(topLeft) + centerOffset;
+			var centerPosition = wr.World.Map.CenterOfCell(topLeft) + CenterOffset;
 
 			var colorComponent = (int)Math.Round(127 + 127 * t);
 			var color = Color.FromArgb(255, colorComponent, colorComponent, colorComponent);
 
-			var cross = !IsCloseEnoughAndBuildable(wr.World, actorInfo, topLeft);
+			var cross = !IsCloseEnoughAndBuildable(wr.World, ActorInfo, topLeft);
 
 			yield return new D2BuildingPlacementRenderable(centerPosition, bounds, color, cross);
 		}

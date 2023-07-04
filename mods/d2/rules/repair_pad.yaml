@@ -25,9 +25,7 @@ repair_pad:
 	RevealsShroud:
 		Range: 3c0
 	Selectable:
-		Bounds: 48,32
-	SelectionDecorations:
-		VisualBounds: 48,32
+		Bounds: 3072, 2048
 	Reservable:
 	RepairsUnits:
 		Interval: 10

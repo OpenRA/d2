@@ -8,7 +8,7 @@ light_factory:
 		BuildDurationModifier: 40
 		Description: Produces light vehicles
 	Selectable:
-		Bounds: 32,32
+		Bounds: 2048, 2048
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -71,6 +71,12 @@ light_factory:
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.light
 		Condition: stardecoration
+	WithDecoration@upgraded:
+		Image: pips
+		Sequence: tag-upgraded
+		RequiresCondition: stardecoration
+		Offsets:
+			stardecoration: -6, -6
 
 upgrade.light:
 	AlwaysVisible:

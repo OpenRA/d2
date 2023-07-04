@@ -31,14 +31,12 @@ namespace OpenRA.Mods.D2.Widgets
 		public Func<string> GetImageCollection;
 		public Func<string> GetPaletteName;
 
+		public string TooltipText;
+		public Func<string> GetTooltipText;
+
 		readonly World world;
 		readonly WorldRenderer worldRenderer;
-
-		[Translate]
-		public string TooltipText;
-
-		Lazy<TooltipContainerWidget> tooltipContainer;
-		public Func<string> GetTooltipText;
+		readonly Lazy<TooltipContainerWidget> tooltipContainer;
 
 		[ObjectCreator.UseCtor]
 		public D2ImageWidget(World world, WorldRenderer worldRenderer)
@@ -97,10 +95,10 @@ namespace OpenRA.Mods.D2.Widgets
 			{
 				for (var y = 0; y < Bounds.Height; y += sprite.Bounds.Height)
 					for (var x = 0; x < Bounds.Width; x += sprite.Bounds.Width)
-						WidgetUtils.DrawRGBA(sprite, RenderOrigin + new int2(x, y));
+						WidgetUtils.DrawSprite(sprite, RenderOrigin + new int2(x, y));
 			}
 			else
-				WidgetUtils.DrawRGBA(sprite, RenderOrigin);
+				WidgetUtils.DrawSprite(sprite, RenderOrigin);
 		}
 
 		public override bool HandleMouseInput(MouseInput mi)

@@ -10,7 +10,7 @@ construction_yard:
 		DamageInterval: 0
 		Damage: 0
 	Selectable:
-		Bounds: 32,32
+		Bounds: 2048, 2048
 	Health:
 		HP: 400
 	HitShape:
@@ -69,6 +69,12 @@ construction_yard:
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.conyard
 		Condition: stardecoration
+	WithDecoration@upgraded:
+		Image: pips
+		Sequence: tag-upgraded
+		RequiresCondition: stardecoration
+		Offsets:
+			stardecoration: -6, -6
 	RevealOnDeath:
 		Radius: 5c768
 

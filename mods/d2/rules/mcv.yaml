@@ -1,5 +1,6 @@
 mcv:
 	Inherits: ^Vehicle
+	-AttackMove:
 	Buildable:
 		Prerequisites: repair_pad, upgrade.heavy, ~techlevel.medium
 		Queue: Armor
@@ -20,7 +21,7 @@ mcv:
 		Type: light
 	Mobile:
 		Speed: 31
-		Crushes: infantry, spicebloom
+		Locomotor: tank
 	D2RevealsShroud:
 		Range: 2c0
 		MovingRange: 1c768
@@ -42,8 +43,6 @@ mcv:
 		EffectiveOwnerFromOwner: true
 	AttractsWorms:
 		Intensity: 700
-	SelectionDecorations:
-		VisualBounds: 24,24
 	ChangesHealth:
 		Step: 5
 		Delay: 3

@@ -9,7 +9,7 @@ outpost:
 		BuildDurationModifier: 40
 		Description: Provides a radar map of the battlefield\n  Requires power to operate\n  Cannot be captured.
 	Selectable:
-		Bounds: 32,32
+		Bounds: 2048, 2048
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -31,9 +31,9 @@ outpost:
 		RequiresCondition: !disabled
 	WithTilesetBody:
 		SkipFrames: 1,2
-		PlayerPalette: player
 	RenderSprites:
 		Image: outpost
+		PlayerPalette: player
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnCondition: disabled

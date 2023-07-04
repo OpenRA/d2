@@ -1,8 +1,9 @@
 harvester.colorpicker:
 	Inherits: harvester
-	-Health:
 	-Buildable:
+	-MapEditorData:
+	-WithHarvestOverlay:
+	-WithDockingAnimation:
 	RenderSprites:
 		Image: harvester.colorpicker
-		Scale: 2
 		Palette: colorpicker

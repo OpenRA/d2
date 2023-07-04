@@ -2,7 +2,6 @@ General:
 	Name: arrakis2
 	Id: arrakis2
 	SheetSize: 1024
-	Palette: IBM.PAL
 	EditorTemplateOrder: Basic, Rock, Sand, Rough
 	IgnoreTileSpriteOffsets: True
 	HeightDebugColors: 880000

@@ -18,10 +18,10 @@
 		Filename: IBM.PAL
 		ShadowIndex: 4
 		AllowModifiers: false
-	PaletteFromFile@colorpicker:
+	ColorPickerPalette@colorpicker:
 		Name: colorpicker
-		Filename: IBM.PAL
-		ShadowIndex: 4
+		BasePalette: d2
+		RemapIndex: 144, 145, 146, 147, 148, 149
 		AllowModifiers: false
 	PaletteFromFile@shroud:
 		Name: shroud
@@ -69,7 +69,6 @@
 		BasePalette: player
 		Alpha: 0.68
 		Premultiply: false
-	PlayerHighlightPalette:
 	FlashPaletteEffect:
 	PaletteFromPlayerPaletteWithAlpha@cloak:
 		BaseName: cloak

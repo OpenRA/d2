@@ -23,8 +23,7 @@ fremen:
 	Armament@SECONDARY:
 		Weapon: Fremen_L
 	AttackFrontal:
-	WithInfantryBody:
-		DefaultAttackSequence: shoot
+		FacingTolerance: 0
 	Cloak:
 		InitialDelay: 85
 		CloakDelay: 85

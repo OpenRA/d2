@@ -9,16 +9,8 @@
  */
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using OpenRA.Graphics;
-using OpenRA.Mods.Common.Lint;
-using OpenRA.Mods.Common.Orders;
-using OpenRA.Mods.Common.Traits;
-using OpenRA.Mods.Common.Traits.Render;
 using OpenRA.Mods.Common.Widgets;
-using OpenRA.Network;
 using OpenRA.Widgets;
 
 namespace OpenRA.Mods.D2.Widgets
@@ -50,7 +42,7 @@ namespace OpenRA.Mods.D2.Widgets
 			var f = Scale / 2.0f;
 			var center = new float2(Sprite.Size.X * f, Sprite.Size.Y * f);
 
-			WidgetUtils.DrawSHPCentered(Sprite, pos + center + Offset, Palette, Scale);
+			WidgetUtils.DrawSpriteCentered(Sprite, Palette, pos + center + Offset, Scale);
 		}
 	}
 }

@@ -18,5 +18,4 @@ light_inf:
 	Armament:
 		Weapon: LMG
 	AttackFrontal:
-	WithInfantryBody:
-		DefaultAttackSequence: shoot
+		FacingTolerance: 0

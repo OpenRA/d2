@@ -28,15 +28,14 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		readonly string[] allowedExtensions;
 		readonly IEnumerable<IReadOnlyPackage> acceptablePackages;
 
+		readonly string[] palettes;
 		readonly World world;
 		readonly ModData modData;
-
-		Widget panel;
-
-		TextFieldWidget filenameInput;
-		SliderWidget frameSlider;
-		ScrollPanelWidget assetList;
-		ScrollItemWidget template;
+		readonly Widget panel;
+		readonly TextFieldWidget filenameInput;
+		readonly SliderWidget frameSlider;
+		readonly ScrollPanelWidget assetList;
+		readonly ScrollItemWidget template;
 
 		IReadOnlyPackage assetSource = null;
 		bool animateFrames = false;
@@ -51,11 +50,20 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		int currentFrame;
 
 		[ObjectCreator.UseCtor]
-		public D2AssetBrowserLogic(Widget widget, Action onExit, ModData modData, World world, Dictionary<string, MiniYaml> logicArgs)
+		public D2AssetBrowserLogic(Widget widget, Action onExit, ModData modData, WorldRenderer worldRenderer, Dictionary<string, MiniYaml> logicArgs)
 		{
-			this.world = world;
+			world = worldRenderer.World;
 			this.modData = modData;
 			panel = widget;
+
+			var colorPickerPalettes = world.WorldActor.TraitsImplementing<IProvidesAssetBrowserColorPickerPalettes>()
+				.SelectMany(p => p.ColorPickerPaletteNames)
+				.ToArray();
+
+			palettes = world.WorldActor.TraitsImplementing<IProvidesAssetBrowserPalettes>()
+				.SelectMany(p => p.PaletteNames)
+				.Concat(colorPickerPalettes)
+				.ToArray();
 
 			var ticker = panel.GetOrNull<LogicTickerWidget>("ANIMATION_TICKER");
 			if (ticker != null)
@@ -99,21 +107,31 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				paletteDropDown.GetText = () => currentPalette;
 			}
 
-			var colorPreview = panel.GetOrNull<ColorPreviewManagerWidget>("COLOR_MANAGER");
-			if (colorPreview != null)
-				colorPreview.Color = Game.Settings.Player.Color;
+			var colorManager = modData.DefaultRules.Actors[SystemActors.World].TraitInfo<ColorPickerManagerInfo>();
+			colorManager.Color = Game.Settings.Player.Color;
 
 			var colorDropdown = panel.GetOrNull<DropDownButtonWidget>("COLOR");
 			if (colorDropdown != null)
 			{
-				colorDropdown.IsDisabled = () => currentPalette != colorPreview.PaletteName;
-				colorDropdown.OnMouseDown = _ => ColorPickerLogic.ShowColorDropDown(colorDropdown, colorPreview, world);
-				panel.Get<ColorBlockWidget>("COLORBLOCK").GetColor = () => Game.Settings.Player.Color;
+				colorDropdown.IsDisabled = () => !colorPickerPalettes.Contains(currentPalette);
+				colorDropdown.OnMouseDown = _ => ColorPickerLogic.ShowColorDropDown(colorDropdown, colorManager, worldRenderer);
+				panel.Get<ColorBlockWidget>("COLORBLOCK").GetColor = () => colorManager.Color;
 			}
 
 			filenameInput = panel.Get<TextFieldWidget>("FILENAME_INPUT");
 			filenameInput.OnTextEdited = () => ApplyFilter();
-			filenameInput.OnEscKey = filenameInput.YieldKeyboardFocus;
+			filenameInput.OnEscKey = _ =>
+			{
+				if (string.IsNullOrEmpty(filenameInput.Text))
+					filenameInput.YieldKeyboardFocus();
+				else
+				{
+					filenameInput.Text = "";
+					filenameInput.OnTextEdited();
+				}
+
+				return true;
+			};
 
 			var frameContainer = panel.GetOrNull("FRAME_SELECTOR");
 			if (frameContainer != null)
@@ -213,7 +231,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			if (logicArgs.ContainsKey("SupportedFormats"))
 				allowedExtensions = FieldLoader.GetValue<string[]>("SupportedFormats", logicArgs["SupportedFormats"].Value);
 			else
-				allowedExtensions = new string[0];
+				allowedExtensions = Array.Empty<string>();
 
 			acceptablePackages = modData.ModFiles.MountedPackages.Where(p =>
 				p.Contents.Any(c => allowedExtensions.Contains(Path.GetExtension(c).ToLowerInvariant())));
@@ -247,7 +265,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				currentFrame = currentSprites.Length - 1;
 		}
 
-		Dictionary<string, bool> assetVisByName = new Dictionary<string, bool>();
+		readonly Dictionary<string, bool> assetVisByName = new Dictionary<string, bool>();
 
 		bool FilterAsset(string filename)
 		{
@@ -419,8 +437,6 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				return item;
 			};
 
-			var palettes = world.WorldActor.TraitsImplementing<IProvidesAssetBrowserPalettes>()
-				.SelectMany(p => p.PaletteNames);
 			dropdown.ShowDropDown("LABEL_DROPDOWN_TEMPLATE", 280, palettes, setupItem);
 			return true;
 		}

@@ -13,6 +13,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using OpenRA.FileSystem;
@@ -140,12 +141,16 @@ namespace OpenRA.Mods.D2.Graphics
 			SheetBuilder sheetBuilder = new SheetBuilder(SheetType.BGRA, size);
 
 			byte[] data;
-			if (frame.Type == SpriteFrameType.Indexed)
+			var frameType = frame.Type;
+			if (frameType == SpriteFrameType.Indexed8)
+			{
 				data = IndexedSpriteFrameToData(frame, p);
+				frameType = SpriteFrameType.Rgba32;
+			}
 			else
 				data = frame.Data;
 
-			var sprite = sheetBuilder.Add(data, frame.FrameSize);
+			var sprite = sheetBuilder.Add(data, frameType, frame.FrameSize);
 			return sprite.Sheet;
 		}
 
@@ -155,7 +160,7 @@ namespace OpenRA.Mods.D2.Graphics
 			{
 				ISpriteFrame[] frames;
 				TypeDictionary metadata;
-				if (loader.TryParseSprite(stream, out frames, out metadata))
+				if (loader.TryParseSprite(stream, string.Empty, out frames, out metadata))
 				{
 					if (frames.Length > 0)
 					{

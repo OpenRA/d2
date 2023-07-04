@@ -396,17 +396,45 @@ slider-thumb-disabled:
 checkbox:
 	Inherits: button-pressed
 
-checkbox-bits:
+checkmark-tick:
 	Inherits: ^Glyphs
 	Regions:
 		checked: 187, 0, 16, 16
-		checked-disabled: 204, 0, 16, 16
-		crossed: 221, 0, 16, 16
-		crossed-disabled: 238, 0, 16, 16
+		checked-pressed: 204, 0, 16, 16
+		unchecked: 0, 0, 0, 0
+		unchecked-pressed: 204, 0, 16, 16
+
+checkmark-tick-highlighted:
+	Inherits: checkmark-tick
+
+checkmark-cross:
+	Inherits: ^Glyphs
+	Regions:
+		checked: 221, 0, 16, 16
+		checked-pressed: 238, 0, 16, 16
+		unchecked: 0, 0, 0, 0
+		unchecked-pressed: 238, 0, 16, 16
+
+checkmark-cross-highlighted:
+	Inherits: checkmark-cross
+
+checkmark-mute:
+	Inherits: ^Glyphs
+	Regions:
+		unchecked: 221, 34, 16, 16
+		unchecked-pressed: 238, 34, 16, 16
+		checked: 238, 34, 16, 16
+		checked-pressed: 221, 34, 16, 16
+
+checkmark-mute-highlighted:
+	Inherits: checkmark-mute
 
 checkbox-hover:
 	Inherits: ^Dialog
 	PanelRegion: 641, 129, 2, 2, 122, 122, 2, 2
+
+checkbox-pressed:
+	Inherits: checkbox-hover
 
 # Same as a button-disabled-pressed
 checkbox-disabled:
@@ -419,20 +447,50 @@ checkbox-highlighted:
 checkbox-highlighted-hover:
 	Inherits: checkbox-highlighted
 
+checkbox-highlighted-pressed:
+	Inherits: checkbox-highlighted
+
 checkbox-highlighted-disabled:
 	Inherits: checkbox-disabled
 
-scrollitem-selected:
+checkbox-toggle:
+
+checkbox-toggle-hover:
+	Inherits: button
+
+checkbox-toggle-pressed:
+	Inherits: checkbox-pressed
+
+checkbox-toggle-highlighted:
+
+checkbox-toggle-highlighted-hover:
+	Inherits: button-highlighted
+
+checkbox-toggle-highlighted-pressed:
+	Inherits: checkbox-highlighted-pressed
+
+scrollitem:
+
+scrollitem-pressed:
 	Inherits: button-pressed
 
 scrollitem-hover:
 	Inherits: button
 
-scrollheader-selected:
-	Inherits: button
+scrollitem-highlighted:
+	Inherits: button-pressed
 
 scrollitem-nohover:
 	Inherits: ^Dialog
+
+scrollheader:
+	Inherits: button
+
+scrollheader-selected:
+	Inherits: button
+
+scrollheader-highlighted:
+	Inherits: button
 
 scrollpanel-decorations:
 	Inherits: ^Glyphs
@@ -462,3 +520,6 @@ loadscreen-stripe:
 	Inherits: ^LoadScreen
 	PanelRegion: 258, 0, 0, 0, 253, 256, 0, 0
 	PanelSides: Center
+
+separator:
+	Inherits: button

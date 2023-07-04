@@ -26,6 +26,7 @@ missile_tank:
 		Weapon: mtank_pri
 		LocalOffset: -128,128,171, -128,-128,171
 	AttackFrontal:
+		FacingTolerance: 0
 	Turreted:
 		TurnSpeed: 20
 		RealignDelay: 0

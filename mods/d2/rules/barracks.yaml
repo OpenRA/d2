@@ -8,7 +8,7 @@ barracks:
 		BuildDurationModifier: 40
 		Description: Trains infantry\n  Cannot be captured.
 	Selectable:
-		Bounds: 32,32
+		Bounds: 2048, 2048
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -68,6 +68,12 @@ barracks:
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.barracks
 		Condition: stardecoration
+	WithDecoration@upgraded:
+		Image: pips
+		Sequence: tag-upgraded
+		RequiresCondition: stardecoration
+		Offsets:
+			stardecoration: -6, -6
 	RevealOnDeath:
 		Radius: 3c768
 	-Capturable:

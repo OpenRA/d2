@@ -8,7 +8,7 @@ heavy_factory:
 		BuildDurationModifier: 40
 		Description: Produces heavy vehicles
 	Selectable:
-		Bounds: 48,32
+		Bounds: 3072, 2048
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -66,11 +66,15 @@ heavy_factory:
 	Power:
 		Amount: -35
 	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
-		VisualBounds: 32,32
 	GrantConditionOnPrerequisite:
 		Prerequisites: upgrade.heavy
 		Condition: stardecoration
+	WithDecoration@upgraded:
+		Image: pips
+		Sequence: tag-upgraded
+		RequiresCondition: stardecoration
+		Offsets:
+			stardecoration: -6, -6
 
 upgrade.heavy:
 	AlwaysVisible:
