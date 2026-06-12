@@ -37,7 +37,7 @@ spicebloom:
 	WithSpriteBody:
 	Tooltip:
 		Name: Spice Bloom
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: BloomExplosion
 		EmptyWeapon: BloomExplosion
 	Crushable:

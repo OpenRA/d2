@@ -2,6 +2,9 @@
 setlocal EnableDelayedExpansion
 title OpenRA
 
+@REM Allow the net6.0 engine binaries to run on newer installed .NET runtimes.
+if not defined DOTNET_ROLL_FORWARD set DOTNET_ROLL_FORWARD=Major
+
 FOR /F "tokens=1,2 delims==" %%A IN (mod.config) DO (set %%A=%%B)
 if exist user.config (FOR /F "tokens=1,2 delims==" %%A IN (user.config) DO (set %%A=%%B))
 set TEMPLATE_LAUNCHER=%0

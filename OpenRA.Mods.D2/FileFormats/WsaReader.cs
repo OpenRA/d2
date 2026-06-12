@@ -48,7 +48,7 @@ namespace OpenRA.Mods.D2.FileFormats
 		{
 			ISpriteFrame[] videoFrames;
 			ISpriteFrame prev = null;
-			WsaLoader wsaLoader = new WsaLoader();
+			var wsaLoader = new WsaLoader();
 
 			metadata = null;
 

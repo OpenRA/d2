@@ -1,8 +1,10 @@
 atomic:
-	up: UNITS.SHP
+	up:
+		Filename: UNITS.SHP
 		Start: 40
 		ZOffset: 1023
-	down: UNITS.SHP
+	down:
+		Filename: UNITS.SHP
 		Start: 40
 		FlipY: true
 		ZOffset: 1023

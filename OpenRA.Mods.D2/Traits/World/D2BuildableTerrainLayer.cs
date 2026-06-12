@@ -32,7 +32,7 @@ namespace OpenRA.Mods.D2.Traits
 	public class D2BuildableTerrainLayer : IRenderOverlay, IWorldLoaded, ITickRender, INotifyActorDisposing
 	{
 		readonly D2BuildableTerrainLayerInfo info;
-		readonly Dictionary<CPos, TerrainTile?> dirty = new Dictionary<CPos, TerrainTile?>();
+		readonly Dictionary<CPos, TerrainTile?> dirty = new();
 		readonly World world;
 		readonly CellLayer<int> strength;
 		readonly ITiledTerrainRenderer terrainRenderer;

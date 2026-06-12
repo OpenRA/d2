@@ -1,4 +1,5 @@
 shroud:
-	fog: ICON.ICN
+	fog:
+		Filename: ICON.ICN
 		Start: 108
 		Length: 16

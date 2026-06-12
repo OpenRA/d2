@@ -35,7 +35,7 @@ combat_tank:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	AutoTarget:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeMed
 		EmptyWeapon: UnitExplodeMed
 	Selectable:

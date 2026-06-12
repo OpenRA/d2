@@ -27,7 +27,7 @@ namespace OpenRA.Mods.D2.Graphics
 		public class D2Collection
 		{
 			public readonly string SpriteImage = null;
-			public readonly Dictionary<string, Rectangle> Regions = new Dictionary<string, Rectangle>();
+			public readonly Dictionary<string, Rectangle> Regions = new();
 		}
 
 		public static IReadOnlyDictionary<string, D2Collection> Collections { get; private set; }
@@ -44,12 +44,12 @@ namespace OpenRA.Mods.D2.Graphics
 
 			fileSystem = modData.DefaultFileSystem;
 
-			collections = new Dictionary<string, D2Collection>();
+			collections = new();
 			Collections = new ReadOnlyDictionary<string, D2Collection>(collections);
 
-			cachedCollectionSheets = new Dictionary<D2Collection, Sheet>();
-			cachedSheets = new Dictionary<string, Sheet>();
-			cachedSprites = new Dictionary<string, Sprite>();
+			cachedCollectionSheets = new();
+			cachedSheets = new();
+			cachedSprites = new();
 
 			var chrome = MiniYaml.Merge(modData.Manifest.Chrome
 				.Select(s => MiniYaml.FromStream(fileSystem.Open(s), s)));
@@ -80,19 +80,16 @@ namespace OpenRA.Mods.D2.Graphics
 			// Cached sprite
 			var paletteName = p == null ? "null" : p.Name;
 			var cacheName = collectionName + "|" + imageName + "|" + paletteName;
-			Sprite sprite = null;
-			if (cachedSprites.TryGetValue(cacheName, out sprite))
+			if (cachedSprites.TryGetValue(cacheName, out var sprite))
 				return sprite;
 
-			D2Collection collection;
-			if (!collections.TryGetValue(collectionName, out collection))
+			if (!collections.TryGetValue(collectionName, out var collection))
 			{
-				Log.Write("debug", "Could not find collection '{0}'", collectionName);
+				Log.Write("debug", $"Could not find collection '{collectionName}'");
 				return null;
 			}
 
-			Rectangle mi;
-			if (!collection.Regions.TryGetValue(imageName, out mi))
+			if (!collection.Regions.TryGetValue(imageName, out var mi))
 				return null;
 
 			var sheet = SheetForCollection(collection, p);
@@ -114,17 +111,17 @@ namespace OpenRA.Mods.D2.Graphics
 
 		static byte[] IndexedSpriteFrameToData(ISpriteFrame frame, PaletteReference p)
 		{
-			byte[] data = new byte[4 * frame.FrameSize.Width * frame.FrameSize.Height];
+			var data = new byte[4 * frame.FrameSize.Width * frame.FrameSize.Height];
 
-			IPalette palette = p.Palette;
-			int k = 0;
-			int offset = 0;
-			byte[] frameData = frame.Data;
-			for (int y = 0; y < frame.FrameSize.Height; y++)
+			var palette = p.Palette;
+			var k = 0;
+			var offset = 0;
+			var frameData = frame.Data;
+			for (var y = 0; y < frame.FrameSize.Height; y++)
 			{
-				for (int x = 0; x < frame.FrameSize.Width; x++)
+				for (var x = 0; x < frame.FrameSize.Width; x++)
 				{
-					Color color = Color.FromArgb(palette[frameData[k++]]);
+					var color = Color.FromArgb(palette[frameData[k++]]);
 					data[offset++] = color.R;
 					data[offset++] = color.G;
 					data[offset++] = color.B;
@@ -138,7 +135,7 @@ namespace OpenRA.Mods.D2.Graphics
 		static Sheet SpriteFrameToSheet(ISpriteFrame frame, PaletteReference p)
 		{
 			var size = Exts.NextPowerOf2(Math.Max(frame.FrameSize.Width, frame.FrameSize.Height));
-			SheetBuilder sheetBuilder = new SheetBuilder(SheetType.BGRA, size);
+			var sheetBuilder = new SheetBuilder(SheetType.BGRA, size);
 
 			byte[] data;
 			var frameType = frame.Type;
@@ -156,7 +153,7 @@ namespace OpenRA.Mods.D2.Graphics
 
 		static ISpriteFrame LoadSpriteFrame(Stream stream)
 		{
-			foreach (ISpriteLoader loader in Game.ModData.SpriteLoaders)
+			foreach (var loader in Game.ModData.SpriteLoaders)
 			{
 				ISpriteFrame[] frames;
 				TypeDictionary metadata;
@@ -181,10 +178,8 @@ namespace OpenRA.Mods.D2.Graphics
 
 		static Sheet SheetForCollection(D2Collection c, PaletteReference p = null)
 		{
-			Sheet sheet;
-
 			// Outer cache avoids recalculating image names
-			if (!cachedCollectionSheets.TryGetValue(c, out sheet))
+			if (!cachedCollectionSheets.TryGetValue(c, out var sheet))
 			{
 				var imageName = c.SpriteImage;
 				var paletteName = p == null ? "null" : p.Name;
@@ -196,7 +191,7 @@ namespace OpenRA.Mods.D2.Graphics
 					var frame = LoadSpriteFrame(imageName);
 					if (frame == null)
 					{
-						Log.Write("debug", "Could not find sprite image '{0}'", imageName);
+						Log.Write("debug", $"Could not find sprite image '{imageName}'");
 						return null;
 					}
 

@@ -1,13 +1,17 @@
 icon:
-	ornistrike: SHAPES.SHP
+	ornistrike:
+		Filename: SHAPES.SHP
 		Start: 85
 		Offset: 0,0
-	fremen: SHAPES.SHP
+	fremen:
+		Filename: SHAPES.SHP
 		Start: 82
 		Offset: 0,0
-	saboteur: SHAPES.SHP
+	saboteur:
+		Filename: SHAPES.SHP
 		Start: 84
 		Offset: 0,0
-	deathhand: SHAPES.SHP
+	deathhand:
+		Filename: SHAPES.SHP
 		Start: 18
 		Offset: 0,0

@@ -33,7 +33,7 @@ deviator:
 	WithSpriteTurret:
 	AutoTarget:
 		InitialStanceAI: Defend
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeLarge
 		EmptyWeapon: UnitExplodeLarge
 	SpawnActorOnDeath:

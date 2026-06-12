@@ -6,7 +6,7 @@
 		TargetTypes: Ground, Vehicle
 		RequiresForceFire: true
 	WithColoredOverlay@IDISABLE:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeMed
 		EmptyWeapon: UnitExplodeMed
 	WithIdleOverlay@Burns:

@@ -1,5 +1,6 @@
 spicebloom:
-	idle: ICON.ICN
+	idle:
+		Filename: ICON.ICN
 		Start: 208
 		Length: 1
 		ZOffset: -1023

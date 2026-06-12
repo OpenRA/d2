@@ -21,7 +21,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 	public class ShpD2Loader : ISpriteLoader
 	{
 		[Flags]
-		enum FormatFlags : int
+		enum FormatFlags
 		{
 			PaletteTable = 1,
 			NotLCWCompressed = 2,
@@ -31,7 +31,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 		class ShpD2Frame : ISpriteFrame
 		{
 			public SpriteFrameType Type { get { return SpriteFrameType.Indexed8; } }
-			public Size Size { get; private set; }
+			public Size Size { get; }
 			public Size FrameSize { get { return Size; } }
 			public float2 Offset { get { return float2.Zero; } }
 			public byte[] Data { get; set; }
@@ -40,7 +40,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 			public ShpD2Frame(Stream s)
 			{
 				var flags = (FormatFlags)s.ReadUInt16();
-				s.Position += 1;
+				s.Position++;
 				var width = s.ReadUInt16();
 				var height = s.ReadUInt8();
 				Size = new Size(width, height);
@@ -89,7 +89,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 			}
 		}
 
-		bool IsShpD2(Stream s)
+		static bool IsShpD2(Stream s)
 		{
 			var start = s.Position;
 
@@ -127,7 +127,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 			return b == 5 || b <= 3;
 		}
 
-		ShpD2Frame[] ParseFrames(Stream s)
+		static ShpD2Frame[] ParseFrames(Stream s)
 		{
 			var start = s.Position;
 

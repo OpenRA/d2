@@ -1,10 +1,12 @@
 bombs:
 	idle: 
 		Combine:
-			UNITS.SHP:
+			0:
+				Filename: UNITS.SHP
 				Start: 30
 				Length: 5
-			UNITS.SHP:
+			1:
+				Filename: UNITS.SHP
 				Start: 31
 				Length: 3
 				FlipY: true
@@ -17,10 +19,12 @@ bombs:
 				Start: 31
 				Length: 3
 				FlipX: true
-			UNITS.SHP:
+			2:
+				Filename: UNITS.SHP
 				Start: 25
 				Length: 5
-			UNITS.SHP:
+			3:
+				Filename: UNITS.SHP
 				Start: 26
 				Length: 3
 				FlipY: true

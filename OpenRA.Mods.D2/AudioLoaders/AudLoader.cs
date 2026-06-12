@@ -19,18 +19,14 @@ namespace OpenRA.Mods.D2.AudioLoaders
 {
 	public class AudLoader : ISoundLoader
 	{
-		bool IsAud(Stream s)
+		static bool IsAud(Stream s)
 		{
 			var start = s.Position;
-			s.Position += 10;
-			var readFlag = s.ReadByte();
+			s.Position += 11;
 			var readFormat = s.ReadByte();
 			s.Position = start;
 
-			if (!Enum.IsDefined(typeof(SoundFlags), readFlag))
-				return false;
-
-			return Enum.IsDefined(typeof(SoundFormat), readFormat);
+			return readFormat == (int)SoundFormat.ImaAdpcm || readFormat == (int)SoundFormat.WestwoodCompressed;
 		}
 
 		bool ISoundLoader.TryParseSound(Stream stream, out ISoundFormat sound)
@@ -55,22 +51,25 @@ namespace OpenRA.Mods.D2.AudioLoaders
 
 	public sealed class AudFormat : ISoundFormat
 	{
-		public int Channels { get { return 1; } }
-		public int SampleBits { get { return 16; } }
-		public int SampleRate { get { return sampleRate; } }
-		public float LengthInSeconds { get { return AudReader.SoundLength(sourceStream); } }
+		public int Channels => channels;
+		public int SampleBits => sampleBits;
+		public int SampleRate => sampleRate;
+		public float LengthInSeconds => lengthInSeconds;
 		public Stream GetPCMInputStream() { return audStreamFactory(); }
 		public void Dispose() { sourceStream.Dispose(); }
 
 		readonly Stream sourceStream;
 		readonly Func<Stream> audStreamFactory;
+		readonly int channels;
+		readonly int sampleBits;
 		readonly int sampleRate;
+		readonly float lengthInSeconds;
 
 		public AudFormat(Stream stream)
 		{
 			sourceStream = stream;
 
-			if (!AudReader.LoadSound(stream, out audStreamFactory, out sampleRate))
+			if (!AudReader.LoadSound(stream, out audStreamFactory, out sampleRate, out sampleBits, out channels, out lengthInSeconds))
 				throw new InvalidDataException();
 		}
 	}

@@ -8,7 +8,7 @@
 	HiddenUnderFog:
 		Type: CenterPosition
 	Tooltip:
-		GenericName: Destroyed Unit
+		Name: Destroyed Unit
 	ScriptTriggers:
 	WithFacingSpriteBody:
 	HitShape:

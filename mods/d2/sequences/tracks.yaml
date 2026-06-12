@@ -1,5 +1,6 @@
 track:
-	idle: ICON.ICN
+	idle:
+		Filename: ICON.ICN
 		Start: 25
 		Length: 1
 		Facings: -8

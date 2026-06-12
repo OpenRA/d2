@@ -18,6 +18,7 @@ using OpenRA.Graphics;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Widgets;
 using OpenRA.Network;
+using OpenRA.Primitives;
 using OpenRA.Widgets;
 
 namespace OpenRA.Mods.D2.Widgets.Logic
@@ -381,10 +382,10 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			selectedMap = modData.MapCache[map];
 			var orders = new List<Order>();
 			if (difficulty != null)
-				orders.Add(Order.Command("option difficulty {0}".F(difficulty)));
+				orders.Add(Order.Command($"option difficulty {difficulty}"));
 
-			orders.Add(Order.Command("option gamespeed {0}".F(gameSpeed)));
-			orders.Add(Order.Command("state {0}".F(Session.ClientState.Ready)));
+			orders.Add(Order.Command($"option gamespeed {gameSpeed}"));
+			orders.Add(Order.Command($"state {Session.ClientState.Ready}"));
 
 			var missionData = selectedMap.WorldActorInfo.TraitInfoOrDefault<MissionDataInfo>();
 			if (missionData != null && missionData.StartVideo != null && modData.DefaultFileSystem.Exists(missionData.StartVideo))

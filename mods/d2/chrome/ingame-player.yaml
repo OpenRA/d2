@@ -6,7 +6,7 @@ Container@PLAYER_WIDGETS:
 		Container@TOP_BAR:
 			X: 0
 			Y: 0
-			Width: WINDOW_RIGHT
+			Width: WINDOW_WIDTH
 			Height: 39
 			Children:
 				D2Image@TOPBAR_BACKGROUND_LEFT:
@@ -20,14 +20,14 @@ Container@PLAYER_WIDGETS:
 				D2Image@TOPBAR_BACKGROUND:
 					X: 185
 					Y: 0
-					Width: WINDOW_RIGHT - 130 - 185
+					Width: WINDOW_WIDTH - 130 - 185
 					Height: 39
 					ImageCollection: screen
 					ImageName: topbar
 					FillBackground: true
 					ClickThrough: false
 				D2Image@TOPBAR_BACKGROUND_RIGHT:
-					X: WINDOW_RIGHT - 130
+					X: WINDOW_WIDTH - 130
 					Y: 0
 					Width: 130
 					Height: 39
@@ -52,7 +52,7 @@ Container@PLAYER_WIDGETS:
 							VisualHeight: 0
 						Label@GAME_TIMER:
 							Logic: GameTimerLogic
-							X: WINDOW_RIGHT - 350
+							X: WINDOW_WIDTH - 350
 							Y: 0
 							Width: 50
 							Height: 22
@@ -60,7 +60,7 @@ Container@PLAYER_WIDGETS:
 							Font: TinyBold
 						LabelWithTooltip@CASH:
 							Logic: IngameCashCounterLogic
-							X: WINDOW_RIGHT - 300
+							X: WINDOW_WIDTH - 300
 							Y: 0
 							Width: 50
 							Height: 22
@@ -70,7 +70,7 @@ Container@PLAYER_WIDGETS:
 							TooltipTemplate: SIMPLE_TOOLTIP
 						LabelWithTooltip@POWER:
 							Logic: IngamePowerCounterLogic
-							X: WINDOW_RIGHT - 250
+							X: WINDOW_WIDTH - 250
 							Y: 0
 							Width: 50
 							Height: 22
@@ -81,15 +81,15 @@ Container@PLAYER_WIDGETS:
 							TooltipTemplate: SIMPLE_TOOLTIP
 							Children:
 								Image@POWER_ICON:
-									X: PARENT_RIGHT + 0
+									X: PARENT_WIDTH + 0
 									Y: 5
 									ImageCollection: power-icons
 									ImageName: power-normal
 		Container@SIDEBAR:
-			X: WINDOW_RIGHT - 218
+			X: WINDOW_WIDTH - 218
 			Y: 40
 			Width: 218
-			Height: WINDOW_BOTTOM - 40
+			Height: WINDOW_HEIGHT - 40
 			ClickThrough: false
 			Children:
 				Container@ACTOR_INFO:
@@ -260,10 +260,10 @@ Container@PLAYER_WIDGETS:
 							Height: 202
 							Skippable: false
 		Container@VERTICAL_LINE:
-			X: WINDOW_RIGHT - 218 - 14
+			X: WINDOW_WIDTH - 218 - 14
 			Y: 40
 			Width: 14
-			Height: WINDOW_BOTTOM - 40
+			Height: WINDOW_HEIGHT - 40
 			ClickThrough: false
 			Children:
 				D2Image@VERTICAL_LINE_TOP:
@@ -295,14 +295,14 @@ Container@PLAYER_WIDGETS:
 					X: 1
 					Y: 256 - 5 + 23 - 3
 					Width: 12
-					Height: WINDOW_BOTTOM - 18 - 40 - 256 + 5 - 23
+					Height: WINDOW_HEIGHT - 18 - 40 - 256 + 5 - 23
 					ImageCollection: screen
 					ImageName: vertical-line-2
 					FillBackground: true
 					ClickThrough: false
 				D2Image@VERTIACAL_LINE_BOTTOM:
 					X: 1
-					Y: WINDOW_BOTTOM - 18 - 40
+					Y: WINDOW_HEIGHT - 18 - 40
 					Width: 12
 					Height: 18
 					ImageCollection: screen
@@ -310,7 +310,7 @@ Container@PLAYER_WIDGETS:
 					ClickThrough: false
 		Container@SIDEBAR_PRODUCTION:
 			Logic: ClassicProductionLogic
-			X: WINDOW_RIGHT - 218 - 14 - 218 - 14
+			X: WINDOW_WIDTH - 218 - 14 - 218 - 14
 			Y: 40
 			Width: 218
 			Height: 256

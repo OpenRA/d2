@@ -1,13 +1,13 @@
 Background@MISSIONBROWSER_PANEL:
 	Logic: D2MissionBrowserLogic
-	X: (WINDOW_RIGHT - WIDTH) / 2
-	Y: (WINDOW_BOTTOM - HEIGHT) / 2
+	X: (WINDOW_WIDTH - WIDTH) / 2
+	Y: (WINDOW_HEIGHT - HEIGHT) / 2
 	Width: 880
 	Height: 591
 	Children:
 		Label@MISSIONBROWSER_TITLE:
 			Y: 20
-			Width: PARENT_RIGHT
+			Width: PARENT_WIDTH
 			Height: 25
 			Text: Missions
 			Align: Center
@@ -20,24 +20,24 @@ Background@MISSIONBROWSER_PANEL:
 			Children:
 				ScrollItem@HEADER:
 					Background: scrollheader
-					Width: PARENT_RIGHT - 27
+					Width: PARENT_WIDTH - 27
 					Height: 13
 					X: 2
 					Visible: false
 					Children:
 						Label@LABEL:
 							Font: TinyBold
-							Width: PARENT_RIGHT
+							Width: PARENT_WIDTH
 							Height: 10
 							Align: Center
 				ScrollItem@TEMPLATE:
-					Width: PARENT_RIGHT - 27
+					Width: PARENT_WIDTH - 27
 					Height: 25
 					X: 2
 					Children:
 						Label@TITLE:
 							X: 10
-							Width: PARENT_RIGHT - 20
+							Width: PARENT_WIDTH - 20
 							Height: 25
 		Label@DIFFICULTY_DESC:
 			X: 210 - WIDTH - 125
@@ -72,67 +72,67 @@ Background@MISSIONBROWSER_PANEL:
 			Height: 800
 			Children:
 				Background@MISSION_BG:
-					Width: PARENT_RIGHT
+					Width: PARENT_WIDTH
 					Height: 327
 					Background: dialog3
 					Children:
 						MapPreview@MISSION_PREVIEW:
 							X: 1
 							Y: 1
-							Width: PARENT_RIGHT - 2
-							Height: PARENT_BOTTOM - 2
+							Width: PARENT_WIDTH - 2
+							Height: PARENT_HEIGHT - 2
 							IgnoreMouseOver: True
 							IgnoreMouseInput: True
 							ShowSpawnPoints: False
 				ScrollPanel@MISSION_DESCRIPTION_PANEL:
 					Y: 337
-					Width: PARENT_RIGHT
+					Width: PARENT_WIDTH
 					Height: 146
 					Children:
 						Label@MISSION_DESCRIPTION:
 							X: 4
 							Y: 1
-							Width: PARENT_RIGHT - 32
+							Width: PARENT_WIDTH - 32
 							VAlign: Top
 							Font: Small
 		Button@START_BRIEFING_VIDEO_BUTTON:
 			X: 220
-			Y: PARENT_BOTTOM - 45
+			Y: PARENT_HEIGHT - 45
 			Width: 130
 			Height: 25
 			Text: Watch Briefing
 			Font: Bold
 		Button@STOP_BRIEFING_VIDEO_BUTTON:
 			X: 220
-			Y: PARENT_BOTTOM - 45
+			Y: PARENT_HEIGHT - 45
 			Width: 130
 			Height: 25
 			Text: Stop Briefing
 			Font: Bold
 		Button@START_INFO_VIDEO_BUTTON:
 			X: 360
-			Y: PARENT_BOTTOM - 45
+			Y: PARENT_HEIGHT - 45
 			Width: 130
 			Height: 25
 			Text: Watch Info Video
 			Font: Bold
 		Button@STOP_INFO_VIDEO_BUTTON:
 			X: 360
-			Y: PARENT_BOTTOM - 45
+			Y: PARENT_HEIGHT - 45
 			Width: 130
 			Height: 25
 			Text: Stop Info Video
 			Font: Bold
 		Button@STARTGAME_BUTTON:
-			X: PARENT_RIGHT - 140 - 130
-			Y: PARENT_BOTTOM - 45
+			X: PARENT_WIDTH - 140 - 130
+			Y: PARENT_HEIGHT - 45
 			Width: 120
 			Height: 25
 			Text: Play
 			Font: Bold
 		Button@BACK_BUTTON:
-			X: PARENT_RIGHT - 140
-			Y: PARENT_BOTTOM - 45
+			X: PARENT_WIDTH - 140
+			Y: PARENT_HEIGHT - 45
 			Width: 120
 			Height: 25
 			Text: Back
@@ -153,13 +153,13 @@ Background@MISSIONBROWSER_PANEL:
 					AspectRatio: 1.2
 
 Background@FULLSCREEN_PLAYER:
-	Width: WINDOW_RIGHT
-	Height: WINDOW_BOTTOM
+	Width: WINDOW_WIDTH
+	Height: WINDOW_HEIGHT
 	Background: dialog5
 	Visible: False
 	Children:
 		WsaPlayer@PLAYER:
 			X: 0
 			Y: 0
-			Width: WINDOW_RIGHT
-			Height: WINDOW_BOTTOM
+			Width: WINDOW_WIDTH
+			Height: WINDOW_HEIGHT

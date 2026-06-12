@@ -29,7 +29,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 		class WsaTile : ISpriteFrame
 		{
 			public SpriteFrameType Type { get { return SpriteFrameType.Indexed8; } }
-			public Size Size { get; private set; }
+			public Size Size { get; }
 			public Size FrameSize { get { return Size; } }
 			public float2 Offset { get { return float2.Zero; } }
 			public byte[] Data { get; set; }
@@ -41,7 +41,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 				var dataLen = s.Length - s.Position;
 				Console.WriteLine("dataLen = {0}", dataLen);
 				var tempData = StreamExts.ReadBytes(s, (int)dataLen);
-				byte[] srcData = new byte[size.Width * size.Height];
+				var srcData = new byte[size.Width * size.Height];
 
 				// format80 decompression
 				LCWCompression.DecodeInto(tempData, srcData);

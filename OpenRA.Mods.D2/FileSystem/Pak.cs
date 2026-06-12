@@ -1,6 +1,6 @@
 #region Copyright & License Information
 /*
- * Copyright 2007-2020 The OpenRA Developers (see AUTHORS)
+ * Copyright (c) The OpenRA Developers and Contributors
  * This file is part of OpenRA, which is free software. It is made
  * available to you under the terms of the GNU General Public License
  * as published by the Free Software Foundation, either version 3 of
@@ -31,10 +31,10 @@ namespace OpenRA.Mods.D2.FileSystem
 
 		sealed class PakFile : IReadOnlyPackage
 		{
-			public string Name { get; private set; }
-			public IEnumerable<string> Contents { get { return index.Keys; } }
+			public string Name { get; }
+			public IEnumerable<string> Contents => index.Keys;
 
-			readonly Dictionary<string, Entry> index = new Dictionary<string, Entry>();
+			readonly Dictionary<string, Entry> index = new();
 			readonly Stream stream;
 
 			public PakFile(Stream stream, string filename)
@@ -52,12 +52,11 @@ namespace OpenRA.Mods.D2.FileSystem
 						var length = (next == 0 ? (uint)stream.Length : next) - offset;
 
 						// Ignore duplicate files
-						if (index.ContainsKey(file))
-							continue;
-
-						index.Add(file, new Entry { Offset = offset, Length = length, Filename = file });
-						offset = next;
+						if (index.TryAdd(file, new Entry { Offset = offset, Length = length, Filename = file }))
+							offset = next;
 					}
+
+					index.TrimExcess();
 				}
 				catch
 				{
@@ -68,8 +67,7 @@ namespace OpenRA.Mods.D2.FileSystem
 
 			public Stream GetStream(string filename)
 			{
-				Entry entry;
-				if (!index.TryGetValue(filename, out entry))
+				if (!index.TryGetValue(filename, out var entry))
 					return null;
 
 				return SegmentStream.CreateWithoutOwningStream(stream, entry.Offset, (int)entry.Length);

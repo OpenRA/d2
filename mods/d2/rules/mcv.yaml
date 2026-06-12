@@ -28,7 +28,7 @@ mcv:
 	MustBeDestroyed:
 		RequiredForShortGame: true
 	BaseBuilding:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeLarge
 		EmptyWeapon: UnitExplodeLarge
 	Transforms:

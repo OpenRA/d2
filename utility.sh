@@ -4,6 +4,10 @@
 #  $ Mod="<mod id>" ./launch-utility.sh # Launch the OpenRA.Utility with a specific mod
 
 set -e
+# Allow the net6.0 engine binaries to run on newer installed .NET runtimes.
+: "${DOTNET_ROLL_FORWARD:=Major}"
+export DOTNET_ROLL_FORWARD
+
 command -v make >/dev/null 2>&1 || { echo >&2 "The OpenRA mod SDK requires make."; exit 1; }
 
 if ! command -v mono >/dev/null 2>&1; then

@@ -1,55 +1,69 @@
 fremen:
 	stand:
 		Combine:
-			UNITS.SHP:
+			0:
+				Filename: UNITS.SHP
 				Start: 73
-			UNITS.SHP:
+			1:
+				Filename: UNITS.SHP
 				Start: 76
-			UNITS.SHP:
+			2:
+				Filename: UNITS.SHP
 				Start: 79
-			UNITS.SHP:
+			3:
+				Filename: UNITS.SHP
 				Start: 76
 				FlipX: true
 		Facings: -4
 	run:
 		Combine:
-			UNITS.SHP:
+			0:
+				Filename: UNITS.SHP
 				Start: 73
 				Length: 3
-			UNITS.SHP:
+			1:
+				Filename: UNITS.SHP
 				Start: 76
 				Length: 3
-			UNITS.SHP:
+			2:
+				Filename: UNITS.SHP
 				Start: 79
 				Length: 3
-			UNITS.SHP:
+			3:
+				Filename: UNITS.SHP
 				Start: 76
 				Length: 3
 				FlipX: true
 		Length: 3
 		Facings: -4
 		Tick: 110
-	die1: ICON.ICN
+	die1:
+		Filename: ICON.ICN
 		Frames: 19, 20
 		Length: 2
 		Tick: 5000
-	die2: ICON.ICN
+	die2:
+		Filename: ICON.ICN
 		Frames: 19, 20
 		Length: 2
 		Tick: 5000
-	die3: ICON.ICN
+	die3:
+		Filename: ICON.ICN
 		Frames: 19, 20
 		Length: 2
 		Tick: 5000
-	die4: ICON.ICN
+	die4:
+		Filename: ICON.ICN
 		Frames: 19, 20
 		Length: 2
 		Tick: 5000
-	die-crushed: ICON.ICN
+	die-crushed:
+		Filename: ICON.ICN
 		Frames: 23
 		Length: 1
 		Tick: 10000
 		ZOffset: -1024
-	icon: SHAPES.SHP
+	icon:
+		Filename: SHAPES.SHP
 		Start: 82
 		Offset: 0,0

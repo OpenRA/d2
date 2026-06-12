@@ -33,10 +33,10 @@ namespace OpenRA.Mods.D2.Traits
 			Right = 0x4,
 			Bottom = 0x8,
 
-			All = 0x0F
+			All = Left | Top | Right | Bottom
 		}
 
-		public static readonly Dictionary<ClearSides, int> SpriteMap = new Dictionary<ClearSides, int>()
+		public static readonly Dictionary<ClearSides, int> SpriteMap = new()
 		{
 			{ ClearSides.All, 0 },
 			{ ClearSides.Left | ClearSides.Right | ClearSides.Bottom, 1 },
@@ -181,14 +181,14 @@ namespace OpenRA.Mods.D2.Traits
 						UpdateSpriteLayers(cell, Variants[renderType].First().Value, index, content.Palette);
 					}
 					else
-						throw new InvalidOperationException("SpriteMap does not contain an index for Max Densitty ClearSides type '{0}'".F(clear));
+						throw new InvalidOperationException($"SpriteMap does not contain an index for Max Densitty ClearSides type '{clear}'");
 				}
 				else if (SpriteMap.TryGetValue(clear, out index))
 				{
 					UpdateSpriteLayers(cell, Variants[renderType].First().Value, index, content.Palette);
 				}
 				else
-					throw new InvalidOperationException("SpriteMap does not contain an index for ClearSides type '{0}'".F(clear));
+					throw new InvalidOperationException($"SpriteMap does not contain an index for ClearSides type '{clear}'");
 			}
 			else
 				UpdateSpriteLayers(cell, null, 0, null);

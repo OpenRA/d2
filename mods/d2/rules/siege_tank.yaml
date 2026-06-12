@@ -35,7 +35,7 @@ siege_tank:
 		FacingTolerance: 0
 	WithMuzzleOverlay:
 	WithSpriteTurret:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeMed
 		EmptyWeapon: UnitExplodeMed
 	AutoTarget:

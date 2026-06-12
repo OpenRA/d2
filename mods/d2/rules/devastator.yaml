@@ -38,7 +38,7 @@ devastator:
 	WithSpriteTurret:
 	WithMuzzleOverlay:
 		IgnoreOffset: true
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeLarge
 		EmptyWeapon: UnitExplodeLarge
 		#RequiresCondition: !overload # TODO: Can this overload?

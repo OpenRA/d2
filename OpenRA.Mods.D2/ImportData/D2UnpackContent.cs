@@ -15,7 +15,7 @@ using System.IO;
 
 namespace OpenRA.Mods.D2.ImportData
 {
-	public class D2UnpackContent
+	public static class D2UnpackContent
 	{
 		public static int UnpackFiles(ModData modData, Dictionary<string, string> info)
 		{
@@ -63,8 +63,8 @@ namespace OpenRA.Mods.D2.ImportData
 							var newFileName = Path.Combine(unpackedPath, fileName);
 							if (!File.Exists(newFileName))
 							{
-								using (FileStream fs = new FileStream(newFileName, FileMode.CreateNew, FileAccess.Write))
- 								{
+								using (var fs = new FileStream(newFileName, FileMode.CreateNew, FileAccess.Write))
+								{
 									stream.CopyTo(fs);
 									unpackedFilesCount += 1;
 									Console.WriteLine("Successfully unpacked file: {0}", fileName);

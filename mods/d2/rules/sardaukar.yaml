@@ -24,7 +24,7 @@ sardaukar:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: GenericVoice
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: SardDeath
 		EmptyWeapon: SardDeath
 		Chance: 100

@@ -33,6 +33,7 @@ namespace OpenRA.Mods.D2
 		ImmutablePalette palette;
 		HardwarePalette hardwarePalette;
 		PaletteReference pr;
+		bool customLoadScreenAvailable;
 
 		ModData modData;
 		Dictionary<string, string> info;
@@ -70,7 +71,9 @@ namespace OpenRA.Mods.D2
 			if (D2UnpackContent.UnpackFiles(modData, info) > 0)
 			{
 				// Some files unpacked. need to reload mod packages
-				modData.ModFiles.LoadFromManifest(modData.Manifest);
+				modData.ModFiles.UnmountAll();
+				modData.FileSystemLoader.Mount(modData.ModFiles, modData.ObjectCreator);
+				modData.ModFiles.TrimExcess();
 			}
 
 			/*
@@ -90,7 +93,10 @@ namespace OpenRA.Mods.D2
 
 			if (info.ContainsKey("Palette"))
 			{
-				using (var stream = modData.DefaultFileSystem.Open(info["Palette"]))
+				if (!modData.DefaultFileSystem.TryOpen(info["Palette"], out var stream))
+					return;
+
+				using (stream)
 					palette = new ImmutablePalette(stream, System.Array.Empty<int>(), System.Array.Empty<int>());
 
 				hardwarePalette = new HardwarePalette();
@@ -103,7 +109,10 @@ namespace OpenRA.Mods.D2
 
 			if (info.ContainsKey("Image"))
 			{
-				using (var stream = modData.DefaultFileSystem.Open(info["Image"]))
+				if (!modData.DefaultFileSystem.TryOpen(info["Image"], out var stream))
+					return;
+
+				using (stream)
 				{
 					CpsD2Loader loader = new CpsD2Loader();
 					TypeDictionary metadata;
@@ -120,10 +129,18 @@ namespace OpenRA.Mods.D2
 
 				logoPos = new float2((r.Resolution.Width - logo.Size.X) / 2, (r.Resolution.Height - logo.Size.Y) / 2);
 			}
+
+			customLoadScreenAvailable = true;
 		}
 
 		public override void Display()
 		{
+			if (!customLoadScreenAvailable)
+			{
+				base.Display();
+				return;
+			}
+
 			if (r == null)
 				return;
 

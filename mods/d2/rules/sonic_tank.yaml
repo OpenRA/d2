@@ -31,7 +31,7 @@ sonic_tank:
 		TurnSpeed: 20
 		RealignDelay: 0
 	WithSpriteTurret:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeLarge
 		EmptyWeapon: UnitExplodeLarge
 	SpawnActorOnDeath:

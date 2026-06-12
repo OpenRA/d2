@@ -1,48 +1,56 @@
 harvester:
 	idle:
 		Combine:
-			UNITS.SHP:
+			0:
+				Filename: UNITS.SHP
 				Start: 10
 				Length: 5
-			UNITS.SHP:
-				Start: 11
-				Length: 3
+			1:
+				Filename: UNITS.SHP
+				Frames: 13, 12, 11
 				FlipX: true
-		Frames: 0, 1, 2, 3, 4, 7, 6, 5
 		Facings: -8
 	harvest:
 		Combine:
-			UNITS1.SHP:
+			0:
+				Filename: UNITS1.SHP
 				Start: 72
 				Length: 3
 				Offset: 0,7
-			UNITS1.SHP:
+			1:
+				Filename: UNITS1.SHP
 				Start: 75
 				Length: 3
 				Offset: -8,6
-			UNITS1.SHP:
+			2:
+				Filename: UNITS1.SHP
 				Start: 78
 				Length: 3
 				Offset: -15,1
-			UNITS1.SHP:
+			3:
+				Filename: UNITS1.SHP
 				Start: 81
 				Length: 3
 				Offset: -9,-6
-			UNITS1.SHP:
+			4:
+				Filename: UNITS1.SHP
 				Start: 84
 				Length: 3
 				Offset: 0,-9
-			UNITS1.SHP:
+			5:
+				Filename: UNITS1.SHP
 				Start: 81
 				Length: 3
 				FlipX: true
 				Offset: 9,-6
-			UNITS1.SHP:
+			6:
+				Filename: UNITS1.SHP
 				Start: 78
 				Length: 3
 				FlipX: true
 				Offset: 15,1
-			UNITS1.SHP:
+			7:
+				Filename: UNITS1.SHP
 				Start: 75
 				Length: 3
 				FlipX: true
@@ -52,18 +60,22 @@ harvester:
 		Tick: 160
 		ZOffset: 1
 		BlendMode: Alpha
-	dock: UNITS.SHP
+	dock:
+		Filename: UNITS.SHP
 		Start: 14
 		Offset: 0,-8
-	dock-loop: UNITS.SHP
+	dock-loop:
+		Filename: UNITS.SHP
 		Start: 14
 		Offset: 0,-8
-	icon: SHAPES.SHP
+	icon:
+		Filename: SHAPES.SHP
 		Start: 88
 		Offset: 0,0
 
 harvester.husk:
-	idle: UNITS1.SHP
+	idle:
+		Filename: UNITS1.SHP
 		Start: 14
 		Length: 3
 		Tick: 4000
