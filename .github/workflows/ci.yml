@@ -18,6 +18,12 @@ jobs:
         with:
           dotnet-version: '6.0.x'
 
+      - name: Pin .NET SDK
+        run: |
+          SDK_VERSION="$(dotnet --list-sdks | awk '/^6\.0\./ { print $1; exit }')"
+          test -n "$SDK_VERSION"
+          printf '{ "sdk": { "version": "%s", "rollForward": "disable" } }\n' "$SDK_VERSION" > global.json
+
       - name: Prepare Environment
         run: |
           . mod.config;
@@ -70,6 +76,14 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.0.x'
+
+      - name: Pin .NET SDK
+        shell: powershell
+        run: |
+          $sdkVersion = dotnet --list-sdks | Where-Object { $_ -match '^6\.0\.' } | Select-Object -First 1
+          if (!$sdkVersion) { throw "No .NET 6 SDK found." }
+          $sdkVersion = $sdkVersion.Split(' ')[0]
+          "{ ""sdk"": { ""version"": ""$sdkVersion"", ""rollForward"": ""disable"" } }" | Set-Content global.json -Encoding UTF8
 
       - name: Check Code
         shell: powershell

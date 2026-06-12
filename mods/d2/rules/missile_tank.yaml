@@ -33,7 +33,7 @@ missile_tank:
 	WithSpriteTurret:
 	AutoTarget:
 		InitialStanceAI: Defend
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeMed
 		EmptyWeapon: UnitExplodeMed
 	Selectable:

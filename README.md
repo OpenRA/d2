@@ -6,7 +6,7 @@ It is based on [OpenRAModSDK](https://github.com/OpenRA/OpenRAModSDK) and should
 These scripts and support files from `OpenRAModSDK` wrap and automatically manage a copy of the OpenRA game engine and common files,
 and provide entrypoints to run development versions and to generate platform-specific installers.
 
-Before run `d2 mod`, Download the Original Game and copy following files: 
+Before running `d2 mod`, download the original game and copy the following files:
  - `DUNE.PAK`
  - `VOC.PAK`
  - `ATRE.PAK`
@@ -16,10 +16,29 @@ Before run `d2 mod`, Download the Original Game and copy following files:
  - `FINALE.PAK`
  - `SCENARIO.PAK`
 
-Paste those files into `d2` directory. If this directory doesn't exist, create it:
+When running from the SDK checkout, `launch-game.cmd` uses the local engine support directory.
+Paste those files into:
+
+ - `engine\Support\Content\d2` (Windows development checkout)
+
+The current `d2 mod` still depends on a small subset of the current OpenRA `d2k` content.
+This content is expected in the OpenRA `v3` layout:
+
+ - `engine\Support\Content\d2k\v3` (Windows development checkout)
+
+On first run, `d2 mod` will open the content installer if the `d2k` files are missing.
+Use `Quick Install` to download the required `d2k` content and automatically return to `d2 mod`.
+If you use `Advanced Install`, the installer may stay on the package list after downloading; press `Back`, then `Continue`, or close the game and run `launch-game.cmd` again.
+
+For packaged installs or launchers that do not set a local support directory, the OpenRA platform support directory is used instead:
+You can also place the files there if you run the mod through a registered OpenRA launcher instead of the SDK checkout launcher.
+
  - `%USERPROFILE%\AppData\Roaming\OpenRA\Content\d2` (Windows)
+ - `%USERPROFILE%\AppData\Roaming\OpenRA\Content\d2k\v3` (Windows d2k content)
  - `~/Library/Application Support/OpenRA/Content/d2` (macOS)
+ - `~/Library/Application Support/OpenRA/Content/d2k/v3` (macOS d2k content)
  - `~/.openra/Content/d2` (Linux)
+ - `~/.openra/Content/d2k/v3` (Linux d2k content)
 
 The key scripts from [OpenRAModSDK](https://github.com/OpenRA/OpenRAModSDK) are:
 
@@ -35,7 +54,6 @@ To launch `d2 mod` from the development environment you must first compile it by
 or opening a terminal in the SDK directory and running `make` (Linux / macOS).
 
 Now you can run `d2 mod` using `launch-game.cmd` (Windows) or `launch-game.sh` (Linux / macOS).
-Currently `d2 mod` uses some data from `d2k mod`. You will be prompt to download d2k content on first run.
 
 
 ## License

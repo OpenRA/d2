@@ -69,7 +69,7 @@
 		BasePalette: player
 		Alpha: 0.68
 		Premultiply: false
-	FlashPaletteEffect:
+	FlashPostProcessEffect:
 	PaletteFromPlayerPaletteWithAlpha@cloak:
 		BaseName: cloak
 		BasePalette: player

@@ -2,51 +2,66 @@ explosion:
 	Defaults:
 		Tick: 80
 		ZOffset: 511
-	piff: UNITS1.SHP
+	piff:
+		Filename: UNITS1.SHP
 		Start: 23
 		Length: 2
-	piffs: UNITS1.SHP
+	piffs:
+		Filename: UNITS1.SHP
 		Start: 23
 		Length: 3
-	small_explosion: UNITS1.SHP
+	small_explosion:
+		Filename: UNITS1.SHP
 		Start: 32
 		Length: 5
-	med_explosion: UNITS1.SHP
+	med_explosion:
+		Filename: UNITS1.SHP
 		Start: 37
 		Length: 5
-	nuke: UNITS1.SHP
+	nuke:
+		Filename: UNITS1.SHP
 		Start: 8
 		Length: 3
-	self_destruct: UNITS1.SHP
+	self_destruct:
+		Filename: UNITS1.SHP
 		Start: 0
 		Length: 2
-	building: UNITS1.SHP
+	building:
+		Filename: UNITS1.SHP
 		Start: 42
 		Length: 5
-	large_explosion: UNITS1.SHP
+	large_explosion:
+		Filename: UNITS1.SHP
 		Start: 47
 		Length: 5
-	small_napalm: UNITS1.SHP
+	small_napalm:
+		Filename: UNITS1.SHP
 		Start: 52
 		Length: 5
-	rocket_explosion: UNITS1.SHP
+	rocket_explosion:
+		Filename: UNITS1.SHP
 		Start: 0
 		Length: 1
-	tiny_explosion: UNITS1.SHP
+	tiny_explosion:
+		Filename: UNITS1.SHP
 		Start: 0
 		Length: 1
-	shockwave: UNITS1.SHP
+	shockwave:
+		Filename: UNITS1.SHP
 		Start: 8
 		Length: 3
-	deviator: UNITS1.SHP
+	deviator:
+		Filename: UNITS1.SHP
 		Start: 57
 		Length: 5
 		Tick: 120
-	bloomspawn: UNITS1.SHP
+	bloomspawn:
+		Filename: UNITS1.SHP
 		Start: 2
 		Length: 6
 		Tick: 120
-	corpse: DATA.R8
+	corpse:
+		Filename: DATA.R16
 		ZOffset: -511
 		Start: 430
 		Length: 12

@@ -1,12 +1,15 @@
 wall:
-	idle: ICON.ICN
+	idle:
+		Filename: ICON.ICN
 		Frames: 35, 34, 35, 36, 37, 37, 38, 39, 35, 40, 35, 41, 42, 43, 44, 45
 		Length: 16
 		Offset: 0,0
-	damaged-idle: ICON.ICN
+	damaged-idle:
+		Filename: ICON.ICN
 		Frames: 35, 34, 35, 36, 37, 37, 38, 39, 35, 40, 35, 41, 42, 43, 44, 45
 		Length: 16
 		Offset: 0,0
-	icon: SHAPES.SHP
+	icon:
+		Filename: SHAPES.SHP
 		Start: 66
 		Offset: 0,0

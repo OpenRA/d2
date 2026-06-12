@@ -25,7 +25,7 @@ namespace OpenRA.Mods.D2.MapUtils
 			Right = 0x4,
 			Bottom = 0x8,
 
-			All = 0x0F
+			All = Left | Top | Right | Bottom
 		}
 
 		public const ushort SandTile = 0;
@@ -34,7 +34,7 @@ namespace OpenRA.Mods.D2.MapUtils
 		public const ushort DuneTile = 159;
 		public const ushort RoughTile = 175;
 
-		public static readonly Dictionary<ClearSides, ushort> SpriteMap = new Dictionary<ClearSides, ushort>()
+		public static readonly Dictionary<ClearSides, ushort> SpriteMap = new()
 		{
 			{ ClearSides.All, 0 },
 			{ ClearSides.Left | ClearSides.Right | ClearSides.Bottom, 1 },
@@ -71,8 +71,7 @@ namespace OpenRA.Mods.D2.MapUtils
 				{
 					var leftIndex = index - 1;
 					var leftTile = m[leftIndex];
-					if (!(leftTile >= 126 && leftTile <= 143) &&
-					    !(leftTile >= 160 && leftTile <= 175))
+					if (!(leftTile >= 126 && leftTile <= 143) && !(leftTile >= 160 && leftTile <= 175))
 					{
 						clear |= ClearSides.Left;
 					}
@@ -82,8 +81,7 @@ namespace OpenRA.Mods.D2.MapUtils
 				{
 					var topIndex = index - width;
 					var topTile = m[topIndex];
-					if (!(topTile >= 126 && topTile <= 143) &&
-					    !(topTile >= 160 && topTile <= 175))
+					if (!(topTile >= 126 && topTile <= 143) && !(topTile >= 160 && topTile <= 175))
 					{
 						clear |= ClearSides.Top;
 					}
@@ -93,8 +91,7 @@ namespace OpenRA.Mods.D2.MapUtils
 				{
 					var rightIndex = index + 1;
 					var rightTile = m[rightIndex];
-					if (!(rightTile >= 126 && rightTile <= 143) &&
-					    !(rightTile >= 160 && rightTile <= 175))
+					if (!(rightTile >= 126 && rightTile <= 143) && !(rightTile >= 160 && rightTile <= 175))
 					{
 						clear |= ClearSides.Right;
 					}
@@ -104,8 +101,7 @@ namespace OpenRA.Mods.D2.MapUtils
 				{
 					var bottomIndex = index + width;
 					var bottomTile = m[bottomIndex];
-					if (!(bottomTile >= 126 && bottomTile <= 143) &&
-					    !(bottomTile >= 160 && bottomTile <= 175))
+					if (!(bottomTile >= 126 && bottomTile <= 143) && !(bottomTile >= 160 && bottomTile <= 175))
 					{
 						clear |= ClearSides.Bottom;
 					}
@@ -210,8 +206,7 @@ namespace OpenRA.Mods.D2.MapUtils
 				{
 					var leftPos = new MPos(pos.U - 1, pos.V);
 					var leftTile = tiles[leftPos];
-					if (!(leftTile.Type >= 126 && leftTile.Type <= 143) &&
-					    !(leftTile.Type >= 160 && leftTile.Type <= 175))
+					if (!(leftTile.Type >= 126 && leftTile.Type <= 143) && !(leftTile.Type >= 160 && leftTile.Type <= 175))
 					{
 						clear |= ClearSides.Left;
 					}
@@ -221,8 +216,7 @@ namespace OpenRA.Mods.D2.MapUtils
 				{
 					var topPos = new MPos(pos.U, pos.V - 1);
 					var topTile = tiles[topPos];
-					if (!(topTile.Type >= 126 && topTile.Type <= 143) &&
-					    !(topTile.Type >= 160 && topTile.Type <= 175))
+					if (!(topTile.Type >= 126 && topTile.Type <= 143) && !(topTile.Type >= 160 && topTile.Type <= 175))
 					{
 						clear |= ClearSides.Top;
 					}
@@ -232,8 +226,7 @@ namespace OpenRA.Mods.D2.MapUtils
 				{
 					var rightPos = new MPos(pos.U + 1, pos.V);
 					var rightTile = tiles[rightPos];
-					if (!(rightTile.Type >= 126 && rightTile.Type <= 143) &&
-					    !(rightTile.Type >= 160 && rightTile.Type <= 175))
+					if (!(rightTile.Type >= 126 && rightTile.Type <= 143) && !(rightTile.Type >= 160 && rightTile.Type <= 175))
 					{
 						clear |= ClearSides.Right;
 					}
@@ -243,8 +236,7 @@ namespace OpenRA.Mods.D2.MapUtils
 				{
 					var bottomPos = new MPos(pos.U, pos.V + 1);
 					var bottomTile = tiles[bottomPos];
-					if (!(bottomTile.Type >= 126 && bottomTile.Type <= 143) &&
-					    !(bottomTile.Type >= 160 && bottomTile.Type <= 175))
+					if (!(bottomTile.Type >= 126 && bottomTile.Type <= 143) && !(bottomTile.Type >= 160 && bottomTile.Type <= 175))
 					{
 						clear |= ClearSides.Bottom;
 					}

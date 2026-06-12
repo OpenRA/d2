@@ -1,5 +1,6 @@
 fire:
-	1: UNITS1.SHP
+	1:
+		Filename: UNITS1.SHP
 		Start: 17
 		Length: 6
 		Tick: 300

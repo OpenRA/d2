@@ -1,5 +1,6 @@
 overlay:
-	Defaults: transparent.shp
+	Defaults:
+		Filename: transparent.shp
 	build-valid-arrakis2:
 	build-invalid:
 	target-select:

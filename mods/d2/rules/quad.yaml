@@ -27,7 +27,7 @@ quad:
 		LocalOffset: 128,64,64, 128,-64,64
 	AttackFrontal:
 		FacingTolerance: 0
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 	Selectable:

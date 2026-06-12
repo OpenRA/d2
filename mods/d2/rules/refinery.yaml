@@ -27,11 +27,13 @@ refinery:
 	RevealsShroud:
 		Range: 4c0
 	Refinery:
-		DockAngle: 480
-		DockOffset: 2,1
 		TickRate: 20
 		ShowTicks: false
-	StoresResources:
+	DockHost:
+		Type: Unload
+		DockAngle: 480
+		DockOffset: 1c0,512,0
+	StoresPlayerResources:
 		Capacity: 2000
 	FreeActorWithDelivery:
 		Actor: harvester

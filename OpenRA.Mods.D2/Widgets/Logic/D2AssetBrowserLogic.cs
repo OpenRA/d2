@@ -19,6 +19,7 @@ using OpenRA.Graphics;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Widgets;
 using OpenRA.Mods.Common.Widgets.Logic;
+using OpenRA.Primitives;
 using OpenRA.Widgets;
 
 namespace OpenRA.Mods.D2.Widgets.Logic
@@ -36,6 +37,8 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		readonly SliderWidget frameSlider;
 		readonly ScrollPanelWidget assetList;
 		readonly ScrollItemWidget template;
+		readonly Cache<SheetType, SheetBuilder> sheetBuilders;
+		readonly Cache<string, Sprite[]> spriteCache;
 
 		IReadOnlyPackage assetSource = null;
 		bool animateFrames = false;
@@ -52,6 +55,12 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		[ObjectCreator.UseCtor]
 		public D2AssetBrowserLogic(Widget widget, Action onExit, ModData modData, WorldRenderer worldRenderer, Dictionary<string, MiniYaml> logicArgs)
 		{
+			sheetBuilders = new Cache<SheetType, SheetBuilder>(t => new SheetBuilder(t));
+			spriteCache = new Cache<string, Sprite[]>(
+				filename => FrameLoader.GetFrames(modData.DefaultFileSystem, filename, modData.SpriteLoaders, out _)
+					.Select(f => sheetBuilders[SheetBuilder.FrameTypeToSheetType(f.Type)].Add(f))
+					.ToArray());
+
 			world = worldRenderer.World;
 			this.modData = modData;
 			panel = widget;
@@ -107,15 +116,15 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				paletteDropDown.GetText = () => currentPalette;
 			}
 
-			var colorManager = modData.DefaultRules.Actors[SystemActors.World].TraitInfo<ColorPickerManagerInfo>();
-			colorManager.Color = Game.Settings.Player.Color;
+			var colorManager = modData.DefaultRules.Actors[SystemActors.World].TraitInfo<IColorPickerManagerInfo>();
+			var color = Game.Settings.Player.Color;
 
 			var colorDropdown = panel.GetOrNull<DropDownButtonWidget>("COLOR");
 			if (colorDropdown != null)
 			{
 				colorDropdown.IsDisabled = () => !colorPickerPalettes.Contains(currentPalette);
-				colorDropdown.OnMouseDown = _ => ColorPickerLogic.ShowColorDropDown(colorDropdown, colorManager, worldRenderer);
-				panel.Get<ColorBlockWidget>("COLORBLOCK").GetColor = () => colorManager.Color;
+				colorDropdown.OnMouseDown = _ => colorManager.ShowColorDropDown(colorDropdown, color, null, worldRenderer, c => color = c);
+				panel.Get<ColorBlockWidget>("COLORBLOCK").GetColor = () => color;
 			}
 
 			filenameInput = panel.Get<TextFieldWidget>("FILENAME_INPUT");
@@ -156,8 +165,8 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			{
 				frameText.GetText = () =>
 					isVideoLoaded ?
-					"{0} / {1}".F(player.Video.CurrentFrame + 1, player.Video.Length) :
-					"{0} / {1}".F(currentFrame, currentSprites.Length - 1);
+					$"{player.Video.CurrentFrame + 1} / {player.Video.Length}" :
+					$"{currentFrame} / {currentSprites.Length - 1}";
 			}
 
 			var playButton = panel.GetOrNull<ButtonWidget>("BUTTON_PLAY");
@@ -357,7 +366,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 					return true;
 				}
 
-				currentSprites = world.Map.Rules.Sequences.SpriteCache[prefix + filename];
+				currentSprites = spriteCache[prefix + filename];
 				currentFrame = 0;
 				frameSlider.MaximumValue = (float)currentSprites.Length - 1;
 				frameSlider.Ticks = currentSprites.Length;
@@ -366,12 +375,25 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			{
 				isLoadError = true;
 				Log.AddChannel("assetbrowser", "assetbrowser.log");
-				Log.Write("assetbrowser", "Error reading {0}:{3} {1}{3}{2}", filename, ex.Message, ex.StackTrace, Environment.NewLine);
+				Log.Write("assetbrowser", $"Error reading {filename}:{Environment.NewLine} {ex.Message}{Environment.NewLine}{ex.StackTrace}");
 
 				return false;
 			}
 
 			return true;
+		}
+
+		bool disposed;
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && !disposed)
+			{
+				disposed = true;
+				foreach (var sheetBuilder in sheetBuilders.Values)
+					sheetBuilder.Dispose();
+			}
+
+			base.Dispose(disposing);
 		}
 
 		bool ShowSourceDropdown(DropDownButtonWidget dropdown)

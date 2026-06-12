@@ -1,42 +1,45 @@
 carryall:
 	idle:
 		Combine:
-			UNITS.SHP:
+			0:
+				Filename: UNITS.SHP
 				Start: 45
 				Length: 3
-			UNITS.SHP:
-				Start: 45
-				Length: 2
+			1:
+				Filename: UNITS.SHP
+				Frames: 46, 45
 				FlipY: true
-			UNITS.SHP:
+			2:
+				Filename: UNITS.SHP
 				Start: 46
 				FlipX: true
 				FlipY: true
-			UNITS.SHP:
-				Start: 46
-				Length: 2
+			3:
+				Filename: UNITS.SHP
+				Frames: 47, 46
 				FlipX: true
-		Frames: 0, 1, 2, 4, 3, 5, 7, 6
 		Facings: -8
-	icon: SHAPES.SHP
+	icon:
+		Filename: SHAPES.SHP
 		Start: 77
 		Offset: 0,0
 	unload:
 		Combine:
-			UNITS.SHP:
+			0:
+				Filename: UNITS.SHP
 				Start: 45
 				Length: 3
-			UNITS.SHP:
-				Start: 45
-				Length: 2
+			1:
+				Filename: UNITS.SHP
+				Frames: 46, 45
 				FlipY: true
-			UNITS.SHP:
+			2:
+				Filename: UNITS.SHP
 				Start: 46
 				FlipX: true
 				FlipY: true
-			UNITS.SHP:
-				Start: 46
-				Length: 2
+			3:
+				Filename: UNITS.SHP
+				Frames: 47, 46
 				FlipX: true
-		Frames: 0, 1, 2, 4, 3, 5, 7, 6
 		Facings: -8

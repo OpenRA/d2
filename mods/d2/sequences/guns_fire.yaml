@@ -1,17 +1,20 @@
 120mm:
-	idle: UNITS1.SHP
+	idle:
+		Filename: UNITS1.SHP
 		Start: 23
 		BlendMode: Additive
 		ZOffset: 1023
 
 155mm:
-	idle: UNITS1.SHP
+	idle:
+		Filename: UNITS1.SHP
 		Start: 24
 		BlendMode: Additive
 		ZOffset: 1023
 
 doubleblastbullet:
-	idle: UNITS1.SHP
+	idle:
+		Filename: UNITS1.SHP
 		Start: 25
 		BlendMode: Additive
 		ZOffset: 1023
@@ -19,35 +22,43 @@ doubleblastbullet:
 rpg:
 	idle:
 		Combine:
-			UNITS.SHP:
+			0:
+				Filename: UNITS.SHP
 				Start: 30
 				Length: 5
-			UNITS.SHP:
+			1:
+				Filename: UNITS.SHP
 				Start: 31
 				Length: 3
 				FlipY: true
-			UNITS.SHP:
+			2:
+				Filename: UNITS.SHP
 				Start: 30
 				Length: 5
 				FlipY: true
 				FlipX: true
-			UNITS.SHP:
+			3:
+				Filename: UNITS.SHP
 				Start: 31
 				Length: 3
 				FlipX: true
-			UNITS.SHP:
+			4:
+				Filename: UNITS.SHP
 				Start: 35
 				Length: 5
-			UNITS.SHP:
+			5:
+				Filename: UNITS.SHP
 				Start: 36
 				Length: 3
 				FlipY: true
-			UNITS.SHP:
+			6:
+				Filename: UNITS.SHP
 				Start: 35
 				Length: 5
 				FlipY: true
 				FlipX: true
-			UNITS.SHP:
+			7:
+				Filename: UNITS.SHP
 				Start: 36
 				Length: 3
 				FlipX: true
@@ -60,35 +71,43 @@ rpg:
 missile:
 	idle:
 		Combine:
-			UNITS.SHP:
+			0:
+				Filename: UNITS.SHP
 				Start: 20
 				Length: 5
-			UNITS.SHP:
+			1:
+				Filename: UNITS.SHP
 				Start: 21
 				Length: 3
 				FlipY: true
-			UNITS.SHP:
+			2:
+				Filename: UNITS.SHP
 				Start: 20
 				Length: 5
 				FlipY: true
 				FlipX: true
-			UNITS.SHP:
+			3:
+				Filename: UNITS.SHP
 				Start: 21
 				Length: 3
 				FlipX: true
-			UNITS.SHP:
+			4:
+				Filename: UNITS.SHP
 				Start: 25
 				Length: 5
-			UNITS.SHP:
+			5:
+				Filename: UNITS.SHP
 				Start: 26
 				Length: 3
 				FlipY: true
-			UNITS.SHP:
+			6:
+				Filename: UNITS.SHP
 				Start: 25
 				Length: 5
 				FlipY: true
 				FlipX: true
-			UNITS.SHP:
+			7:
+				Filename: UNITS.SHP
 				Start: 26
 				Length: 3
 				FlipX: true

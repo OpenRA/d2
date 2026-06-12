@@ -43,7 +43,7 @@ wall:
 		TargetTypes: Ground, Wall
 	WithWallSpriteBody:
 	Guardable:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: WallExplode
 		EmptyWeapon: WallExplode
 	HitShape:

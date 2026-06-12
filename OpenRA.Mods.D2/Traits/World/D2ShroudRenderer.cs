@@ -98,7 +98,7 @@ namespace OpenRA.Mods.D2.Traits
 			anyCellDirty = true;
 
 			// Load sprites
-			var sequenceProvider = map.Rules.Sequences;
+			var sequenceProvider = map.Sequences;
 
 			var shroudSequence = sequenceProvider.GetSequence(info.Sequence, info.ShroudName);
 			shroudSprites = new Sprite[shroudSequence.Length];

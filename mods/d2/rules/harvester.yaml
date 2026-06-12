@@ -16,12 +16,15 @@ harvester:
 		Class: harvester
 		Priority: 7
 	Harvester:
-		Capacity: 28
 		HarvestFacings: 8
 		Resources: Spice
 		BaleUnloadDelay: 5
 		SearchFromProcRadius: 30
 		SearchFromHarvesterRadius: 15
+	StoresResources:
+		Capacity: 28
+		Resources: Spice
+	DockClientManager:
 	CarryableHarvester:
 	Health:
 		HP: 150
@@ -32,7 +35,7 @@ harvester:
 	D2RevealsShroud:
 		Range: 2c0
 		MovingRange: 1c768
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeLarge
 		EmptyWeapon: UnitExplodeLarge
 	SpawnActorOnDeath:
@@ -48,11 +51,7 @@ harvester:
 		Delay: 3
 		StartIfBelow: 50
 	-RevealOnFire:
-	WithHarvesterPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: true
-		PipCount: 7
-	WithHarvesterPipsDecoration:
+	WithStoresResourcesPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
 		PipCount: 7

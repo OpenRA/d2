@@ -1,0 +1,3 @@
+## Metadata
+mod-title = d2 mod
+loadscreen-loading = Loading...

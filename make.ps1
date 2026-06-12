@@ -118,8 +118,8 @@ function Check-Command
 
 	Write-Host "Compiling $modID in Debug configuration..." -ForegroundColor Cyan
 
-	# Enabling EnforceCodeStyleInBuild and GenerateDocumentationFile as a workaround for some code style rules (in particular IDE0005) being bugged and not reporting warnings/errors otherwise.
-	dotnet build -c Debug --nologo -warnaserror -p:TargetPlatform=win-x64 -p:EnforceCodeStyleInBuild=true -p:GenerateDocumentationFile=true
+	dotnet clean -c Debug --nologo --verbosity minimal
+	dotnet build -c Debug --nologo -warnaserror -p:TargetPlatform=win-x64
 	if ($lastexitcode -ne 0)
 	{
 		Write-Host "Build failed." -ForegroundColor Red
@@ -360,9 +360,8 @@ if ($command -eq "all" -or $command -eq "clean" -or $command -eq "check")
 		[io.compression.zipfile]::ExtractToDirectory($dlPath, $env:AUTOMATIC_ENGINE_EXTRACT_DIRECTORY)
 		rm $dlPath
 
-		$extractedDir = Get-ChildItem $env:AUTOMATIC_ENGINE_EXTRACT_DIRECTORY -Recurse | ?{ $_.PSIsContainer } | Select-Object -First 1
-		Move-Item $extractedDir.FullName -Destination $templateDir
-		Rename-Item $extractedDir.Name (Split-Path -leaf $env:ENGINE_DIRECTORY)
+		$extractedDir = Get-ChildItem $env:AUTOMATIC_ENGINE_EXTRACT_DIRECTORY -Directory | Select-Object -First 1
+		Move-Item $extractedDir.FullName -Destination $env:ENGINE_DIRECTORY
 
 		rm $env:AUTOMATIC_ENGINE_EXTRACT_DIRECTORY -r
 

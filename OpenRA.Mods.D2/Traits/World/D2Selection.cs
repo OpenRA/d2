@@ -41,7 +41,7 @@ namespace OpenRA.Mods.D2.Traits
 
 		IEnumerable<LobbyOption> ILobbyOptions.LobbyOptions(MapPreview map)
 		{
-			yield return new LobbyBooleanOption("singleselection", CheckboxLabel, CheckboxDescription,
+			yield return new LobbyBooleanOption(map, "singleselection", CheckboxLabel, CheckboxDescription,
 				CheckboxVisible, CheckboxDisplayOrder, CheckboxEnabled, CheckboxLocked);
 		}
 

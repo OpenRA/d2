@@ -34,7 +34,7 @@ namespace OpenRA.Mods.Common.Traits
 	{
 		public readonly D2TerrainLayerInfo Info;
 		readonly ITiledTerrainRenderer terrainRenderer;
-		readonly Dictionary<string, Sprite[]> sideSprites = new Dictionary<string, Sprite[]>();
+		readonly Dictionary<string, Sprite[]> sideSprites = new();
 		readonly World world;
 
 		TerrainSpriteLayer render;
@@ -45,7 +45,7 @@ namespace OpenRA.Mods.Common.Traits
 			Info = info;
 			world = self.World;
 
-			var sequenceProvider = world.Map.Rules.Sequences;
+			var sequenceProvider = world.Map.Sequences;
 			var types = sequenceProvider.Sequences(Info.Sequence);
 			foreach (var t in types)
 			{
@@ -86,8 +86,8 @@ namespace OpenRA.Mods.Common.Traits
 						var index = D2MapUtils.SmoothIndexForPos(tilesLayer, pos);
 						if (index != 15)
 						{
-							CPos cpos = pos.ToCPos(w.Map);
-							Sprite sprite = sideSprites["rock"][index];
+							var cpos = pos.ToCPos(w.Map);
+							var sprite = sideSprites["rock"][index];
 							render.Update(cpos, sprite, paletteReference);
 						}
 					}
@@ -97,8 +97,8 @@ namespace OpenRA.Mods.Common.Traits
 						var index = D2MapUtils.SmoothIndexForPos(tilesLayer, pos);
 						if (index != 15)
 						{
-							CPos cpos = pos.ToCPos(w.Map);
-							Sprite sprite = sideSprites["dune"][index];
+							var cpos = pos.ToCPos(w.Map);
+							var sprite = sideSprites["dune"][index];
 							render.Update(cpos, sprite, paletteReference);
 						}
 					}
@@ -108,8 +108,8 @@ namespace OpenRA.Mods.Common.Traits
 						var index = D2MapUtils.SmoothIndexForPos(tilesLayer, pos);
 						if (index != 15)
 						{
-							CPos cpos = pos.ToCPos(w.Map);
-							Sprite sprite = sideSprites["rough"][index];
+							var cpos = pos.ToCPos(w.Map);
+							var sprite = sideSprites["rough"][index];
 							render.Update(cpos, sprite, paletteReference);
 						}
 					}

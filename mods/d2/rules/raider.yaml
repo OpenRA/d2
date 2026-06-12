@@ -32,7 +32,7 @@ raider:
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		FacingTolerance: 0
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 	AttractsWorms:

@@ -259,7 +259,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			if (title == null || separator == null || line1a == null || line1b == null || line2a == null || line2b == null)
 				return;
 
-			var stores = actor.TraitsImplementing<StoresResources>();
+			var stores = actor.TraitsImplementing<IStoresResources>();
 			if (stores.Any())
 			{
 				var store = stores.FirstOrDefault();
@@ -272,12 +272,12 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 
 					line1a.Text = "HOLDS:";
 					line1a.Visible = true;
-					line1b.GetText = () => store.Stored.ToString();
+					line1b.GetText = () => store.ContentsSum.ToString();
 					line1b.Visible = true;
 
 					line2a.Text = "MAX:";
 					line2a.Visible = true;
-					line2b.GetText = () => (store as IStoreResources).Capacity.ToString();
+					line2b.GetText = () => store.Capacity.ToString();
 					line2b.Visible = true;
 				}
 			}

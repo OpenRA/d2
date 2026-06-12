@@ -19,3 +19,6 @@ StyleCopViolations.xml
 .DS_Store
 .vs
 .idea
+.vscode/*.code-workspace
+.vscode/.ropeproject
+.vscode/.history

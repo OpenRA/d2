@@ -1,33 +1,41 @@
 ornithopter:
 	idle:
 		Combine:
-			UNITS.SHP:
+			0:
+				Filename: UNITS.SHP
 				Start: 51
 				Length: 3
-			UNITS.SHP:
+			1:
+				Filename: UNITS.SHP
 				Start: 54
 				Length: 3
-			UNITS.SHP:
+			2:
+				Filename: UNITS.SHP
 				Start: 57
 				Length: 3
-			UNITS.SHP:
+			3:
+				Filename: UNITS.SHP
 				Start: 54
 				Length: 3
 				FlipY: true
-			UNITS.SHP:
+			4:
+				Filename: UNITS.SHP
 				Start: 51
 				Length: 3
 				FlipY: true
-			UNITS.SHP:
+			5:
+				Filename: UNITS.SHP
 				Start: 54
 				Length: 3
 				FlipX: true
 				FlipY: true
-			UNITS.SHP:
+			6:
+				Filename: UNITS.SHP
 				Start: 57
 				Length: 3
 				FlipX: true
-			UNITS.SHP:
+			7:
+				Filename: UNITS.SHP
 				Start: 54
 				Length: 3
 				FlipX: true
@@ -35,6 +43,7 @@ ornithopter:
 		Facings: -8
 		Tick: 200
 		ZOffset: 2047
-	icon: SHAPES.SHP
+	icon:
+		Filename: SHAPES.SHP
 		Start: 85
 		Offset: 0,0

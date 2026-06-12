@@ -16,7 +16,7 @@ using OpenRA.FileSystem;
 
 namespace OpenRA.Mods.D2.ImportData
 {
-	public class D2ImportOriginalMaps
+	public static class D2ImportOriginalMaps
 	{
 		public static int ImportOriginalMaps(ModData modData, Dictionary<string, string> info)
 		{

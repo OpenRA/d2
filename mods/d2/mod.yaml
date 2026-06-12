@@ -1,6 +1,6 @@
 Metadata:
-	Title: d2 mod
-	Version: release-20230225
+	Title: mod-title
+	Version: release-20250330
 	Website: https://www.github.com/OpenRA/d2
 	WebIcon32: https://www.openra.net/images/icons/d2k_32x32.png
 
@@ -10,37 +10,60 @@ ModCredits:
 
 PackageFormats: PakFile, D2kSoundResources
 
-Packages:
-	~^SupportDir|Content/d2
-	~^SupportDir|Content/d2/Unpacked
-	~^SupportDir|Content/d2k/v2/
-	^EngineDir
-	$d2: d2
-	^EngineDir|mods/d2k: d2k
-	^EngineDir|mods/common: common
-
-	~DUNE.PAK
-	~VOC.PAK
-	~ATRE.PAK
-	~HARK.PAK
-	~ORDOS.PAK
-	~INTRO.PAK
-	~FINALE.PAK
-	~SCENARIO.PAK
-	#~INTROVOC.PAK
-	#~MENTAT.PAK
-	#~MERC.PAK
-	#~ENGLISH.PAK
-	~SOUND.RS
-	d2|bits
-	d2|bits/scripts
-	d2k|bits
-	d2k|uibits
+FileSystem: ContentInstallerFileSystem
+	SystemPackages:
+		^EngineDir
+		$d2: d2
+		^EngineDir|mods/d2k: d2k
+		^EngineDir|mods/common: common
+		~^SupportDir|Content/d2: d2content
+		~^SupportDir|Content/d2/Unpacked: unpacked
+		~^SupportDir|Content/d2k/v3/: content
+	ContentPackages:
+		d2content|DUNE.PAK
+		d2content|VOC.PAK
+		d2content|ATRE.PAK
+		d2content|HARK.PAK
+		d2content|ORDOS.PAK
+		d2content|INTRO.PAK
+		d2content|FINALE.PAK
+		d2content|SCENARIO.PAK
+		~d2content|INTROVOC.PAK
+		~d2content|MENTAT.PAK
+		~d2content|MERC.PAK
+		~d2content|ENGLISH.PAK
+		content|SOUND.RS
+		content|GAMESFX
+		~content|Music
+		~content|Movies
+		d2|bits
+		d2|bits/scripts
+		d2k|bits
+		d2k|uibits
+	RequiredContentFiles:
+		d2content|DUNE.PAK
+		d2content|VOC.PAK
+		d2content|ATRE.PAK
+		d2content|HARK.PAK
+		d2content|ORDOS.PAK
+		d2content|INTRO.PAK
+		d2content|FINALE.PAK
+		d2content|SCENARIO.PAK
+		content|BLOXBASE.R16
+		content|BLOXBAT.R16
+		content|BLOXBGBS.R16
+		content|BLOXICE.R16
+		content|BLOXTREE.R16
+		content|BLOXWAST.R16
+		content|DATA.R16
+		content|MOUSE.R16
+		content|PALETTE.BIN
+	ContentInstallerMod: d2-content
 
 MapFolders:
 	d2|maps: System
 	~^SupportDir|maps/d2/original: System
-	~^SupportDir|maps/d2/release-20210321: User
+	~^SupportDir|maps/d2/release-20250330: User
 
 Rules:
 	d2|rules/misc.yaml
@@ -180,10 +203,7 @@ Cursors:
 Chrome:
 	d2|chrome.yaml
 
-Assemblies:
-	^BinDir|OpenRA.Mods.Common.dll
-	^BinDir|OpenRA.Mods.D2k.dll
-	^BinDir|OpenRA.Mods.D2.dll
+Assemblies: OpenRA.Mods.Common.dll, OpenRA.Mods.D2k.dll, OpenRA.Mods.D2.dll
 
 ChromeLayout:
 	common|chrome/ingame.yaml
@@ -256,8 +276,14 @@ Notifications:
 Music:
 	d2|audio/music.yaml
 
-Translations:
-	common|languages/en.ftl
+FluentMessages:
+	common|fluent/common.ftl
+	common|fluent/chrome.ftl
+	common|fluent/hotkeys.ftl
+	common|fluent/rules.ftl
+	d2|fluent/mod.ftl
+
+AllowUnusedFluentMessagesInExternalPackages: true
 
 Hotkeys:
 	common|hotkeys/game.yaml
@@ -279,6 +305,7 @@ LoadScreen: D2LoadScreen
 
 ServerTraits:
 	LobbyCommands
+	SkirmishLogic
 	PlayerPinger
 	MasterServerPinger
 	LobbySettingsNotification
@@ -333,8 +360,6 @@ SoundFormats: Voc, Aud, Wav
 SpriteFormats: R8, ShpD2, IcnD2, ShpTD, CpsD2, Wsa
 
 SpriteSequenceFormat: DefaultSpriteSequence
-
-ModelSequenceFormat: PlaceholderModelSequence
 
 VideoFormats:
 

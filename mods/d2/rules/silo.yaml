@@ -27,7 +27,7 @@ silo:
 	RenderSprites:
 		Image: silo
 		PlayerPalette: player
-	StoresResources:
+	StoresPlayerResources:
 		Capacity: 2000
 	WithIdleOverlay@FLAG:
 		Sequence: idle-flag

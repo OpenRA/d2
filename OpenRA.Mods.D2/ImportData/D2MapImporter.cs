@@ -16,6 +16,7 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using OpenRA.Mods.Common.FileFormats;
 using OpenRA.Mods.Common.Terrain;
 using OpenRA.Mods.D2.MapUtils;
@@ -676,7 +677,7 @@ namespace OpenRA.Mods.D2.ImportData
 				new OwnerInit("Neutral")
 			};
 
-			map.ActorDefinitions.Add(new MiniYamlNode("SpiceBloom" + map.ActorDefinitions.Count, a.Save()));
+			map.ActorDefinitions = map.ActorDefinitions.Append(new MiniYamlNode("SpiceBloom" + map.ActorDefinitions.Count, a.Save())).ToArray();
 		}
 
 		void AddBloom()
@@ -706,7 +707,7 @@ namespace OpenRA.Mods.D2.ImportData
 				new OwnerInit("Neutral")
 			};
 
-			map.ActorDefinitions.Add(new MiniYamlNode("SpawnPoint" + map.ActorDefinitions.Count, a.Save()));
+			map.ActorDefinitions = map.ActorDefinitions.Append(new MiniYamlNode("SpawnPoint" + map.ActorDefinitions.Count, a.Save())).ToArray();
 		}
 
 		/* Add spawn points using const yards from ini file */
