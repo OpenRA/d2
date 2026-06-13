@@ -7,14 +7,27 @@ These scripts and support files from `OpenRAModSDK` wrap and automatically manag
 and provide entrypoints to run development versions and to generate platform-specific installers.
 
 Before running `d2 mod`, download the original game and copy the following files:
- - `DUNE.PAK`
- - `VOC.PAK`
+
  - `ATRE.PAK`
- - `HARK.PAK`
- - `ORDOS.PAK`
- - `INTRO.PAK`
+ - `DUNE.PAK`
  - `FINALE.PAK`
+ - `HARK.PAK`
+ - `INTRO.PAK`
+ - `ORDOS.PAK`
  - `SCENARIO.PAK`
+ - `VOC.PAK`
+
+For packaged installs(like this) or launchers that do not set a local support directory, the OpenRA platform support directory is used instead:
+You can also place the files there if you run the mod through a registered OpenRA launcher instead of the SDK checkout launcher.
+
+ - `%USERPROFILE%\AppData\Roaming\OpenRA\Content\d2` (Windows)
+ - `%USERPROFILE%\AppData\Roaming\OpenRA\Content\d2k\v3` (Windows d2k content)
+ - `~/Library/Application Support/OpenRA/Content/d2` (macOS)
+ - `~/Library/Application Support/OpenRA/Content/d2k/v3` (macOS d2k content)
+ - `~/.openra/Content/d2` (Linux)
+ - `~/.openra/Content/d2k/v3` (Linux d2k content)
+
+You can make it not save to %appdata% by creating a `Support` folder in d2-master\engine, and opening `launch-game.cmd`
 
 When running from the SDK checkout, `launch-game.cmd` uses the local engine support directory.
 Paste those files into:
@@ -29,16 +42,6 @@ This content is expected in the OpenRA `v3` layout:
 On first run, `d2 mod` will open the content installer if the `d2k` files are missing.
 Use `Quick Install` to download the required `d2k` content and automatically return to `d2 mod`.
 If you use `Advanced Install`, the installer may stay on the package list after downloading; press `Back`, then `Continue`, or close the game and run `launch-game.cmd` again.
-
-For packaged installs or launchers that do not set a local support directory, the OpenRA platform support directory is used instead:
-You can also place the files there if you run the mod through a registered OpenRA launcher instead of the SDK checkout launcher.
-
- - `%USERPROFILE%\AppData\Roaming\OpenRA\Content\d2` (Windows)
- - `%USERPROFILE%\AppData\Roaming\OpenRA\Content\d2k\v3` (Windows d2k content)
- - `~/Library/Application Support/OpenRA/Content/d2` (macOS)
- - `~/Library/Application Support/OpenRA/Content/d2k/v3` (macOS d2k content)
- - `~/.openra/Content/d2` (Linux)
- - `~/.openra/Content/d2k/v3` (Linux d2k content)
 
 The key scripts from [OpenRAModSDK](https://github.com/OpenRA/OpenRAModSDK) are:
 
