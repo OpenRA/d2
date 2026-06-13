@@ -179,49 +179,58 @@ namespace OpenRA.Mods.D2.Traits
 		{
 			base.AddedToWorld(self);
 
-			if (info.LaysOnConcrete)
+			if (info.LaysOnConcrete
+				&& layer != null
+				&& (info.ConcretePrerequisites.Length == 0
+					|| techTree == null
+					|| techTree.HasPrerequisites(info.ConcretePrerequisites)))
 			{
-				if (layer != null && (!info.ConcretePrerequisites.Any() || techTree == null || techTree.HasPrerequisites(info.ConcretePrerequisites)))
+				var map = self.World.Map;
+
+				if (self.World.Map.Rules.TerrainInfo is not ITemplatedTerrainInfo terrainInfo)
+					throw new InvalidDataException("D2Building requires a template-based tileset.");
+
+				var template = terrainInfo.Templates[info.ConcreteTemplate];
+				if (template.PickAny)
 				{
-					var map = self.World.Map;
-
-					if (!(self.World.Map.Rules.TerrainInfo is ITemplatedTerrainInfo terrainInfo))
-						throw new InvalidDataException("D2Building requires a template-based tileset.");
-
-					var template = terrainInfo.Templates[info.ConcreteTemplate];
-					if (template.PickAny)
+					// Fill the footprint with random variants
+					foreach (var c in info.Tiles(self.Location))
 					{
-						// Fill the footprint with random variants
-						foreach (var c in info.Tiles(self.Location))
+						// Only place on allowed terrain types
+						if (!map.Contains(c)
+							|| map.CustomTerrain[c] != byte.MaxValue
+							|| !info.TerrainTypes.Contains(map.GetTerrainInfo(c).Type))
 						{
-							// Only place on allowed terrain types
-							if (!map.Contains(c) || map.CustomTerrain[c] != byte.MaxValue || !info.TerrainTypes.Contains(map.GetTerrainInfo(c).Type))
-								continue;
-
-							// Don't place under other buildings (or their bib)
-							if (bi.GetBuildingsAt(c).Any(a => a != self))
-								continue;
-
-							var index = Game.CosmeticRandom.Next(template.TilesCount);
-							layer.AddTile(c, new TerrainTile(template.Id, (byte)index));
+							continue;
 						}
+
+						// Don't place under other buildings (or their bib)
+						if (bi.GetBuildingsAt(c).Any(a => a != self))
+							continue;
+
+						var index = Game.CosmeticRandom.Next(template.TilesCount);
+						layer.AddTile(c, new TerrainTile(template.Id, (byte)index));
 					}
-					else
+				}
+				else
+				{
+					for (var i = 0; i < template.TilesCount; i++)
 					{
-						for (var i = 0; i < template.TilesCount; i++)
+						var c = self.Location + new CVec(i % template.Size.X, i / template.Size.X);
+
+						// Only place on allowed terrain types
+						if (!map.Contains(c)
+							|| map.CustomTerrain[c] != byte.MaxValue
+							|| !info.TerrainTypes.Contains(map.GetTerrainInfo(c).Type))
 						{
-							var c = self.Location + new CVec(i % template.Size.X, i / template.Size.X);
-
-							// Only place on allowed terrain types
-							if (!map.Contains(c) || map.CustomTerrain[c] != byte.MaxValue || !info.TerrainTypes.Contains(map.GetTerrainInfo(c).Type))
-								continue;
-
-							// Don't place under other buildings (or their bib)
-							if (bi.GetBuildingsAt(c).Any(a => a != self))
-								continue;
-
-							layer.AddTile(c, new TerrainTile(template.Id, (byte)i));
+							continue;
 						}
+
+						// Don't place under other buildings (or their bib)
+						if (bi.GetBuildingsAt(c).Any(a => a != self))
+							continue;
+
+						layer.AddTile(c, new TerrainTile(template.Id, (byte)i));
 					}
 				}
 			}

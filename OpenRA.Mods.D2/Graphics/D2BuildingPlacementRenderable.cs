@@ -14,9 +14,8 @@ using OpenRA.Primitives;
 
 namespace OpenRA.Mods.D2.Graphics
 {
-	public struct D2BuildingPlacementRenderable : IRenderable, IFinalizedRenderable
+	public readonly struct D2BuildingPlacementRenderable : IRenderable, IFinalizedRenderable
 	{
-		readonly WPos pos;
 		readonly Rectangle bounds;
 		readonly Color color;
 		readonly bool crossEnabled;
@@ -26,13 +25,13 @@ namespace OpenRA.Mods.D2.Graphics
 
 		public D2BuildingPlacementRenderable(WPos pos, Rectangle bounds, Color color, bool crossEnabled)
 		{
-			this.pos = pos;
+			Pos = pos;
 			this.bounds = bounds;
 			this.color = color;
 			this.crossEnabled = crossEnabled;
 		}
 
-		public WPos Pos { get { return pos; } }
+		public WPos Pos { get; }
 
 		public PaletteReference Palette { get { return null; } }
 		public int ZOffset { get { return 0; } }
@@ -40,7 +39,7 @@ namespace OpenRA.Mods.D2.Graphics
 
 		public IRenderable WithPalette(PaletteReference newPalette) { return this; }
 		public IRenderable WithZOffset(int newOffset) { return this; }
-		public IRenderable OffsetBy(in WVec vec) { return new D2BuildingPlacementRenderable(pos + vec, bounds, color, crossEnabled); }
+		public IRenderable OffsetBy(in WVec vec) { return new D2BuildingPlacementRenderable(Pos + vec, bounds, color, crossEnabled); }
 		public IRenderable AsDecoration() { return this; }
 
 		public IFinalizedRenderable PrepareRender(WorldRenderer wr) { return this; }
@@ -50,14 +49,14 @@ namespace OpenRA.Mods.D2.Graphics
 			var rect = ScreenBounds(wr);
 			var tl = new float3(rect.Left, rect.Top, 1024.0f);
 			var br = new float3(rect.Right, rect.Bottom, 1024.0f);
-			var width = 1.0f;
-			Game.Renderer.WorldRgbaColorRenderer.DrawRect(tl, br, width, color);
+			const float Width = 1.0f;
+			Game.Renderer.WorldRgbaColorRenderer.DrawRect(tl, br, Width, color);
 			if (crossEnabled)
 			{
-				Game.Renderer.WorldRgbaColorRenderer.DrawLine(tl, br, width, color);
+				Game.Renderer.WorldRgbaColorRenderer.DrawLine(tl, br, Width, color);
 				var tr = new float3(br.X, tl.Y, 1024.0f);
 				var bl = new float3(tl.X, br.Y, 1024.0f);
-				Game.Renderer.WorldRgbaColorRenderer.DrawLine(tr, bl, width, color);
+				Game.Renderer.WorldRgbaColorRenderer.DrawLine(tr, bl, Width, color);
 			}
 		}
 
@@ -65,8 +64,8 @@ namespace OpenRA.Mods.D2.Graphics
 
 		public Rectangle ScreenBounds(WorldRenderer wr)
 		{
-			var tl = new WPos(pos.X + bounds.Left, pos.Y + bounds.Top - 1, 0);
-			var br = new WPos(pos.X + bounds.Right, pos.Y + bounds.Bottom - 1, 0);
+			var tl = new WPos(Pos.X + bounds.Left, Pos.Y + bounds.Top - 1, 0);
+			var br = new WPos(Pos.X + bounds.Right, Pos.Y + bounds.Bottom - 1, 0);
 			var tlOffset = wr.ScreenPxPosition(tl);
 			var brOffset = wr.ScreenPxPosition(br);
 

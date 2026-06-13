@@ -10,6 +10,7 @@
 #endregion
 
 using System;
+using System.Globalization;
 using System.Linq;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.Orders;
@@ -27,7 +28,6 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		readonly World world;
 		readonly WorldRenderer worldRenderer;
 
-		readonly D2PanelWidget panel;
 		readonly LabelWidget label;
 		readonly D2SpriteWidget preview;
 		readonly D2ProgressBarWidget health;
@@ -55,8 +55,6 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			this.worldRenderer = worldRenderer;
 
 			var textColor = Color.FromArgb(71, 71, 55);
-
-			panel = widget.GetOrNull<D2PanelWidget>("PANEL");
 
 			label = widget.GetOrNull<LabelWidget>("NAME");
 			if (label != null)
@@ -128,18 +126,18 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			{
 				attackButton.Visible = false;
 				attackButton.IsHighlighted = () => IsForceModifiersActive(Modifiers.Ctrl)
-					&& !(world.OrderGenerator is AttackMoveOrderGenerator);
+					&& world.OrderGenerator is not AttackMoveOrderGenerator;
 
-				Action<bool> toggle = allowCancel =>
+				void Toggle(bool allowCancel)
 				{
 					if (attackButton.IsHighlighted())
 						world.CancelInputMode();
 					else
 						world.OrderGenerator = new ForceModifiersOrderGenerator(Modifiers.Ctrl, true);
-				};
+				}
 
-				attackButton.OnClick = () => toggle(true);
-				attackButton.OnKeyPress = _ => toggle(false);
+				attackButton.OnClick = () => Toggle(true);
+				attackButton.OnKeyPress = _ => Toggle(false);
 			}
 
 			moveButton = widget.GetOrNull<D2ButtonWidget>("MOVE");
@@ -147,16 +145,16 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			{
 				moveButton.Visible = false;
 				moveButton.IsHighlighted = () => !moveButton.IsDisabled() && IsForceModifiersActive(Modifiers.Alt);
-				Action<bool> toggle = allowCancel =>
+				void Toggle(bool allowCancel)
 				{
 					if (moveButton.IsHighlighted())
 						world.CancelInputMode();
 					else
 						world.OrderGenerator = new ForceModifiersOrderGenerator(Modifiers.Alt, true);
-				};
+				}
 
-				moveButton.OnClick = () => toggle(true);
-				moveButton.OnKeyPress = _ => toggle(false);
+				moveButton.OnClick = () => Toggle(true);
+				moveButton.OnKeyPress = _ => Toggle(false);
 			}
 
 			retreatButton = widget.GetOrNull<D2ButtonWidget>("RETREAT");
@@ -164,12 +162,9 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			{
 				retreatButton.Visible = false;
 
-				retreatButton.OnClick = () =>
-				{
-					PerformKeyboardOrderOnSelection(a => new Order("Stop", a, false));
-				};
+				retreatButton.OnClick = () => PerformKeyboardOrderOnSelection(a => new Order("Stop", a, false));
 
-				retreatButton.OnKeyPress = ki => { retreatButton.OnClick(); };
+				retreatButton.OnKeyPress = ki => retreatButton.OnClick();
 			}
 
 			guardButton = widget.GetOrNull<D2ButtonWidget>("GUARD");
@@ -178,7 +173,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				guardButton.Visible = false;
 				guardButton.IsHighlighted = () => world.OrderGenerator is GuardOrderGenerator;
 
-				Action<bool> toggle = allowCancel =>
+				void Toggle(bool allowCancel)
 				{
 					if (guardButton.IsHighlighted())
 					{
@@ -188,10 +183,10 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 					else
 						world.OrderGenerator = new GuardOrderGenerator(selectedActors,
 							"Guard", "guard", Game.Settings.Game.MouseButtonPreference.Action);
-				};
+				}
 
-				guardButton.OnClick = () => toggle(true);
-				guardButton.OnKeyPress = _ => toggle(false);
+				guardButton.OnClick = () => Toggle(true);
+				guardButton.OnKeyPress = _ => Toggle(false);
 			}
 		}
 
@@ -204,12 +199,10 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 
 		bool IsForceModifiersActive(Modifiers modifiers)
 		{
-			var fmog = world.OrderGenerator as ForceModifiersOrderGenerator;
-			if (fmog != null && fmog.Modifiers.HasFlag(modifiers))
+			if (world.OrderGenerator is ForceModifiersOrderGenerator fmog && fmog.Modifiers.HasFlag(modifiers))
 				return true;
 
-			var uog = world.OrderGenerator as UnitOrderGenerator;
-			if (uog != null && Game.GetModifierKeys().HasFlag(modifiers))
+			if (world.OrderGenerator is UnitOrderGenerator && Game.GetModifierKeys().HasFlag(modifiers))
 				return true;
 
 			return false;
@@ -272,12 +265,12 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 
 					line1a.Text = "HOLDS:";
 					line1a.Visible = true;
-					line1b.GetText = () => store.ContentsSum.ToString();
+					line1b.GetText = () => store.ContentsSum.ToString(CultureInfo.InvariantCulture);
 					line1b.Visible = true;
 
 					line2a.Text = "MAX:";
 					line2a.Visible = true;
-					line2b.GetText = () => store.Capacity.ToString();
+					line2b.GetText = () => store.Capacity.ToString(CultureInfo.InvariantCulture);
 					line2b.Visible = true;
 				}
 			}
@@ -292,25 +285,24 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			if (powers.Any())
 			{
 				var power = powers.FirstOrDefault(t => !t.IsTraitDisabled);
-				if (power != null)
+				if (power != null && power.Info.Amount > 0)
 				{
-					if (power.Info.Amount > 0)
-					{
-						title.Text = "POWER INFO";
-						title.Visible = true;
+					title.Text = "POWER INFO";
+					title.Visible = true;
 
-						separator.Visible = true;
+					separator.Visible = true;
 
-						line1a.Text = "NEEDED:";
-						line1a.Visible = true;
-						line1b.GetText = () => (power.PlayerPower.PowerProvided != 0 ? power.PlayerPower.PowerDrained * power.GetEnabledPower() / power.PlayerPower.PowerProvided : 0).ToString();
-						line1b.Visible = true;
+					line1a.Text = "NEEDED:";
+					line1a.Visible = true;
+					line1b.GetText = () => (power.PlayerPower.PowerProvided != 0
+						? power.PlayerPower.PowerDrained * power.GetEnabledPower() / power.PlayerPower.PowerProvided
+						: 0).ToString(CultureInfo.InvariantCulture);
+					line1b.Visible = true;
 
-						line2a.Text = "OUTPUT:";
-						line2a.Visible = true;
-						line2b.GetText = () => power.GetEnabledPower().ToString();
-						line2b.Visible = true;
-					}
+					line2a.Text = "OUTPUT:";
+					line2a.Visible = true;
+					line2b.GetText = () => power.GetEnabledPower().ToString(CultureInfo.InvariantCulture);
+					line2b.Visible = true;
 				}
 			}
 		}

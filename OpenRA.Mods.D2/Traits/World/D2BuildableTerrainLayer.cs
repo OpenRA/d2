@@ -74,7 +74,7 @@ namespace OpenRA.Mods.D2.Traits
 			if (world.ActorMap.GetActorsAt(cell).Any(a => a.TraitOrDefault<Building>() != null))
 				return;
 
-			strength[cell] = strength[cell] - damage;
+			strength[cell] -= damage;
 			if (strength[cell] < 1)
 				RemoveTile(cell);
 		}

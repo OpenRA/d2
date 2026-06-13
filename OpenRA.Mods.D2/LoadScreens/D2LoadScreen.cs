@@ -114,10 +114,9 @@ namespace OpenRA.Mods.D2
 
 				using (stream)
 				{
-					CpsD2Loader loader = new CpsD2Loader();
-					TypeDictionary metadata;
+					var loader = new CpsD2Loader();
 
-					if (!loader.TryParseSprite(stream, string.Empty, out frames, out metadata))
+					if (!loader.TryParseSprite(stream, string.Empty, out frames, out var metadata))
 						return;
 				}
 

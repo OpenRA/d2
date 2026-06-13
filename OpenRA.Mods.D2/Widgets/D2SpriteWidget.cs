@@ -24,13 +24,10 @@ namespace OpenRA.Mods.D2.Widgets
 		public float2 Offset = float2.Zero;
 		public float Scale = 1.0f;
 
-		readonly WorldRenderer worldRenderer;
-
 		[ObjectCreator.UseCtor]
-		public D2SpriteWidget(World world, WorldRenderer worldRenderer)
+		public D2SpriteWidget(World world)
 		{
 			World = world;
-			this.worldRenderer = worldRenderer;
 		}
 
 		public override void Draw()

@@ -65,7 +65,7 @@ namespace OpenRA.Mods.D2.MapUtils
 
 			if (tile == RockTile)
 			{
-				ClearSides clear = ClearSides.None;
+				var clear = ClearSides.None;
 
 				if (x > 0)
 				{
@@ -113,7 +113,7 @@ namespace OpenRA.Mods.D2.MapUtils
 
 			if (tile == DuneTile)
 			{
-				ClearSides clear = ClearSides.None;
+				var clear = ClearSides.None;
 
 				if (x > 0)
 				{
@@ -153,7 +153,7 @@ namespace OpenRA.Mods.D2.MapUtils
 
 			if (tile == RoughTile)
 			{
-				ClearSides clear = ClearSides.None;
+				var clear = ClearSides.None;
 
 				if (x > 0)
 				{
@@ -200,7 +200,7 @@ namespace OpenRA.Mods.D2.MapUtils
 
 			if (tile == RockTile)
 			{
-				ClearSides clear = ClearSides.None;
+				var clear = ClearSides.None;
 
 				if (pos.U > 0)
 				{
@@ -248,7 +248,7 @@ namespace OpenRA.Mods.D2.MapUtils
 
 			if (tile == DuneTile)
 			{
-				ClearSides clear = ClearSides.None;
+				var clear = ClearSides.None;
 
 				if (pos.U > 0)
 				{
@@ -288,7 +288,7 @@ namespace OpenRA.Mods.D2.MapUtils
 
 			if (tile == RoughTile)
 			{
-				ClearSides clear = ClearSides.None;
+				var clear = ClearSides.None;
 
 				if (pos.U > 0)
 				{

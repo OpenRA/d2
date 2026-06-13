@@ -55,10 +55,10 @@ namespace OpenRA.Mods.D2.Widgets
 			D2WidgetUtils.DrawYellowTriangle(new int2((r.Left + r.Right) / 2, r.Bottom), BarMargin);
 			D2WidgetUtils.DrawGreenTriangle(new int2(r.Right - 2 * BarMargin, r.Bottom), BarMargin);
 
-			var minBarWidth = 1;
+			const int MinBarWidth = 1;
 			var maxBarWidth = r.Width - BarMargin * 2;
 			var barWidth = percentage * maxBarWidth / 100;
-			barWidth = Math.Max(barWidth, minBarWidth);
+			barWidth = Math.Max(barWidth, MinBarWidth);
 
 			var barRect = new Rectangle(r.X + BarMargin, r.Y + BarMargin, barWidth, r.Height - 2 * BarMargin);
 			var barColor = Color.FromArgb(85, 254, 81);

@@ -20,7 +20,7 @@ namespace OpenRA.Mods.D2.ImportData
 	{
 		public static int ImportOriginalMaps(ModData modData, Dictionary<string, string> info)
 		{
-			string[] files = Array.Empty<string>();
+			var files = Array.Empty<string>();
 			var unpackedFilesCount = 0;
 
 			if (info.ContainsKey("OriginalMaps"))
@@ -49,18 +49,16 @@ namespace OpenRA.Mods.D2.ImportData
 				var mapFilename = Path.Combine(originalPath, Path.GetFileNameWithoutExtension(filename) + ".oramap");
 				try
 				{
-					if (!File.Exists(mapFilename))
+					if (!File.Exists(mapFilename) && modData.DefaultFileSystem.Exists(filename))
 					{
-						if (modData.DefaultFileSystem.Exists(filename))
-						{
-							var rules = Ruleset.LoadDefaults(modData);
-							var map = D2MapImporter.Import(filename, modData.Manifest.Id, "arrakis2", rules);
+						var rules = Ruleset.LoadDefaults(modData);
+						var map = D2MapImporter.Import(filename, modData.Manifest.Id, "arrakis2", rules);
 
-							if (map != null)
-							{
-								map.Save(ZipFileLoader.Create(mapFilename));
-								Console.WriteLine("Original map {0} saved to {1}", filename, mapFilename);
-							}
+						if (map != null)
+						{
+							map.Save(ZipFileLoader.Create(mapFilename));
+							unpackedFilesCount++;
+							Console.WriteLine("Original map {0} saved to {1}", filename, mapFilename);
 						}
 					}
 				}

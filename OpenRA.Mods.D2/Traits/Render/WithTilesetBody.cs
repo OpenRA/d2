@@ -43,7 +43,7 @@ namespace OpenRA.Mods.D2.Traits
 			var cols = bi.Dimensions.X;
 			var rows = bi.Dimensions.Y;
 
-			for (var index = 0; index < (cols * rows); index++)
+			for (var index = 0; index < cols * rows; index++)
 			{
 				if (SkipFrames == null || !SkipFrames.Contains(index))
 				{
@@ -51,14 +51,14 @@ namespace OpenRA.Mods.D2.Traits
 					var x = index % cols;
 
 					var anim = new Animation(init.World, image);
-					Func<WVec> offset = () => new WVec(x * 1024 - 512, y * 1024 - 512, 0);
-					Func<int> zOffset = () => 0;
+					WVec Offset() => new(x * 1024 - 512, y * 1024 - 512, 0);
+					int ZOffset() => 0;
 
 					var frameIndex = index;
 					anim.PlayFetchIndex(Sequence, () => frameIndex);
 					anim.IsDecoration = true;
 
-					yield return new SpriteActorPreview(anim, offset, zOffset, p);
+					yield return new SpriteActorPreview(anim, Offset, ZOffset, p);
 				}
 			}
 		}
@@ -74,7 +74,7 @@ namespace OpenRA.Mods.D2.Traits
 			var cols = bi.Dimensions.X;
 			var rows = bi.Dimensions.Y;
 
-			for (var index = 0; index < (cols * rows); index++)
+			for (var index = 0; index < cols * rows; index++)
 			{
 				if (info.SkipFrames == null || !info.SkipFrames.Contains(index))
 				{

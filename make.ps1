@@ -123,6 +123,7 @@ function Check-Command
 	if ($lastexitcode -ne 0)
 	{
 		Write-Host "Build failed." -ForegroundColor Red
+		exit 1
 	}
 
 	if ((CheckForUtility) -eq 0)

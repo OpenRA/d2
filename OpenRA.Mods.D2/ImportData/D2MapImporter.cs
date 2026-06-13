@@ -25,12 +25,9 @@ using OpenRA.Primitives;
 
 namespace OpenRA.Mods.D2.ImportData
 {
-	public class D2MapImporter
+	public sealed class D2MapImporter
 	{
-		readonly Ruleset rules;
 		readonly IniFile iniFile;
-		readonly string tilesetName;
-		readonly TerrainTile clearTile;
 
 		Map map;
 		Size mapSize;
@@ -40,18 +37,14 @@ namespace OpenRA.Mods.D2.ImportData
 		ushort[] m;
 		D2MapSeed seed;
 
-		D2MapImporter(string filename, string tileset, Ruleset rules)
+		D2MapImporter(string filename)
 		{
-			tilesetName = tileset;
-			this.rules = rules;
-
 			try
 			{
-				clearTile = new TerrainTile(0, 0);
 				using (var stream = Game.ModData.DefaultFileSystem.Open(filename))
 				{
 					if (stream.Length == 0)
-						throw new ArgumentException("The map is in an unrecognized format!", "filename");
+						throw new ArgumentException("The map is in an unrecognized format!", nameof(filename));
 
 					iniFile = new IniFile(stream);
 
@@ -82,7 +75,7 @@ namespace OpenRA.Mods.D2.ImportData
 
 		public static Map Import(string filename, string mod, string tileset, Ruleset rules)
 		{
-			var importer = new D2MapImporter(filename, tileset, rules);
+			var importer = new D2MapImporter(filename);
 			var map = importer.map;
 			if (map == null)
 				return null;
@@ -102,8 +95,7 @@ namespace OpenRA.Mods.D2.ImportData
 			 */
 
 			var mapScaleValue = iniFile.GetSection("BASIC").GetValue("MapScale", "0");
-			var mapScale = 0;
-			int.TryParse(mapScaleValue, out mapScale);
+			int.TryParse(mapScaleValue, out var mapScale);
 
 			mapSize = new Size(64, 64);
 			m = new ushort[64 * 64];
@@ -247,9 +239,12 @@ namespace OpenRA.Mods.D2.ImportData
 		/* Initialises every fourth x/y tile in the map. */
 		void MakeRoughLandscape()
 		{
-			byte[] memory = new byte[273];
-			ushort i = 0;
-
+			/* The first 16 * 16 entries become the rough 4-tile grid.
+			 * The original algorithm also clamps neighbour offsets to 272
+			 * inclusive, so keep the extra entries as edge/sentinel storage.
+			 */
+			var memory = new byte[273];
+			ushort i;
 			for (i = 0; i < 272; i++)
 			{
 				memory[i] = (byte)(seed.Random() & 0xF);
@@ -342,8 +337,8 @@ namespace OpenRA.Mods.D2.ImportData
 		/* Average a tile and its immediate neighbours. */
 		void Average()
 		{
-			ushort[] currRow = new ushort[64];
-			ushort[] prevRow = new ushort[64];
+			var currRow = new ushort[64];
+			var prevRow = new ushort[64];
 
 			for (var j = 0; j < 64; j++)
 			{
@@ -351,7 +346,7 @@ namespace OpenRA.Mods.D2.ImportData
 				Array.Copy(currRow, prevRow, currRow.Length);
 
 				for (var i = 0; i < 64; i++)
-					currRow[i] = (ushort)(m[d + i]);
+					currRow[i] = m[d + i];
 
 				for (var i = 0; i < 64; i++)
 				{
@@ -363,9 +358,9 @@ namespace OpenRA.Mods.D2.ImportData
 					sum += (i == 0) ? currRow[i] : currRow[i - 1];
 					sum += currRow[i];
 					sum += (i == 63) ? currRow[i] : currRow[i + 1];
-					sum += (i == 0 || j == 63) ? currRow[i] : (ushort)(m[d + i + 63]);
-					sum += (j == 63) ? currRow[i] : (ushort)(m[d + i + 64]);
-					sum += (i == 63 || j == 63) ? currRow[i] : (ushort)(m[d + i + 65]);
+					sum += (i == 0 || j == 63) ? currRow[i] : m[d + i + 63];
+					sum += (j == 63) ? currRow[i] : m[d + i + 64];
+					sum += (i == 63 || j == 63) ? currRow[i] : m[d + i + 65];
 
 					m[d + i] = (ushort)(sum / 9);
 				}
@@ -438,8 +433,8 @@ namespace OpenRA.Mods.D2.ImportData
 				newDistance /= 2;
 
 			var orient256 = seed.Random();
-			var x = pos.X + ((stepX[orient256] * newDistance * 16) / 128);
-			var y = pos.Y - ((stepY[orient256] * newDistance * 16) / 128);
+			var x = pos.X + stepX[orient256] * newDistance * 16 / 128;
+			var y = pos.Y - stepY[orient256] * newDistance * 16 / 128;
 
 			/* Out of map size check: 64 * 256 = 16384 */
 			if (x > 16384 || y > 16384)
@@ -453,7 +448,7 @@ namespace OpenRA.Mods.D2.ImportData
 
 		bool IsOutOfMap(CPos pos)
 		{
-			return (pos.X < 0 || pos.X >= map.MapSize.X || pos.Y < 0 || pos.Y >= map.MapSize.Y);
+			return pos.X < 0 || pos.X >= map.MapSize.X || pos.Y < 0 || pos.Y >= map.MapSize.Y;
 		}
 
 		/* Creates a spice field of the given radius at the given location. */
@@ -487,11 +482,8 @@ namespace OpenRA.Mods.D2.ImportData
 								{
 									if (map.Resources[coord].Index == 2)
 										map.Resources[coord] = new ResourceTile(1, 2);
-									else
-									{
-										if (tile == D2MapUtils.SandTile)
-											map.Resources[coord] = new ResourceTile(1, 1);
-									}
+									else if (tile == D2MapUtils.SandTile)
+										map.Resources[coord] = new ResourceTile(1, 1);
 								}
 							}
 						}
@@ -502,15 +494,15 @@ namespace OpenRA.Mods.D2.ImportData
 
 		public static bool CanBecomeSpice(ushort tileType)
 		{
-			return (tileType == D2MapUtils.SandTile || tileType == D2MapUtils.DuneTile);
+			return tileType == D2MapUtils.SandTile || tileType == D2MapUtils.DuneTile;
 		}
 
 		/* Adds spice fields to the map. */
 		void AddSpice(uint minSpiceFields, uint maxSpiceFields)
 		{
-			const uint maxCount = 65535;
+			const uint MaxCount = 65535;
 			var count = 0;
-			var i = 0L;
+			long i;
 
 			/* ENHANCEMENT: spice field controls. */
 			if ((minSpiceFields == 0) && (maxSpiceFields == 0))
@@ -521,15 +513,15 @@ namespace OpenRA.Mods.D2.ImportData
 				var b = Math.Min(maxSpiceFields, 255);
 				minSpiceFields = Math.Min(a, b);
 				maxSpiceFields = Math.Max(a, b);
-				var range = (maxSpiceFields - minSpiceFields + 1);
+				var range = maxSpiceFields - minSpiceFields + 1;
 
-				i = (int)(seed.Random()) * range / 256 + minSpiceFields;
+				i = (int)seed.Random() * range / 256 + minSpiceFields;
 			}
 
 			while (i-- != 0)
 			{
-				ushort y = 0;
-				ushort x = 0;
+				ushort y;
+				ushort x;
 
 				while (true)
 				{
@@ -543,20 +535,20 @@ namespace OpenRA.Mods.D2.ImportData
 
 					/* ENHANCEMENT: ensure termination. */
 					count++;
-					if (count > maxCount)
+					if (count > MaxCount)
 						return;
 				}
 
 				var x1 = ((x & 0x3F) << 8) | 0x80;
 				var y1 = ((y & 0x3F) << 8) | 0x80;
 
-				var j = (ushort)seed.Random() & 0x1F;
+				var j = seed.Random() & 0x1F;
 
 				while (j-- != 0)
 				{
 					CPos coord;
 
-					while (true)
+					do
 					{
 						var dist = seed.Random() & 0x3F;
 
@@ -566,17 +558,11 @@ namespace OpenRA.Mods.D2.ImportData
 						var y2 = (pos.Y >> 8) & 0x3F;
 
 						coord = new CPos(x2, y2);
-
-						if (!IsOutOfMap(coord))
-							break;
 					}
+					while (IsOutOfMap(coord));
 
-					var tile = m[PackXY((ushort)coord.X, (ushort)coord.Y)];
-
-					if (map.Resources[coord].Type == 1)
-						CreateSpiceField(coord, 2, true);
-					else
-						CreateSpiceField(coord, 1, true);
+					var radius = map.Resources[coord].Type == 1 ? 2 : 1;
+					CreateSpiceField(coord, radius, true);
 				}
 			}
 		}
@@ -642,8 +628,7 @@ namespace OpenRA.Mods.D2.ImportData
 		void FillMap()
 		{
 			var seedStr = iniFile.GetSection("MAP").GetValue("Seed", "0");
-			var seedValue = 0U;
-			uint.TryParse(seedStr, out seedValue);
+			uint.TryParse(seedStr, out var seedValue);
 
 			CreateLandscape(seedValue, 0, 0);
 		}
@@ -655,13 +640,12 @@ namespace OpenRA.Mods.D2.ImportData
 			foreach (var field in fields)
 			{
 				var str = field.Trim();
-				ushort fieldPacked = 0;
-				ushort.TryParse(str, out fieldPacked);
+				ushort.TryParse(str, out var fieldPacked);
 
 				var x = PackedX(fieldPacked);
 				var y = PackedY(fieldPacked);
 
-				CPos pos = new CPos(x, y);
+				var pos = new CPos(x, y);
 
 				CreateSpiceField(pos, 5, true);
 			}
@@ -687,8 +671,7 @@ namespace OpenRA.Mods.D2.ImportData
 			foreach (var bloom in blooms)
 			{
 				var str = bloom.Trim();
-				ushort bloomPacked = 0;
-				ushort.TryParse(str, out bloomPacked);
+				ushort.TryParse(str, out var bloomPacked);
 
 				var x = PackedX(bloomPacked);
 				var y = PackedY(bloomPacked);
@@ -721,22 +704,22 @@ namespace OpenRA.Mods.D2.ImportData
 			{
 				var value = structure.Value;
 				var substrs = value.Split(',');
-				if (substrs.Length >= 4)
-				{
-					var structureType = substrs[1];
-					if (structureType.ToLower() == "const yard")
-					{
-						var positionStr = substrs[3].Trim();
-						ushort packed = 0;
-						ushort.TryParse(positionStr, out packed);
+				/* Structure records must include the packed map position in the fourth field. */
+				var hasPackedPosition = substrs.Length >= 4;
 
-						var x = PackedX(packed);
-						var y = PackedY(packed);
+				/* Original Dune II maps use Const Yard records as multiplayer spawn points. */
+				var isConstructionYard = string.Equals(substrs[1], "const yard", StringComparison.OrdinalIgnoreCase);
+				if (!hasPackedPosition || !isConstructionYard)
+					continue;
 
-						CreateSpawnPoint(new CPos(x, y));
-						playerCount++;
-					}
-				}
+				var positionStr = substrs[3].Trim();
+				ushort.TryParse(positionStr, out var packed);
+
+				var x = PackedX(packed);
+				var y = PackedY(packed);
+
+				CreateSpawnPoint(new CPos(x, y));
+				playerCount++;
 			}
 		}
 	}

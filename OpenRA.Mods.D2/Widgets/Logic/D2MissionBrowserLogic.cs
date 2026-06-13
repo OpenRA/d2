@@ -99,7 +99,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			missionList.RemoveChildren();
 
 			// Add a group for each campaign
-			if (modData.Manifest.Missions.Any())
+			if (modData.Manifest.Missions.Length != 0)
 			{
 				var yaml = MiniYaml.Merge(modData.Manifest.Missions.Select(
 					m => MiniYaml.FromStream(modData.DefaultFileSystem.Open(m), m)));
@@ -137,8 +137,8 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				allPreviews.AddRange(loosePreviews);
 			}
 
-			if (allPreviews.Any())
-				SelectMap(allPreviews.First());
+			if (allPreviews.Count != 0)
+				SelectMap(allPreviews[0]);
 
 			// Preload map preview and rules to reduce jank
 			new Thread(() =>
@@ -269,14 +269,14 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 						OnClick = () => difficulty = kv.Key
 					});
 
-					Func<DropDownOption, ScrollItemWidget, ScrollItemWidget> setupItem = (option, template) =>
+					ScrollItemWidget SetupItem(DropDownOption option, ScrollItemWidget template)
 					{
 						var item = ScrollItemWidget.Setup(template, option.IsSelected, option.OnClick);
 						item.Get<LabelWidget>("LABEL").GetText = () => option.Title;
 						return item;
-					};
+					}
 
-					difficultyButton.ShowDropDown("LABEL_DROPDOWN_TEMPLATE", options.Count() * 30, options, setupItem);
+					difficultyButton.ShowDropDown("LABEL_DROPDOWN_TEMPLATE", options.Count() * 30, options, SetupItem);
 				};
 			}
 
@@ -295,14 +295,14 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 						OnClick = () => gameSpeed = s.Key
 					});
 
-					Func<DropDownOption, ScrollItemWidget, ScrollItemWidget> setupItem = (option, template) =>
+					ScrollItemWidget SetupItem(DropDownOption option, ScrollItemWidget template)
 					{
 						var item = ScrollItemWidget.Setup(template, option.IsSelected, option.OnClick);
 						item.Get<LabelWidget>("LABEL").GetText = () => option.Title;
 						return item;
-					};
+					}
 
-					gameSpeedButton.ShowDropDown("LABEL_DROPDOWN_TEMPLATE", options.Count() * 30, options, setupItem);
+					gameSpeedButton.ShowDropDown("LABEL_DROPDOWN_TEMPLATE", options.Count() * 30, options, SetupItem);
 				};
 			}
 		}
@@ -332,8 +332,8 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				ConfirmationDialogs.ButtonPrompt(modData,
 					title: "Video not installed",
 					text: "The game videos can be installed from the\n\"Manage Content\" menu in the mod chooser.",
-					cancelText: "Back",
-					onCancel: () => { });
+					onCancel: () => { },
+					cancelText: "Back");
 			}
 			else
 			{
@@ -346,8 +346,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				player.PlayThen(() =>
 				{
 					StopVideo(player);
-					if (onComplete != null)
-						onComplete();
+					onComplete?.Invoke();
 				});
 
 				// Mute other distracting sounds
@@ -392,10 +391,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			{
 				var fsPlayer = fullscreenVideoPlayer.Get<WsaPlayerWidget>("PLAYER");
 				fullscreenVideoPlayer.Visible = true;
-				PlayVideo(fsPlayer, missionData.StartVideo, PlayingVideo.GameStart, () =>
-				{
-					Game.CreateAndStartLocalServer(selectedMap.Uid, orders);
-				});
+				PlayVideo(fsPlayer, missionData.StartVideo, PlayingVideo.GameStart, () => Game.CreateAndStartLocalServer(selectedMap.Uid, orders));
 			}
 			else
 				Game.CreateAndStartLocalServer(selectedMap.Uid, orders);

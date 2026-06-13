@@ -44,45 +44,42 @@ namespace OpenRA.Mods.D2.Traits
 
 	public class D2PlaceBuildingPreviewPreview : FootprintPlaceBuildingPreviewPreview
 	{
-		protected readonly D2PlaceBuildingPreviewInfo info;
-		protected readonly ActorInfo ai;
-		protected readonly D2BuildingInfo bi;
+		protected readonly D2PlaceBuildingPreviewInfo Info;
+		protected readonly D2BuildingInfo BuildingInfo;
 
-		protected readonly int cols;
-		protected readonly int rows;
-		protected readonly Rectangle bounds;
+		protected readonly int Cols;
+		protected readonly int Rows;
+		protected readonly Rectangle Bounds;
 
 		protected float t = 0.0f;
 
 		public D2PlaceBuildingPreviewPreview(WorldRenderer wr, ActorInfo ai, D2PlaceBuildingPreviewInfo info)
 			: base(wr, ai, info)
 		{
-			this.info = info;
-			this.ai = ai;
+			Info = info;
+			BuildingInfo = ai.TraitInfo<D2BuildingInfo>();
 
-			bi = ai.TraitInfo<D2BuildingInfo>();
+			Cols = BuildingInfo.Dimensions.X;
+			Rows = BuildingInfo.Dimensions.Y;
 
-			cols = bi.Dimensions.X;
-			rows = bi.Dimensions.Y;
-
-			var halfWidth = cols * 512;
-			var halfHeight = rows * 512;
+			var halfWidth = Cols * 512;
+			var halfHeight = Rows * 512;
 
 			var width = halfWidth * 2;
 			var height = halfHeight * 2;
 
-			bounds = new Rectangle(-halfWidth, -halfHeight, width, height);
+			Bounds = new Rectangle(-halfWidth, -halfHeight, width, height);
 		}
 
 		protected override void TickInner()
 		{
-			if (info.ColorAnimationStep == 0.0f)
+			if (Info.ColorAnimationStep == 0.0f)
 				return;
 
-			t += info.ColorAnimationStep;
+			t += Info.ColorAnimationStep;
 
 			if (t >= 1.0f || t <= 0)
-				info.ColorAnimationStep = -info.ColorAnimationStep;
+				Info.ColorAnimationStep = -Info.ColorAnimationStep;
 
 			if (t > 1.0f)
 				t = 1.0f;
@@ -93,37 +90,37 @@ namespace OpenRA.Mods.D2.Traits
 
 		protected bool IsCloseEnoughAndBuildable(World w, ActorInfo ai, CPos topLeft)
 		{
-			var isCloseEnough = bi.IsCloseEnoughToBase(w, w.LocalPlayer, ai, topLeft);
+			var isCloseEnough = BuildingInfo.IsCloseEnoughToBase(w, w.LocalPlayer, ai, topLeft);
 			var isAllBuildable = true;
 			var isAnyBuildable = false;
 
-			for (var y = 0; y < rows; y++)
+			for (var y = 0; y < Rows; y++)
 			{
-				for (var x = 0; x < cols; x++)
+				for (var x = 0; x < Cols; x++)
 				{
 					var cellPos = new CPos(topLeft.X + x, topLeft.Y + y);
-					if (w.IsCellBuildable(cellPos, ai, bi))
+					if (w.IsCellBuildable(cellPos, ai, BuildingInfo))
 					{
 						isAnyBuildable = true;
-						if (!info.StrictBuildableChecks)
+						if (!Info.StrictBuildableChecks)
 							break;
 					}
 					else
 					{
 						isAllBuildable = false;
-						if (info.StrictBuildableChecks)
+						if (Info.StrictBuildableChecks)
 							break;
 					}
 				}
 
-				if (isAnyBuildable && !info.StrictBuildableChecks)
+				if (isAnyBuildable && !Info.StrictBuildableChecks)
 					break;
 
-				if (!isAllBuildable && info.StrictBuildableChecks)
+				if (!isAllBuildable && Info.StrictBuildableChecks)
 					break;
 			}
 
-			if (info.StrictBuildableChecks)
+			if (Info.StrictBuildableChecks)
 				return isCloseEnough && isAllBuildable;
 			else
 				return isCloseEnough && isAnyBuildable;
@@ -138,7 +135,7 @@ namespace OpenRA.Mods.D2.Traits
 
 			var cross = !IsCloseEnoughAndBuildable(wr.World, ActorInfo, topLeft);
 
-			yield return new D2BuildingPlacementRenderable(centerPosition, bounds, color, cross);
+			yield return new D2BuildingPlacementRenderable(centerPosition, Bounds, color, cross);
 		}
 	}
 }
