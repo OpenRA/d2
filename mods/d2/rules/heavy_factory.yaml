@@ -6,13 +6,13 @@ heavy_factory:
 		BuildPaletteOrder: 130
 		BuildDuration: 1800
 		BuildDurationModifier: 40
-		Description: Produces heavy vehicles
+		Description: actor-heavy-factory.description
 	Selectable:
 		Bounds: 3072, 2048
 	Valued:
 		Cost: 600
 	Tooltip:
-		Name: Heavy Factory
+		Name: actor-heavy-factory.name
 	D2Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
@@ -80,14 +80,14 @@ upgrade.heavy:
 	AlwaysVisible:
 	Interactable:
 	Tooltip:
-		Name: Heavy Factory Upgrade
+		Name: actor-upgrade-heavy.name
 	Buildable:
 		BuildPaletteOrder: 999
 		Queue: Armor
 		BuildLimit: 1
 		BuildDuration: 250
 		BuildDurationModifier: 40
-		Description: Unlocks advanced technology and heavy weapons
+		Description: actor-upgrade-heavy.description
 	Valued:
 		Cost: 300
 	RenderSprites:

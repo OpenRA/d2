@@ -46,7 +46,7 @@ Container@PLAYER_WIDGETS:
 							Width: 78
 							Height: 15
 							Background:
-							TooltipText: Options
+							TooltipText: button-top-buttons-options-tooltip
 							TooltipContainer: TOOLTIP_CONTAINER
 							DisableWorldSounds: true
 							VisualHeight: 0
@@ -65,7 +65,7 @@ Container@PLAYER_WIDGETS:
 							Width: 50
 							Height: 22
 							Font: Bold
-							Text: {0}
+							Text: label-resource-value
 							TooltipContainer: TOOLTIP_CONTAINER
 							TooltipTemplate: SIMPLE_TOOLTIP
 						LabelWithTooltip@POWER:
@@ -76,7 +76,7 @@ Container@PLAYER_WIDGETS:
 							Height: 22
 							Align: Right
 							Font: Bold
-							Text: {0}
+							Text: label-resource-value
 							TooltipContainer: TOOLTIP_CONTAINER
 							TooltipTemplate: SIMPLE_TOOLTIP
 							Children:
@@ -175,28 +175,28 @@ Container@PLAYER_WIDGETS:
 							Width: 208
 							Height: 34
 							VisualHeight: 0
-							Text: ATTACK
+							Text: button-d2-command-attack
 						D2Button@MOVE:
 							X: 5
 							Y: 146
 							Width: 208
 							Height: 34
 							VisualHeight: 0
-							Text: MOVE
+							Text: button-d2-command-move
 						D2Button@RETREAT:
 							X: 5
 							Y: 182
 							Width: 208
 							Height: 34
 							VisualHeight: 0
-							Text: RETREAT
+							Text: button-d2-command-retreat
 						D2Button@GUARD:
 							X: 5
 							Y: 218
 							Width: 208
 							Height: 34
 							VisualHeight: 0
-							Text: GUARD
+							Text: button-d2-command-guard
 				Container@HORIZONTAL_LINE_1:
 					X: 0
 					Y: 257
@@ -334,8 +334,8 @@ Container@PLAYER_WIDGETS:
 					X: 39
 					Y: 1
 					TooltipContainer: TOOLTIP_CONTAINER
-					ReadyText: READY
-					HoldText: ON HOLD
+					ReadyText: productionpalette-sidebar-production-palette.ready
+					HoldText: productionpalette-sidebar-production-palette.hold
 					IconSize: 58, 48
 					IconMargin: 2, 0
 					IconSpriteOffset: 0, 0
@@ -354,7 +354,7 @@ Container@PLAYER_WIDGETS:
 							Height: 25
 							VisualHeight: 0
 							Background: sidebar-button
-							TooltipText: Scroll up
+							TooltipText: button-production-types-scroll-up-tooltip
 							TooltipContainer: TOOLTIP_CONTAINER
 							Children:
 								Image@ICON:
@@ -368,7 +368,7 @@ Container@PLAYER_WIDGETS:
 							Height: 25
 							VisualHeight: 0
 							Background: sidebar-button
-							TooltipText: Scroll down
+							TooltipText: button-production-types-scroll-down-tooltip
 							TooltipContainer: TOOLTIP_CONTAINER
 							Children:
 								Image@ICON:

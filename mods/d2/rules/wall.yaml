@@ -10,15 +10,15 @@ wall:
 		BuildPaletteOrder: 70
 		BuildDuration: 500
 		BuildDurationModifier: 40
-		Description: Stop units and blocks enemy fire.
+		Description: actor-wall.description
 	SoundOnDamageTransition:
 		DamagedSounds:
 		DestroyedSounds: EXPLSML4.WAV
 	Valued:
 		Cost: 50
 	Tooltip:
-		Name: Concrete Wall
-		GenericName: Structure
+		Name: actor-wall.name
+		GenericName: meta-building-generic-name
 	AppearsOnRadar:
 	D2Building:
 		BuildSounds: CHUNG.WAV

@@ -1,12 +1,12 @@
 Player:
 	ModularBot@Cyril:
-		Name: Cyril
+		Name: bot-cyril.name
 		Type: cyril
 	ModularBot@Radnor:
-		Name: Radnor
+		Name: bot-radnor.name
 		Type: radnor
 	ModularBot@Ammon:
-		Name: Ammon
+		Name: bot-ammon.name
 		Type: ammon
 	SupportPowerBotModule:
 		RequiresCondition: enable-cyril-ai || enable-radnor-ai || enable-ammon-ai

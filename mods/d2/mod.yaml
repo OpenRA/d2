@@ -3,6 +3,7 @@ Metadata:
 	Version: release-20250330
 	Website: https://www.github.com/OpenRA/d2
 	WebIcon32: https://www.openra.net/images/icons/d2k_32x32.png
+	WindowTitle: mod-windowtitle
 
 ModCredits:
 	ModTabTitle: d2 mod
@@ -281,6 +282,10 @@ FluentMessages:
 	common|fluent/chrome.ftl
 	common|fluent/hotkeys.ftl
 	common|fluent/rules.ftl
+	d2k|fluent/d2k.ftl
+	d2k|fluent/chrome.ftl
+	d2k|fluent/hotkeys.ftl
+	d2k|fluent/rules.ftl
 	d2|fluent/mod.ftl
 
 AllowUnusedFluentMessagesInExternalPackages: true
@@ -369,26 +374,26 @@ GameSpeeds:
 	DefaultSpeed: default
 	Speeds:
 		slowest:
-			Name: slowest
+			Name: options-game-speed.slowest
 			Timestep: 80
 			OrderLatency: 2
 		slower:
-			Name: slower
+			Name: options-game-speed.slower
 			Timestep: 50
 			OrderLatency: 3
 		default:
-			Name: normal
+			Name: options-game-speed.normal
 			Timestep: 40
 			OrderLatency: 3
 		fast:
-			Name: fast
+			Name: options-game-speed.fast
 			Timestep: 35
 			OrderLatency: 4
 		faster:
-			Name: faster
+			Name: options-game-speed.faster
 			Timestep: 30
 			OrderLatency: 4
 		fastest:
-			Name: fastest
+			Name: options-game-speed.fastest
 			Timestep: 20
 			OrderLatency: 6

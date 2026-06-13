@@ -2,7 +2,7 @@
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
 	Tooltip:
-		GenericName: Structure
+		GenericName: meta-building-generic-name
 	Huntable:
 	SelectionDecorations:
 	WithSpriteControlGroupDecoration:

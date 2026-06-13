@@ -6,11 +6,11 @@ trooper:
 		BuildPaletteOrder: 20
 		BuildDuration: 700
 		BuildDurationModifier: 40
-		Description: Anti-tank/Anti-aircraft infantry\n  Strong vs Tanks, Aircraft\n  Weak vs Infantry, Artillery
+		Description: actor-trooper.description
 	Valued:
 		Cost: 100
 	Tooltip:
-		Name: Trooper
+		Name: actor-trooper.name
 	Health:
 		HP: 45
 	Mobile:

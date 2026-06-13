@@ -1,7 +1,7 @@
 spicebloom.spawnpoint:
 	Interactable:
 	EditorOnlyTooltip:
-		Name: Spice Bloom spawnpoint
+		Name: actor-spicebloom-spawnpoint-name
 	AlwaysVisible:
 	RenderSpritesEditorOnly:
 		Image: spicebloom
@@ -36,7 +36,7 @@ spicebloom:
 		UseLocation: true
 	WithSpriteBody:
 	Tooltip:
-		Name: Spice Bloom
+		Name: actor-spicebloom-name
 	FireWarheadsOnDeath:
 		Weapon: BloomExplosion
 		EmptyWeapon: BloomExplosion

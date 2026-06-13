@@ -3,7 +3,7 @@ carryall.reinforce:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Carryall
+		Name: actor-carryall-reinforce.name
 	Health:
 		HP: 100
 	Armor:
@@ -44,7 +44,7 @@ carryall.reinforce:
 	Buildable:
 		BuildDuration: 800
 		BuildDurationModifier: 40
-		Description: Large winged, planet-bound ship\n  Automatically lifts harvesters from and to Spice.\n  Lifts vehicles to Repair Pads when ordered.
+		Description: actor-carryall-reinforce.description
 
 carryall:
 	Inherits: carryall.reinforce
@@ -72,7 +72,7 @@ carryall:
 carryall.husk:
 	Inherits: ^AircraftHusk
 	Tooltip:
-		Name: Carryall
+		Name: actor-carryall-reinforce.name
 	Aircraft:
 		TurnSpeed: 16
 		Speed: 144

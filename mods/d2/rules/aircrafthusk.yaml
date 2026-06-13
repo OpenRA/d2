@@ -1,7 +1,7 @@
 ^AircraftHusk:
 	Inherits: ^Husk
 	Tooltip:
-		Name: Destroyed Unit
+		Name: meta-husk-generic-name
 	WithShadow:
 	FallsToEarth:
 		Moves: True

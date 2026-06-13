@@ -7,11 +7,11 @@ light_squad:
 		BuildDuration: 400
 		BuildDurationModifier: 40
 		Prerequisites: upgrade.barracks, ~techlevel.medium
-		Description: General-purpose infantry\n  Strong vs Infantry\n  Weak vs Vehicles, Artillery
+		Description: actor-light-inf.description
 	Valued:
 		Cost: 100
 	Tooltip:
-		Name: Light Infantry Squad
+		Name: actor-light-squad.name
 	Health:
 		HP: 50
 	Mobile:

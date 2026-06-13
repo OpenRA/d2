@@ -2,14 +2,14 @@ missile_tank:
 	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Tooltip:
-		Name: Missile Tank
+		Name: actor-missile-tank.name
 	Buildable:
 		Queue: Armor
 		Prerequisites: ~heavy.missiletank, upgrade.heavy, research_centre, ~techlevel.high
 		BuildPaletteOrder: 60
 		BuildDuration: 900
 		BuildDurationModifier: 40
-		Description: Rocket Artillery\n  Strong vs Vehicles, Buildings, Aircraft\n  Weak vs Infantry
+		Description: actor-missile-tank.description
 	Valued:
 		Cost: 450
 	Mobile:

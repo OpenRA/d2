@@ -1,7 +1,7 @@
 sietch:
 	Inherits: ^Building
 	Tooltip:
-		Name: Fremen Sietch
+		Name: actor-sietch-name
 	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2

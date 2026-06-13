@@ -3,14 +3,14 @@ mcv.husk:
 	Health:
 		HP: 175
 	Tooltip:
-		Name: Destroyed Mobile Construction Vehicle
+		Name: actor-mcv-husk-name
 
 harvester.husk:
 	Inherits: ^VehicleHusk
 	Health:
 		HP: 150
 	Tooltip:
-		Name: Destroyed Spice Harvester
+		Name: actor-harvester-husk-name
 	TransformOnCapture:
 		IntoActor: harvester
 

@@ -1,7 +1,7 @@
 construction_yard:
 	Inherits: ^Building
 	Buildable:
-		Description: Produces structures.
+		Description: actor-construction-yard.description
 	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -36,7 +36,7 @@ construction_yard:
 	Valued:
 		Cost: 400
 	Tooltip:
-		Name: Construction Yard
+		Name: actor-construction-yard.name
 	BaseBuilding:
 	Power:
 		Amount: 0
@@ -83,14 +83,14 @@ upgrade.conyard:
 	Interactable:
 	ScriptTriggers:
 	Tooltip:
-		Name: Construction Yard Upgrade
+		Name: actor-upgrade-conyard.name
 	Buildable:
 		BuildPaletteOrder: 999
 		Queue: Building
 		BuildLimit: 1
 		BuildDuration: 250
 		BuildDurationModifier: 40
-		Description: Unlocks new construction options
+		Description: actor-upgrade-conyard.description
 	Valued:
 		Cost: 200
 	RenderSprites:

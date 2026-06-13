@@ -7,11 +7,11 @@ quad:
 		BuildPaletteOrder: 20
 		BuildDuration: 600
 		BuildDurationModifier: 40
-		Description: Missile Scout\n Strong vs Vehicles\n  Weak vs Infantry
+		Description: actor-quad.description
 	Valued:
 		Cost: 200
 	Tooltip:
-		Name: Missile Quad
+		Name: actor-quad.name
 	Health:
 		HP: 130
 	Armor:

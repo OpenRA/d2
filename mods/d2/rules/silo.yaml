@@ -6,13 +6,13 @@ silo:
 		BuildPaletteOrder: 60
 		BuildDuration: 600
 		BuildDurationModifier: 40
-		Description: Stores excess harvested Spice
+		Description: actor-silo.description
 	Selectable:
 		Bounds: 2048, 2048
 	Valued:
 		Cost: 150
 	Tooltip:
-		Name: Silo
+		Name: actor-silo.name
 	RequiresBuildableArea:
 		Adjacent: 1
 	D2Building:

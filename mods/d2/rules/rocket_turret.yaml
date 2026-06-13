@@ -10,11 +10,11 @@ rocket_turret:
 		BuildPaletteOrder: 90
 		BuildDuration: 1200
 		BuildDurationModifier: 40
-		Description: Defensive structure\n  Strong vs Infantry, Aircraft\n  Weak vs Tanks\n\n  Requires power to operate
+		Description: actor-large-gun-turret.description
 	Valued:
 		Cost: 250
 	Tooltip:
-		Name: Rocket Turret
+		Name: actor-large-gun-turret.name
 	D2Building:
 		BuildSounds: CHUNG.WAV
 	RequiresBuildableArea:

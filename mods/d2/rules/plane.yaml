@@ -3,7 +3,7 @@
 	Inherits@2: ^SpriteActor
 	Interactable:
 	Tooltip:
-		GenericName: Unit
+		GenericName: meta-vehicle-generic-name
 	Huntable:
 	OwnerLostAction:
 		Action: Kill

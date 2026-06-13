@@ -7,11 +7,11 @@ trike:
 		BuildDuration: 500
 		BuildDurationModifier: 40
 		Prerequisites: ~light.atreides
-		Description: Scout vehicle with decent armor\n Strong vs Infantry\n Weak vs Tanks, Aircraft
+		Description: actor-trike.description
 	Valued:
 		Cost: 150
 	Tooltip:
-		Name: Trike
+		Name: actor-trike.name
 	Selectable:
 		Class: trike
 	Health:

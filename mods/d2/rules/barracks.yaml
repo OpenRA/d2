@@ -6,13 +6,13 @@ barracks:
 		BuildPaletteOrder: 100
 		BuildDuration: 900
 		BuildDurationModifier: 40
-		Description: Trains infantry\n  Cannot be captured.
+		Description: actor-barracks.description
 	Selectable:
 		Bounds: 2048, 2048
 	Valued:
 		Cost: 300
 	Tooltip:
-		Name: Barracks
+		Name: actor-barracks.name
 	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -85,14 +85,14 @@ upgrade.barracks:
 	Interactable:
 	ScriptTriggers:
 	Tooltip:
-		Name: Barracks Upgrade
+		Name: actor-upgrade-barracks.name
 	Buildable:
 		BuildPaletteOrder: 999
 		Queue: Infantry
 		BuildLimit: 1
 		BuildDuration: 250
 		BuildDurationModifier: 40
-		Description: Unlocks infantry squads
+		Description: actor-upgrade-barracks.description
 	Valued:
 		Cost: 150
 	RenderSprites:

@@ -7,13 +7,13 @@ outpost:
 		BuildPaletteOrder: 50
 		BuildDuration: 1000
 		BuildDurationModifier: 40
-		Description: Provides a radar map of the battlefield\n  Requires power to operate\n  Cannot be captured.
+		Description: actor-outpost.description
 	Selectable:
 		Bounds: 2048, 2048
 	Valued:
 		Cost: 400
 	Tooltip:
-		Name: Outpost
+		Name: actor-outpost.name
 	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
