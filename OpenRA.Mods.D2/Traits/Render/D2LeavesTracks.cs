@@ -28,7 +28,7 @@ namespace OpenRA.Mods.D2.Traits.Render
 		public readonly string Palette = TileSet.TerrainPaletteInternalName;
 
 		[Desc("Only leave trail on listed terrain types. Leave empty to leave trail on all terrain types.")]
-		public readonly HashSet<string> TerrainTypes = new HashSet<string>();
+		public readonly HashSet<string> TerrainTypes = new();
 
 		[Desc("Should the trail be visible through fog.")]
 		public readonly bool VisibleThroughFog = false;
@@ -45,7 +45,6 @@ namespace OpenRA.Mods.D2.Traits.Render
 
 	public class D2LeavesTracks : ConditionalTrait<D2LeavesTracksInfo>, ITick
 	{
-		BodyOrientation body;
 		IFacing facing;
 		WAngle cachedFacing;
 		int cachedInterval;
@@ -68,7 +67,6 @@ namespace OpenRA.Mods.D2.Traits.Render
 
 		protected override void Created(Actor self)
 		{
-			body = self.Trait<BodyOrientation>();
 			facing = self.TraitOrDefault<IFacing>();
 			cachedFacing = facing != null ? facing.Facing : WAngle.Zero;
 			cachedCell = self.World.Map.CellContaining(self.CenterPosition);
@@ -100,7 +98,7 @@ namespace OpenRA.Mods.D2.Traits.Render
 			{
 				if (self.World.Map.Contains(cachedCell) && (Info.TerrainTypes.Count == 0 || Info.TerrainTypes.Contains(self.World.Map.GetTerrainInfo(cachedCell).Type)))
 				{
-					WAngle spawnFacing = previouslySpawned && previosSpawnCell.Equals(cachedCell) ? previousSpawnFacing : cachedFacing;
+					var spawnFacing = previouslySpawned && previosSpawnCell.Equals(cachedCell) ? previousSpawnFacing : cachedFacing;
 					var pos = self.World.Map.CenterOfCell(cachedCell);
 
 					self.World.AddFrameEndTask(w => w.Add(new SpriteEffect(pos, spawnFacing, self.World, Info.Image,

@@ -60,7 +60,7 @@ namespace OpenRA.Mods.D2.Traits
 			BottomRight = Bottom | Right
 		}
 
-		struct TileInfo
+		readonly struct TileInfo
 		{
 			public readonly float3 ScreenPosition;
 
@@ -192,7 +192,7 @@ namespace OpenRA.Mods.D2.Traits
 
 		void WorldOnRenderPlayerChanged(Player player)
 		{
-			var newShroud = player != null ? player.Shroud : null;
+			var newShroud = player?.Shroud;
 
 			if (shroud != newShroud)
 			{
@@ -272,7 +272,7 @@ namespace OpenRA.Mods.D2.Traits
 					cellsDirty[cell + direction] = true;
 		}
 
-		Sprite GetSprite(Sprite[] sprites, Edges edges)
+		static Sprite GetSprite(Sprite[] sprites, Edges edges)
 		{
 			if (edges == Edges.None)
 				return null;

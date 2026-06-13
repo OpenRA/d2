@@ -155,15 +155,10 @@ namespace OpenRA.Mods.D2.Graphics
 		{
 			foreach (var loader in Game.ModData.SpriteLoaders)
 			{
-				ISpriteFrame[] frames;
-				TypeDictionary metadata;
-				if (loader.TryParseSprite(stream, string.Empty, out frames, out metadata))
+				if (loader.TryParseSprite(stream, string.Empty, out var frames, out _) && frames.Length > 0)
 				{
-					if (frames.Length > 0)
-					{
-						// Will use only first frame if multiple frames available
-						return frames[0];
-					}
+					// Will use only first frame if multiple frames available
+					return frames[0];
 				}
 			}
 

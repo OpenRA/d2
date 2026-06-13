@@ -19,7 +19,7 @@ namespace OpenRA.Mods.D2.ImportData
 	{
 		public static int UnpackFiles(ModData modData, Dictionary<string, string> info)
 		{
-			string[] files = Array.Empty<string>();
+			var files = Array.Empty<string>();
 			var unpackedFilesCount = 0;
 
 			if (info.ContainsKey("UnpackFiles"))
@@ -50,8 +50,8 @@ namespace OpenRA.Mods.D2.ImportData
 				var explicitSplit = s.IndexOf(':');
 				if (explicitSplit > 0)
 				{
-					originalFileName = s.Substring(0, explicitSplit).Trim();
-					fileName = s.Substring(explicitSplit + 1).Trim();
+					originalFileName = s[..explicitSplit].Trim();
+					fileName = s[(explicitSplit + 1)..].Trim();
 				}
 
 				try
@@ -66,7 +66,7 @@ namespace OpenRA.Mods.D2.ImportData
 								using (var fs = new FileStream(newFileName, FileMode.CreateNew, FileAccess.Write))
 								{
 									stream.CopyTo(fs);
-									unpackedFilesCount += 1;
+									unpackedFilesCount++;
 									Console.WriteLine("Successfully unpacked file: {0}", fileName);
 								}
 							}

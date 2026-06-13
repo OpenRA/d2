@@ -19,13 +19,16 @@ namespace OpenRA.Mods.D2.Traits
 {
 	public abstract class D2AffectsShroudInfo : ConditionalTraitInfo
 	{
+		// D2 reveals only a short area around moving units: 1280 world units is 1.25 cells.
+		const int DefaultMovingRange = 1280;
+
 		public readonly WDist MinRange = WDist.Zero;
 
 		[Desc("Range applied then idle.")]
 		public readonly WDist Range = WDist.Zero;
 
 		[Desc("Range applied then moving.")]
-		public readonly WDist MovingRange = new WDist(1280);
+		public readonly WDist MovingRange = new(DefaultMovingRange);
 
 		[Desc("If >= 0, prevent cells that are this much higher than the actor from being revealed.")]
 		public readonly int MaxHeightDelta = -1;
@@ -58,7 +61,7 @@ namespace OpenRA.Mods.D2.Traits
 		protected abstract void RemoveCellsFromPlayerShroud(Actor self, Player player);
 		protected virtual bool IsDisabled(Actor self) { return false; }
 
-		public D2AffectsShroud(Actor self, D2AffectsShroudInfo info)
+		protected D2AffectsShroud(Actor self, D2AffectsShroudInfo info)
 			: base(info)
 		{
 			this.info = info;
@@ -67,7 +70,7 @@ namespace OpenRA.Mods.D2.Traits
 				footprint = new HashSet<PPos>();
 		}
 
-		bool IsIdleRange(Actor self)
+		static bool IsIdleRange(Actor self)
 		{
 			/*
 			 * Can't use isIdle because some activities like Harvest should not use IdleRange
@@ -75,12 +78,12 @@ namespace OpenRA.Mods.D2.Traits
 			 * Check that CurrentActivity is any activity from Activities/Move directory
 			 */
 
-			if (self.CurrentActivity as AttackMoveActivity != null
-				|| self.CurrentActivity as Drag != null
-				|| self.CurrentActivity as Follow != null
-				|| self.CurrentActivity as Move != null
-				|| self.CurrentActivity as MoveAdjacentTo != null
-				|| self.CurrentActivity as MoveWithinRange != null)
+			if (self.CurrentActivity is AttackMoveActivity
+				|| self.CurrentActivity is Drag
+				|| self.CurrentActivity is Follow
+				|| self.CurrentActivity is Move
+				|| self.CurrentActivity is MoveAdjacentTo
+				|| self.CurrentActivity is MoveWithinRange)
 			{
 				return false;
 			}

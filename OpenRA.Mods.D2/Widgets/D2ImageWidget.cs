@@ -80,7 +80,7 @@ namespace OpenRA.Mods.D2.Widgets
 			var collection = GetImageCollection();
 			var paletteName = GetPaletteName();
 
-			if (paletteName == null || paletteName.Length == 0)
+			if (string.IsNullOrEmpty(paletteName))
 				paletteName = "player" + world.LocalPlayer.InternalName;
 			PaletteReference p = null;
 			if (paletteName != null)

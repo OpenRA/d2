@@ -81,7 +81,7 @@ namespace OpenRA.Mods.D2.SpriteLoaders
 
 			if (offsets[0] == 0)
 			{
-				numTiles -= 1;
+				numTiles--;
 				for (var i = 1; i <= numTiles; i++)
 					offsets[i - 1] = offsets[i];
 			}

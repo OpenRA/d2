@@ -24,7 +24,7 @@ namespace OpenRA.Mods.D2.ImportData
 		{
 			get
 			{
-				return (uint)(seed[0])
+				return seed[0]
 					+ (uint)(seed[1] << 8)
 					+ (uint)(seed[2] << 16)
 					+ (uint)(seed[3] << 24);

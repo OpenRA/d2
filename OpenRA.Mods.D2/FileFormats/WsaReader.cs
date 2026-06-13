@@ -19,16 +19,13 @@ namespace OpenRA.Mods.D2.FileFormats
 {
 	public class WsaReader
 	{
-		int width;
-		int height;
-		int currentFrame;
 		ISpriteFrame[] frames;
 
 		public int Length { get { return frames == null ? 0 : frames.Length; } }
-		public int CurrentFrame { get { return currentFrame; } }
+		public int CurrentFrame { get; private set; }
 		public ISpriteFrame Frame { get { return CurrentSpriteFrame(); } }
-		public int Width { get { return width; } }
-		public int Height { get { return height; } }
+		public int Width { get; private set; }
+		public int Height { get; private set; }
 
 		public WsaReader()
 		{
@@ -38,24 +35,19 @@ namespace OpenRA.Mods.D2.FileFormats
 
 		public WsaReader(Stream stream)
 		{
-			TypeDictionary metadata;
-
-			Read(stream, out metadata);
+			Read(stream, out _);
 			Reset();
 		}
 
 		public void Read(Stream stream, out TypeDictionary metadata)
 		{
-			ISpriteFrame[] videoFrames;
 			ISpriteFrame prev = null;
 			var wsaLoader = new WsaLoader();
 
-			metadata = null;
-
 			if (frames != null)
-				prev = frames[frames.Length - 1];
+				prev = frames[^1];
 
-			wsaLoader.TryParseSpriteWithPrevFrame(stream, prev, out videoFrames, out metadata);
+			wsaLoader.TryParseSpriteWithPrevFrame(stream, prev, out var videoFrames, out metadata);
 
 			if (frames == null)
 			{
@@ -64,8 +56,8 @@ namespace OpenRA.Mods.D2.FileFormats
 				if (Length > 0)
 				{
 					var frame = frames[0];
-					width = frame.Size.Width;
-					height = frame.Size.Height;
+					Width = frame.Size.Width;
+					Height = frame.Size.Height;
 				}
 			}
 			else
@@ -74,21 +66,21 @@ namespace OpenRA.Mods.D2.FileFormats
 
 		public void Reset()
 		{
-			currentFrame = 0;
+			CurrentFrame = 0;
 		}
 
 		public void AdvanceFrame()
 		{
-			if (frames != null && currentFrame < frames.Length - 1)
-				currentFrame++;
+			if (frames != null && CurrentFrame < frames.Length - 1)
+				CurrentFrame++;
 			else
-				currentFrame = 0;
+				CurrentFrame = 0;
 		}
 
 		ISpriteFrame CurrentSpriteFrame()
 		{
-			if (frames != null && currentFrame < frames.Length)
-				return frames[currentFrame];
+			if (frames != null && CurrentFrame < frames.Length)
+				return frames[CurrentFrame];
 
 			return null;
 		}

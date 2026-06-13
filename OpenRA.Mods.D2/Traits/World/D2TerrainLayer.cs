@@ -60,7 +60,7 @@ namespace OpenRA.Mods.Common.Traits
 		public void WorldLoaded(World w, WorldRenderer wr)
 		{
 			/* based on SmudgeLayer.cs */
-			var first = sideSprites.First().Value.First();
+			var first = sideSprites.First().Value[0];
 			var sheet = first.Sheet;
 			if (sideSprites.Values.Any(sprites => sprites.Any(s => s.Sheet != sheet)))
 				throw new InvalidDataException("Resource sprites span multiple sheets. Try loading their sequences earlier.");

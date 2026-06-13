@@ -18,7 +18,6 @@ using OpenRA.FileSystem;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Widgets;
-using OpenRA.Mods.Common.Widgets.Logic;
 using OpenRA.Primitives;
 using OpenRA.Widgets;
 
@@ -26,6 +25,9 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 {
 	public class D2AssetBrowserLogic : ChromeLogic
 	{
+		const int MaxDisplayNameLength = 18;
+		const int TruncatedNameLength = 15;
+
 		readonly string[] allowedExtensions;
 		readonly IEnumerable<IReadOnlyPackage> acceptablePackages;
 
@@ -95,7 +97,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			var spriteWidget = panel.GetOrNull<SpriteWidget>("SPRITE");
 			if (spriteWidget != null)
 			{
-				spriteWidget.GetSprite = () => currentSprites != null ? currentSprites[currentFrame] : null;
+				spriteWidget.GetSprite = () => currentSprites?[currentFrame];
 				currentPalette = spriteWidget.Palette;
 				spriteWidget.GetPalette = () => currentPalette;
 				spriteWidget.IsVisible = () => !isVideoLoaded && !isLoadError;
@@ -112,7 +114,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			var paletteDropDown = panel.GetOrNull<DropDownButtonWidget>("PALETTE_SELECTOR");
 			if (paletteDropDown != null)
 			{
-				paletteDropDown.OnMouseDown = _ => ShowPaletteDropdown(paletteDropDown, world);
+				paletteDropDown.OnMouseDown = _ => ShowPaletteDropdown(paletteDropDown);
 				paletteDropDown.GetText = () => currentPalette;
 			}
 
@@ -274,7 +276,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				currentFrame = currentSprites.Length - 1;
 		}
 
-		readonly Dictionary<string, bool> assetVisByName = new Dictionary<string, bool>();
+		readonly Dictionary<string, bool> assetVisByName = new();
 
 		bool FilterAsset(string filename)
 		{
@@ -283,7 +285,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			if (string.IsNullOrWhiteSpace(filter))
 				return true;
 
-			if (filename.IndexOf(filter, StringComparison.OrdinalIgnoreCase) >= 0)
+			if (filename.Contains(filter, StringComparison.OrdinalIgnoreCase))
 				return true;
 
 			return false;
@@ -297,10 +299,8 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 
 			// Select the first visible
 			var firstVisible = assetVisByName.FirstOrDefault(kvp => kvp.Value);
-			IReadOnlyPackage package;
-			string filename;
 
-			if (firstVisible.Key != null && modData.DefaultFileSystem.TryGetPackageContaining(firstVisible.Key, out package, out filename))
+			if (firstVisible.Key != null && modData.DefaultFileSystem.TryGetPackageContaining(firstVisible.Key, out var package, out var filename))
 				LoadAsset(package, filename);
 		}
 
@@ -308,13 +308,12 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		{
 			var item = ScrollItemWidget.Setup(template,
 				() => currentFilename == filepath && currentPackage == package,
-				() => { LoadAsset(package, filepath); });
+				() => LoadAsset(package, filepath));
 
 			item.Get<LabelWidget>("TITLE").GetText = () => filepath;
 			item.IsVisible = () =>
 			{
-				bool visible;
-				if (assetVisByName.TryGetValue(filepath, out visible))
+				if (assetVisByName.TryGetValue(filepath, out var visible))
 					return visible;
 
 				visible = FilterAsset(filepath);
@@ -347,9 +346,8 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				currentPackage = package;
 				currentFilename = filename;
 				var prefix = "";
-				var fs = modData.DefaultFileSystem as OpenRA.FileSystem.FileSystem;
 
-				if (fs != null)
+				if (modData.DefaultFileSystem is OpenRA.FileSystem.FileSystem fs)
 				{
 					prefix = fs.GetPrefix(package);
 					if (prefix != null)
@@ -399,7 +397,7 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 		bool ShowSourceDropdown(DropDownButtonWidget dropdown)
 		{
 			var sourceName = new CachedTransform<IReadOnlyPackage, string>(GetSourceDisplayName);
-			Func<IReadOnlyPackage, ScrollItemWidget, ScrollItemWidget> setupItem = (source, itemTemplate) =>
+			ScrollItemWidget SetupItem(IReadOnlyPackage source, ScrollItemWidget itemTemplate)
 			{
 				var item = ScrollItemWidget.Setup(itemTemplate,
 					() => assetSource == source,
@@ -407,10 +405,10 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 
 				item.Get<LabelWidget>("LABEL").GetText = () => sourceName.Update(source);
 				return item;
-			};
+			}
 
 			var sources = new[] { (IReadOnlyPackage)null }.Concat(acceptablePackages);
-			dropdown.ShowDropDown("LABEL_DROPDOWN_TEMPLATE", 280, sources, setupItem);
+			dropdown.ShowDropDown("LABEL_DROPDOWN_TEMPLATE", 280, sources, SetupItem);
 			return true;
 		}
 
@@ -447,9 +445,9 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 			}
 		}
 
-		bool ShowPaletteDropdown(DropDownButtonWidget dropdown, World world)
+		bool ShowPaletteDropdown(DropDownButtonWidget dropdown)
 		{
-			Func<string, ScrollItemWidget, ScrollItemWidget> setupItem = (name, itemTemplate) =>
+			ScrollItemWidget SetupItem(string name, ScrollItemWidget itemTemplate)
 			{
 				var item = ScrollItemWidget.Setup(itemTemplate,
 					() => currentPalette == name,
@@ -457,9 +455,9 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				item.Get<LabelWidget>("LABEL").GetText = () => name;
 
 				return item;
-			};
+			}
 
-			dropdown.ShowDropDown("LABEL_DROPDOWN_TEMPLATE", 280, palettes, setupItem);
+			dropdown.ShowDropDown("LABEL_DROPDOWN_TEMPLATE", 280, palettes, SetupItem);
 			return true;
 		}
 
@@ -478,15 +476,15 @@ namespace OpenRA.Mods.D2.Widgets.Logic
 				name = source.Name;
 				var compare = Platform.CurrentPlatform == PlatformType.Windows ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
 				if (name.StartsWith(modData.Manifest.Package.Name, compare))
-					name = "$" + modData.Manifest.Id + "/" + name.Substring(modData.Manifest.Package.Name.Length + 1);
+					name = "$" + modData.Manifest.Id + "/" + name[(modData.Manifest.Package.Name.Length + 1)..];
 				else if (name.StartsWith(Platform.EngineDir, compare))
-					name = "./" + name.Substring(Platform.EngineDir.Length);
+					name = "./" + name[Platform.EngineDir.Length..];
 				else if (name.StartsWith(Platform.SupportDir, compare))
-					name = "^" + name.Substring(Platform.SupportDir.Length);
+					name = "^" + name[Platform.SupportDir.Length..];
 			}
 
-			if (name.Length > 18)
-				name = "..." + name.Substring(name.Length - 15);
+			if (name.Length > MaxDisplayNameLength)
+				name = "..." + name[^TruncatedNameLength..];
 
 			return name;
 		}

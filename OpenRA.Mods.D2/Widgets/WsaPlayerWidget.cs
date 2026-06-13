@@ -18,19 +18,16 @@ namespace OpenRA.Mods.D2.Widgets
 {
 	public class WsaPlayerWidget : Widget
 	{
-		public Hotkey CancelKey = new Hotkey(Keycode.ESCAPE, Modifiers.None);
+		public Hotkey CancelKey = new(Keycode.ESCAPE, Modifiers.None);
 		public float AspectRatio = 1.2f;
 		public bool Skippable = true;
 
-		public bool Paused { get { return paused; } }
-		public WsaReader Video { get { return video; } }
+		public bool Paused { get; private set; }
+		public WsaReader Video { get; private set; } = null;
 
-		WsaReader video = null;
 		string cachedVideo;
-		float2 videoOrigin, videoSize;
+		float2 videoOrigin;
 		bool stopped;
-		bool paused;
-
 		ImmutablePalette palette;
 		HardwarePalette hardwarePalette;
 		PaletteReference pr;
@@ -66,55 +63,43 @@ namespace OpenRA.Mods.D2.Widgets
 
 		public void Open(WsaReader video)
 		{
-			this.video = video;
+			Video = video;
 
 			stopped = true;
-			paused = true;
+			Paused = true;
 			onComplete = () => { };
-
-			var size = Math.Max(video.Width, video.Height);
-			var textureSize = Exts.NextPowerOf2(size);
 
 			var scale = Math.Min((float)RenderBounds.Width / video.Width, (float)RenderBounds.Height / video.Height * AspectRatio);
 			videoOrigin = new float2(
 				RenderBounds.X + (RenderBounds.Width - scale * video.Width) / 2,
 				RenderBounds.Y + (RenderBounds.Height - scale * video.Height * AspectRatio) / 2);
-
-			// Round size to integer pixels. Round up to be consistent with the scale calculation.
-			videoSize = new float2((int)Math.Ceiling(video.Width * scale), (int)Math.Ceiling(video.Height * AspectRatio * scale));
 		}
 
 		public override void Draw()
 		{
-			if (video == null)
+			if (Video == null)
 				return;
 
 			var sheetBuilder = new SheetBuilder(SheetType.Indexed, 512);
-			var videoSprite = sheetBuilder.Add(video.Frame);
+			var videoSprite = sheetBuilder.Add(Video.Frame);
 
 			Game.Renderer.EnableScissor(RenderBounds);
 			Game.Renderer.RgbaColorRenderer.FillRect(
 				new float2(RenderBounds.Left, RenderBounds.Top),
-				new float2(RenderBounds.Right, RenderBounds.Bottom), OpenRA.Primitives.Color.Black);
+				new float2(RenderBounds.Right, RenderBounds.Bottom), Primitives.Color.Black);
 			Game.Renderer.DisableScissor();
 
 			Game.Renderer.SpriteRenderer.DrawSprite(videoSprite, pr, videoOrigin);
-/*
-			Game.Renderer.RgbaSpriteRenderer.DrawSprite(
-				videoSprite,
-				videoOrigin,
-				videoSize);
-*/
 
-			if (!stopped && !paused)
+			if (!stopped && !Paused)
 			{
-				if (video.CurrentFrame >= video.Length - 1)
+				if (Video.CurrentFrame >= Video.Length - 1)
 				{
 					Stop();
 					return;
 				}
 
-				video.AdvanceFrame();
+				Video.AdvanceFrame();
 			}
 		}
 
@@ -144,37 +129,37 @@ namespace OpenRA.Mods.D2.Widgets
 
 		public void PlayThen(Action after)
 		{
-			if (video == null)
+			if (Video == null)
 				return;
 
 			onComplete = after;
 
-			stopped = paused = false;
+			stopped = Paused = false;
 		}
 
 		public void Pause()
 		{
-			if (stopped || paused || video == null)
+			if (stopped || Paused || Video == null)
 				return;
 
-			paused = true;
+			Paused = true;
 		}
 
 		public void Stop()
 		{
-			if (stopped || video == null)
+			if (stopped || Video == null)
 				return;
 
 			stopped = true;
-			paused = true;
-			video.Reset();
+			Paused = true;
+			Video.Reset();
 			Game.RunAfterTick(onComplete);
 		}
 
 		public void CloseVideo()
 		{
 			Stop();
-			video = null;
+			Video = null;
 		}
 	}
 }
