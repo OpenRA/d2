@@ -7,11 +7,11 @@ sonic_tank:
 		BuildDuration: 1300
 		BuildDurationModifier: 40
 		Prerequisites: ~heavy.atreides, research_centre, ~techlevel.high
-		Description: Fires sonic shocks\n  Strong vs Infantry, Vehicles\n  Weak vs Artillery, Aircraft
+		Description: actor-sonic-tank.description
 	Valued:
 		Cost: 600
 	Tooltip:
-		Name: Sonic Tank
+		Name: actor-sonic-tank.name
 	Health:
 		HP: 110
 	Armor:

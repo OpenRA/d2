@@ -6,11 +6,11 @@ light_inf:
 		BuildPaletteOrder: 10
 		BuildDuration: 400
 		BuildDurationModifier: 40
-		Description: General-purpose infantry\n  Strong vs Infantry\n  Weak vs Vehicles, Artillery
+		Description: actor-light-inf.description
 	Valued:
 		Cost: 60
 	Tooltip:
-		Name: Light Infantry
+		Name: actor-light-inf.name
 	Health:
 		HP: 20
 	Mobile:

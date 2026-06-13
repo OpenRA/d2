@@ -6,13 +6,13 @@ research_centre:
 		BuildPaletteOrder: 150
 		BuildDuration: 1500
 		BuildDurationModifier: 40
-		Description: Unlocks experimental tanks\n  Cannot be captured.
+		Description: actor-research-centre.description
 	Selectable:
 		Bounds: 2048, 2048
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: Ix Lab
+		Name: actor-research-centre.name
 	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2

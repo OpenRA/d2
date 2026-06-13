@@ -14,7 +14,7 @@ ornithopter:
 		Queue: Aircraft
 		BuildPaletteOrder: 130
 		Prerequisites: research_centre, upgrade.hightech, ~aircraft.atreides_or_ordos, ~techlevel.high
-		Description: Light aircraft armed with missiles.\nAutomatically attacks nearby targets, can't be manually controlled.
+		Description: actor-ornithopter.description
 	AttackMove:
 		AttackMoveBlockedCursor:
 		AssaultMoveCursor:
@@ -41,7 +41,7 @@ ornithopter:
 		IdleTurnSpeed: 8
 		CanSlide: False
 	Tooltip:
-		Name: Ornithopter
+		Name: actor-ornithopter.name
 	SpawnActorOnDeath:
 		Actor: ornithopter.husk
 		OwnerType: InternalName
@@ -52,7 +52,7 @@ ornithopter:
 ornithopter.husk:
 	Inherits: ^AircraftHusk
 	Tooltip:
-		Name: Ornithopter
+		Name: actor-ornithopter.name
 	Aircraft:
 		TurnSpeed: 20
 		Speed: 224

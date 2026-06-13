@@ -2,7 +2,7 @@
 	Inherits@1: ^ExistsInWorld
 	Inherits@3: ^SpriteActor
 	Tooltip:
-		GenericName: Unit
+		GenericName: meta-vehicle-generic-name
 	Huntable:
 	Health:
 	Armor:

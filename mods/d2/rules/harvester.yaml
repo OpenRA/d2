@@ -7,11 +7,11 @@ harvester:
 		BuildPaletteOrder: 10
 		BuildDuration: 800
 		BuildDurationModifier: 40
-		Description: Collects Spice for processing\n  Unarmed
+		Description: actor-harvester.description
 	Valued:
 		Cost: 300
 	Tooltip:
-		Name: Spice Harvester
+		Name: actor-harvester.name
 	Selectable:
 		Class: harvester
 		Priority: 7

@@ -6,13 +6,13 @@ light_factory:
 		BuildPaletteOrder: 110
 		BuildDuration: 1200
 		BuildDurationModifier: 40
-		Description: Produces light vehicles
+		Description: actor-light-factory.description
 	Selectable:
 		Bounds: 2048, 2048
 	Valued:
 		Cost: 400
 	Tooltip:
-		Name: Light Factory
+		Name: actor-light-factory.name
 	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -83,7 +83,7 @@ upgrade.light:
 	Interactable:
 	ScriptTriggers:
 	Tooltip:
-		Name: Light Factory Upgrade
+		Name: actor-upgrade-light.name
 	Buildable:
 		BuildPaletteOrder: 999
 		Prerequisites: ~light.atreides_or_ordos
@@ -91,7 +91,7 @@ upgrade.light:
 		BuildLimit: 1
 		BuildDuration: 250
 		BuildDurationModifier: 40
-		Description: Unlocks additional light units
+		Description: actor-upgrade-light.description
 	Valued:
 		Cost: 200
 	RenderSprites:

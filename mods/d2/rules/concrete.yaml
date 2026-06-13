@@ -10,8 +10,8 @@
 		AreaTypes: building
 		Adjacent: 1
 	Tooltip:
-		Name: Concrete
-		GenericName: Structure
+		Name: actor-concrete-a.name
+		GenericName: meta-building-generic-name
 	RenderSprites:
 	KillsSelf:
 		RemoveInstead: true
@@ -20,7 +20,7 @@
 		Queue: Building
 		Prerequisites: construction_yard
 		BuildPaletteOrder: 10
-		Description: Provides a strong foundation that prevents\ndamage from the terrain.
+		Description: meta-concrete.description
 
 concretea:
 	Inherits: ^concrete

@@ -7,13 +7,13 @@ palace:
 		BuildPaletteOrder: 170
 		BuildDuration: 1620
 		BuildDurationModifier: 40
-		Description: Unlocks elite infantry and weapons\n  Cannot be captured.
+		Description: actor-palace.description
 	Selectable:
 		Bounds: 3072, 3072
 	Valued:
 		Cost: 999
 	Tooltip:
-		Name: Palace
+		Name: actor-palace.name
 	D2Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
@@ -62,8 +62,8 @@ palace:
 		PauseOnCondition: disabled
 		Prerequisites: ~techlevel.superweapons, ~palace.nuke
 		ChargeInterval: 7500
-		Name: Death Hand
-		Description: Launches an atomic missile at a target location
+		Name: actor-palace.nukepower-name
+		Description: actor-palace.nukepower-description
 		BeginChargeSpeechNotification: DeathHandMissilePrepping
 		EndChargeSpeechNotification: DeathHandMissileReady
 		DetectedSpeechNotification: MissileLaunchDetected
@@ -77,8 +77,8 @@ palace:
 		CircleSequence: circles
 		MissileImage: atomic
 	ProduceActorPower@fremen:
-		Name: Recruit Fremen
-		Description: Elite infantry unit armed with assault rifles and rockets\n  Strong vs Infantry, Vehicles\n  Weak vs Artillery\n  Special Ability: Invisibility
+		Name: actor-palace.produceactorpower-fremen-name
+		Description: actor-palace.produceactorpower-fremen-description
 		Icon: fremen
 		PauseOnCondition: disabled
 		RequiresCondition: atreides
@@ -90,8 +90,8 @@ palace:
 		BlockedAudio: NoRoom
 		OrderName: ProduceActorPower.Fremen
 	ProduceActorPower@saboteur:
-		Name: Recruit Saboteur
-		Description: Sneaky infantry, armed with explosives\n  Strong vs Buildings\n  Weak vs Everything\n  Special Ability: destroy buildings
+		Name: actor-palace.produceactorpower-saboteur-name
+		Description: actor-palace.produceactorpower-saboteur-description
 		Icon: saboteur
 		PauseOnCondition: disabled
 		RequiresCondition: ordos

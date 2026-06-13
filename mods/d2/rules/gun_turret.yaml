@@ -7,11 +7,11 @@ gun_turret:
 		BuildPaletteOrder: 80
 		BuildDuration: 800
 		BuildDurationModifier: 40
-		Description: Defensive structure\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft
+		Description: actor-medium-gun-turret.description
 	Valued:
 		Cost: 125
 	Tooltip:
-		Name: Gun Turret
+		Name: actor-medium-gun-turret.name
 	D2Building:
 		BuildSounds: CHUNG.WAV
 	RequiresBuildableArea:

@@ -7,11 +7,11 @@ mcv:
 		BuildPaletteOrder: 110
 		BuildDuration: 1000
 		BuildDurationModifier: 40
-		Description: Deploys into another Construction Yard\n  Unarmed
+		Description: actor-mcv.description
 	Valued:
 		Cost: 900
 	Tooltip:
-		Name: Mobile Construction Vehicle
+		Name: actor-mcv.name
 	Selectable:
 		Class: mcv
 		Priority: 3

@@ -5,13 +5,13 @@ wind_trap:
 		BuildPaletteOrder: 20
 		BuildDuration: 600
 		BuildDurationModifier: 40
-		Description: Provides power for other structures
+		Description: actor-wind-trap.description
 	Selectable:
 		Bounds: 2048, 2048
 	Valued:
 		Cost: 300
 	Tooltip:
-		Name: Wind Trap
+		Name: actor-wind-trap.name
 	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2

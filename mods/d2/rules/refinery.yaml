@@ -6,13 +6,13 @@ refinery:
 		BuildPaletteOrder: 30
 		BuildDuration: 1000
 		BuildDurationModifier: 40
-		Description: Harvesters unload Spice here for processing
+		Description: actor-refinery.description
 	Selectable:
 		Bounds: 3072, 2048
 	Valued:
 		Cost: 400
 	Tooltip:
-		Name: Spice Refinery
+		Name: actor-refinery.name
 	D2Building:
 		Footprint: xx= xx=
 		Dimensions: 3,2

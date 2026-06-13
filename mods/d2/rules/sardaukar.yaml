@@ -7,11 +7,11 @@ sardaukar:
 		BuildDuration: 700
 		BuildDurationModifier: 40
 		Prerequisites: ~barracks.harkonnen, palace, ~techlevel.high
-		Description: Elite assault infantry\n  Strong vs Infantry, Vehicles\n  Weak vs Artillery
+		Description: actor-sardaukar.description
 	Valued:
 		Cost: 200
 	Tooltip:
-		Name: Sardaukar
+		Name: actor-sardaukar.name
 	Health:
 		HP: 1000
 	Mobile:

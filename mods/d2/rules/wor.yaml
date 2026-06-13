@@ -6,13 +6,13 @@ wor:
 		BuildPaletteOrder: 100
 		BuildDuration: 1300
 		BuildDurationModifier: 40
-		Description: Trains heavy infantry\n  Cannot be captured.
+		Description: actor-wor.description
 	Selectable:
 		Bounds: 2048, 2048
 	Valued:
 		Cost: 400
 	Tooltip:
-		Name: WOR
+		Name: actor-wor.name
 	D2Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -83,14 +83,14 @@ upgrade.wor:
 	Interactable:
 	ScriptTriggers:
 	Tooltip:
-		Name: WOR Upgrade
+		Name: actor-upgrade-wor.name
 	Buildable:
 		BuildPaletteOrder: 999
 		Queue: Trooper
 		BuildLimit: 1
 		BuildDuration: 250
 		BuildDurationModifier: 40
-		Description: Unlocks troopers squads
+		Description: actor-upgrade-wor.description
 	Valued:
 		Cost: 150
 	RenderSprites:

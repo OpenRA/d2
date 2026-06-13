@@ -1,31 +1,31 @@
 ProductionTypeBuilding: E
-	Description: Building Tab
+	Description: hotkey-description-productiontypebuilding
 	Types: Production
 
 ProductionTypeUpgrade: R
-	Description: Upgrade Tab
+	Description: hotkey-description-productiontypeupgrade
 	Types: Production
 
 ProductionTypeInfantry: T
-	Description: Infantry Tab
+	Description: hotkey-description-productiontypeinfantry
 	Types: Production
 
 ProductionTypeVehicle: Y
-	Description: Vehicle Tab
+	Description: hotkey-description-productiontypevehicle
 	Types: Production
 
 ProductionTypeAircraft: U
-	Description: Aircraft Tab
+	Description: hotkey-description-productiontypeaircraft
 	Types: Production
 
 ProductionTypeTank: I
-	Description: Tank Tab
+	Description: hotkey-description-productiontypetank
 	Types: Production
 
 ProductionTypeMerchant: O
-	Description: Starport Tab
+	Description: hotkey-description-productiontypemerchant
 	Types: Production
 
 PowerDown: X
-	Description: Power-down mode
+	Description: hotkey-description-powerdown
 	Types: OrderGenerator

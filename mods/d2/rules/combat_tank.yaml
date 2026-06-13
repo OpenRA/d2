@@ -7,11 +7,11 @@ combat_tank:
 		BuildDuration: 800
 		BuildDurationModifier: 40
 		Prerequisites: heavy_factory
-		Description: Main Battle Tank\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft\n
+		Description: meta-combat-tank-description
 	Valued:
 		Cost: 300
 	Tooltip:
-		Name: Combat Tank
+		Name: actor-combat-tank.name
 	Health:
 		HP: 200
 	Armor:

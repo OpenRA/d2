@@ -6,13 +6,13 @@ high_tech_factory:
 		BuildPaletteOrder: 140
 		BuildDuration: 1500
 		BuildDurationModifier: 40
-		Description: Unlocks advanced technology
+		Description: actor-high-tech-factory.description
 	Selectable:
 		Bounds: 3072, 2048
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: High Tech Factory
+		Name: actor-high-tech-factory.name
 	ProductionFromMapEdge:
 		Produces: Aircraft
 	ProductionBar:
@@ -67,7 +67,7 @@ upgrade.hightech:
 	Interactable:
 	ScriptTriggers:
 	Tooltip:
-		Name: High Tech Factory Upgrade
+		Name: actor-upgrade-hightech.name
 	Buildable:
 		BuildPaletteOrder: 999
 		Prerequisites: ~aircraft.atreides_or_ordos, ~techlevel.high
@@ -75,7 +75,7 @@ upgrade.hightech:
 		BuildLimit: 1
 		BuildDuration: 250
 		BuildDurationModifier: 40
-		Description: Unlocks ornithopters
+		Description: actor-upgrade-hightech.description
 	Valued:
 		Cost: 200
 	RenderSprites:

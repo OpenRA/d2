@@ -1,14 +1,14 @@
 starport:
 	Inherits: ^Building
 	Tooltip:
-		Name: Starport
+		Name: actor-starport.name
 	Buildable:
 		Prerequisites: wind_trap, refinery, ~techlevel.high
 		Queue: Building
 		BuildPaletteOrder: 120
 		BuildDuration: 1500
 		BuildDurationModifier: 40
-		Description: Dropzone for quick reinforcements, at a price.\n  Requires power to operate
+		Description: actor-starport.description
 	Valued:
 		Cost: 500
 	D2Building:

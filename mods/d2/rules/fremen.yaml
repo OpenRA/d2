@@ -2,12 +2,12 @@ fremen:
 	Inherits: ^Infantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Tooltip:
-		Name: Fremen
+		Name: actor-fremen.name
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 100
 		Prerequisites: ~disabled
-		Description: Elite sniper infantry unit\n  Strong vs Infantry\n  Weak vs Vehicles\n  Special Ability: Invisibility
+		Description: actor-fremen.description
 	Mobile:
 		Speed: 43
 	Valued:
@@ -44,7 +44,7 @@ nsfremen:
 	Buildable:
 		BuildPaletteOrder: 105
 		Prerequisites: ~disabled
-		Description: Elite sniper infantry unit\n  Strong vs Infantry\n  Weak vs Vehicles
+		Description: actor-nsfremen-description
 	RenderSprites:
 		Image: fremen
 	-Cloak:

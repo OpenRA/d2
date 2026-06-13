@@ -4,7 +4,7 @@ frigate:
 		DropRange: 1c0
 	Interactable:
 	Tooltip:
-		Name: Frigate
+		Name: actor-frigate-name
 	Health:
 		HP: 500
 	Aircraft:
@@ -20,7 +20,7 @@ frigate:
 		MaxWeight: 20
 	RejectsOrders:
 	Buildable:
-		Description: Supply spacecraft
+		Description: actor-frigate-description
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
