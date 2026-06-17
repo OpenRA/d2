@@ -7,20 +7,9 @@ sandworm:
 	idle:
 		Filename: UNITS1.SHP
 		Start: 66
+	blur:
+		Filename: UNITS1.SHP
+		Start: 10
 	icon:
 		Filename: SHAPES.SHP
 		Start: 93
-
-sandtrail:
-	Defaults:
-		Length: 8
-		Tick: 200
-		ZOffset: -512
-	traila:
-		Filename: sandtrail.shp
-	trailb:
-		Filename: sandtrail.shp
-		Frames: 2, 6, 4, 5, 0, 1, 3, 7
-	trailc:
-		Filename: sandtrail.shp
-		Frames: 7, 4, 6, 5, 2, 0, 3, 1
