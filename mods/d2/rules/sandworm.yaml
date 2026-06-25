@@ -15,9 +15,6 @@ sandworm:
 		Locomotor: worm
 	Targetable:
 		TargetTypes: Ground, Creep
-	WithSpriteBody:
-	WithAttackOverlay@mouth:
-		Sequence: mouth
 	HiddenUnderFog:
 	AppearsOnRadar:
 		UseLocation: true
@@ -35,14 +32,12 @@ sandworm:
 		PingRadar: True
 	RevealsShroud:
 		Range: 5c0
-	LeavesTrails:
-		Image: sandtrail
-		Sequences: traila, trailb, trailc
-		Palette: effect
-		Type: CenterPosition
+	D2DistortionTrail:
+		Style: Sand
+		Duration: 12
 		TerrainTypes: Sand, Dune, Spice
-		MovingInterval: 3
-		RequiresCondition: !attacking
+		Image: sandworm
+		Sequence: blur
 	RevealOnFire:
 		Duration: 50
 		Radius: 2c512

@@ -1,0 +1,30 @@
+Sound:
+	ReloadDelay: 90
+	Range: 5c0
+	Report: SONIC1.WAV
+	Projectile: D2SonicBeam
+		Speed: 0c128
+		Duration: 4 # Has a length of 0c512
+		DamageInterval: 3 # Travels 0c384 between impacts, will hit a target roughly three times
+		Width: 0c512
+		Shape: Flat
+		Falloff: 100, 100, 50
+		Range: 0, 6c0, 11c0
+		BeyondTargetRange: 1c0
+		Image: sonic_blast
+		Sequence: idle
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 60
+		AffectsParent: false
+		ValidRelationships: Neutral, Enemy
+		DamageTypes: Prone50Percent, TriggerProne, SoundDeath
+	Warhead@2Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 50, 50 # Only does half damage to friendly units
+		Damage: 60
+		InvalidTargets: Sonictank # Does not affect friendly sonic tanks at all
+		AffectsParent: false
+		ValidRelationships: Ally
+		DamageTypes: Prone50Percent, TriggerProne, SoundDeath

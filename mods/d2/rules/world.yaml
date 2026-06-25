@@ -146,6 +146,12 @@ World:
 	ActorSpawnManager:
 		Actors: sandworm
 	WarheadDebugOverlay:
+	D2DistortionRenderer@sand:
+		PassType: AfterActors
+		Styles: Sand
+	D2DistortionRenderer@sonic:
+		PassType: AfterWorld
+		Styles: Sonic
 	D2TerrainLayer:
 	D2BuildableTerrainLayer:
 	ResourceLayer:

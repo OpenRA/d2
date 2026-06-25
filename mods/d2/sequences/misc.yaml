@@ -121,6 +121,11 @@ null:
 		Filename: DATA.R16
 		Start: 3304
 
+sonic_blast:
+	idle:
+		Filename: UNITS1.SHP
+		Start: 9
+
 buildable:
 	invalid:
 		Filename: concfoot.shp

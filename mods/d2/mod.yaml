@@ -264,6 +264,7 @@ Weapons:
 	d2|weapons/largeguns.yaml
 	d2|weapons/missiles.yaml
 	d2|weapons/other.yaml
+	d2|weapons/sound.yaml
 	d2|weapons/squads.yaml
 	d2|weapons/spicebloom.yaml
 
